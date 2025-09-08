@@ -20,16 +20,16 @@
       color:var(--text);
       display:grid; place-items:center;
     }
-    .wrap{max-width:960px; padding:48px; text-align:center}
+    .wrap{max-width:960px; padding:32px; text-align:center}
     .logo-img {
       width: 500px;  /* larger logo for focus */
       height: auto;
       display: block;
-      margin: 0 auto 40px;
+      margin: 0 auto 20px; /* tightened margin */
       filter: drop-shadow(0 4px 12px rgba(0,0,0,.6));
     }
-    .tag{font-size:clamp(14px,2.5vw,20px); color:var(--muted); margin-bottom:26px}
-    footer{margin-top:34px; font-size:14px; color:var(--muted)}
+    .tag{font-size:clamp(14px,2.5vw,20px); color:var(--muted); margin-bottom:18px}
+    footer{margin-top:22px; font-size:14px; color:var(--muted)}
     a{color:var(--gold); text-decoration:none}
     a:hover{text-decoration:underline}
   </style>
@@ -37,8 +37,8 @@
 <body>
   <main class="wrap">
     <!-- Display only the logo with text included -->
-    <img src="assets/astoncyber-logo-white.png" alt="AstonCyber white logo" class="logo-img" />
-    <div class="tag">Modern Cloud & Cybersecurity Solution — site launching soon.</div>
+    <img src="assets/astoncyber-logo-white.png" alt="AstonCyber logo" class="logo-img" />
+    <div class="tag">Modern cloud & cybersecurity solution — site launching soon.</div>
     <footer>
       © <span id="y"></span> AstonCyber · <a href="mailto:info@astoncyber.com">info@astoncyber.com</a>
     </footer>
