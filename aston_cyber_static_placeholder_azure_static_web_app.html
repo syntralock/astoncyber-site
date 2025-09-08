@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AstonCyber — Coming Soon</title>
   <meta name="description" content="AstonCyber — Modern cloud & cybersecurity. Site launching soon." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fallback: system UI if Neue Haas Grotesk isn’t available on device -->
   <style>
     :root{
       --bg:#0b0b0b;                  /* near-black */
-      --gold:#C89B3C;                /* subdued golden meteor */
+      --gold:#C89B3C;                /* subdued golden */
       --text:#eaeaea;                /* light text */
       --muted:#b6b6b6;
       --card:#121212;
@@ -26,27 +23,12 @@
       display:grid; place-items:center;
     }
     .wrap{max-width:960px; padding:48px; text-align:center}
-    .logo{
-      width:140px; height:140px; margin:0 auto 20px; position:relative;
-      filter:drop-shadow(0 12px 28px rgba(0,0,0,.45));
-    }
-    /* Pyramid */
-    .logo:before{
-      content:""; position:absolute; inset:0; 
-      clip-path:polygon(50% 0%, 100% 86%, 0 86%);
-      background:#0a0a0a; border-radius:6px;
-      box-shadow:inset 0 -2px 0 rgba(255,255,255,0.04);
-    }
-    /* Meteor (golden) */
-    .logo:after{
-      content:""; position:absolute; left:-6%; top:32%; width:120%; height:36%;
-      background:conic-gradient(from 190deg at 75% 50%, rgba(255,255,255,.12), var(--gold) 20%, #9a7429 58%, var(--gold) 80%, rgba(255,255,255,.12) 95%);
-      -webkit-mask: radial-gradient(closest-side, #000 62%, transparent 65%) left 78%/38% 180% no-repeat,
-                   linear-gradient(90deg, #000 30%, transparent 75%);
-              mask: radial-gradient(closest-side, #000 62%, transparent 65%) left 78%/38% 180% no-repeat,
-                   linear-gradient(90deg, #000 30%, transparent 75%);
-      border-radius:999px;
-      filter:blur(.3px) saturate(105%);
+    .logo-img {
+      width: 180px;  /* adjust as needed */
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,.5));
     }
     h1{font-size: clamp(28px, 6vw, 48px); margin: 8px 0 6px; letter-spacing:0.4px}
     .tag{font-size:clamp(14px,2.5vw,18px); color:var(--muted); margin-bottom:26px}
@@ -63,7 +45,7 @@
 </head>
 <body>
   <main class="wrap">
-    <div class="logo" aria-hidden="true"></div>
+    <img src="assets/ChatGPT Image Sep 7, 2025 at 11_19_07 PM.png" alt="AstonCyber logo" class="logo-img" />
     <h1>ASTONCYBER</h1>
     <div class="tag">Modern cloud & cybersecurity — site launching soon.</div>
     <div class="card" role="status" aria-live="polite">
