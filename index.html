@@ -12,31 +12,43 @@
       --text:#eaeaea;                /* light text */
       --muted:#b6b6b6;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box; margin:0; padding:0}
     html,body{height:100%}
     body{
-      margin:0; font-family:"Neue Haas Grotesk Text","Helvetica Neue",Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica",Arial,sans-serif; 
+      font-family:"Neue Haas Grotesk Text","Helvetica Neue",Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica",Arial,sans-serif; 
       background:var(--bg);
       color:var(--text);
-      display:grid; place-items:center;
+      display:flex; align-items:center; justify-content:center;
+      min-height:100vh;
+      text-align:center;
+      padding:clamp(12px, 4vw, 48px);
     }
-    .wrap{max-width:960px; padding:32px; text-align:center}
+    .wrap{max-width:960px; width:100%}
     .logo-img {
-      width: 500px;  /* larger logo for focus */
+      width: clamp(160px, 45vw, 520px); /* responsive scaling */
       height: auto;
-      display: block;
-      margin: 0 auto 20px; /* tightened margin */
+      margin: 0 auto clamp(10px, 3vh, 22px);
+      max-width: 92vw;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,.6));
     }
-    .tag{font-size:clamp(14px,2.5vw,20px); color:var(--muted); margin-bottom:18px}
-    footer{margin-top:22px; font-size:14px; color:var(--muted)}
+    .tag{
+      font-size: clamp(16px, 2.8vw, 24px);
+      color:var(--muted);
+      margin-bottom: clamp(14px, 2.5vh, 22px);
+      line-height: 1.4;
+    }
+    footer{
+      margin-top: clamp(18px, 3vh, 26px);
+      font-size: clamp(12px, 1.8vw, 16px);
+      color:var(--muted);
+    }
     a{color:var(--gold); text-decoration:none}
     a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <!-- Display only the logo with text included -->
+    <!-- Display logo with responsive scaling -->
     <img src="assets/astoncyber-logo-white.png" alt="AstonCyber logo" class="logo-img" />
     <div class="tag">Modern cloud & cybersecurity solution — site launching soon.</div>
     <footer>
