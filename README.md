@@ -27,12 +27,13 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 2 Design Foundation
+**Current Phase:** Phase 2.1 Editorial Typography Refinement
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
-foundation. Phase 2 completes the visual token system without beginning
-the shared site shell or production page implementation.
+foundation. Phase 2 completed the visual token system. Phase 2.1 refines
+that system for an editorial research publication without beginning the
+shared site shell or production page implementation.
 
 ## Engineering Principles
 

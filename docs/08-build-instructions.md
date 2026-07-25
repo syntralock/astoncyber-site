@@ -172,8 +172,8 @@ Before building pages, implement:
 
 Load:
 
-- Sora
-- Inter
+- Lora
+- IBM Plex Sans
 - JetBrains Mono
 
 Use the approved accent:

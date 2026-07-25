@@ -7,6 +7,12 @@ const stylesheetPath = fileURLToPath(
   new URL("../styles/globals.css", import.meta.url),
 );
 const stylesheet = readFileSync(stylesheetPath, "utf8");
+const layoutPath = fileURLToPath(new URL("../app/layout.tsx", import.meta.url));
+const layout = readFileSync(layoutPath, "utf8");
+const packagePath = fileURLToPath(new URL("../package.json", import.meta.url));
+const packageManifest = JSON.parse(readFileSync(packagePath, "utf8")) as {
+  dependencies: Record<string, string>;
+};
 
 function cssVariable(name: string) {
   const match = new RegExp(`--${name}:\\s*([^;]+);`, "u").exec(stylesheet);
@@ -42,6 +48,44 @@ function contrastRatio(first: string, second: string) {
 }
 
 describe("design tokens", () => {
+  it("uses the approved local editorial font families", () => {
+    expect(cssVariable("font-display")).toContain("Lora Variable");
+    expect(cssVariable("font-body")).toContain("IBM Plex Sans Variable");
+    expect(cssVariable("font-mono")).toContain("JetBrains Mono Variable");
+    expect(stylesheet).not.toMatch(/\b(?:Sora|Inter) Variable\b/u);
+    expect(stylesheet).toMatch(
+      /\.type-hero,[\s\S]*?\.type-h4\s*\{[\s\S]*?font-family:\s*var\(--font-display\)/u,
+    );
+    expect(stylesheet).toMatch(
+      /\.brand-wordmark\s*\{[\s\S]*?font-family:\s*var\(--font-body\)/u,
+    );
+    expect(stylesheet).toMatch(
+      /\.type-code\s*\{[\s\S]*?font-family:\s*var\(--font-mono\)/u,
+    );
+  });
+
+  it("loads only self-hosted Fontsource packages", () => {
+    expect(layout).toContain('import "@fontsource-variable/lora"');
+    expect(layout).toContain('import "@fontsource-variable/ibm-plex-sans"');
+    expect(layout).toContain('import "@fontsource-variable/jetbrains-mono"');
+    expect(layout).not.toMatch(/@fontsource-variable\/(?:sora|inter)/u);
+    expect(layout).not.toMatch(/https?:\/\//u);
+    expect(stylesheet).not.toMatch(
+      /(?:fonts\.googleapis\.com|fonts\.gstatic\.com|https?:\/\/)/u,
+    );
+    expect(packageManifest.dependencies).toMatchObject({
+      "@fontsource-variable/ibm-plex-sans": "5.3.0",
+      "@fontsource-variable/jetbrains-mono": "5.3.0",
+      "@fontsource-variable/lora": "5.3.0",
+    });
+    expect(packageManifest.dependencies).not.toHaveProperty(
+      "@fontsource-variable/inter",
+    );
+    expect(packageManifest.dependencies).not.toHaveProperty(
+      "@fontsource-variable/sora",
+    );
+  });
+
   it.each([
     "background",
     "surface",

@@ -138,8 +138,8 @@ Implement the visual system before building full pages.
 
 ## Tasks
 
-- [ ] Load Sora
-- [ ] Load Inter
+- [ ] Load Lora
+- [ ] Load IBM Plex Sans
 - [ ] Load JetBrains Mono
 - [ ] Implement color tokens
 - [ ] Implement spacing tokens

@@ -99,7 +99,11 @@ Minimal ornamentation
 
 Typography is the primary visual language of Aston Cyber.
 
-The site should earn attention through ideas, structure, and clarity rather than decoration. Typography should create the hierarchy, rhythm, and personality of the interface.
+The site should earn attention through ideas, structure, and clarity
+rather than decoration. Aston Cyber is an editorial cybersecurity
+research publication, not a software product. Typography should
+communicate authority through proportion, hierarchy, readability, and
+restraint rather than sheer size or weight.
 
 Codex should use the following font system consistently across the site.
 
@@ -107,11 +111,11 @@ Codex should use the following font system consistently across the site.
 
 ### Display and Headings
 
-**Font:** Sora  
+**Font:** Lora
 **Fallback stack:**
 
 ```css
-font-family: "Sora", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-family: "Lora Variable", Georgia, "Times New Roman", serif;
 ```
 
 **Use for:**
@@ -121,58 +125,64 @@ font-family: "Sora", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Seg
 - Section headings
 - Research titles
 - Project titles
-- Large numerical labels
-- Major calls to action
 
 **Character:**
 
-- Modern
-- Geometric
-- Forward-looking
-- Confident
-- Clear at large sizes
+- Editorial
+- Authoritative
+- Contemporary
+- Measured
+- Clear at publication scale
 
-Sora should carry the visual identity of Aston Cyber. It should not be used for long-form body copy.
+Lora should provide hierarchy without making pages feel promotional,
+decorative, nostalgic, or academic for its own sake. Use restrained
+semibold weights and publication-scale proportions. Do not use Lora for
+ordinary reading text, interface controls, navigation, labels, metadata,
+captions, buttons, or the temporary Brand wordmark.
 
 ---
 
 ### Body and Interface
 
-**Font:** Inter  
+**Font:** IBM Plex Sans
 **Fallback stack:**
 
 ```css
-font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+font-family: "IBM Plex Sans Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 ```
 
 **Use for:**
 
 - Body copy
+- Article content
+- Research summaries
 - Navigation
 - Buttons
 - Labels
 - Captions
 - Metadata
 - Forms
-- Article content
-- Research summaries
 - Footer content
+- Text-only Brand wordmark
 
 **Character:**
 
-- Neutral
+- Technical
 - Highly legible
+- Contemporary
 - Calm
-- Efficient
-- Suitable for long-form reading
+- Suitable for sustained reading
 
-Inter should disappear into the reading experience. It is the default font for all interface and editorial text unless another role is explicitly defined.
+IBM Plex Sans is the default for editorial reading and interface text
+unless another role is explicitly defined. Its metrics must be tuned for
+comfortable paragraphs and compact, trustworthy interface labels rather
+than inherited unchanged from another sans serif.
 
 ---
 
 ### Code and Technical Labels
 
-**Font:** JetBrains Mono  
+**Font:** JetBrains Mono
 **Fallback stack:**
 
 ```css
@@ -188,6 +198,9 @@ font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", mo
 - Technical annotations
 - Diagram labels
 - Research identifiers
+- Hashes
+- Commands
+- Inline technical labels
 - Metadata where a technical tone is useful
 
 **Character:**
@@ -203,39 +216,17 @@ JetBrains Mono should be used selectively. It should support technical meaning, 
 
 # Font Loading
 
-Use variable font files where supported.
-
-Recommended Google Fonts import:
-
-```css
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap");
-```
-
-For production, prefer framework-native font optimization or self-hosted font files when practical.
-
-For Next.js, use `next/font/google`:
+Use pinned, self-hosted Fontsource variable-font packages:
 
 ```tsx
-import { Inter, JetBrains_Mono, Sora } from "next/font/google";
-
-export const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-export const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-export const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
+import "@fontsource-variable/ibm-plex-sans";
+import "@fontsource-variable/jetbrains-mono";
+import "@fontsource-variable/lora";
 ```
+
+Do not request fonts from Google Fonts or another runtime font service.
+Font files must remain part of the static export and use
+`font-display: swap`.
 
 ---
 
@@ -245,30 +236,44 @@ Codex should define typography through reusable design tokens rather than one-of
 
 ```css
 :root {
-  --font-display: "Sora", "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --font-display: "Lora Variable", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "SFMono-Regular", Consolas, monospace;
 
-  --text-hero: clamp(3.25rem, 7vw, 5rem);
-  --text-display: clamp(2.5rem, 5vw, 4rem);
-  --text-h1: clamp(2.25rem, 4vw, 3rem);
-  --text-h2: clamp(1.75rem, 3vw, 2.25rem);
-  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
-  --text-h4: 1.25rem;
+  --text-hero: clamp(2.5rem, 4.5vw, 3.75rem);
+  --text-display: clamp(2.25rem, 3.5vw, 3rem);
+  --text-h1: clamp(2rem, 3vw, 2.5rem);
+  --text-h2: clamp(1.5rem, 2vw, 1.875rem);
+  --text-h3: clamp(1.3125rem, 1.8vw, 1.625rem);
+  --text-h4: 1.1875rem;
+  --text-lead: clamp(1.125rem, 1.5vw, 1.25rem);
   --text-body-lg: 1.125rem;
   --text-body: 1rem;
   --text-small: 0.875rem;
-  --text-caption: 0.75rem;
+  --text-caption: 0.8125rem;
   --text-code: 0.9375rem;
 
-  --leading-hero: 0.98;
-  --leading-heading: 1.1;
-  --leading-body: 1.7;
+  --leading-hero: 1.06;
+  --leading-display: 1.1;
+  --leading-h1: 1.12;
+  --leading-h2: 1.2;
+  --leading-h3: 1.25;
+  --leading-h4: 1.35;
+  --leading-lead: 1.6;
+  --leading-body-lg: 1.7;
+  --leading-body: 1.65;
   --leading-small: 1.5;
+  --leading-code: 1.65;
 
-  --tracking-hero: -0.04em;
-  --tracking-heading: -0.025em;
-  --tracking-body: -0.01em;
+  --tracking-hero: -0.025em;
+  --tracking-display: -0.02em;
+  --tracking-h1: -0.018em;
+  --tracking-h2: -0.012em;
+  --tracking-h3: -0.008em;
+  --tracking-h4: -0.005em;
+  --tracking-lead: 0;
+  --tracking-body-lg: 0;
+  --tracking-body: 0;
   --tracking-label: 0.08em;
 }
 ```
@@ -279,14 +284,15 @@ Codex should define typography through reusable design tokens rather than one-of
 
 ## Hero
 
-**Font:** Sora  
-**Weight:** 700  
-**Size:** `clamp(3.25rem, 7vw, 5rem)`  
-**Line height:** `0.98`  
-**Letter spacing:** `-0.04em`  
-**Maximum width:** `14ch`
+**Font:** Lora
+**Weight:** 550
+**Size:** `clamp(2.5rem, 4.5vw, 3.75rem)`
+**Line height:** `1.06`
+**Letter spacing:** `-0.025em`
+**Maximum width:** `15ch`
 
-Use for the primary homepage statement and rare high-impact page introductions.
+Use for rare primary publication statements. It must remain visibly
+authoritative without resembling a product-marketing headline.
 
 Example:
 
@@ -298,24 +304,26 @@ Hero copy should be concise. Avoid paragraphs in hero styling.
 
 ## Display Heading
 
-**Font:** Sora  
-**Weight:** 700  
-**Size:** `clamp(2.5rem, 5vw, 4rem)`  
-**Line height:** `1.02`  
-**Letter spacing:** `-0.035em`  
-**Maximum width:** `18ch`
+**Font:** Lora
+**Weight:** 550
+**Size:** `clamp(2.25rem, 3.5vw, 3rem)`
+**Line height:** `1.1`
+**Letter spacing:** `-0.02em`
+**Maximum width:** `20ch`
 
-Use for major campaign statements, mission excerpts, and feature introductions.
+Use for major editorial introductions and feature statements. The wider
+measure and gentler leading suit Lora while the reduced scale avoids a
+promotional composition.
 
 ---
 
 ## H1
 
-**Font:** Sora  
-**Weight:** 700  
-**Size:** `clamp(2.25rem, 4vw, 3rem)`  
-**Line height:** `1.08`  
-**Letter spacing:** `-0.03em`
+**Font:** Lora
+**Weight:** 550
+**Size:** `clamp(2rem, 3vw, 2.5rem)`
+**Line height:** `1.12`
+**Letter spacing:** `-0.018em`
 
 Use once per page for the page title.
 
@@ -323,11 +331,11 @@ Use once per page for the page title.
 
 ## H2
 
-**Font:** Sora  
-**Weight:** 600  
-**Size:** `clamp(1.75rem, 3vw, 2.25rem)`  
-**Line height:** `1.15`  
-**Letter spacing:** `-0.025em`
+**Font:** Lora
+**Weight:** 600
+**Size:** `clamp(1.5rem, 2vw, 1.875rem)`
+**Line height:** `1.2`
+**Letter spacing:** `-0.012em`
 
 Use for primary page sections.
 
@@ -335,11 +343,11 @@ Use for primary page sections.
 
 ## H3
 
-**Font:** Sora  
-**Weight:** 600  
-**Size:** `clamp(1.375rem, 2vw, 1.75rem)`  
-**Line height:** `1.2`  
-**Letter spacing:** `-0.02em`
+**Font:** Lora
+**Weight:** 600
+**Size:** `clamp(1.3125rem, 1.8vw, 1.625rem)`
+**Line height:** `1.25`
+**Letter spacing:** `-0.008em`
 
 Use for research titles, project titles, article cards, and grouped subsections.
 
@@ -347,11 +355,11 @@ Use for research titles, project titles, article cards, and grouped subsections.
 
 ## H4
 
-**Font:** Sora  
-**Weight:** 600  
-**Size:** `1.25rem`  
-**Line height:** `1.3`  
-**Letter spacing:** `-0.015em`
+**Font:** Lora
+**Weight:** 600
+**Size:** `1.1875rem`
+**Line height:** `1.35`
+**Letter spacing:** `-0.005em`
 
 Use for small subsections and component-level titles.
 
@@ -359,11 +367,11 @@ Use for small subsections and component-level titles.
 
 ## Lead Paragraph
 
-**Font:** Inter  
-**Weight:** 400  
-**Size:** `1.25rem` on large screens, `1.125rem` on small screens  
-**Line height:** `1.65`  
-**Letter spacing:** `-0.015em`  
+**Font:** IBM Plex Sans
+**Weight:** 400
+**Size:** `1.25rem` on large screens, `1.125rem` on small screens
+**Line height:** `1.6`
+**Letter spacing:** `0`
 **Maximum width:** `62ch`
 
 Use directly beneath page titles and major section headings.
@@ -372,11 +380,11 @@ Use directly beneath page titles and major section headings.
 
 ## Body Large
 
-**Font:** Inter  
-**Weight:** 400  
-**Size:** `1.125rem`  
-**Line height:** `1.75`  
-**Letter spacing:** `-0.01em`  
+**Font:** IBM Plex Sans
+**Weight:** 400
+**Size:** `1.125rem`
+**Line height:** `1.7`
+**Letter spacing:** `0`
 **Maximum width:** `68ch`
 
 Use for mission statements, featured research descriptions, and important explanatory copy.
@@ -385,11 +393,11 @@ Use for mission statements, featured research descriptions, and important explan
 
 ## Body
 
-**Font:** Inter  
-**Weight:** 400  
-**Size:** `1rem`  
-**Line height:** `1.7`  
-**Letter spacing:** `-0.005em`  
+**Font:** IBM Plex Sans
+**Weight:** 400
+**Size:** `1rem`
+**Line height:** `1.65`
+**Letter spacing:** `0`
 **Maximum width:** `70ch`
 
 Use for standard site copy, articles, project descriptions, and documentation.
@@ -398,11 +406,11 @@ Use for standard site copy, articles, project descriptions, and documentation.
 
 ## Navigation
 
-**Font:** Inter  
-**Weight:** 500  
-**Size:** `0.875rem`  
-**Line height:** `1.2`  
-**Letter spacing:** `0.02em`
+**Font:** IBM Plex Sans
+**Weight:** 500
+**Size:** `0.875rem`
+**Line height:** `1.2`
+**Letter spacing:** `0.01em`
 
 Navigation should be compact, restrained, and highly legible.
 
@@ -412,11 +420,11 @@ Do not use all caps for primary navigation.
 
 ## Eyebrow Label
 
-**Font:** JetBrains Mono  
-**Weight:** 500  
-**Size:** `0.75rem`  
-**Line height:** `1.4`  
-**Letter spacing:** `0.08em`  
+**Font:** JetBrains Mono
+**Weight:** 500
+**Size:** `0.75rem`
+**Line height:** `1.4`
+**Letter spacing:** `0.08em`
 **Text transform:** uppercase
 
 Use for:
@@ -440,11 +448,11 @@ Use sparingly. Eyebrow labels should provide structure, not decoration.
 
 ## Caption and Metadata
 
-**Font:** Inter  
-**Weight:** 500  
-**Size:** `0.75rem` to `0.875rem`  
-**Line height:** `1.5`  
-**Letter spacing:** `0.01em`
+**Font:** IBM Plex Sans
+**Weight:** 500
+**Size:** `0.8125rem` to `0.875rem`
+**Line height:** `1.5`
+**Letter spacing:** `0`
 
 Use for dates, authorship, reading time, image captions, and supporting metadata.
 
@@ -452,10 +460,10 @@ Use for dates, authorship, reading time, image captions, and supporting metadata
 
 ## Code
 
-**Font:** JetBrains Mono  
-**Weight:** 400  
-**Size:** `0.9375rem`  
-**Line height:** `1.65`  
+**Font:** JetBrains Mono
+**Weight:** 400
+**Size:** `0.9375rem`
+**Line height:** `1.65`
 **Letter spacing:** `0`
 
 Use for code blocks, command examples, and technical output.
@@ -466,11 +474,11 @@ Inline code may be slightly smaller than surrounding body text.
 
 ## Buttons and Text Links
 
-**Font:** Inter  
-**Weight:** 500  
-**Size:** `0.9375rem`  
-**Line height:** `1.2`  
-**Letter spacing:** `-0.005em`
+**Font:** IBM Plex Sans
+**Weight:** 500
+**Size:** `0.9375rem`
+**Line height:** `1.2`
+**Letter spacing:** `0`
 
 Button text should use sentence case.
 
@@ -522,38 +530,38 @@ fontFamily: {
   mono: ["var(--font-mono)"],
 },
 fontSize: {
-  hero: ["clamp(3.25rem, 7vw, 5rem)", {
-    lineHeight: "0.98",
-    letterSpacing: "-0.04em",
-  }],
-  display: ["clamp(2.5rem, 5vw, 4rem)", {
-    lineHeight: "1.02",
-    letterSpacing: "-0.035em",
-  }],
-  h1: ["clamp(2.25rem, 4vw, 3rem)", {
-    lineHeight: "1.08",
-    letterSpacing: "-0.03em",
-  }],
-  h2: ["clamp(1.75rem, 3vw, 2.25rem)", {
-    lineHeight: "1.15",
+  hero: ["clamp(2.5rem, 4.5vw, 3.75rem)", {
+    lineHeight: "1.06",
     letterSpacing: "-0.025em",
   }],
-  h3: ["clamp(1.375rem, 2vw, 1.75rem)", {
-    lineHeight: "1.2",
+  display: ["clamp(2.25rem, 3.5vw, 3rem)", {
+    lineHeight: "1.1",
     letterSpacing: "-0.02em",
   }],
+  h1: ["clamp(2rem, 3vw, 2.5rem)", {
+    lineHeight: "1.12",
+    letterSpacing: "-0.018em",
+  }],
+  h2: ["clamp(1.5rem, 2vw, 1.875rem)", {
+    lineHeight: "1.2",
+    letterSpacing: "-0.012em",
+  }],
+  h3: ["clamp(1.3125rem, 1.8vw, 1.625rem)", {
+    lineHeight: "1.25",
+    letterSpacing: "-0.008em",
+  }],
   bodyLg: ["1.125rem", {
-    lineHeight: "1.75",
-    letterSpacing: "-0.01em",
+    lineHeight: "1.7",
+    letterSpacing: "0",
   }],
   body: ["1rem", {
-    lineHeight: "1.7",
-    letterSpacing: "-0.005em",
+    lineHeight: "1.65",
+    letterSpacing: "0",
   }],
   small: ["0.875rem", {
     lineHeight: "1.5",
   }],
-  caption: ["0.75rem", {
+  caption: ["0.8125rem", {
     lineHeight: "1.5",
   }],
   code: ["0.9375rem", {
@@ -697,7 +705,7 @@ li {
 - Left-align research, article, and documentation content.
 - Use bold text selectively.
 - Do not use italics as a decorative treatment.
-- Do not place long paragraphs in Sora.
+- Do not place long paragraphs in Lora.
 - Do not use JetBrains Mono for entire sections of prose.
 - Maintain strong contrast between headings, body copy, and metadata.
 - Use whitespace to create hierarchy before adding borders or visual effects.
@@ -728,7 +736,8 @@ When building new pages or components:
 3. Do not introduce a new font family.
 4. Do not introduce arbitrary font sizes.
 5. Do not change weights or spacing without updating this document.
-6. Keep Sora for identity, Inter for reading, and JetBrains Mono for technical context.
+6. Keep Lora for display and headings, IBM Plex Sans for reading and
+   interface roles, and JetBrains Mono for technical context.
 
 The intended result is a site that feels like a modern research institute rather than a conventional cybersecurity company.
 

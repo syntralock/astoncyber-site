@@ -6,9 +6,20 @@ Phase 2 design foundation implemented for review. Phase 3 has not begun.
 
 ## Typography
 
-The approved Sora, Inter, and JetBrains Mono variable fonts are
+Phase 2.1 permanently refines the approved typography direction to Lora
+for display and headings, IBM Plex Sans for body and interface text, and
+JetBrains Mono for technical material. All three variable fonts are
 self-hosted through pinned Fontsource packages. This avoids runtime
 requests to a font service and keeps static builds reproducible.
+
+The revised hierarchy is deliberately smaller and lighter than the
+initial Phase 2 system. Lora uses a restrained 550 variable weight for
+hero, display, and H1 roles, semibold lower headings, optical tracking,
+and more comfortable leading so authority comes from editorial
+proportion rather than product-marketing scale. IBM Plex Sans provides
+the reading, interface, label, metadata, caption, button, and text-only
+Brand roles. JetBrains Mono remains limited to code, commands, hashes,
+identifiers, and technical labels.
 
 The implementation provides the complete documented type scale and
 roles for hero, display, headings, lead text, large body text, body text,
@@ -57,8 +68,8 @@ production content is introduced.
 
 ## Dependencies
 
-- `@fontsource-variable/sora`
-- `@fontsource-variable/inter`
+- `@fontsource-variable/lora`
+- `@fontsource-variable/ibm-plex-sans`
 - `@fontsource-variable/jetbrains-mono`
 
 These packages contain the approved variable font files and CSS needed

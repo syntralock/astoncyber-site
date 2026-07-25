@@ -638,11 +638,14 @@ The website must follow the approved Aston Cyber design system.
 
 ### 11.1 Typography
 
-- Display: Sora
-- Body: Inter
+- Display and headings: Lora
+- Body and interface: IBM Plex Sans
 - Technical: JetBrains Mono
 
 The implementation must use defined typography tokens rather than arbitrary font sizes.
+Heading authority must come from editorial proportion, hierarchy, and
+readability rather than product-marketing scale or weight. Ordinary
+reading text and interface controls must not use Lora.
 
 ### 11.2 Color
 

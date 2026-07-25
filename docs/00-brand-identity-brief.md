@@ -55,12 +55,19 @@ Think less "cybersecurity startup" and more "research organization."
 
 The website will use:
 
--   **Display:** Sora
--   **Body:** Inter
+-   **Display and headings:** Lora
+-   **Body and interface:** IBM Plex Sans
 -   **Technical:** JetBrains Mono
 
 The logo does **not** need to use these fonts, but it should feel
 compatible with them.
+
+This permanent typography direction reflects Aston Cyber's evolution
+into an editorial cybersecurity research publication. Lora provides
+measured authority for headings, IBM Plex Sans supports clear technical
+reading and interface work, and JetBrains Mono identifies code and
+technical material. Authority should come from proportion, hierarchy,
+and restraint rather than oversized or excessively heavy type.
 
 ### Colors
 

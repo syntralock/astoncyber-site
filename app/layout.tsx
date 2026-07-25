@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import "@fontsource-variable/inter";
+import "@fontsource-variable/ibm-plex-sans";
 import "@fontsource-variable/jetbrains-mono";
-import "@fontsource-variable/sora";
+import "@fontsource-variable/lora";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
