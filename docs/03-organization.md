@@ -60,7 +60,8 @@ Become a respected independent cybersecurity research organization recognized fo
 
 # Identity
 
-Aston Cyber is not a consulting website.
+Aston Cyber is not a consultancy, managed security provider, SaaS
+company, or marketing website.
 
 It is a mission-driven cybersecurity research organization.
 

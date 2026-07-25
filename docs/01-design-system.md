@@ -1,7 +1,7 @@
 # Aston Cyber
 ## Design System
 
-> Security. Engineering. Research.
+> Research. Engineering. Security.
 
 ---
 
@@ -40,15 +40,52 @@ The site should not rely on:
 
 # Visual Style
 
-Foundation
+The initial release uses a dark theme only. Components MUST use semantic
+tokens rather than theme-specific color names so a future light theme
+can be added without component rewrites.
 
-Matte Black
+## Approved Dark Theme Tokens
 
-Charcoal
+| Semantic token | Value |
+| --- | --- |
+| Canvas | `#0B0F14` |
+| Surface | `#121821` |
+| Surface raised | `#18212C` |
+| Border | `#2A3543` |
+| Primary text | `#F3F6F9` |
+| Secondary text | `#B7C0CB` |
+| Muted text | `#8994A3` |
+| Accent | `#4B9CD2` |
+| Accent hover | `#67AFE0` |
+| Accent muted | `#223E55` |
+| Success | `#49B68A` |
+| Warning | `#E2B85B` |
+| Danger | `#E06C75` |
 
-White
+## Approved Future Light Theme Tokens
 
-One accent color: HEX Code: #4B9CD2; RGB Code: 75, 156, 210; CMYK Code: 60, 19, 1, 3
+These values reserve a compatible future theme. A light theme and theme
+control are not part of the initial release.
+
+| Semantic token | Value |
+| --- | --- |
+| Canvas | `#F7F9FB` |
+| Surface | `#FFFFFF` |
+| Surface raised | `#EEF2F6` |
+| Border | `#D5DCE5` |
+| Primary text | `#111820` |
+| Secondary text | `#45515F` |
+| Muted text | `#667382` |
+| Accent | `#276F9F` |
+| Accent hover | `#1D5D87` |
+| Accent muted | `#DCECF7` |
+
+Status colors for a future light theme require design and contrast
+review before that theme is implemented.
+
+The semantic roles above are the approved color tokens for
+implementation. Do not reference palette values directly in page or
+component code.
 
 Editorial layout
 
@@ -628,6 +665,13 @@ Replace stock imagery with:
 - research illustrations
 - minimal geometric graphics
 - code snippets where appropriate
+
+## Temporary Wordmark
+
+Until the final logo package is approved, use a text-only “Aston Cyber”
+wordmark behind one reusable project-native component. Do not invent a
+permanent logo, icon, shield, lock, or symbol. Final SVG, monochrome,
+favicon, and brand-guide assets are required before launch.
 
 ---
 

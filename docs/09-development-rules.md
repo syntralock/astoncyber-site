@@ -84,6 +84,15 @@ Engineering decisions must be based on:
 
 Do not add functionality based on assumptions about future needs.
 
+## 2.5 Static-First Hosting
+
+Production is hosted on Azure Static Web Apps at `astoncyber.com` and
+deployed through GitHub Actions.
+
+Do not introduce an assumption that requires server-side infrastructure
+without an explicit architectural review. Prefer static generation,
+build-time processing, and platform-native static capabilities.
+
 ---
 
 # 3. Repository Rules
@@ -346,17 +355,17 @@ Do not recreate native controls with generic elements.
 
 # 7. Content Security Rules
 
-## 7.1 Safe Markdown and MDX Rendering
+## 7.1 Safe MDX Rendering
 
 Content rendering must not permit arbitrary script execution.
 
 Requirements:
 
-- Do not allow untrusted raw HTML by default.
+- Raw HTML MUST be disabled by default.
 - Sanitize rendered HTML where raw HTML is permitted.
 - Restrict custom MDX components to an approved allowlist.
 - Do not allow content authors to inject scripts or event handlers.
-- Validate front matter at build time.
+- Validate front matter with Zod at build time.
 - Fail the build on malformed required metadata.
 
 ## 7.2 External Links
@@ -386,6 +395,14 @@ Prefer links or locally hosted media over embedded third-party players.
 ---
 
 # 8. Form Security Rules
+
+## 8.0 Contact Routing
+
+- General inquiries use `info@astoncyber.com`.
+- Responsible disclosure and security reports use `security@astoncyber.com` exclusively.
+
+Do not present the general-inquiries mailbox as a security-reporting
+channel.
 
 ## 8.1 Minimize Forms
 
@@ -599,6 +616,22 @@ Do not add file upload functionality without:
 
 # 13. Build and CI Security
 
+## 13.0 Phase 1 Baseline
+
+Phase 1 must establish:
+
+- Content Security Policy planning
+- Baseline security headers
+- Build-time environment validation
+- Secret scanning
+- Dependency review
+- Least-privilege GitHub Actions permissions
+- Preview deployment protections
+- Safe repository-based MDX rendering with raw HTML disabled by default
+
+Later hardening phases validate and tighten this baseline; they do not
+defer its introduction.
+
 ## 13.1 Required Checks
 
 Every pull request must pass:
@@ -638,6 +671,10 @@ Production builds must not contain:
 ---
 
 # 14. Deployment Security
+
+The approved deployment target is Azure Static Web Apps, using GitHub
+Actions and separate preview and production environments. Deployment
+design must preserve the static-first architecture.
 
 ## 14.1 Separate Environments
 
@@ -850,6 +887,7 @@ Before the first public launch:
 - [ ] No unnecessary cookies are present
 - [ ] Privacy notice matches actual behavior
 - [ ] Responsible disclosure page is published
+- [ ] RFC 9116 `/.well-known/security.txt` is published with `Contact: mailto:security@astoncyber.com`
 - [ ] SVG assets have been reviewed
 - [ ] CI permissions follow least privilege
 - [ ] Preview deployments do not expose production secrets

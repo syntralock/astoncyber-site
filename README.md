@@ -1,6 +1,8 @@
 # Aston Cyber
 
-The Aston Cyber website is a ground-up rebuild focused on cybersecurity research, education, and professional services.
+The Aston Cyber website is a ground-up rebuild for an independent cybersecurity research institution focused on research, engineering, and education.
+
+Aston Cyber is not a consultancy, managed security provider, SaaS company, or marketing website.
 
 This repository is the single source of truth for the website.
 
@@ -20,12 +22,14 @@ Development must follow the guidance in:
 - 07 – Website Project Plan
 - 08 – Build Instructions
 - 09 – Development Rules
+- 10 – Architecture Decision Record
+- 11 – Phase 0 Decisions
 
 ## Current Status
 
-**Current Phase:** Phase 1 – Engineering Foundation
+**Current Phase:** Phase 0 Completion / Phase 1 Readiness
 
-The engineering foundation will be completed before any page or feature implementation begins.
+Implementation has not officially begun. The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`; the engineering foundation will be completed before any page or feature implementation begins.
 
 ## Engineering Principles
 

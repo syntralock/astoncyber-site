@@ -117,6 +117,10 @@ issues before public disclosure.
 Responsible disclosure strengthens the ecosystem while protecting those
 who depend upon it.
 
+Responsible disclosure and security reports should be sent to
+`security@astoncyber.com`. General inquiries should be sent separately
+to `info@astoncyber.com`.
+
 ## Attribution
 
 Progress is rarely the work of one person.

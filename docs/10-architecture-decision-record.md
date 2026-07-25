@@ -70,19 +70,19 @@ Every architectural decision should support these priorities, in order:
 
 # Decision 5 — Component Foundation
 
-**Decision:** Use shadcn/ui as a starting point only.
+**Decision:** shadcn/ui is an optional source of accessible primitives only.
 
 **Why:**
-- Accessible component primitives
-- Components become part of the repository
-- Full control over customization
-- No dependency on a hosted UI library
+- Accessible primitives may reduce risk for genuinely complex controls
+- Adopted primitives become part of the repository and remain fully customizable
+- Layout, typography, navigation, and core site components remain project-native
+- Each adopted primitive requires justification and review for accessibility, dependency cost, and client-side JavaScript
 
 ---
 
 # Decision 6 — Content
 
-**Decision:** Markdown and MDX stored in the repository.
+**Decision:** Repository-based MDX for long-form content, with Zod-validated front matter and raw HTML disabled by default.
 
 **Why:**
 - Version controlled
@@ -140,13 +140,16 @@ Every architectural decision should support these priorities, in order:
 
 # Decision 11 — Deployment
 
-**Decision:** Use automated CI/CD with separate preview and production environments.
+**Decision:** Deploy the static-first Next.js site to Azure Static Web Apps at `astoncyber.com` through GitHub Actions, with separate preview and production environments.
 
 **Requirements:**
 - Protected main branch
 - Required status checks
 - Repeatable builds
 - Rollback capability
+- Least-privilege GitHub Actions permissions
+- Preview deployment protections
+- No assumption of server-side infrastructure without a future architectural review
 
 ---
 
@@ -162,6 +165,37 @@ Key principles include:
 - No committed secrets
 - Content Security Policy
 - HTTPS everywhere
+
+The Phase 1 baseline includes Content Security Policy planning, security
+headers, environment validation, secret scanning, dependency review,
+least-privilege GitHub Actions permissions, preview deployment
+protections, and safe MDX rendering.
+
+Before launch, the static site must publish an RFC 9116 file at
+`/.well-known/security.txt` with the field
+`Contact: mailto:security@astoncyber.com`.
+
+---
+
+# Decision 13 — Theme
+
+**Decision:** The initial release is dark-theme only.
+
+**Requirements:**
+- Use the semantic design tokens in `01-design-system.md`.
+- Preserve a future light theme without component rewrites.
+- Do not add a theme control in the initial release.
+
+---
+
+# Decision 14 — Search
+
+**Decision:** Defer site search until content volume demonstrates a clear need.
+
+**Why:**
+- Avoid premature client-side or hosted search complexity
+- Reduce privacy, security, and maintenance costs
+- Validate discovery needs using real content first
 
 ---
 
@@ -186,11 +220,15 @@ Each new decision should include:
 - Routing: App Router
 - Package Manager: pnpm
 - Styling: Tailwind CSS v4
-- Components: shadcn/ui (customized)
+- Components: Project-native; shadcn/ui primitives optional by exception
 - Validation: Zod
-- Content: Markdown / MDX
+- Content: Repository-based MDX; raw HTML disabled by default
 - Testing: Vitest + Playwright (planned)
 - CI/CD: GitHub Actions
+- Hosting: Azure Static Web Apps
+- Primary domain: astoncyber.com
+- Theme: Dark only initially; semantic tokens support a future light theme
+- Search: Deferred pending demonstrated content need
 - Repository: GitHub
 - Database: None
 - CMS: None

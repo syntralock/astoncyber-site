@@ -27,10 +27,13 @@ docs/
   02-navigation.md
   03-organization.md
   04-content-strategy.md
-  05-aston-cyber-ethos.md
+  05-cyber-ethos.md
   06-website-specification.md
-  07-project-plan.md
+  07-website-project-plan.md
   08-build-instructions.md
+  09-development-rules.md
+  10-architecture-decision-record.md
+  11-phase-0-decisions.md
 ```
 
 Checkpoint:
@@ -43,24 +46,25 @@ Checkpoint:
 
 # Step 2: Record Open Decisions
 
-Create:
+Approved decisions are recorded in:
 
 ```text
-docs/decisions.md
+docs/11-phase-0-decisions.md
 ```
 
-Record decisions for:
+The current baseline is:
 
-- Hosting platform
-- Primary domain
-- Package manager
-- Search at launch or after launch
-- Analytics or no analytics
-- Contact form or email link
-- Responsible disclosure contact method
-- Markdown or MDX
-- Light-only or light-and-dark interface
-- Final logo delivery status
+- Azure Static Web Apps
+- `astoncyber.com`
+- pnpm
+- Search deferred until content volume demonstrates a clear need
+- No analytics by default
+- General contact at `info@astoncyber.com`
+- Responsible disclosure and security reports at `security@astoncyber.com`
+- Direct email links for the initial release; no server-backed contact form
+- Repository-based MDX with Zod-validated front matter
+- Dark theme only, using semantic tokens compatible with a future light theme
+- Temporary text-only wordmark until the final logo package is approved
 
 Do not leave architecture decisions buried in chat transcripts.
 
@@ -136,6 +140,12 @@ Also add:
 - Dependency update automation
 - Secret scanning
 - Branch protection, if available
+- Dependency review
+- Least-privilege GitHub Actions permissions
+- Preview deployment protections
+- Environment validation
+- Content Security Policy and security-header planning
+- Safe MDX rendering with raw HTML disabled by default
 
 Checkpoint:
 
@@ -176,9 +186,10 @@ Do not place arbitrary visual values directly in page components.
 
 Checkpoint:
 
-- A simple test page demonstrates all typography levels.
+- A simple test page demonstrates all typography levels in the approved dark theme.
 - Colors meet contrast requirements.
 - Tokens work on mobile and desktop.
+- Components consume semantic tokens and do not require rewrites for a future light theme.
 
 ---
 
@@ -209,7 +220,8 @@ Checkpoint:
 
 # Step 7: Build Reusable Components
 
-Create components in small groups.
+Create components in small groups and only when the first complete
+research-content vertical slice requires them.
 
 Start with primitives:
 
@@ -222,24 +234,23 @@ Start with primitives:
 - Link
 - Button
 
-Then build content components:
+Then build the minimum required content components:
 
 - Tag
 - Status badge
 - Metadata row
 - Research card
-- Project card
-- Writing card
-- Person card
 - Callout
-- Quote
 - Code block
 - Figure
 - Table
 - Citation
-- Pagination
-- Filters
-- Search input
+
+Add person cards, quotes, pagination, filters, search controls, and other
+patterns only when a real content or page requirement demonstrates a
+need. Layout, typography, navigation, and core site components must be
+project-native. shadcn/ui may be evaluated only as an optional source of
+accessible primitives.
 
 Document the intended usage of every component.
 
@@ -253,13 +264,19 @@ Checkpoint:
 
 # Step 8: Build the Content System
 
-Choose Markdown or MDX and define structured collections.
+Use repository-based MDX and define structured collections.
 
-Create:
+Begin with:
 
 ```text
 content/
   research/
+```
+
+After the research vertical slice validates the model, expand to:
+
+```text
+content/
   projects/
   writing/
   labs/
@@ -270,7 +287,14 @@ content/
 
 Add schema validation for front matter.
 
+Use Zod for front matter validation. Disable raw HTML by default and
+restrict any custom MDX components to an approved allowlist.
+
 Create at least one realistic sample file for each collection.
+
+Before expanding the component library or all collections, build one
+complete research vertical slice from validated MDX through its index
+card, detail page, citation metadata, and production build.
 
 The build must fail when required metadata is missing or invalid.
 
@@ -302,6 +326,10 @@ Use real content.
 Do not use lorem ipsum.
 
 The homepage must introduce Aston Cyber before introducing the founder.
+
+General-inquiry links must use `info@astoncyber.com`. Responsible
+disclosure and security-reporting links must use
+`security@astoncyber.com`; do not interchange the addresses.
 
 Checkpoint:
 
@@ -368,6 +396,10 @@ Checkpoint:
 
 # Step 12: Add Search and Topic Discovery
 
+Site search is deferred until content volume demonstrates a clear need.
+Implement topic navigation and chronological archives first. Revisit the
+steps below only after a documented review approves search.
+
 Index:
 
 - Titles
@@ -430,7 +462,7 @@ Checkpoint:
 
 # Step 14: Apply Security and Privacy Controls
 
-Configure:
+Validate and harden the baseline established in Step 4:
 
 - HTTPS
 - Security headers
@@ -449,8 +481,9 @@ Do not add trackers by default.
 Checkpoint:
 
 - Security headers validate.
-- Forms protect user data.
+- Any separately approved forms protect user data.
 - Disclosure contact works.
+- RFC 9116 `/.well-known/security.txt` is published with `Contact: mailto:security@astoncyber.com`.
 - Privacy documentation matches actual behavior.
 
 ---
@@ -535,8 +568,8 @@ Checkpoint:
 
 Configure:
 
-- Production environment
-- Domain
+- Azure Static Web Apps production environment
+- `astoncyber.com`
 - DNS
 - HTTPS
 - Environment variables
@@ -544,6 +577,10 @@ Configure:
 - Monitoring
 - Rollback procedure
 - Build logs
+
+Deployment uses GitHub Actions and a static-first Next.js architecture.
+Do not assume server-side infrastructure without a future architectural
+review.
 
 Create a release checklist.
 
@@ -563,7 +600,7 @@ On launch day:
 2. Verify the homepage.
 3. Verify all top-level navigation.
 4. Verify research pages.
-5. Verify forms and contact methods.
+5. Verify direct email contact methods and any separately approved forms.
 6. Verify responsible disclosure information.
 7. Verify sitemap and robots file.
 8. Verify social previews.

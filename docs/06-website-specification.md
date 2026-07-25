@@ -21,6 +21,9 @@ Where ambiguity exists, implementation should favor:
 
 Aston Cyber is an independent, public-interest cybersecurity research organization.
 
+It is not a consultancy, managed security provider, SaaS company, or
+marketing website.
+
 The website must present Aston Cyber as an institution first and its founder second.
 
 The primary narrative order is:
@@ -139,7 +142,7 @@ The website must:
 
 ## 6. Information Architecture
 
-The initial top-level navigation should include:
+The primary navigation must contain exactly:
 
 - Mission
 - Research
@@ -147,8 +150,10 @@ The initial top-level navigation should include:
 - Writing
 - Labs
 - Speaking
-- Ethos
 - About
+
+The Ethos page must be prominently linked from Mission and the footer,
+but it is not a primary navigation item.
 
 A compact utility area may include:
 
@@ -194,7 +199,6 @@ Recommended routes:
 /people/[slug]
 /topics
 /topics/[slug]
-/search
 /contact
 /disclosures
 /accessibility
@@ -205,6 +209,7 @@ Recommended routes:
 Optional later routes:
 
 ```text
+/search
 /publications
 /publications/[slug]
 /datasets
@@ -548,12 +553,13 @@ Each profile may include:
 
 All content should be structured and stored in a maintainable format.
 
-Recommended initial approach:
+Approved initial approach:
 
-- Markdown or MDX
+- Repository-based MDX for long-form content
 - Front matter metadata
 - Git-based version control
-- Schema validation during build
+- Zod schema validation during build
+- Raw HTML disabled by default
 
 Recommended content collections:
 
@@ -640,15 +646,10 @@ The implementation must use defined typography tokens rather than arbitrary font
 
 ### 11.2 Color
 
-Primary palette:
-
-- Matte black
-- Charcoal
-- White
-
-Accent:
-
-- `#4B9CD2`
+The initial release is dark-theme only and must use the semantic color
+tokens defined in `01-design-system.md`. The implementation must preserve
+the token abstraction required for a future light theme without
+component rewrites.
 
 The accent color must be used intentionally and sparingly.
 
@@ -725,7 +726,7 @@ The initial component library should include:
 - Breadcrumbs
 - Pagination
 - Filter controls
-- Search input
+- Search input, only after search is approved
 - Empty state
 - Error state
 - Newsletter or update form, only if later approved
@@ -736,7 +737,8 @@ Components must be reused rather than recreated page by page.
 
 ## 13. Search and Discovery
 
-Search should support:
+Search is deferred until content volume demonstrates a clear discovery
+need. If a future review approves search, it should support:
 
 - Titles
 - Summaries
@@ -754,7 +756,8 @@ Example:
 /research?topic=cloud-security&year=2027
 ```
 
-Search and filtering must remain usable without JavaScript when reasonably possible.
+Topic navigation, archives, and any initial filtering must remain usable
+without JavaScript when reasonably possible.
 
 ---
 
@@ -863,12 +866,16 @@ Analytics, if used, should be privacy-conscious and should not compromise site p
 
 The site should include a dedicated disclosure page.
 
+The responsible disclosure and security reporting address is
+`security@astoncyber.com`. It must not be used as the general-inquiries
+address.
+
 Required content:
 
 - Scope
-- Contact method
+- Contact method: `security@astoncyber.com`
 - Expected response timeline
-- Safe harbor language, subject to legal review
+- Safe-harbor language only after legal review
 - Encryption key, if used
 - Rules for testing
 - Disclosure coordination process
@@ -876,6 +883,33 @@ Required content:
 - Out-of-scope systems
 
 This page must be reviewed before launch.
+
+Do not invent legal safe-harbor language.
+
+Before public launch, publish an RFC 9116 `security.txt` file at:
+
+```text
+/.well-known/security.txt
+```
+
+Its Contact field must be:
+
+```text
+Contact: mailto:security@astoncyber.com
+```
+
+The file itself must be created and reviewed during a future
+implementation phase; this specification does not supply its complete
+contents.
+
+## 18.1 General Contact
+
+The approved general contact address is `info@astoncyber.com`.
+The address is reserved for general inquiries and must not be presented
+as the responsible-disclosure channel.
+The initial release should use a direct email link rather than a
+server-backed contact form. Adding a public form requires security and
+architectural review.
 
 ---
 
@@ -906,13 +940,18 @@ Recommended baseline:
 - Next.js with TypeScript
 - App Router
 - Static generation where practical
-- MDX or Markdown content
-- Schema validation
+- Repository-based MDX content
+- Zod schema validation
 - Component-driven architecture
 - Automated testing
 - Git-based deployment
 - Preview deployments
 - CI quality checks
+
+Hosting is Azure Static Web Apps at `astoncyber.com`, deployed through
+GitHub Actions. The implementation is static-first and must avoid
+assumptions that require server-side infrastructure unless a future
+architectural review explicitly approves them.
 
 The implementation should avoid premature platform complexity.
 
@@ -945,10 +984,13 @@ docs/
   02-navigation.md
   03-organization.md
   04-content-strategy.md
-  05-aston-cyber-ethos.md
+  05-cyber-ethos.md
   06-website-specification.md
-  07-project-plan.md
+  07-website-project-plan.md
   08-build-instructions.md
+  09-development-rules.md
+  10-architecture-decision-record.md
+  11-phase-0-decisions.md
 ```
 
 ---
@@ -974,7 +1016,7 @@ Critical user flows:
 - Navigate the site
 - Open and read a research page
 - Filter research
-- Search content
+- Search content, only after search is approved
 - View project details
 - Read the Ethos
 - Access disclosure information
@@ -1022,7 +1064,7 @@ The first public release should include:
 - Privacy statement
 - RSS
 - Sitemap
-- Search or a clearly documented post-launch milestone
+- Search only after content volume demonstrates a clear need
 
 The first release does not require a large content library.
 

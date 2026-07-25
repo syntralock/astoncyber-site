@@ -31,9 +31,11 @@ About
 
 - The primary navigation MUST remain minimal.
 - Navigation labels MUST use sentence case.
-- Top-level navigation MUST NOT exceed seven items without revising this specification.
+- The primary navigation MUST contain exactly the seven items listed above.
 - Every page MUST support breadcrumb navigation where appropriate.
 - The Mission page is the conceptual home of the organization.
+- The Ethos page MUST be prominently linked from Mission and the footer.
+- Ethos MUST NOT appear in the primary navigation unless this specification is revised.
 
 ---
 
@@ -144,6 +146,11 @@ Sections:
 - Resume
 - Media kit
 - Contact
+
+Contact routing:
+
+- General inquiries: `info@astoncyber.com`
+- Responsible disclosure and security reports: `security@astoncyber.com`
 
 ---
 

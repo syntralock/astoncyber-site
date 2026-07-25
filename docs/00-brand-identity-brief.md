@@ -9,7 +9,8 @@ and education. We investigate emerging security challenges, develop
 practical engineering approaches, and publish knowledge that improves
 the security of modern computing.
 
-This is not a consulting company or a software vendor.
+This is not a consultancy, managed security provider, SaaS company,
+software vendor, or marketing website.
 
 The long-term vision is to build a respected research institution known
 for thoughtful engineering, practical research, and openly shared
@@ -134,11 +135,19 @@ Please provide:
 -   Primary logo
 -   Brand mark / icon
 -   Monochrome versions
--   Light and dark versions
+-   Dark-theme and monochrome versions
 -   SVG, PDF, and transparent PNG
 -   Favicon / app icon
 -   Basic logo usage guide
 -   Social media kit
+
+The final logo package is not yet complete. Until it is approved, the
+website must use a temporary text-only Aston Cyber wordmark isolated
+behind a reusable component. Do not invent a permanent logo, icon,
+shield, lock, or symbol.
+
+Final SVG, monochrome, favicon, and brand-guide assets are pre-launch
+requirements.
 
 ------------------------------------------------------------------------
 

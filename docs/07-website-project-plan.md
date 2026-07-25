@@ -36,7 +36,7 @@ The project will produce:
 5. Structured content system
 6. Core website pages
 7. Research and publication templates
-8. Search and discovery features
+8. Topic discovery features; search only after a demonstrated need
 9. Accessibility and performance validation
 10. Security and privacy controls
 11. Production deployment
@@ -46,22 +46,24 @@ The project will produce:
 
 # Phase 0: Documentation and Decisions
 
+**Status:** Completion / Phase 1 Readiness
+
 ## Objectives
 
 Confirm that the project has sufficient written direction before coding begins.
 
 ## Tasks
 
-- [ ] Add all approved planning documents to `/docs`
-- [ ] Confirm page names and route structure
-- [ ] Confirm primary domain
-- [ ] Confirm hosting platform
-- [ ] Confirm repository location
-- [ ] Confirm initial content storage format
-- [ ] Confirm whether search is included in launch scope
-- [ ] Confirm analytics decision
-- [ ] Confirm contact method
-- [ ] Confirm responsible disclosure contact process
+- [x] Add all approved planning documents to `/docs`
+- [x] Confirm page names and route structure
+- [x] Confirm primary domain: `astoncyber.com`
+- [x] Confirm hosting platform: Azure Static Web Apps
+- [x] Confirm repository location: `https://github.com/syntralock/astoncyber-site`
+- [x] Confirm initial content storage format: repository-based MDX
+- [x] Defer search until content volume demonstrates a clear need
+- [x] Confirm no analytics by default
+- [x] Confirm general contact: `info@astoncyber.com`
+- [x] Confirm responsible disclosure and security reporting contact: `security@astoncyber.com`
 - [ ] Collect final logo assets when available
 
 ## Deliverables
@@ -103,6 +105,14 @@ Create a clean, repeatable development environment.
 - [ ] Add dependency update automation
 - [ ] Add secret scanning
 - [ ] Add baseline test framework
+- [ ] Plan Content Security Policy
+- [ ] Add baseline security headers compatible with static hosting
+- [ ] Validate environment variables at build time
+- [ ] Add dependency review
+- [ ] Configure least-privilege GitHub Actions permissions
+- [ ] Protect preview deployments from indexing, production secrets, and unintended external effects
+- [ ] Establish safe MDX rendering with raw HTML disabled by default
+- [ ] Document Azure Static Web Apps deployment constraints without creating deployment configuration prematurely
 
 ## Deliverables
 
@@ -116,6 +126,7 @@ Create a clean, repeatable development environment.
 - A new contributor can clone and run the project.
 - Lint, typecheck, test, and build commands pass.
 - CI runs on every pull request.
+- Phase 1 security baseline checks pass or have documented, reviewable plans where deployed-environment validation is required.
 
 ---
 
@@ -135,7 +146,8 @@ Implement the visual system before building full pages.
 - [ ] Implement typography tokens
 - [ ] Implement radius, border, and shadow tokens
 - [ ] Implement responsive breakpoints
-- [ ] Implement light and dark surface behavior if approved
+- [ ] Implement the approved dark theme with semantic tokens
+- [ ] Verify tokens can support the approved future light palette without component rewrites
 - [ ] Add reduced-motion defaults
 - [ ] Create component documentation or examples
 
@@ -196,7 +208,9 @@ Create the site shell used by every page.
 
 ## Objectives
 
-Build reusable components before assembling pages.
+Build only the reusable primitives required for the first complete
+research-content vertical slice. Expand the library when real page and
+content requirements demonstrate a need.
 
 ## Tasks
 
@@ -209,19 +223,7 @@ Build reusable components before assembling pages.
 - [ ] Metadata row
 - [ ] Content card
 - [ ] Research card
-- [ ] Project card
-- [ ] Writing card
-- [ ] Person card
-- [ ] Callout
-- [ ] Quote
-- [ ] Code block
-- [ ] Figure
-- [ ] Table
-- [ ] Citation
-- [ ] Footnotes
-- [ ] Pagination
-- [ ] Filter controls
-- [ ] Search input
+- [ ] Add further content components only when required by the vertical slice
 - [ ] Empty state
 - [ ] Error state
 
@@ -236,7 +238,8 @@ Build reusable components before assembling pages.
 - Components are typed.
 - Components support required responsive states.
 - Interactive components are keyboard accessible.
-- Pages can be assembled without one-off visual patterns.
+- The first research vertical slice can be assembled without one-off visual patterns.
+- No speculative component is introduced without an identified consumer.
 
 ---
 
@@ -248,9 +251,14 @@ Create structured, validated content collections.
 
 ## Tasks
 
-- [ ] Configure Markdown or MDX
+- [ ] Configure repository-based MDX
+- [ ] Disable raw HTML by default
 - [ ] Define front matter schemas
+- [ ] Validate front matter with Zod
 - [ ] Create research collection
+- [ ] Build one complete research vertical slice from validated MDX through index card, detail page, citation metadata, and production build
+- [ ] Review the content model and component requirements
+- [ ] Expand the component library only after reviewing the vertical slice
 - [ ] Create projects collection
 - [ ] Create writing collection
 - [ ] Create labs collection
@@ -277,6 +285,7 @@ Create structured, validated content collections.
 - Draft content is excluded from production.
 - Authors and topics resolve correctly.
 - RSS and sitemap generate successfully.
+- The complete research vertical slice validates the content model before other collections expand.
 
 ---
 
@@ -413,13 +422,19 @@ Complete the remaining major content areas.
 
 # Phase 9: Search and Discovery
 
+**Status:** Deferred until content volume demonstrates a clear need.
+
 ## Objectives
 
-Help visitors find relevant work quickly.
+Reassess whether visitors need site search using evidence from the real
+content library. Do not implement search solely because it appeared in
+the original plan.
 
 ## Tasks
 
-- [ ] Implement site search
+- [ ] Measure and document the discovery need
+- [ ] Obtain architectural approval before implementing search
+- [ ] Implement site search only if approved
 - [ ] Index titles
 - [ ] Index summaries
 - [ ] Index authors and contributors
@@ -434,13 +449,13 @@ Help visitors find relevant work quickly.
 
 ## Deliverables
 
-- Search page
+- Search page, only if approved
 - Filtered archives
 - Shareable result URLs
 
 ## Acceptance Criteria
 
-- Results are relevant.
+- If search is approved, results are relevant.
 - Filters remain usable on mobile.
 - Search does not require unnecessary tracking.
 - No-results guidance is helpful.
@@ -482,23 +497,26 @@ Ensure content is discoverable and shareable.
 
 ---
 
-# Phase 11: Security, Privacy, and Operational Hardening
+# Phase 11: Security, Privacy, and Operational Validation
 
 ## Objectives
 
-Prepare the site for safe public operation.
+Validate and harden the Phase 1 security baseline for public operation.
 
 ## Tasks
 
-- [ ] Configure security headers
-- [ ] Configure Content Security Policy
+- [ ] Validate deployed security headers
+- [ ] Validate and tighten Content Security Policy
 - [ ] Review third-party scripts
-- [ ] Validate forms
-- [ ] Add spam protection
+- [ ] Validate forms and add privacy-respecting spam protection only if a future review approves a public form
 - [ ] Confirm privacy notice
 - [ ] Confirm responsible disclosure policy
-- [ ] Add dependency scanning
-- [ ] Add secret scanning
+- [ ] Publish and validate RFC 9116 `/.well-known/security.txt` with `Contact: mailto:security@astoncyber.com`
+- [ ] Verify dependency review and scanning
+- [ ] Verify secret scanning
+- [ ] Revalidate least-privilege GitHub Actions permissions
+- [ ] Revalidate preview deployment protections
+- [ ] Revalidate safe MDX rendering
 - [ ] Review logging
 - [ ] Configure error monitoring
 - [ ] Configure uptime monitoring
@@ -516,6 +534,7 @@ Prepare the site for safe public operation.
 - No unnecessary trackers are present.
 - Forms do not expose sensitive data.
 - Disclosure contact process works.
+- RFC 9116 `security.txt` is published at the required well-known path and references `security@astoncyber.com`.
 
 ---
 
@@ -598,7 +617,7 @@ Release the website safely.
 - HTTPS is valid.
 - Monitoring is active.
 - Core pages load successfully.
-- Forms and links work.
+- Direct email links and any separately approved forms work.
 - Rollback can be performed.
 
 ---
@@ -644,7 +663,7 @@ To keep work reviewable, divide implementation into focused coding packages.
 
 ### Package A: Repository Setup
 
-Includes Phase 1 only.
+Includes Phase 1, including its security baseline.
 
 ### Package B: Tokens and Global Styles
 
@@ -656,11 +675,15 @@ Includes header, navigation, footer, containers, and route layout.
 
 ### Package D: Core Components
 
-Includes non-content-specific components.
+Includes only the project-native primitives required by the first
+research vertical slice. shadcn/ui may supply an accessible primitive by
+exception, not the site architecture.
 
 ### Package E: Content Engine
 
-Includes MDX, schemas, content loading, RSS, and sitemap.
+Includes repository-based MDX, Zod schemas, safe content loading with
+raw HTML disabled, RSS, sitemap, and one complete research vertical
+slice before broader component or collection expansion.
 
 ### Package F: Institutional Pages
 
@@ -676,7 +699,9 @@ Includes Projects, Writing, Labs, Speaking, and People.
 
 ### Package I: Search and Metadata
 
-Includes search, topic pages, SEO, structured data, and social previews.
+Includes topic pages, SEO, structured data, and social previews. Search
+is added only after content volume demonstrates a clear need and a
+separate review approves it.
 
 ### Package J: Hardening and Launch
 
