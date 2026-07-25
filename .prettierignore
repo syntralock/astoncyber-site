@@ -1,0 +1,5 @@
+.next
+coverage
+docs
+out
+pnpm-lock.yaml

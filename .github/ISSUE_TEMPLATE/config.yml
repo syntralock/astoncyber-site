@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: General inquiry
+    url: mailto:info@astoncyber.com
+    about: Contact Aston Cyber about general matters.
+  - name: Responsible disclosure
+    url: mailto:security@astoncyber.com
+    about: Report a security issue privately.

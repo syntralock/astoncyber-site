@@ -103,6 +103,18 @@ Before submitting changes, ensure:
 - Production build succeeds
 - Accessibility issues are addressed
 
+Run the complete local sequence:
+
+```text
+pnpm install --frozen-lockfile
+pnpm validate
+git diff --check
+```
+
+Node.js 24 and pnpm 11 are required. Individual checks are available as
+`pnpm format:check`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, and
+`pnpm build`.
+
 ---
 
 # Documentation

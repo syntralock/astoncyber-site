@@ -27,9 +27,11 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 0 Completion / Phase 1 Readiness
+**Current Phase:** Phase 1 Foundation
 
-Implementation has not officially begun. The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`; the engineering foundation will be completed before any page or feature implementation begins.
+The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
+Phase 1 establishes the application, validation, content-safety, and CI
+foundation without beginning full page or feature implementation.
 
 ## Engineering Principles
 
@@ -49,7 +51,28 @@ docs/      Project planning and specifications
 assets/    Brand assets and media
 app/        Website application (created during implementation)
 public/     Static public assets
+styles/     Global design-token styles
+tests/      Automated foundation tests
+scripts/    Build-time validation
 ```
+
+## Local Development
+
+Use Node.js 24 and pnpm 11.
+
+```text
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Run the complete local quality sequence with:
+
+```text
+pnpm validate
+```
+
+The production build is a static export in `out/`. Use `pnpm start` to
+preview that export locally after `pnpm build`.
 
 ## Contribution Workflow
 

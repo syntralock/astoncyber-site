@@ -1,0 +1,32 @@
+name: Engineering task
+description: Plan a focused, specification-backed engineering change.
+title: "[Engineering]: "
+labels: ["engineering"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What must be accomplished?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Documentation context
+      description: Which approved specifications apply?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and out of scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Include testing, accessibility, security, and documentation expectations.
+    validations:
+      required: true
