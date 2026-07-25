@@ -564,6 +564,100 @@ fontSize: {
 
 ---
 
+# Phase 2 Foundation Tokens
+
+The following scales complete the approved implementation foundation.
+They are intentionally compact. New values require review and an update
+to this document before use.
+
+## Spacing
+
+| Token | Value |
+| --- | --- |
+| `space-1` | `0.25rem` |
+| `space-2` | `0.5rem` |
+| `space-3` | `0.75rem` |
+| `space-4` | `1rem` |
+| `space-5` | `1.25rem` |
+| `space-6` | `1.5rem` |
+| `space-8` | `2rem` |
+| `space-10` | `2.5rem` |
+| `space-12` | `3rem` |
+| `space-16` | `4rem` |
+| `space-20` | `5rem` |
+| `space-24` | `6rem` |
+| `space-32` | `8rem` |
+
+Use `space-16`, `space-20`, and `space-24` for responsive section
+padding. Use the smaller values for component rhythm and layout gaps.
+
+## Content Widths
+
+| Token | Value | Purpose |
+| --- | --- | --- |
+| `width-reading` | `70ch` | Standard prose |
+| `width-lead` | `62ch` | Lead paragraphs |
+| `width-narrow` | `48rem` | Narrow layouts |
+| `width-content` | `80rem` | Maximum site content |
+
+Containers use responsive inline gutters of `space-6` on small screens
+and `space-10` from the small breakpoint onward.
+
+## Breakpoints
+
+| Token | Value |
+| --- | --- |
+| `sm` | `40rem` |
+| `md` | `48rem` |
+| `lg` | `64rem` |
+| `xl` | `80rem` |
+| `2xl` | `96rem` |
+
+Build mobile-first. Add layout columns only when content has enough
+space; do not select breakpoints by device name.
+
+## Radius and Borders
+
+| Token | Value |
+| --- | --- |
+| `radius-sm` | `0.25rem` |
+| `radius-md` | `0.5rem` |
+| `radius-lg` | `0.75rem` |
+| `radius-full` | `9999px` |
+| `border-thin` | `1px` |
+| `border-emphasis` | `2px` |
+
+Use `radius-lg` for content surfaces, `radius-md` for controls, and
+`radius-sm` for compact technical treatments. Full rounding is reserved
+for circular indicators and pill shapes with a defined purpose.
+
+## Elevation
+
+| Token | Value |
+| --- | --- |
+| `shadow-sm` | `0 1px 2px rgb(0 0 0 / 0.24)` |
+| `shadow-md` | `0 12px 32px rgb(0 0 0 / 0.20)` |
+
+Elevation must reinforce the semantic surface hierarchy. Default
+surfaces use the small shadow; raised surfaces may use the medium shadow.
+Do not use shadows as decoration.
+
+## Interaction and Motion
+
+| Token | Value |
+| --- | --- |
+| `duration-fast` | `150ms` |
+| `duration-standard` | `220ms` |
+| `ease-standard` | `cubic-bezier(0.2, 0, 0, 1)` |
+| `focus` | Semantic accent token |
+
+Focus indicators use the emphasis border width, the semantic focus
+color, and a `space-1` offset. Hover and focus treatments must not move
+content. Reduced-motion preferences collapse nonessential animation and
+smooth scrolling.
+
+---
+
 # Responsive Typography Rules
 
 - Use fluid sizing with `clamp()` for hero and heading levels.

@@ -27,11 +27,12 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 1 Foundation
+**Current Phase:** Phase 2 Design Foundation
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
-Phase 1 establishes the application, validation, content-safety, and CI
-foundation without beginning full page or feature implementation.
+Phase 1 established the application, validation, content-safety, and CI
+foundation. Phase 2 completes the visual token system without beginning
+the shared site shell or production page implementation.
 
 ## Engineering Principles
 
