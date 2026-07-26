@@ -5,6 +5,7 @@ const statusClasses = {
   archived: "status-archived",
   completed: "status-completed",
   preliminary: "status-preliminary",
+  published: "status-published",
   "technical-validation": "status-technical-validation",
 } as const;
 

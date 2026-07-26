@@ -63,7 +63,7 @@ const draftSource = fixtureSource
 const publicSource = fixtureSource
   .replaceAll("technical fixture", "published sample")
   .replaceAll("technical-fixture", "published-sample")
-  .replace("status: technical-validation", "status: completed")
+  .replace("status: technical-validation", "status: published")
   .replace(
     "visibility: fixture",
     "visibility: public\npublished_at: 2026-07-24\ndisclosure_status: not-applicable",

@@ -13,6 +13,7 @@ type ContentCardProps = Readonly<{
   linkLabel?: string;
   summary: string;
   title: string;
+  variant?: "default" | "featured";
 }>;
 
 export function ContentCard({
@@ -23,9 +24,16 @@ export function ContentCard({
   linkLabel = "Read item",
   summary,
   title,
+  variant = "default",
 }: ContentCardProps) {
   return (
-    <article className={classNames("content-card stack-md", className)}>
+    <article
+      className={classNames(
+        "content-card stack-md",
+        variant === "featured" && "content-card-featured",
+        className,
+      )}
+    >
       {eyebrow ? (
         <Text className="text-foreground-muted" variant="eyebrow">
           {eyebrow}

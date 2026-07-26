@@ -30,17 +30,14 @@ describe("shared application shell", () => {
     expect(html).toContain("<summary");
     expect(html).toContain(">Menu</summary>");
 
-    for (const href of [
-      "/mission",
-      "/research",
-      "/projects",
-      "/writing",
-      "/labs",
-      "/speaking",
-      "/about",
-    ]) {
+    for (const href of ["/", "/research", "/projects", "/labs", "/about"]) {
       expect(html).toContain(`href="${href}"`);
     }
+
+    expect(html).toContain(">Home</a>");
+    expect(html).not.toContain(">Mission</a>");
+    expect(html).not.toContain('href="/writing"');
+    expect(html).not.toContain('href="/speaking"');
   });
 
   it("uses a contact route without exposing recipients and retains safe repository-link defaults", () => {

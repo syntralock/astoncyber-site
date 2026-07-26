@@ -4,7 +4,12 @@ import { StatusBadge } from "@/components/ui/status-badge";
 import { Tag } from "@/components/ui/tag";
 
 type ResearchStatus =
-  "active" | "archived" | "completed" | "preliminary" | "technical-validation";
+  | "active"
+  | "archived"
+  | "completed"
+  | "preliminary"
+  | "published"
+  | "technical-validation";
 
 type ResearchCardProps = Readonly<{
   authors: readonly string[];
@@ -16,6 +21,7 @@ type ResearchCardProps = Readonly<{
   summary: string;
   title: string;
   topic: string;
+  variant?: "default" | "featured";
 }>;
 
 export function ResearchCard({
@@ -28,6 +34,7 @@ export function ResearchCard({
   summary,
   title,
   topic,
+  variant = "default",
 }: ResearchCardProps) {
   return (
     <ContentCard
@@ -36,6 +43,7 @@ export function ResearchCard({
       linkLabel="Read research"
       summary={summary}
       title={title}
+      variant={variant}
     >
       <div className="cluster">
         <StatusBadge status={status} />

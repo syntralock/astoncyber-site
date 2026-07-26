@@ -611,6 +611,35 @@ padding. Use the smaller values for component rhythm and layout gaps.
 Containers use responsive inline gutters of `space-6` on small screens
 and `space-10` from the small breakpoint onward.
 
+## Editorial Composition
+
+The `width-content` container is the institutional canvas, not a signal that
+all text should span its full width. Desktop and laptop pages should compose
+that canvas with reusable patterns:
+
+- Centered page introductions with a restrained lead measure
+- Left-aligned editorial prose within `width-reading`
+- Wide feature regions that can use the institutional container
+- Balanced two-column and three-column regions
+- Full-width feature cards within the constrained container
+- Consistent section rhythm using the approved spacing scale
+
+Centering applies to introductions, headings, concise supporting statements,
+and action clusters where it improves page-level balance. Long-form prose,
+card summaries, metadata, and explanatory copy remain left-aligned.
+
+At wide breakpoints, content measures must not remain visually attached to one
+side of an otherwise empty container. Use centered measures, balanced grids,
+and intentional whitespace rather than page-specific offsets or arbitrary
+widths. Source order must remain logical when columns stack. Layouts must
+remain usable at 200% zoom.
+
+The homepage hero, institutional page introductions, and research-index
+introduction use the centered-introduction pattern. Homepage and Mission focus
+content uses three equal columns at wide widths and a single logical stack at
+smaller widths. Featured research uses a wide publication-panel treatment
+rather than the standard multi-card archive width.
+
 ## Breakpoints
 
 | Token | Value |
@@ -768,6 +797,12 @@ Replace stock imagery with:
 - research illustrations
 - minimal geometric graphics
 - code snippets where appropriate
+
+Do not use shields, locks, hooded figures, matrix effects, neon spectacle, or
+other generic cybersecurity iconography. If a layout benefits from a visual
+marker, prefer a restrained abstract or technical line treatment implemented
+without a new icon dependency. Decorative markers are optional and must never
+carry essential meaning.
 
 ## Temporary Wordmark
 

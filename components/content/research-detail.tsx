@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 
 import { Heading } from "@/components/ui/heading";
+import { Link } from "@/components/ui/link";
 import { MetadataRow } from "@/components/ui/metadata-row";
+import { StatusBadge } from "@/components/ui/status-badge";
+import { Tag } from "@/components/ui/tag";
 import { Text } from "@/components/ui/text";
 import type { ResolvedResearchItem } from "@/lib/content/research";
 
@@ -21,9 +24,22 @@ export function ResearchDetail({ children, item }: ResearchDetailProps) {
           {item.metadata.research_type.replaceAll("-", " ")}
         </Text>
         <Heading level={1}>{item.metadata.title}</Heading>
+        {item.metadata.subtitle ? (
+          <Text className="text-foreground-secondary" variant="bodyLarge">
+            {item.metadata.subtitle}
+          </Text>
+        ) : null}
         <Text className="text-foreground-secondary" variant="lead">
           {item.metadata.summary}
         </Text>
+        <div className="cluster">
+          <StatusBadge status={item.metadata.status} />
+          {item.topics.map((topic) => (
+            <Tag href={`/research/topics/${topic.id}`} key={topic.id}>
+              {topic.label}
+            </Tag>
+          ))}
+        </div>
         <MetadataRow
           items={[
             {
@@ -34,10 +50,58 @@ export function ResearchDetail({ children, item }: ResearchDetailProps) {
               label: item.metadata.published_at ? "Published" : "Validated",
               value: date,
             },
+            {
+              label: "Disclosure",
+              value:
+                item.metadata.disclosure_status?.replaceAll("-", " ") ??
+                "Not published",
+            },
+            ...(item.metadata.revision
+              ? [{ label: "Revision", value: item.metadata.revision }]
+              : []),
           ]}
         />
+        {item.authors.some((author) => author.affiliation) ? (
+          <div className="stack-sm">
+            {item.authors.map((author) =>
+              author.affiliation ? (
+                <Text
+                  className="text-foreground-secondary"
+                  key={author.id}
+                  variant="small"
+                >
+                  {author.name}: {author.affiliation}
+                </Text>
+              ) : null,
+            )}
+          </div>
+        ) : null}
       </header>
-      <div className="stack-lg">{children}</div>
+      {item.metadata.publication_note ? (
+        <aside className="surface-base research-publication-note stack-sm">
+          <Heading level={2} variant="h4">
+            Publication note
+          </Heading>
+          <Text>{item.metadata.publication_note}</Text>
+        </aside>
+      ) : null}
+      <div className="research-body">{children}</div>
+      {item.metadata.artifact ? (
+        <section
+          className="surface-raised research-download stack-md"
+          aria-labelledby="download-title"
+        >
+          <Heading id="download-title" level={2} variant="h3">
+            Download
+          </Heading>
+          <Text className="text-foreground-secondary">
+            Original author manuscript in Microsoft Word format.
+          </Text>
+          <Link href={item.metadata.artifact.path} variant="standalone">
+            {item.metadata.artifact.label}
+          </Link>
+        </section>
+      ) : null}
       <footer className="surface-base stack-sm">
         <Heading level={2} variant="h4">
           Citation

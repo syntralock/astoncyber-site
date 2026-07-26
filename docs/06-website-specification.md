@@ -142,15 +142,22 @@ The website must:
 
 ## 6. Information Architecture
 
-The primary navigation must contain exactly:
+The public primary navigation must contain exactly:
 
-- Mission
+- Home
 - Research
 - Projects
-- Writing
 - Labs
-- Speaking
 - About
+
+Home links to `/` and replaces Mission in public primary and footer
+navigation. Mission remains published at `/mission` as a secondary
+institutional page available through contextual links and direct URL.
+
+Writing remains a future collection but is removed from current public
+navigation. Speaking remains a future collection and is hidden until approved
+public speaking content exists. Desktop, mobile, and footer primary navigation
+must derive from the same centralized published-state configuration.
 
 The Ethos page must be prominently linked from Mission and the footer,
 but it is not a primary navigation item.
@@ -197,8 +204,8 @@ Recommended routes:
 /about
 /people
 /people/[slug]
-/topics
-/topics/[slug]
+/research/topics
+/research/topics/[slug]
 /contact
 /disclosures
 /accessibility
@@ -256,6 +263,14 @@ The hero must not use:
 - Excessive motion
 - Generic dashboard mockups
 
+The desktop hero uses a centered composition for its eyebrow, primary heading,
+supporting copy, and actions. At common desktop widths from approximately
+1280px through 1600px, the primary heading should fit naturally on one line
+without an authored line break. Its measure narrows responsively and retains
+balanced natural wrapping at smaller widths. Supporting copy retains a readable
+maximum measure and remains restrained. Body text elsewhere is not globally
+centered.
+
 ### 8.2 Featured Research
 
 Display one primary research item and up to three supporting items.
@@ -274,13 +289,27 @@ Each item should show:
 - Reading time or report length
 - Disclosure status when applicable
 
-### 8.3 Research, Engineering, Security
+### 8.3 Institutional Focus
 
-A three-part explanatory section should describe the relationship between the three pillars.
+A three-part explanatory section should use the following equal concepts:
 
-- Research creates understanding.
-- Engineering applies understanding.
-- Security creates freedom.
+1. Our work
+2. Vision
+3. Research, engineering, and education
+
+Use the governing group heading “Mission.” It must carry greater visual weight
+than the three supporting headings. At wide widths, render three equal columns
+rather than a two-over-one card arrangement. Each pillar uses one same-size,
+same-stroke decorative accent line icon centered above its centered heading:
+a three-person figure for Our work, a magnifying glass for Vision, and an
+abstract prism, diamond, or geometric triangle for Research, engineering, and
+education. Icons are `aria-hidden`, use the existing accent token, and require
+no icon dependency. Explanatory prose remains left-aligned. Use spacing or
+subtle dividers rather than three heavy boxes. The composition stacks in
+logical source order at smaller widths.
+
+The approved pillar icons do not relax the prohibition on shields, locks,
+hacker imagery, ornamental cybersecurity clichés, or decorative animation.
 
 ### 8.4 Current Work
 
@@ -351,16 +380,25 @@ Required content:
 - How security creates freedom
 - Link to the Ethos
 
+The Mission page uses a centered breadcrumb region and centered introduction,
+followed by a wide three-column composition for Our work, Vision, and Research,
+engineering, and education. Paragraph text remains left-aligned. Approved
+organizational principles and the Ethos link remain part of the page and may
+use a full-width concluding region.
+
 ## 9.2 Research Index
 
 Required features:
 
 - Featured research
 - Chronological archive
-- Filters by topic
-- Filters by format
-- Filters by year
-- Search
+- Static topic filtering through `/research/topics` and
+  `/research/topics/[slug]`
+- Ordinary links to statically generated views; no client-side filtering
+- Format, year, and status remain visible as research metadata but do not
+  require separate filter routes while only one public report exists
+- Search is explicitly deferred and omitted from Phase 7 under Architecture
+  Decision 14
 - Clear distinction between completed, active, and archived work
 
 Each card must show:
@@ -372,6 +410,12 @@ Each card must show:
 - Topic
 - Format
 - Status
+
+The Research introduction is centered within a restrained measure. The
+featured report uses a wide publication-panel treatment with left-aligned
+content and the complete approved metadata. It must not be constrained to the
+standard multi-card archive width. Search, subscription prompts, client-side
+filters, and unsupported update-signup calls to action remain prohibited.
 
 ## 9.3 Research Detail Page
 
@@ -396,6 +440,15 @@ Required fields:
 - Related work
 - Change history
 
+For the first public report, the research model must also preserve:
+
+- Publication note
+- Author affiliation
+- Publication version
+- Original downloadable DOCX artifact
+- Keywords
+- Evaluation claims matrix
+
 Optional fields:
 
 - CVE identifiers
@@ -412,6 +465,67 @@ Research pages must clearly distinguish:
 - Inferences
 - Opinions
 - Open questions
+
+When no other eligible public research exists, omit Related Research entirely.
+Do not render fixture content, placeholder cards, or invented publications.
+
+## 9.3.1 Phase 7 Static Research Discovery
+
+Phase 7 owns:
+
+- `/research`
+- `/research/[slug]`
+- `/research/topics`
+- `/research/topics/[slug]`
+
+Topic pages are generated at build time from the existing validated topic
+registry and approved public research only. Topic links are the Phase 7
+research-filtering mechanism. They use ordinary links and require no browser
+state, runtime query service, search index, or client-side filtering
+application.
+
+Search remains deferred. Phase 7 must not add full-text search, a search input,
+a search index, client-side search, runtime search, or a third-party search
+service. Broader cross-collection discovery remains a later-phase concern and
+must consume, not duplicate, the Phase 7 research topic pages.
+
+## 9.3.2 First Approved Public Report
+
+The first public Phase 7 report is:
+
+- Title: Secure Transaction Authorization Ledger
+- Subtitle: A Design-and-Build Case Study in Transaction-Bound Approval,
+  Explainable Risk Scoring, and Tamper-Evident Authorization Evidence
+- Author: Matthew T. Aston
+- Affiliation: Master of Science in Computer Science, Cybersecurity, Troy
+  University
+- Project: CS6625 Secure Transaction Authorization Ledger
+- Publication and revision date: 2026-07-01
+- Revision: 1.0
+- Visibility: public
+- Publication status: published
+- Research type: case-study
+- Disclosure status: not-applicable
+- Featured: true
+- Slug: `secure-transaction-authorization-ledger`
+
+The owner approved this report for public release. Its `not-applicable`
+disclosure status records that it documents a synthetic graduate
+secure-systems prototype and does not disclose a vulnerability affecting an
+external organization or product.
+
+The canonical author manuscript and approved public download is:
+
+```text
+public/downloads/research/secure-transaction-authorization-ledger/Secure_Transaction_Authorization_Ledger_Case_Study.docx
+```
+
+The MDX representation is an editorial web transformation. It must preserve
+the manuscript's meaning, technical claims, qualifications, references,
+limitations, attribution, publication note, and evaluation claims. Phase 7
+does not add DOCX ingestion automation, conversion services, an editorial
+workflow system, Google Docs integration, PDF generation, or a general
+academic publishing platform.
 
 ## 9.4 Projects Index
 
@@ -758,6 +872,12 @@ Requirements:
 - Responsive grid
 - Minimal visual noise
 - Reusable page templates
+
+Desktop and laptop composition must distinguish between the institutional
+canvas and the reading measure. Introductions may be centered; long-form prose
+and card body text remain left-aligned. Reusable layout patterns should support
+centered introductions, balanced two- and three-column regions, wide feature
+sections, and full-width cards without arbitrary offsets.
 
 ---
 

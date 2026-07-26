@@ -1,4 +1,5 @@
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
+import path from "node:path";
 
 import {
   generateResearchRss,
@@ -42,6 +43,22 @@ for (const item of research) {
     throw new Error(
       `${item.filePath}: non-public content entered a generated public output`,
     );
+  }
+
+  if (item.metadata.artifact) {
+    const artifactPath = path.join(
+      process.cwd(),
+      "public",
+      item.metadata.artifact.path,
+    );
+    try {
+      await access(artifactPath);
+    } catch (error) {
+      throw new Error(
+        `${item.filePath}: downloadable artifact does not exist at ${artifactPath}`,
+        { cause: error },
+      );
+    }
   }
 }
 

@@ -149,8 +149,9 @@ resources, change DNS, or assume an API or server runtime.
 ## Deferred work
 
 - Final font loading and the complete design-token system (Phase 2)
-- Shared site shell, seven-item navigation, mobile navigation, footer,
-  and skip link (Phase 3)
+- Shared site shell, the then-approved seven-item navigation, mobile
+  navigation, footer, and skip link (Phase 3); current public navigation was
+  subsequently refined to five items in Phase 7.1
 - Minimum component library required by the research slice (Phase 4)
 - Complete research-content vertical slice (Phase 5)
 - Institutional pages and production content (Phase 6 onward)

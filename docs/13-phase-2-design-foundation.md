@@ -78,8 +78,9 @@ client-side library, or third-party script is introduced.
 
 ## Deferred work
 
-- Shared site shell, header, seven-item navigation, mobile navigation,
-  footer, skip link, and breadcrumbs (Phase 3)
+- Shared site shell, header, the then-approved seven-item navigation, mobile
+  navigation, footer, skip link, and breadcrumbs (Phase 3); current public
+  navigation was subsequently refined to five items in Phase 7.1
 - Project-native component library required by the first research slice
   (Phase 4)
 - Complete research-content vertical slice (Phase 5)

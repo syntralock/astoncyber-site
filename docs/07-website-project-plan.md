@@ -379,23 +379,85 @@ Make research the strongest content experience on the site.
 - [ ] Downloadable artifacts
 - [ ] Related research
 - [ ] Revision history
-- [ ] Research filters
-- [ ] Topic pages
+- [ ] Static topic filtering through ordinary links
+- [ ] Static `/research/topics` and `/research/topics/[slug]` pages
 - [ ] Research status labels
+- [ ] Publish the owner-approved Secure Transaction Authorization Ledger case
+      study and its original DOCX artifact
+- [ ] Preserve public, draft, and fixture visibility boundaries
 
 ## Deliverables
 
 - Research archive
 - Research detail template
 - At least one complete example report
+- Original downloadable artifact for the approved report
 
 ## Acceptance Criteria
 
 - Research claims, limitations, and status are clearly separated.
 - Citation information is present.
 - Disclosure status is visible.
-- Filters work and have shareable URLs.
+- Topic filters use statically generated, shareable URLs.
+- Search is absent.
+- The approved report and DOCX artifact are public; drafts and fixtures remain
+  excluded.
 - Research pages are readable in print.
+
+Phase 7 search is explicitly out of scope. Static research discovery is
+limited to the approved research index and topic routes. Format, year, and
+status remain visible metadata and may gain dedicated static views only after a
+documented content-volume review.
+
+When the approved report has no other eligible public related research, omit
+the Related Research section. Do not publish placeholders or fixtures.
+
+## Phase 7.1: Desktop Composition and Navigation Refinement
+
+**Scope:** A focused refinement within Phase 7, not a new product capability.
+
+### Tasks
+
+- [ ] Center homepage, Mission, and Research page introductions while keeping
+      prose left-aligned
+- [ ] Add reusable wide-feature and balanced two-/three-column composition
+      patterns using existing tokens
+- [ ] Replace the homepage two-over-one focus cards with three equal columns
+- [ ] Compose Mission content across three balanced desktop columns
+- [ ] Give featured research a wide flagship publication treatment
+- [ ] Integrate a concise homepage contact band linked to `/contact`
+- [ ] Publish Home, Research, Projects, Labs, and About as the exact current
+      primary navigation
+- [ ] Remove Mission from primary navigation while retaining `/mission` as a
+      secondary published institutional page
+- [ ] Remove Writing from public navigation
+- [ ] Hide Speaking from public navigation until approved content exists
+- [ ] Rename the homepage focus group to Mission and add three approved
+      decorative line icons without a dependency
+- [ ] Allow the homepage hero heading to fit naturally on one line at common
+      desktop widths without a hard-coded break
+- [ ] Remove the redundant inline Contact link from About
+- [ ] Preserve mobile behavior, static generation, print behavior, and the
+      Phase 7 publication boundary
+
+### Acceptance Criteria
+
+- Introductions are balanced on laptop and desktop canvases without globally
+  centering prose.
+- Featured research uses the available institutional width and retains all
+  approved metadata.
+- Homepage and Mission focus regions use three equal columns at wide widths and
+  logical single-column source order on small screens.
+- Public primary navigation contains Home, Research, Projects, Labs, and
+  About on desktop, mobile, and footer surfaces.
+- Mission remains published and directly accessible but is absent from primary
+  navigation.
+- The homepage Mission heading governs three icon-supported pillars, retains one
+  H1, and uses no icon library.
+- No search, contact form, newsletter, subscription capability, service,
+  dependency, or new Client Component is introduced.
+- Layout remains usable at 200% zoom and has no horizontal overflow at the
+  documented review widths.
 
 ---
 
@@ -456,7 +518,7 @@ Complete the remaining major content areas.
 
 ---
 
-# Phase 9: Search and Discovery
+# Phase 9: Search and Cross-Collection Discovery
 
 **Status:** Deferred until content volume demonstrates a clear need.
 
@@ -475,7 +537,7 @@ the original plan.
 - [ ] Index summaries
 - [ ] Index authors and contributors
 - [ ] Index topics and tags
-- [ ] Add research filters
+- [ ] Reuse Phase 7 research topic pages rather than duplicating them
 - [ ] Add writing filters
 - [ ] Add project filters
 - [ ] Add pagination
@@ -739,9 +801,9 @@ Includes Projects, Writing, Labs, Speaking, and People.
 
 ### Package I: Search and Metadata
 
-Includes topic pages, SEO, structured data, and social previews. Search
-is added only after content volume demonstrates a clear need and a
-separate review approves it.
+Includes cross-collection discovery, SEO, structured data, and social
+previews. Phase 7 owns the research topic pages. Search is added only after
+content volume demonstrates a clear need and a separate review approves it.
 
 ### Package J: Hardening and Launch
 

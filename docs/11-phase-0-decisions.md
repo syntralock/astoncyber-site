@@ -65,15 +65,22 @@ Final SVG, monochrome, favicon, and brand-guide assets are pre-launch requiremen
 
 ## Navigation
 
-The primary navigation contains exactly seven items:
+The current public primary navigation contains exactly five items:
 
-1. Mission
+1. Home
 2. Research
 3. Projects
-4. Writing
-5. Labs
-6. Speaking
-7. About
+4. Labs
+5. About
+
+Home links to `/`. Mission remains a published secondary institutional page at
+`/mission`, reachable through contextual links and direct URL, but is not part
+of primary navigation.
+
+Writing remains a future collection but is removed from current public
+navigation. Speaking remains a future collection and is hidden until approved
+public speaking content exists. The centralized navigation configuration must
+apply this decision consistently to desktop, mobile, and footer navigation.
 
 Ethos must be prominently linked from Mission and the footer, but it is not a primary navigation item.
 
@@ -131,10 +138,6 @@ Security remains continuous throughout later phases; moving the baseline into Ph
 The following decisions do not block the start of Phase 1 but require an owner before their related milestone:
 
 - Approve the final logo package and brand usage guide before launch.
-- Approve the first complete real research publication and its disclosure
-  status before public release. The Phase 5 technical fixture does not satisfy
-  or weaken this requirement and does not replace the complete public research
-  experience.
 - Decide whether a future light theme will be exposed to users; it is not part of the initial release.
 - Reassess search only after the content library demonstrates a measurable discovery need.
 
@@ -161,3 +164,34 @@ The following decisions do not block the start of Phase 1 but require an owner b
   safe-harbor commitment, or waiver is implied.
 - No photography, generated imagery, placeholder portraits, decorative hero
   imagery, or other unapproved imagery is part of Phase 6.
+
+## Phase 7 Research Publication
+
+- The Secure Transaction Authorization Ledger case study is the first
+  owner-approved public research report.
+- Its approved metadata, public visibility, `not-applicable` disclosure status,
+  and canonical DOCX path are recorded in `06-website-specification.md`.
+- Phase 7 owns the static research index, detail route, topic index, and topic
+  detail routes.
+- Topic filtering uses ordinary links and build-time public content only.
+- Search remains deferred under Architecture Decision 14.
+- Related Research is omitted while no other eligible public report exists.
+- The Phase 5 fixture and all drafts remain excluded from publication surfaces.
+- The canonical DOCX is distributed unchanged. The MDX version must preserve
+  its claims, qualifications, references, limitations, attribution, and
+  publication note.
+- DOCX ingestion automation, PDF generation, companion-article automation, and
+  broader editorial workflow systems are not Phase 7 work.
+
+## Phase 7.1 Composition Refinement
+
+- Center page introductions while retaining left-aligned readable prose.
+- Use balanced desktop grids and wide feature regions rather than leaving
+  narrow content attached to the left side of a wide institutional canvas.
+- Homepage and Mission focus content use three equal columns at wide widths.
+- Featured research uses a wide flagship treatment.
+- The homepage contact callout links to `/contact`; it adds no form or email
+  exposure.
+- No newsletter, subscription destination, search, new service, or
+  cybersecurity cliché iconography is approved.
+- Mobile behavior and 200% zoom usability must be preserved.

@@ -24,11 +24,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
-- 12–17 – Phase implementation records
+- 12–19 – Phase implementation records
 
 ## Current Status
 
-**Current Phase:** Phase 6 Institutional Pages
+**Current Phase:** Phase 7.1 Desktop Composition and Navigation Refinement
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
@@ -40,9 +40,15 @@ approved for the first research-content vertical slice. Phase 5 adds the
 validated, repository-based research content engine, a non-public technical
 fixture, and public-only RSS and sitemap generation. Phase 6 publishes the
 approved institutional page set with direct email contact, a neutral People
-empty state, and reusable person-profile architecture. No real research
-publication, public person profile, contact form, or Phase 7 experience has
-been introduced.
+empty state, and reusable person-profile architecture. Phase 7 publishes the
+owner-approved Secure Transaction Authorization Ledger case study, its
+original DOCX manuscript, a static research index, and taxonomy-derived topic
+pages. Search, client-side filtering, public person profiles, and contact forms
+remain deferred. Phase 7.1 refines the desktop composition of the homepage,
+Mission page, and Research index; promotes the first report as flagship work;
+and limits public primary navigation to Home, Research, Projects, Labs, and
+About while preserving the successful mobile experience. Mission remains a
+published secondary institutional page.
 
 ## Engineering Principles
 
@@ -89,10 +95,11 @@ The production build is a static export in `out/`. Use `pnpm start` to
 preview that export locally after `pnpm build`.
 
 `pnpm validate:content` validates every research MDX file, resolves author,
-contributor, topic, and tag references, compiles the safe MDX fixture, and
-checks that non-public content cannot enter RSS or sitemap output. Content uses
-the required `visibility` values `public`, `draft`, or `fixture`; only
-owner-approved `public` items are returned by production-facing loaders.
+contributor, topic, and tag references, compiles safe MDX, verifies referenced
+download artifacts, and checks that non-public content cannot enter RSS or
+sitemap output. Content uses the required `visibility` values `public`,
+`draft`, or `fixture`; only owner-approved `public` items are returned by
+production-facing loaders.
 
 ## Contribution Workflow
 

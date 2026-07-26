@@ -255,6 +255,86 @@ approved email links for contact.
 
 ---
 
+# Decision 17 — Phase 7 Static Research Publication
+
+**Decision:** Publish the owner-approved Secure Transaction Authorization
+Ledger case study through a fully static research experience.
+
+**Requirements:**
+- Public research routes are `/research`, `/research/[slug]`,
+  `/research/topics`, and `/research/topics/[slug]`.
+- Research topic pages and filtering use ordinary links and statically
+  generated public content.
+- Search remains deferred under Decision 14. Phase 7 adds no search input,
+  index, runtime service, third-party service, or client-side search.
+- The approved public report uses `visibility: public`,
+  `status: published`, `research_type: case-study`, and
+  `disclosure_status: not-applicable`.
+- The canonical DOCX remains the original downloadable artifact; the MDX
+  version is a faithful editorial transformation for the web.
+- Related Research is omitted when no other eligible public report exists.
+- Draft and fixture exclusion remains unchanged across routes, loaders, RSS,
+  sitemap output, and topic pages.
+
+**Consequences:**
+- Phase 7 needs no runtime service, new client-side state, or search
+  dependency.
+- The research schema may expand only for manuscript fields required by the
+  approved publication, including subtitle, affiliation, project, revision,
+  keywords, and the downloadable artifact.
+- A future discovery phase may enhance cross-collection navigation but must
+  not duplicate ownership of research topic pages.
+- DOCX ingestion automation, PDF generation, companion-article automation, and
+  general editorial workflow infrastructure remain out of scope.
+
+**Date adopted:** 2026-07-26
+
+---
+
+# Decision 18 — Phase 7.1 Responsive Composition and Public Navigation
+
+**Decision:** Refine the existing institutional and research presentation with
+reusable responsive composition patterns while narrowing current public
+navigation to approved destinations.
+
+**Requirements:**
+
+- Center concise page introductions but retain left-aligned long-form prose,
+  card content, and metadata.
+- Use the existing institutional container, reading measures, spacing scale,
+  and breakpoints for balanced two-/three-column and wide-feature patterns.
+- Homepage and Mission focus content uses three equal columns at wide widths.
+- Featured research uses a wide flagship panel.
+- Current public primary navigation is Home, Research, Projects, Labs, and
+  About. Mission remains a published secondary institutional route. Writing is
+  removed; Speaking remains withheld until approved content exists.
+- Desktop, mobile, and footer navigation share the centralized publication
+  state.
+- Preserve static export, Server Components, mobile behavior, print behavior,
+  and 200% zoom usability.
+- Add no form, subscription capability, search, service, dependency, Client
+  Component, or cliché cybersecurity iconography.
+
+**Consequences:**
+
+- This is a presentation refinement, not a new application phase or content
+  architecture.
+- Future Writing and Speaking routes and collections remain Phase 8 work even
+  though they are absent from current public navigation.
+- Contact remains a link to the existing static Contact page.
+- The homepage Mission group may use three project-native, decorative,
+  `aria-hidden` line icons for the approved pillar concepts. This narrow
+  approval does not permit cliché cybersecurity iconography or an icon
+  dependency.
+- The hero heading uses a wider responsive measure rather than an authored line
+  break so it fits one line at common desktop widths.
+- The About page relies on the global footer for Contact and omits a duplicate
+  inline link.
+
+**Date adopted:** 2026-07-26
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.
@@ -288,6 +368,9 @@ Each new decision should include:
 - Content visibility: Explicit `public`, `draft`, and non-public `fixture`
   states; only `public` content enters publication surfaces
 - Phase 6 contact: Static direct email links only; no form or inquiry service
+- Phase 7 research: Static public index, detail, and topic routes; no search
+- Phase 7.1 navigation: Home, Research, Projects, Labs, and About; Mission is a
+  published secondary route
 - Repository: GitHub
 - Database: None
 - CMS: None

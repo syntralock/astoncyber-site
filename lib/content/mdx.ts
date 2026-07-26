@@ -100,6 +100,15 @@ export async function compileSafeMdx(source: string) {
 
 export async function evaluateSafeMdx(source: string) {
   const { body, metadata } = parseResearchSource(source);
+  const evaluated = await evaluateSafeMdxBody(body);
+
+  return {
+    ...evaluated,
+    metadata,
+  };
+}
+
+export async function evaluateSafeMdxBody(body: string) {
   const evaluated = await evaluate(body, {
     ...runtime,
     baseUrl: import.meta.url,
@@ -108,6 +117,5 @@ export async function evaluateSafeMdx(source: string) {
 
   return {
     Content: evaluated.default,
-    metadata,
   };
 }

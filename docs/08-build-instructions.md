@@ -410,9 +410,30 @@ Build research in this order:
 12. Revision history
 13. Downloads
 14. Related research
-15. Filters
+15. Static topic filtering
 
-Create one complete research example before creating multiple placeholder reports.
+Phase 7 research routes are:
+
+```text
+/research
+/research/[slug]
+/research/topics
+/research/topics/[slug]
+```
+
+Generate every route at build time from approved public research and the
+existing topic registry. Use ordinary links. Do not add a client-side filtering
+application, runtime query service, search index, or browser search code.
+
+Search is omitted from Phase 7 under Architecture Decision 14. Format, year,
+and status remain visible metadata; dedicated filter routes are deferred until
+a documented content-volume review justifies them.
+
+Create the owner-approved Secure Transaction Authorization Ledger report from
+its canonical DOCX manuscript. Preserve the original DOCX at its approved
+public download path. Do not create additional placeholder reports.
+
+Omit Related Research when no other eligible public report exists.
 
 Checkpoint:
 
@@ -420,6 +441,35 @@ Checkpoint:
 - Disclosure status is visible.
 - References and citation details are complete.
 - Research pages print cleanly.
+
+## Step 10.1: Refine Institutional Desktop Composition
+
+Before Phase 7 approval, refine the existing homepage, Mission page, Research
+index, and shared navigation without expanding the product scope:
+
+1. Use centered, restrained introductions within the institutional container.
+2. Keep long-form and card body text left-aligned.
+3. Use three equal wide-screen columns for homepage and Mission focus content.
+4. Use a wide flagship panel for the featured public report.
+5. Keep the homepage contact treatment as a concise link to `/contact`; do not
+   add a form or expose additional addresses there.
+6. Publish only Home, Research, Projects, Labs, and About in primary
+   navigation. Retain `/mission` as a secondary published route, and retain
+   future Writing and Speaking architecture without publishing those
+   destinations.
+7. Use Mission as the homepage three-pillar group heading. Add only the three
+   approved same-weight decorative line icons using project-native SVG; keep
+   them `aria-hidden` and add no icon dependency.
+8. Widen the homepage hero heading measure so it naturally fits one line at
+   common 1280px–1600px desktop widths without an authored line break.
+9. Remove the redundant inline Contact link from About while retaining Contact
+   in the global footer.
+10. Use existing spacing, width, typography, color, surface, and breakpoint
+    tokens. Do not add cybersecurity cliché imagery.
+11. Verify 375px, 768px, 1280px, 1440px, 1600px, and 200% zoom behavior.
+
+Do not add search, runtime filtering, pagination, newsletter or subscription
+functionality, a contact form, or a new runtime service.
 
 ---
 
@@ -446,11 +496,12 @@ Checkpoint:
 
 ---
 
-# Step 12: Add Search and Topic Discovery
+# Step 12: Add Search and Cross-Collection Discovery
 
 Site search is deferred until content volume demonstrates a clear need.
-Implement topic navigation and chronological archives first. Revisit the
-steps below only after a documented review approves search.
+Phase 7 already owns static research topic navigation. Reuse those pages and
+implement chronological archives first. Revisit the steps below only after a
+documented review approves search.
 
 Index:
 
@@ -464,7 +515,8 @@ Index:
 Add:
 
 - Search page
-- Topic pages
+- Cross-collection topic discovery that links to, rather than duplicates,
+  Phase 7 research topic pages
 - Shareable filtered URLs
 - Pagination
 - No-results state

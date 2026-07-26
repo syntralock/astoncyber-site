@@ -284,6 +284,10 @@ a {
   width: min(100%, var(--width-narrow));
 }
 
+.wide-feature {
+  width: 100%;
+}
+
 .layout-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -305,6 +309,11 @@ a {
 
 .institutional-page-content {
   width: min(100%, var(--width-narrow));
+  margin-inline: auto;
+}
+
+.institutional-page-content-wide {
+  width: 100%;
 }
 
 .editorial-prose {
@@ -333,8 +342,160 @@ a {
   border-bottom: var(--border-thin) solid var(--color-border);
 }
 
+.page-introduction,
+.section-introduction {
+  max-width: var(--width-lead);
+}
+
+.page-introduction-actions {
+  align-self: flex-start;
+}
+
+.layout-three {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+}
+
+.focus-grid,
+.mission-focus {
+  align-items: stretch;
+}
+
+.focus-item {
+  min-width: 0;
+  padding-block: var(--space-6);
+  border-top: var(--border-thin) solid var(--color-border);
+}
+
+.pillar-icon {
+  width: var(--space-10);
+  height: var(--space-10);
+  margin-inline: auto;
+  color: var(--color-accent);
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.section-heading-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-band {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mission-principles {
+  width: 100%;
+}
+
+.mission-conclusion {
+  display: flex;
+}
+
 .person-profile {
   width: min(100%, var(--width-narrow));
+}
+
+.research-page {
+  padding-bottom: var(--space-20);
+}
+
+.research-archive,
+.research-topic-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+}
+
+.research-archive-featured {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.content-card-featured .type-h3 {
+  max-width: 32ch;
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+
+.content-card-featured .type-body {
+  max-width: var(--width-lead);
+}
+
+.research-publication-note {
+  border-left: var(--border-emphasis) solid var(--color-accent);
+}
+
+.research-body {
+  width: min(100%, var(--width-reading));
+}
+
+.research-body > * + * {
+  margin-top: var(--space-4);
+}
+
+.research-body > h2 {
+  margin-top: var(--space-16);
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 600;
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+
+.research-body > h3 {
+  margin-top: var(--space-10);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h3);
+}
+
+.research-body p {
+  line-height: var(--leading-body);
+}
+
+.research-body a {
+  color: var(--color-accent);
+}
+
+.research-body a:hover {
+  color: var(--color-accent-hover);
+}
+
+.research-body ul,
+.research-body ol {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-6);
+}
+
+.research-body li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.research-body pre {
+  max-width: 100%;
+  padding: var(--space-4);
+  overflow-x: auto;
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+.research-download {
+  width: min(100%, var(--width-reading));
 }
 
 .stack-sm,
@@ -798,6 +959,10 @@ a {
   color: var(--color-success);
 }
 
+.status-published {
+  color: var(--color-success);
+}
+
 .status-preliminary {
   color: var(--color-warning);
 }
@@ -981,9 +1146,64 @@ a {
     gap: var(--space-8);
   }
 
+  .page-introduction,
+  .section-introduction {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .page-introduction .type-hero,
+  .page-introduction .type-h1,
+  .page-introduction .type-lead,
+  .section-introduction .type-h2 {
+    margin-inline: auto;
+  }
+
+  .page-introduction-actions {
+    align-self: center;
+    justify-content: center;
+  }
+
+  .institutional-page > .breadcrumbs,
+  .research-page > .breadcrumbs {
+    width: min(100%, var(--width-narrow));
+    margin-inline: auto;
+  }
+
+  .institutional-page-header {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .institutional-page-header .type-h1,
+  .institutional-page-header .type-lead {
+    margin-inline: auto;
+  }
+
+  .section-heading-row,
+  .contact-band {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mission-conclusion {
+    justify-content: center;
+  }
+
   .institutional-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-8);
+  }
+
+  .research-archive,
+  .research-topic-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .research-archive-featured {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .component-card-grid {
@@ -993,6 +1213,84 @@ a {
 
   .section-space {
     padding-block: var(--space-24);
+  }
+}
+
+@media (min-width: 64rem) {
+  .homepage-hero {
+    max-width: var(--width-content);
+  }
+
+  .homepage-hero .type-hero {
+    max-width: none;
+  }
+
+  .layout-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .focus-item {
+    padding: var(--space-8);
+    border-top: 0;
+    border-left: var(--border-thin) solid var(--color-border);
+  }
+
+  .focus-item:first-child {
+    border-left: 0;
+  }
+
+  .focus-item-heading {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .mission-principles-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-10);
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .breadcrumbs,
+  .skip-link {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .research-page,
+  .research-body,
+  .layout-reading {
+    width: 100%;
+    max-width: none;
+  }
+
+  .research-body a {
+    color: black;
+  }
+
+  .research-page .type-h1,
+  .research-page .type-h2,
+  .research-page .type-h3,
+  .research-page .type-h4,
+  .research-page .text-foreground-secondary,
+  .research-page .text-foreground-muted,
+  .research-page .text-accent {
+    color: black;
+  }
+
+  .research-page .surface-base,
+  .research-page .surface-raised,
+  .research-body pre {
+    border-color: black;
+    background: white;
+    box-shadow: none;
   }
 }
 

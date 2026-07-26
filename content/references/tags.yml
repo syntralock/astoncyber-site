@@ -1,2 +1,10 @@
 - id: technical-fixture
   label: Technical fixture
+- id: explainable-risk-scoring
+  label: Explainable risk scoring
+- id: hash-chain
+  label: Hash chain
+- id: human-in-the-loop-security
+  label: Human-in-the-loop security
+- id: sha-256
+  label: SHA-256

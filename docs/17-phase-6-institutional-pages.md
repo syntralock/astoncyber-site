@@ -2,11 +2,13 @@
 
 ## Status
 
-Phase 6 institutional pages implemented for review. Phase 7 has not begun.
+This document records the Phase 6 completion state, when Phase 7 had not yet
+begun. The current Phase 7 state is recorded in
+`docs/18-phase-7-research-experience.md`.
 
 ## Implemented scope
 
-Phase 6 publishes the approved static institutional page set:
+At Phase 6 completion, the approved static institutional page set comprised:
 
 - Homepage
 - Mission
@@ -18,11 +20,12 @@ Phase 6 publishes the approved static institutional page set:
 - Privacy
 - Responsible disclosure
 
-The homepage introduces Aston Cyber as an organization, explains the
-documented research, engineering, and security relationship, and links to the
+The Phase 6 homepage introduced Aston Cyber as an organization, explained the
+documented research, engineering, and security relationship, and linked to the
 institutional pages and contact information. It intentionally omits featured
 research, current work, projects, and selected writing because no public
-content is approved.
+content was then approved. Phase 7 subsequently added the first approved
+featured research item without changing the institutional narrative.
 
 The People index uses a neutral editorial empty state. A typed, reusable
 `PersonProfile` component establishes the future profile template, but Phase 6
@@ -145,14 +148,16 @@ additional runtime or transitive cost.
 
 ## Known limitations and deferred work
 
-- First owner-approved research publication and the complete public research
-  experience (Phase 7)
-- Featured research, current work, projects, and selected writing on the
-  homepage until their public content is approved
+- The first owner-approved research publication and public research experience
+  were deferred to and completed in Phase 7.
+- Current work, projects, and selected writing on the homepage remain deferred
+  until their public content is approved.
 - Actual person content and public profile routes until owner-approved source
   material is supplied
 - Projects, Writing, Labs, and Speaking experiences (Phase 8)
-- Topic discovery and any separately approved search experience (Phase 9)
+- Public research topic pages and static topic filtering (Phase 7);
+  cross-collection discovery and any separately approved search experience
+  remain Phase 9
 - Complete SEO, social previews, structured data, and metadata validation
   (Phase 10)
 - Deployed security and privacy hardening, operational monitoring, and

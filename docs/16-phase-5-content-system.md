@@ -67,9 +67,8 @@ reference fails with the source file and missing identifier.
 
 `visibility` is the publication boundary:
 
-- `public` requires `published_at` and `disclosure_status`, cannot use the
-  technical-validation research status, and is eligible for public loaders and
-  generated output.
+- `public` requires `status: published`, `published_at`, and
+  `disclosure_status`; it is eligible for public loaders and generated output.
 - `draft` remains ordinary authoring work and is excluded from every
   production-facing loader and generated output.
 - `fixture` requires `status: technical-validation`, cannot define
@@ -122,7 +121,7 @@ title: Approved publication title
 slug: approved-publication-title
 summary: Owner-approved publication summary.
 research_type: technical-report
-status: completed
+status: published
 visibility: public
 published_at: 2026-07-25
 updated_at: 2026-07-25
@@ -174,8 +173,8 @@ date, featured fixture, publisher, and unresolved references.
 
 ## Draft and generated-output behavior
 
-The production-facing loader returns only `visibility: public` items. The
-current repository contains no approved public research, so:
+The production-facing loader returns only `visibility: public` items. At Phase
+5 completion the repository contained no approved public research, so:
 
 - RSS is a valid feed with no item entries.
 - Sitemap contains the existing root page and no research entries.
@@ -184,6 +183,8 @@ current repository contains no approved public research, so:
 
 The Next.js metadata route and static RSS route are generated during the
 existing static export. They use no runtime service or browser JavaScript.
+Phase 7 subsequently added the first approved public report; its current
+publication behavior is recorded in `docs/18-phase-7-research-experience.md`.
 
 ## Validation
 
@@ -238,18 +239,19 @@ The fixture exercises the existing semantic Research Card and a shared detail
 composition using article, header, heading, metadata definition-list, aside,
 and footer elements. The Callout uses an `aside` with an optional real heading.
 No new interaction or browser JavaScript was introduced. Public page-level
-accessibility and research-template review remain Phase 7 work.
+accessibility and research-template review were deferred to and completed in
+Phase 7.
 
 ## Known limitations and deferred work
 
-- Owner approval of the first real publication and disclosure status
-- Public research index and detail routes, complete research template,
-  disclosure presentation, references, downloads, revision history, filters,
-  and print review (Phase 7)
+- The public research index and detail routes, complete research template,
+  disclosure presentation, references, download, revision metadata, static
+  topic views, and print treatment were deferred to and completed in Phase 7.
 - Projects, Writing, Labs, Speaking, and People collections and interfaces
   (Phase 8)
-- Topic landing pages, pagination, and any separately approved search
-  experience (Phase 9)
+- Public research topic pages and static topic filtering (Phase 7);
+  cross-collection discovery, pagination, and any separately approved search
+  experience remain Phase 9
 - Complete SEO, social previews, structured data, and validation of RSS and
   sitemap in the broader metadata system (Phase 10)
 - Institutional pages and production homepage content (Phase 6)

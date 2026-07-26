@@ -11,10 +11,12 @@ export const researchStatusSchema = z.enum([
   "archived",
   "completed",
   "preliminary",
+  "published",
   "technical-validation",
 ]);
 
 export const researchTypeSchema = z.enum([
+  "case-study",
   "experiment",
   "research-paper",
   "technical-report",
@@ -35,16 +37,35 @@ export const citationSchema = z
   })
   .strict();
 
+export const researchArtifactSchema = z
+  .object({
+    label: z.string().min(1),
+    path: z.string().regex(/^\/downloads\/[a-zA-Z0-9_./-]+$/u),
+    media_type: z.literal(
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ),
+  })
+  .strict();
+
 export const researchMetadataSchema = z
   .object({
     title: z.string().min(1),
+    subtitle: z.string().min(1).optional(),
     slug: contentSlugSchema,
     summary: z.string().min(1),
+    project: z.string().min(1).optional(),
     research_type: researchTypeSchema,
     status: researchStatusSchema,
     visibility: contentVisibilitySchema,
     published_at: z.iso.date().optional(),
     updated_at: z.iso.date().optional(),
+    revision: z
+      .string()
+      .regex(/^\d+\.\d+$/u)
+      .optional(),
+    publication_note: z.string().min(1).optional(),
+    keywords: z.array(z.string().min(1)).default([]),
+    artifact: researchArtifactSchema.optional(),
     authors: z.array(contentSlugSchema).min(1),
     contributors: z.array(contentSlugSchema).default([]),
     topics: z.array(contentSlugSchema).min(1),
@@ -91,6 +112,14 @@ export const researchMetadataSchema = z
           path: ["status"],
         });
       }
+
+      if (metadata.status !== "published") {
+        context.addIssue({
+          code: "custom",
+          message: "public research requires published status",
+          path: ["status"],
+        });
+      }
     }
 
     if (metadata.visibility === "fixture") {
@@ -130,6 +159,7 @@ export const researchMetadataSchema = z
 
 export const authorReferenceSchema = z
   .object({
+    affiliation: z.string().min(1).optional(),
     id: contentSlugSchema,
     name: z.string().min(1),
   })

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { InstitutionalPage } from "@/components/layout/institutional-page";
 import { Heading } from "@/components/ui/heading";
-import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = {
@@ -73,10 +72,6 @@ export default function AboutPage() {
           Aston Cyber does not currently publish a list of funders or sponsors.
         </Text>
       </section>
-
-      <Link href="/contact" variant="standalone">
-        Contact Aston Cyber
-      </Link>
     </InstitutionalPage>
   );
 }

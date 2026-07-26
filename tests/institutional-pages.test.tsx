@@ -37,6 +37,16 @@ describe("institutional pages", () => {
     expect(html).not.toMatch(/<form|<script|<img|<picture/);
   });
 
+  it("keeps Mission to one h1 and its approved three-part composition", () => {
+    const html = renderToStaticMarkup(<MissionPage />);
+
+    expect(html.match(/<h1/g) ?? []).toHaveLength(1);
+    expect(html).toContain("Our work");
+    expect(html).toContain("Vision");
+    expect(html).toContain("Research, engineering, and education");
+    expect(html).toContain("mission-focus");
+  });
+
   it("uses approved direct-email routing without form infrastructure", () => {
     const html = renderToStaticMarkup(<ContactPage />);
 
@@ -51,6 +61,8 @@ describe("institutional pages", () => {
     expect(html).toContain(
       "Aston Cyber does not currently publish a list of funders or sponsors.",
     );
+    expect(html).not.toContain("Contact Aston Cyber");
+    expect(html).not.toContain('href="/contact"');
     expect(html).not.toMatch(/leadership|founder|employee|advisor/i);
   });
 
@@ -91,7 +103,7 @@ describe("person profile architecture", () => {
 });
 
 describe("institutional sitemap", () => {
-  it("includes Phase 6 pages and excludes deferred or non-public surfaces", async () => {
+  it("includes institutional and public research surfaces only", async () => {
     const entries = await sitemap();
     const urls = entries.map((entry) => entry.url);
 
@@ -105,6 +117,11 @@ describe("institutional sitemap", () => {
       "/mission/",
       "/people/",
       "/privacy/",
+      "/research/",
+      "/research/topics/",
+      "/research/topics/secure-software-design/",
+      "/research/topics/transaction-authorization/",
+      "/research/secure-transaction-authorization-ledger/",
     ]) {
       expect(urls).toContain(`https://astoncyber.com${path}`);
     }
@@ -112,7 +129,6 @@ describe("institutional sitemap", () => {
     expect(urls).not.toContain(
       "https://astoncyber.com/research/content-system-technical-fixture/",
     );
-    expect(urls).not.toContain("https://astoncyber.com/research/");
     expect(urls).not.toContain("https://astoncyber.com/projects/");
   });
 });

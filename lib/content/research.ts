@@ -4,7 +4,11 @@ import path from "node:path";
 import { parse } from "yaml";
 import type { ZodType } from "zod";
 
-import { compileSafeMdx, parseResearchSource } from "./mdx.ts";
+import {
+  compileSafeMdx,
+  evaluateSafeMdxBody,
+  parseResearchSource,
+} from "./mdx.ts";
 import {
   authorRegistrySchema,
   type AuthorReference,
@@ -213,6 +217,45 @@ export async function getPublicResearchBySlug(
 ) {
   const items = await getPublicResearch(options);
   return items.find((item) => item.metadata.slug === slug);
+}
+
+export async function getPublicResearchTopics(
+  options: ContentRepositoryOptions = {},
+) {
+  const items = await getPublicResearch(options);
+  const topics = new Map<
+    string,
+    Readonly<{
+      items: readonly ResolvedResearchItem[];
+      topic: TaxonomyReference;
+    }>
+  >();
+
+  for (const item of items) {
+    for (const topic of item.topics) {
+      const current = topics.get(topic.id);
+      topics.set(topic.id, {
+        topic,
+        items: [...(current?.items ?? []), item],
+      });
+    }
+  }
+
+  return [...topics.values()].sort((left, right) =>
+    left.topic.label.localeCompare(right.topic.label),
+  );
+}
+
+export async function getPublicResearchByTopic(
+  slug: string,
+  options: ContentRepositoryOptions = {},
+) {
+  const topics = await getPublicResearchTopics(options);
+  return topics.find(({ topic }) => topic.id === slug);
+}
+
+export async function evaluateResearchBody(item: ResolvedResearchItem) {
+  return evaluateSafeMdxBody(item.body);
 }
 
 export async function validateContentRepository(

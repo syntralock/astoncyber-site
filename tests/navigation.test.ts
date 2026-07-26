@@ -8,16 +8,21 @@ import {
 } from "@/lib/navigation";
 
 describe("canonical navigation", () => {
-  it("matches the approved labels and routes in order", () => {
+  it("publishes the approved five destinations in order", () => {
     expect(primaryNavigation).toEqual([
-      { href: "/mission", label: "Mission" },
+      { href: "/", label: "Home" },
       { href: "/research", label: "Research" },
       { href: "/projects", label: "Projects" },
-      { href: "/writing", label: "Writing" },
       { href: "/labs", label: "Labs" },
-      { href: "/speaking", label: "Speaking" },
+      { href: "/speaking", label: "Speaking", published: false },
       { href: "/about", label: "About" },
     ]);
+
+    expect(
+      getPublishedNavigationItems(primaryNavigation).map(({ label }) => label),
+    ).toEqual(["Home", "Research", "Projects", "Labs", "About"]);
+    expect(JSON.stringify(primaryNavigation)).not.toContain("Mission");
+    expect(JSON.stringify(primaryNavigation)).not.toContain("Writing");
   });
 
   it("marks exact and nested routes active without matching partial names", () => {
@@ -25,6 +30,8 @@ describe("canonical navigation", () => {
     expect(isNavigationItemActive("/research/example", "/research")).toBe(true);
     expect(isNavigationItemActive("/researching", "/research")).toBe(false);
     expect(isNavigationItemActive("/", "/research")).toBe(false);
+    expect(isNavigationItemActive("/", "/")).toBe(true);
+    expect(isNavigationItemActive("/mission", "/")).toBe(false);
   });
 
   it("centralizes footer destinations and filters unpublished items", () => {

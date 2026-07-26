@@ -1,0 +1,326 @@
+---
+title: Secure Transaction Authorization Ledger
+subtitle: A Design-and-Build Case Study in Transaction-Bound Approval, Explainable Risk Scoring, and Tamper-Evident Authorization Evidence
+slug: secure-transaction-authorization-ledger
+summary: A design-and-build case study of a Python prototype that separates authorization from money movement by binding sequential approvals to canonical transaction data, explainable risk scoring, and a tamper-evident ledger.
+project: CS6625 Secure Transaction Authorization Ledger
+research_type: case-study
+status: published
+visibility: public
+published_at: 2026-07-01
+updated_at: 2026-07-01
+revision: "1.0"
+publication_note: This case study documents a graduate secure-systems design and working software prototype. It does not represent a production financial platform, legal opinion, or claim of fraud prevention effectiveness in a live institution.
+keywords:
+  - wire fraud
+  - transaction authorization
+  - secure workflow
+  - hash chain
+  - SHA-256
+  - auditability
+  - human-in-the-loop security
+  - FastAPI
+  - PostgreSQL
+  - explainable risk scoring
+artifact:
+  label: Download the original case study (DOCX)
+  path: /downloads/research/secure-transaction-authorization-ledger/Secure_Transaction_Authorization_Ledger_Case_Study.docx
+  media_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+authors:
+  - matthew-t-aston
+contributors: []
+topics:
+  - transaction-authorization
+  - secure-software-design
+tags:
+  - explainable-risk-scoring
+  - hash-chain
+  - human-in-the-loop-security
+  - sha-256
+featured: true
+disclosure_status: not-applicable
+citation:
+  label: Matthew T. Aston. Secure Transaction Authorization Ledger. Aston Cyber, 2026.
+  publisher: Aston Cyber
+  year: 2026
+---
+
+## Abstract
+
+Wire fraud is often treated as a detection problem, but many successful losses begin as authorization failures. A request appears legitimate, reaches an employee through an expected communication channel, and is processed without reliable proof that the correct parties approved the exact transaction. This case study documents the design and implementation of a Python-based minimum viable product that separates authorization from money movement. The system creates a canonical transaction payload, calculates a SHA-256 transaction hash, applies explainable rule-based risk scoring, enforces sequential approval by a client service associate, client, and advisor, and records each material action in a hash-chained ledger.
+
+The resulting authorization artifact provides a compact, audit-ready record of who approved what, in which order, and against which transaction digest. The project demonstrates that meaningful fraud resistance does not require a public blockchain, machine learning model, or banking integration. A focused workflow can improve control reliability by binding human decisions to immutable transaction details, preserving evidence, and making control failure visible.
+
+**Keywords:** wire fraud, transaction authorization, secure workflow, hash chain, SHA-256, auditability, human-in-the-loop security, FastAPI, PostgreSQL, explainable risk scoring
+
+## 1. Executive overview
+
+Financial transaction fraud is rarely caused by a single failed technology. It is more often the result of a sequence of human decisions made under pressure, with incomplete context, and through controls that are difficult to prove after the fact. An employee receives a plausible request. The recipient information appears reasonable. A callback may be attempted or assumed. Approval may occur in email, chat, or a line-of-business system that does not preserve a transaction-bound record. When the transaction is later questioned, the firm may have evidence that people communicated, but not that the correct parties approved the exact transaction that was executed.
+
+The Secure Transaction Authorization Ledger was designed around that evidence gap. The system does not send funds, connect to a bank, or replace operational judgment. It creates a controlled authorization boundary before money movement occurs. Its core question is simple: Can the firm prove that the correct parties approved this exact transaction under the required controls?
+
+The prototype was developed as a graduate computer science project and implemented as a portable web application using Python, FastAPI, PostgreSQL, SQLAlchemy, Jinja2, Docker, and Docker Compose. The design favors understandable controls over complex infrastructure. Authentication is simulated for demonstration, while the transaction-binding, workflow, risk, ledger, and artifact concepts are implemented as working application behavior.
+
+## 2. Problem context
+
+### 2.1 Fraud as an authorization failure
+
+Business email compromise, impersonation, urgency, and altered payment instructions remain effective because attackers exploit normal business behavior. They do not always need to defeat encryption or compromise a core banking platform. They need a person to accept a request, overlook an inconsistency, or treat a familiar communication channel as sufficient proof.
+
+The FBI Internet Crime Complaint Center reported $16.6 billion in total complaint-reported losses during 2024. The broader loss environment establishes that payment fraud and social engineering remain material business risks, even though complaint data does not represent every incident or prove the effectiveness of any single control [1].
+
+For financial institutions and advisory firms, the problem is not only whether an instruction was malicious. It is whether the organization can reconstruct the decision process, demonstrate that required approvals occurred, and show that those approvals applied to the same transaction details ultimately released for execution.
+
+### 2.2 Control gaps addressed
+
+- **Approval is separated from transaction details.** A person may approve a general request while key fields change later. The design response is to create a canonical payload and bind approvals to its SHA-256 hash.
+- **Approval order is informal.** A later approver may assume an earlier review occurred. The design response is to enforce a state machine and sequential role-based workflow.
+- **Risk signals are implicit.** Urgency, new recipients, and unusual amounts may be noticed inconsistently. The design response is to calculate a transparent score with named rules and visible reasons.
+- **Audit evidence is scattered.** Email, chat, and application records require manual reconstruction. The design response is to generate one authorization artifact backed by ledger events.
+- **Logs can be altered without obvious evidence.** A modified record may appear legitimate unless independently compared. The design response is to chain events using the previous event hash and validate the ledger.
+
+## 3. Research question and objectives
+
+**Primary research question:** Can a lightweight, cloud-agnostic authorization platform provide verifiable evidence that the correct parties approved the exact high-risk transaction under an enforced workflow?
+
+The project pursued five practical objectives:
+
+1. Bind every approval to a stable and reproducible representation of the transaction.
+2. Expose risk indicators without relying on opaque or data-intensive machine learning.
+3. Prevent out-of-order or unauthorized approval actions.
+4. Preserve a tamper-evident sequence of material events.
+5. Produce an artifact that can be reviewed by operations, compliance, security, legal counsel, or an auditor.
+
+## 4. Methodology
+
+### 4.1 Design-and-build case study
+
+This work used a design-and-build case study methodology. The unit of analysis was the authorization workflow for a high-risk financial transaction. The work combined threat analysis, requirements definition, secure software design, implementation, and functional validation. It was not a production deployment, randomized experiment, or statistical evaluation of fraud loss reduction.
+
+The design was informed by three categories of evidence: reported fraud patterns, regulatory expectations for safeguarding customer information and maintaining incident-response capabilities, and established secure software development practices. The amended Regulation S-P requires covered institutions to maintain written policies and procedures reasonably designed to detect, respond to, and recover from unauthorized access to or use of customer information [2]. NIST's Secure Software Development Framework provides a structured basis for integrating security practices into software development rather than treating them as a final review step [3].
+
+### 4.2 Scope decisions
+
+Included in the MVP:
+
+- Transaction intake and canonicalization
+- Explainable rule-based risk scoring
+- SHA-256 transaction digest
+- Sequential CSA, client, and advisor approvals
+- Hash-chain ledger and integrity validation
+- JSON authorization artifact
+- Dockerized local deployment
+
+Deferred beyond the MVP:
+
+- Real bank or custodian integration
+- Machine learning fraud detection
+- Public or permissioned blockchain
+- Enterprise SSO, production MFA, and passkeys
+- Production email and SMS delivery
+- Mobile application and Kubernetes
+- Production-scale availability and disaster recovery
+
+## 5. System design
+
+### 5.1 Architecture
+
+The system uses a conventional three-layer web architecture. FastAPI provides request handling and workflow endpoints. SQLAlchemy maps application objects to PostgreSQL. Jinja2 templates provide a simple role-oriented interface. Docker Compose creates a repeatable local environment containing the application and database services.
+
+- **Presentation — Jinja2 and simple HTML forms:** Makes transaction details, risk reasons, current state, and permitted actions visible.
+- **Application — Python and FastAPI:** Enforces validation, workflow order, role actions, hashing, artifact generation, and ledger rules.
+- **Data — PostgreSQL through SQLAlchemy:** Stores transactions, approvals, actors, risk results, and ledger events.
+- **Deployment — Docker and Docker Compose:** Provides repeatable startup and cloud-agnostic packaging.
+
+### 5.2 Trust boundaries
+
+The most important boundary is not between the web server and database. It is between an informal request and an authorized transaction. The application treats the original communication as input, not proof. Authorization begins only after the request is entered, normalized, scored, hashed, and presented for role-specific review.
+
+- The CSA can create and submit a request but cannot complete client or advisor approval.
+- The client reviews the exact normalized details assigned to that client.
+- The advisor performs the final authorization after client approval.
+- The auditor can inspect artifacts and validate the ledger but cannot change workflow state.
+- The execution of funds remains outside the platform, preserving the prototype's focus on authorization evidence.
+
+### 5.3 Transaction state machine
+
+```text
+DRAFT -> RISK_SCORED -> CSA_SIGNED -> CLIENT_PENDING -> CLIENT_APPROVED
+-> ADVISOR_PENDING -> ADVISOR_APPROVED -> READY_TO_EXECUTE -> COMPLETED
+```
+
+`REJECTED` and `EXPIRED` are terminal alternatives that may occur when an authorized party rejects the request or the permitted approval window closes. The application checks the current state before accepting an action. This prevents a client from approving a draft, an advisor from approving before the client, or a transaction from being silently returned to an earlier state.
+
+## 6. Core security mechanisms
+
+### 6.1 Canonical transaction payload
+
+Cryptographic binding is only reliable when the same logical transaction always produces the same serialized representation. The application therefore creates a canonical payload using a fixed field set and deterministic ordering. The payload contains the material values an approver is expected to review, such as amount, destination bank, recipient, account reference, purpose, request identifier, expiration, and risk-relevant attributes.
+
+This step prevents formatting differences from producing unrelated digests and limits ambiguity about what was actually signed. It also creates a clear rule: a material field change produces a different payload and therefore a different transaction hash. Prior approvals should no longer apply.
+
+### 6.2 SHA-256 transaction binding
+
+The canonical payload is encoded and passed through SHA-256. The resulting digest acts as a compact identifier for the exact transaction state presented for authorization. The prototype records the transaction hash with approval and ledger events. The hash is not a digital signature by itself and does not prove human identity. Its role is narrower and important: it proves whether two records represent the same transaction content.
+
+```text
+transaction_hash = SHA256(canonical_transaction_payload)
+```
+
+### 6.3 Explainable risk scoring
+
+The risk engine uses explicit rules because the MVP requires transparency, predictable behavior, and minimal training data. The score does not declare that a transaction is fraudulent. It structures attention by identifying conditions that warrant additional scrutiny.
+
+- Amount greater than $50,000: +20
+- New destination bank: +25
+- First-time recipient: +20
+- Request received by email or text: +15
+- Urgency indicator present: +15
+- Short expiration window: +10
+
+Risk levels are assigned as LOW for 0–30, MEDIUM for 31–70, and HIGH for 71–100. Scores are capped at 100. The artifact preserves both the total score and the rules that contributed to it, allowing a reviewer to understand why the transaction received its classification.
+
+### 6.4 Tamper-evident hash-chain ledger
+
+Each material action creates an append-only ledger event containing the event type, transaction identifier, actor, role, payload, transaction hash, prior event hash, timestamp, and current event hash. The current event hash is calculated from the normalized event content and the previous event hash.
+
+```text
+event_hash[n] = SHA256(event_data[n] + event_hash[n-1])
+```
+
+NIST defines a hash chain as an append-only structure in which each new block includes the hash of the previous block, providing evidence of tampering because modification changes the digest recorded by the next block [4]. The project uses this property without adopting distributed consensus, cryptocurrency, mining, or a public blockchain.
+
+Ledger validation recalculates each event hash in order and verifies that every previous-hash reference matches the preceding event. A changed payload, removed middle event, reordered sequence, or altered prior hash causes validation to fail. The design is tamper-evident, not absolutely immutable. An attacker with unrestricted access to the application, database, and code could potentially rewrite the entire chain. Production use would therefore require access separation, protected backups, external anchoring, and independent monitoring.
+
+### 6.5 Authorization artifact
+
+Once the required approvals are complete, the system generates a JSON authorization artifact. The artifact is designed to answer a reviewer's likely questions without requiring direct database access.
+
+- What transaction was submitted?
+- What canonical transaction hash represents those details?
+- What risk score and risk reasons were calculated?
+- Who acted in each role?
+- What decision did each actor make and when?
+- Was the approval order valid?
+- What ledger events support the record?
+- Did ledger validation succeed at artifact generation time?
+
+## 7. Implemented workflow
+
+1. A CSA creates a transaction request using synthetic data.
+2. The application validates required fields and stores the draft.
+3. The risk engine calculates a score, assigns a level, and records contributing reasons.
+4. The application constructs the canonical payload and calculates the SHA-256 transaction hash.
+5. `TRANSACTION_CREATED` and `RISK_SCORED` events are appended to the ledger.
+6. The CSA reviews and signs the request, moving it into client review.
+7. The assigned client approves or rejects the exact transaction.
+8. The advisor performs final review after client approval.
+9. The system marks the request ready for execution when required approvals are satisfied.
+10. The application generates the authorization artifact and can validate the supporting ledger chain.
+
+## 8. Validation approach and results
+
+### 8.1 Functional validation
+
+The prototype was evaluated against its stated control objectives using functional scenarios. The purpose was to confirm that the application behaves as designed, not to measure real-world fraud reduction.
+
+- **Create valid transaction:** Expected the transaction to be stored and identifiable. The request was created with structured fields and initial ledger evidence.
+- **Calculate risk:** Expected reproducible score, level, and reasons. Rule results were visible and persisted.
+- **Modify material transaction data:** Expected the transaction digest to change. The canonical payload produced a different SHA-256 hash.
+- **Client attempts early approval:** Expected rejection. State validation prevented out-of-order approval.
+- **Advisor attempts approval before client:** Expected rejection. Workflow enforcement blocked the transition.
+- **Valid sequential approvals:** Expected the transaction to become ready for execution. Required states advanced in order.
+- **Alter ledger event content:** Expected validation to fail. The recalculated chain no longer matched stored hashes.
+- **Generate authorization artifact:** Expected a summary of transaction and approval evidence. JSON output contained transaction, risk, approval, and ledger information.
+
+### 8.2 Security interpretation
+
+The strongest result is not that hashing stops fraud. Hashing cannot determine whether a client is under coercion, whether an employee entered false information, or whether a legitimate credential was used by the wrong person. The security value comes from combining mechanisms: normalization limits ambiguity, hashing binds decisions to content, state enforcement controls sequence, role separation distributes authority, risk scoring directs attention, and the ledger preserves evidence.
+
+This layered design improves the quality of the decision process and the quality of evidence available afterward. It reduces reliance on memory, screenshots, inbox searches, and assumptions about what a prior approval meant.
+
+## 9. Human factors and decision quality
+
+The application is intentionally human-centered. Fraud controls fail when they demand perfect attention from people who are busy, rushed, or accustomed to exceptions. The design therefore moves key decisions into a consistent review surface, shows the exact values being approved, and requires the next actor to wait until prior control steps are complete.
+
+- **Familiarity bias:** Treat the originating message as untrusted input rather than authorization.
+- **Urgency and time pressure:** Display urgency as a scored risk reason and preserve expiration.
+- **Assumption that another person verified the request:** Expose completed and pending workflow states.
+- **Approval without reviewing changed details:** Invalidate the transaction binding when material fields change.
+- **Memory-dependent audit reconstruction:** Generate a structured authorization artifact from system records.
+- **Security fatigue from opaque alerts:** Use named, explainable rules instead of an unexplained model output.
+
+## 10. Limitations
+
+- Authentication is simulated. The MVP does not prove the real-world identity of an actor.
+- SHA-256 binds content but is not a digital signature and does not establish nonrepudiation on its own.
+- The ledger is tamper-evident within the application model, not immune to a fully privileged administrator who can rewrite the system.
+- The rule-based score is illustrative and has not been statistically calibrated against institutional fraud data.
+- The prototype uses synthetic records and has not processed client information or real financial instructions.
+- No production banking, custodian, email, SMS, or identity provider integration was implemented.
+- The evaluation demonstrates functional control behavior, not a quantified decrease in fraud losses.
+- Operational procedures, legal review, retention rules, privacy requirements, accessibility, and production resilience require further work.
+
+## 11. Production readiness roadmap
+
+1. **Phishing-resistant identity and transaction-level digital signatures:** Establish stronger actor assurance and evidence of intent.
+2. **Separation of duties for application, database, and ledger administration:** Reduce the ability of one privileged operator to rewrite evidence.
+3. **External ledger anchoring or signed checkpoints:** Make full-chain replacement more detectable.
+4. **Custodian or banking handoff controls:** Ensure the executed transaction matches the approved payload.
+5. **Notification and independent callback integration:** Support out-of-band confirmation without relying on the original request channel.
+6. **Policy-configurable risk rules and approval thresholds:** Adapt the workflow to firm-specific risk appetite.
+7. **Formal test suite, security testing, and dependency controls:** Improve assurance and maintainability.
+8. **Retention, privacy, and legal evidence requirements:** Align artifacts and logs with regulatory and litigation needs.
+9. **High availability, backup, and recovery design:** Support operational use without weakening evidence integrity.
+10. **Usability study with CSAs, advisors, clients, and auditors:** Validate that controls improve decisions without creating unsafe workarounds.
+
+## 12. Discussion
+
+The project supports a broader security principle: high-impact actions should not depend on authorization that is detached from the object being authorized. In financial operations, a general statement such as "approved" is weak evidence when the destination, amount, recipient, or timing can change. Transaction-bound authorization narrows that ambiguity.
+
+The project also demonstrates why a real blockchain is unnecessary for this use case. The firm does not need decentralized consensus among mutually distrustful institutions. It needs ordered records, integrity checks, clear ownership, and evidence that alteration occurred. A conventional database paired with a validated hash chain is easier to explain, operate, and integrate while preserving the property the project actually needs.
+
+Finally, the prototype reframes detection. The purpose of the risk score is not to replace human judgment. It makes reasons visible before approval. The purpose of the ledger is not to claim that records can never change. It makes unauthorized change discoverable. The purpose of the workflow is not to remove people. It gives people a better decision structure and makes responsibility explicit.
+
+## 13. Conclusion
+
+The Secure Transaction Authorization Ledger demonstrates a practical approach to a narrow but consequential problem: proving that the correct parties approved the exact high-risk transaction under an enforced process. The prototype combines canonical transaction data, SHA-256 binding, explainable risk scoring, sequential multi-party approval, a tamper-evident hash chain, and a real-time authorization artifact.
+
+The result is not a complete fraud prevention platform, nor should it be presented as one. It is a secure authorization control plane that can sit before money movement and improve both decision discipline and auditability. Its value comes from making approval specific, ordered, visible, and provable.
+
+## References
+
+1. Federal Bureau of Investigation, Internet Crime Complaint Center. _2024 IC3 Annual Report._ 2025. https://www.ic3.gov/AnnualReport/Reports/2024_ic3report.pdf
+2. U.S. Securities and Exchange Commission. "SEC Adopts Rule Amendments to Regulation S-P to Enhance Protection of Customer Information." May 16, 2024. https://www.sec.gov/newsroom/press-releases/2024-58
+3. M. Souppaya, K. Scarfone, and D. Dodson. _Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities._ NIST SP 800-218, February 2022. https://doi.org/10.6028/NIST.SP.800-218
+4. National Institute of Standards and Technology. "Hash Chain." Computer Security Resource Center Glossary. https://csrc.nist.gov/glossary/term/hash_chain
+5. D. Yaga, P. Mell, N. Roby, and K. Scarfone. _Blockchain Technology Overview._ NISTIR 8202, October 2018. https://doi.org/10.6028/NIST.IR.8202
+6. Matthew T. Aston. _Secure Transaction Authorization Ledger._ Graduate software project and source repository, 2026. https://github.com/syntralock/secure-transaction-ledger
+
+## Appendix A. Representative ledger event
+
+```json
+{
+  "event_type": "CLIENT_APPROVED",
+  "transaction_id": "TX-2026-0017",
+  "actor_id": "client_demo_01",
+  "actor_role": "CLIENT",
+  "event_payload": {
+    "decision": "APPROVED",
+    "risk_level": "HIGH"
+  },
+  "transaction_hash": "sha256:...",
+  "previous_event_hash": "sha256:...",
+  "current_event_hash": "sha256:...",
+  "timestamp": "2026-04-30T19:42:11Z"
+}
+```
+
+## Appendix B. Evaluation claims matrix
+
+- **The workflow enforces approval order.** Evidence: application state validation and functional scenarios. Permitted interpretation: supported for the prototype.
+- **Material transaction changes alter the digest.** Evidence: canonicalization and SHA-256 comparison. Permitted interpretation: supported for included fields and implementation.
+- **Ledger modification is detectable.** Evidence: hash-chain recalculation test. Permitted interpretation: supported when validation runs against an altered stored event.
+- **The platform prevents wire fraud.** Evidence: no production trial or loss data. Permitted interpretation: not supported.
+- **The platform establishes legal nonrepudiation.** Evidence: simulated authentication; no qualified signature process. Permitted interpretation: not supported.
+- **The design may improve audit reconstruction.** Evidence: consolidated artifact and ordered ledger evidence. Permitted interpretation: reasonable design inference requiring field validation.

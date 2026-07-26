@@ -6,12 +6,11 @@ export type NavigationItem = Readonly<{
 }>;
 
 export const primaryNavigation = [
-  { href: "/mission", label: "Mission" },
+  { href: "/", label: "Home" },
   { href: "/research", label: "Research" },
   { href: "/projects", label: "Projects" },
-  { href: "/writing", label: "Writing" },
   { href: "/labs", label: "Labs" },
-  { href: "/speaking", label: "Speaking" },
+  { href: "/speaking", label: "Speaking", published: false },
   { href: "/about", label: "About" },
 ] as const satisfies readonly NavigationItem[];
 

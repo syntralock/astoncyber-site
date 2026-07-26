@@ -11,7 +11,8 @@ The root App Router layout now provides the shared page structure:
 
 - A keyboard-accessible skip link targeting the single shared `main`
 - A shared header with the replaceable text-only Brand component
-- The approved seven-item primary navigation
+- The then-approved seven-item primary navigation, subsequently refined to the
+  five current public items in Phase 7.1
 - A responsive mobile navigation implemented with native
   `details`/`summary` disclosure semantics
 - A compact shared footer with approved navigation, institutional
@@ -52,6 +53,10 @@ smaller screens the separators are removed to preserve readable touch
 spacing. Primary and secondary destinations are sourced from the
 central navigation configuration, where an item can be withheld with
 `published: false` without restructuring the footer.
+
+Phase 7.1 uses that existing centralized publication-state capability to
+remove Writing and withhold Speaking consistently across desktop, mobile, and
+footer navigation. Their future Phase 8 architecture is unchanged.
 
 ## Documentation boundary
 

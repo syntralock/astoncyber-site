@@ -11,17 +11,13 @@ This specification is authoritative for navigation, routing, and page hierarchy.
 
 # Primary Navigation
 
-Mission
+Home
 
 Research
 
 Projects
 
-Writing
-
 Labs
-
-Speaking
 
 About
 
@@ -31,9 +27,22 @@ About
 
 - The primary navigation MUST remain minimal.
 - Navigation labels MUST use sentence case.
-- The primary navigation MUST contain exactly the seven items listed above.
+- The public primary navigation MUST contain exactly the five items listed
+  above: Home, Research, Projects, Labs, and About.
+- Home links to `/` and replaces Mission in public primary and footer
+  navigation.
+- Mission remains a published secondary institutional page at `/mission` and
+  MUST NOT appear in primary navigation.
+- Writing remains a future content capability but is removed from public
+  primary and footer navigation until a later owner decision republishes it.
+- Speaking remains a future Phase 8 capability and is withheld from public
+  primary and footer navigation until approved speaking content exists.
+- Desktop and mobile navigation MUST use the same centralized published-state
+  configuration.
 - Every page MUST support breadcrumb navigation where appropriate.
-- The Mission page is the conceptual home of the organization.
+- The homepage is the public entry point for the organization.
+- The Mission page provides the deeper institutional statement and remains
+  available through contextual links and its direct URL.
 - The Ethos page MUST be prominently linked from Mission and the footer.
 - Ethos MUST NOT appear in the primary navigation unless this specification is revised.
 
@@ -88,7 +97,7 @@ Content Types:
 
 ---
 
-# Writing
+# Writing (Future Capability)
 
 Purpose:
 Publish long-form thinking.
@@ -118,7 +127,7 @@ Content Types:
 
 ---
 
-# Speaking
+# Speaking (Future Capability)
 
 Purpose:
 Document public presentations.

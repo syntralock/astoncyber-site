@@ -4,9 +4,11 @@ import { Container } from "@/components/layout/container";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
+import { classNames } from "@/lib/class-names";
 
 type InstitutionalPageProps = Readonly<{
   children: ReactNode;
+  contentClassName?: string;
   eyebrow?: string;
   introduction: string;
   title: string;
@@ -14,6 +16,7 @@ type InstitutionalPageProps = Readonly<{
 
 export function InstitutionalPage({
   children,
+  contentClassName,
   eyebrow,
   introduction,
   title,
@@ -32,7 +35,14 @@ export function InstitutionalPage({
           {introduction}
         </Text>
       </header>
-      <div className="institutional-page-content stack-xl">{children}</div>
+      <div
+        className={classNames(
+          "institutional-page-content stack-xl",
+          contentClassName,
+        )}
+      >
+        {children}
+      </div>
     </Container>
   );
 }

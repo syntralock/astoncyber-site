@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 
 import { Container } from "@/components/layout/container";
+import { ResearchArchive } from "@/components/content/research-archive";
 import { Section } from "@/components/layout/section";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
+import { PillarIcon, type PillarIconName } from "@/components/ui/pillar-icon";
 import { Text } from "@/components/ui/text";
+import { getPublicResearch } from "@/lib/content/research";
 
 export const metadata: Metadata = {
   title: "Aston Cyber",
@@ -12,29 +15,39 @@ export const metadata: Metadata = {
     "Aston Cyber advances cybersecurity through research, engineering, and education.",
 };
 
-const areas = [
+const focusAreas = [
   {
     description:
-      "Research creates understanding through careful questions, evidence, and honest conclusions.",
-    title: "Research",
+      "We investigate emerging challenges, develop practical approaches, and publish knowledge that elevates our field.",
+    icon: "people",
+    title: "Our work",
   },
   {
     description:
-      "Engineering applies understanding through practical approaches and better systems.",
-    title: "Engineering",
+      "Advance cybersecurity through thoughtful research that improves the security of modern computing.",
+    icon: "search",
+    title: "Vision",
   },
   {
     description:
-      "Secure systems give people the confidence to innovate, collaborate, and solve meaningful problems.",
-    title: "Security",
+      "Meaningful progress comes from asking better questions, building better systems, and openly sharing what we learn.",
+    icon: "prism",
+    title: "Research, engineering, and education",
   },
-] as const;
+] as const satisfies readonly {
+  description: string;
+  icon: PillarIconName;
+  title: string;
+}[];
 
-export default function Home() {
+export default async function Home() {
+  const research = await getPublicResearch();
+  const featured = research.filter((item) => item.metadata.featured);
+
   return (
     <>
       <Section className="homepage-introduction">
-        <Container className="stack-lg">
+        <Container className="page-introduction homepage-hero stack-lg">
           <Text className="text-accent" variant="eyebrow">
             Research. Engineering. Security.
           </Text>
@@ -46,7 +59,7 @@ export default function Home() {
             investigate emerging challenges, develop practical approaches, and
             publish knowledge that elevates our field.
           </Text>
-          <div className="cluster">
+          <div className="cluster page-introduction-actions">
             <Link href="/mission" variant="standalone">
               Read our mission
             </Link>
@@ -58,19 +71,19 @@ export default function Home() {
       </Section>
 
       <Section aria-labelledby="principles-title">
-        <Container className="layout-grid">
-          <div className="stack-md">
+        <Container className="stack-lg">
+          <div className="section-introduction stack-md">
             <Heading id="principles-title" level={2}>
-              Research, engineering, security
+              Mission
             </Heading>
-            <Text className="text-foreground-secondary" variant="bodyLarge">
-              Each depends upon the one before it. Security creates freedom.
-            </Text>
           </div>
-          <div className="institutional-grid">
-            {areas.map((area) => (
-              <article className="surface-base stack-sm" key={area.title}>
-                <Heading level={3}>{area.title}</Heading>
+          <div className="layout-three focus-grid">
+            {focusAreas.map((area) => (
+              <article className="focus-item stack-md" key={area.title}>
+                <PillarIcon name={area.icon} />
+                <Heading className="focus-item-heading" level={3}>
+                  {area.title}
+                </Heading>
                 <Text className="text-foreground-secondary">
                   {area.description}
                 </Text>
@@ -80,17 +93,29 @@ export default function Home() {
         </Container>
       </Section>
 
+      {featured.length > 0 ? (
+        <Section aria-labelledby="featured-research-title">
+          <Container className="wide-feature stack-lg">
+            <div className="section-heading-row">
+              <Heading id="featured-research-title" level={2}>
+                Featured research
+              </Heading>
+              <Link href="/research" variant="standalone">
+                View all research
+              </Link>
+            </div>
+            <ResearchArchive items={featured} variant="featured" />
+          </Container>
+        </Section>
+      ) : null}
+
       <Section aria-labelledby="contact-title">
-        <Container className="surface-raised institutional-callout stack-md">
+        <Container className="surface-raised contact-band">
           <Heading id="contact-title" level={2}>
-            Contact Aston Cyber
+            Questions or inquiries?
           </Heading>
-          <Text className="text-foreground-secondary">
-            General inquiries and responsible disclosure use separate contact
-            channels.
-          </Text>
           <Link href="/contact" variant="standalone">
-            View contact information
+            Visit the Contact page
           </Link>
         </Container>
       </Section>
