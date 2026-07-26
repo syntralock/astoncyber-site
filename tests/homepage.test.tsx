@@ -9,12 +9,13 @@ describe("design-system placeholder homepage", () => {
 
     expect(html.match(/<main/g) ?? []).toHaveLength(0);
     expect(html.match(/<h1/g) ?? []).toHaveLength(1);
-    expect(html.match(/<section/g) ?? []).toHaveLength(3);
+    expect(html.match(/<section/g) ?? []).toHaveLength(6);
     expect(html).toContain('aria-labelledby="specimen-title"');
     expect(html).toContain("Aston Cyber");
     expect(html).toContain("Non-production design-system placeholder");
     expect(html).toContain("Type hierarchy");
     expect(html).toContain("Surface hierarchy");
+    expect(html).toContain("Core component examples");
   });
 
   it("keeps shell landmarks out of the route component", () => {

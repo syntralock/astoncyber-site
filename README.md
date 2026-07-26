@@ -27,14 +27,15 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 3 Shared Application Shell
+**Current Phase:** Phase 4 Core Component Library
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements
 the accessible shared application shell without beginning production
-page implementation.
+page implementation. Phase 4 provides only the reusable primitives
+approved for the first research-content vertical slice.
 
 ## Engineering Principles
 

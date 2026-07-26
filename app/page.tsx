@@ -1,4 +1,5 @@
 import { Brand } from "@/components/brand";
+import { CoreComponentExamples } from "@/components/examples/core-component-examples";
 
 const typeSpecimens = [
   {
@@ -168,6 +169,8 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      <CoreComponentExamples />
     </div>
   );
 }
