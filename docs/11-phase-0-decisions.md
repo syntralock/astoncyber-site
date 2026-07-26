@@ -94,6 +94,18 @@ Layout, typography, navigation, and core site components must remain project-nat
 - Validate front matter with Zod.
 - Disable raw HTML by default.
 - Build one complete research-content vertical slice before expanding the component library.
+- Phase 5 may prove that slice with a non-public technical research fixture
+  using `visibility: fixture`.
+- The fixture may exercise the research schema, safe MDX processing,
+  references, citation metadata, shared index-card composition, shared detail
+  rendering, and static build validation, but it is not a published research
+  item and creates no public route or publication artifact.
+- The fixture must contain no invented research findings, claims,
+  affiliations, biographies, disclosures, or organizational history.
+- Only `visibility: public` content may enter public navigation, production
+  research indexes, RSS, sitemap output, or other publication surfaces.
+  `visibility: draft` and `visibility: fixture` remain distinct and are both
+  excluded.
 - Defer site search until content volume demonstrates a clear need.
 
 Topic links, chronological archives, and simple URL-based filters may be implemented without introducing a search service.
@@ -118,7 +130,10 @@ Security remains continuous throughout later phases; moving the baseline into Ph
 The following decisions do not block the start of Phase 1 but require an owner before their related milestone:
 
 - Approve the final logo package and brand usage guide before launch.
-- Approve the first complete research publication and its disclosure status before the research vertical slice is published.
+- Approve the first complete real research publication and its disclosure
+  status before public release. The Phase 5 technical fixture does not satisfy
+  or weaken this requirement and does not replace the complete public research
+  experience.
 - Decide whether a future light theme will be exposed to users; it is not part of the initial release.
 - Reassess search only after the content library demonstrates a measurable discovery need.
 

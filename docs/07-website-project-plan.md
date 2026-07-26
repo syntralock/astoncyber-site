@@ -247,7 +247,8 @@ content requirements demonstrate a need.
 
 ## Objectives
 
-Create structured, validated content collections.
+Create the structured, validated research content foundation and prove it with
+a non-public technical fixture.
 
 ## Tasks
 
@@ -256,14 +257,14 @@ Create structured, validated content collections.
 - [ ] Define front matter schemas
 - [ ] Validate front matter with Zod
 - [ ] Create research collection
-- [ ] Build one complete research vertical slice from validated MDX through index card, detail page, citation metadata, and production build
+- [ ] Build one complete non-public technical research vertical slice from
+      validated MDX through shared index-card composition, shared detail
+      rendering, citation metadata, and production-build validation
 - [ ] Review the content model and component requirements
 - [ ] Expand the component library only after reviewing the vertical slice
-- [ ] Create projects collection
-- [ ] Create writing collection
-- [ ] Create labs collection
-- [ ] Create speaking collection
-- [ ] Create people collection
+- [ ] Defer projects, writing, labs, speaking, and people collection expansion
+      until a public research item validates the model or an owner explicitly
+      approves broader collection work
 - [ ] Add draft handling
 - [ ] Add publication and revision dates
 - [ ] Add author and contributor references
@@ -271,6 +272,25 @@ Create structured, validated content collections.
 - [ ] Add content validation
 - [ ] Add RSS generation
 - [ ] Add sitemap generation
+
+The Phase 5 vertical slice may use a research item with
+`visibility: fixture`. A fixture is a technical validation input, not a
+published research item. It may exercise the research schema, safe MDX
+processing, author, contributor, topic, and tag references, citation metadata,
+shared index-card composition, shared detail rendering, and the static build.
+It must not contain invented research findings, claims, affiliations,
+biographies, disclosures, or organizational history.
+
+Only `visibility: public` content may enter production-facing loaders,
+navigation, research indexes, RSS, sitemap output, or any other publication
+surface. `visibility: draft` and `visibility: fixture` are distinct non-public
+states and must both be excluded. The fixture does not weaken the owner-approval
+requirement for the first real research publication and disclosure status, and
+it does not replace the complete public research experience in Phase 7.
+
+Because no real publication is approved yet, Phase 5 must not speculatively
+expand into the remaining collections. Their schema and sample-content work
+follows a validated public research item or a later explicit owner decision.
 
 ## Deliverables
 
@@ -282,10 +302,13 @@ Create structured, validated content collections.
 ## Acceptance Criteria
 
 - Invalid metadata fails the build.
-- Draft content is excluded from production.
+- Draft and fixture content are excluded from production-facing loaders and
+  generated public output.
 - Authors and topics resolve correctly.
-- RSS and sitemap generate successfully.
-- The complete research vertical slice validates the content model before other collections expand.
+- RSS and sitemap generate successfully from public content only, including
+  valid empty outputs when no public content is approved.
+- The complete non-public technical research vertical slice validates the
+  content model without publishing the fixture or expanding other collections.
 
 ---
 
@@ -682,8 +705,10 @@ exception, not the site architecture.
 ### Package E: Content Engine
 
 Includes repository-based MDX, Zod schemas, safe content loading with
-raw HTML disabled, RSS, sitemap, and one complete research vertical
-slice before broader component or collection expansion.
+raw HTML disabled, public-only RSS and sitemap generation, and one complete
+non-public technical research vertical slice before broader component or
+collection expansion. The fixture exercises shared card and detail composition
+during validation but creates no public route or publication artifact.
 
 ### Package F: Institutional Pages
 

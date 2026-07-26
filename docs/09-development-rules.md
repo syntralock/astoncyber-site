@@ -665,6 +665,7 @@ Production builds must not contain:
 - Private environment variables
 - Internal debug pages
 - Draft content
+- Non-public technical fixture content or fixture routes
 - Unapproved source maps
 - Test fixtures exposed as public assets
 
@@ -879,6 +880,8 @@ Before the first public launch:
 - [ ] Strict TypeScript passes
 - [ ] Content schemas validate
 - [ ] Draft content is excluded
+- [ ] Technical fixtures are excluded from public loaders, routes, navigation,
+      RSS, sitemap output, and other publication surfaces
 - [ ] Forms use server-side validation
 - [ ] Security headers are configured
 - [ ] Content Security Policy is tested

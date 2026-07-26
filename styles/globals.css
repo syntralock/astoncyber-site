@@ -759,7 +759,8 @@ a {
   color: var(--color-warning);
 }
 
-.status-archived {
+.status-archived,
+.status-technical-validation {
   color: var(--color-foreground-muted);
 }
 

@@ -3,13 +3,15 @@ import { MetadataRow } from "@/components/ui/metadata-row";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { Tag } from "@/components/ui/tag";
 
-type ResearchStatus = "active" | "archived" | "completed" | "preliminary";
+type ResearchStatus =
+  "active" | "archived" | "completed" | "preliminary" | "technical-validation";
 
 type ResearchCardProps = Readonly<{
   authors: readonly string[];
+  dateLabel?: string;
   format: string;
   href: string;
-  publishedAt: string;
+  itemDate: string;
   status: ResearchStatus;
   summary: string;
   title: string;
@@ -18,9 +20,10 @@ type ResearchCardProps = Readonly<{
 
 export function ResearchCard({
   authors,
+  dateLabel = "Published",
   format,
   href,
-  publishedAt,
+  itemDate,
   status,
   summary,
   title,
@@ -42,8 +45,8 @@ export function ResearchCard({
         items={[
           { label: "Authors", value: authors.join(", ") },
           {
-            label: "Published",
-            value: <time dateTime={publishedAt}>{publishedAt}</time>,
+            label: dateLabel,
+            value: <time dateTime={itemDate}>{itemDate}</time>,
           },
         ]}
       />

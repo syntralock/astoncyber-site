@@ -1,9 +1,12 @@
-import { compile } from "@mdx-js/mdx";
+import { compile, evaluate } from "@mdx-js/mdx";
+import * as runtime from "react/jsx-runtime";
 import { parse } from "yaml";
 
 import { researchMetadataSchema, type ResearchMetadata } from "./schema.ts";
 
-export const mdxComponentAllowlist = ["Callout"] as const;
+export const mdxComponentAllowlist = {
+  Callout: new Set(["title"]),
+} as const;
 
 type AstNode = {
   attributes?: AstNode[];
@@ -23,8 +26,6 @@ const forbiddenMdxNodeTypes = new Set([
 ]);
 
 function validateMdxElements() {
-  const allowedComponents = new Set<string>(mdxComponentAllowlist);
-
   return (tree: AstNode) => {
     const visit = (node: AstNode) => {
       if (node.type && forbiddenMdxNodeTypes.has(node.type)) {
@@ -35,11 +36,29 @@ function validateMdxElements() {
         node.type === "mdxJsxFlowElement" ||
         node.type === "mdxJsxTextElement"
       ) {
-        const name = node.name ?? "";
-        if (!allowedComponents.has(name)) {
+        const componentName = node.name ?? "";
+        const allowedAttributes =
+          mdxComponentAllowlist[
+            componentName as keyof typeof mdxComponentAllowlist
+          ];
+
+        if (!allowedAttributes) {
           throw new Error(
-            `MDX element "${name || "fragment"}" is not allowed.`,
+            `MDX element "${componentName || "fragment"}" is not allowed.`,
           );
+        }
+
+        for (const attribute of node.attributes ?? []) {
+          if (
+            attribute.type !== "mdxJsxAttribute" ||
+            !attribute.name ||
+            !allowedAttributes.has(attribute.name) ||
+            typeof attribute.value !== "string"
+          ) {
+            throw new Error(
+              `MDX attribute on "${componentName}" must be an allowlisted static quoted string.`,
+            );
+          }
         }
       }
 
@@ -58,7 +77,7 @@ export function parseResearchSource(source: string): {
   body: string;
   metadata: ResearchMetadata;
 } {
-  const match = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/u.exec(source);
+  const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/u.exec(source);
   if (!match?.[1] || match[2] === undefined) {
     throw new Error("MDX content must begin with YAML front matter.");
   }
@@ -77,4 +96,18 @@ export async function compileSafeMdx(source: string) {
   });
 
   return { code: String(compiled), metadata };
+}
+
+export async function evaluateSafeMdx(source: string) {
+  const { body, metadata } = parseResearchSource(source);
+  const evaluated = await evaluate(body, {
+    ...runtime,
+    baseUrl: import.meta.url,
+    remarkPlugins: [validateMdxElements],
+  });
+
+  return {
+    Content: evaluated.default,
+    metadata,
+  };
 }

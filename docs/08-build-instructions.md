@@ -290,20 +290,46 @@ Add schema validation for front matter.
 Use Zod for front matter validation. Disable raw HTML by default and
 restrict any custom MDX components to an approved allowlist.
 
-Create at least one realistic sample file for each collection.
+Do not expand all collections speculatively. Create only the minimum content
+needed for the Phase 5 research fixture until a public research item validates
+the model or an owner explicitly approves broader collection work.
 
 Before expanding the component library or all collections, build one
-complete research vertical slice from validated MDX through its index
-card, detail page, citation metadata, and production build.
+complete non-public technical research vertical slice from validated MDX
+through shared index-card composition, shared detail rendering, citation
+metadata, and production-build validation.
+
+Use a required `visibility` field with exactly three states:
+
+- `public` for owner-approved publication content
+- `draft` for authoring work
+- `fixture` for non-public technical validation
+
+The technical fixture is not a published research item. It may exercise the
+research schema, safe MDX processing, author, contributor, topic, and tag
+references, citation metadata, shared index-card composition, shared detail
+rendering, and the static build. It must contain no invented research findings,
+claims, affiliations, biographies, disclosures, or organizational history.
+
+Only `visibility: public` items may appear in production-facing loaders,
+navigation, research indexes, RSS, sitemap output, or any other publication
+surface. Drafts and fixtures must be excluded. The fixture must create no public
+route or artifact. It does not replace owner approval of the first real
+research publication and disclosure status, or the complete public research
+experience planned for Phase 7.
 
 The build must fail when required metadata is missing or invalid.
 
 Checkpoint:
 
-- Drafts do not appear in production.
+- Drafts and fixtures do not appear in production-facing loaders or generated
+  public output.
 - Authors and topics resolve correctly.
-- Content renders through shared templates.
+- The fixture renders through shared card and detail composition during
+  validation without becoming a public route.
 - Invalid content fails validation.
+- RSS and sitemap generate deterministically from public content only; valid
+  empty outputs are expected until a public item is approved.
 
 ---
 

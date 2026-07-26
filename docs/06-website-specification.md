@@ -588,10 +588,27 @@ contributors:
 topics:
 tags:
 featured:
-draft:
+visibility:
 seo_title:
 seo_description:
 ```
+
+`visibility` is required and accepts only:
+
+- `public` — approved for public loaders, indexes, feeds, and sitemap output
+- `draft` — authoring work that must be absent from production-facing loaders
+  and generated output
+- `fixture` — a non-public technical validation item that may exercise the
+  research schema, safe MDX compilation, reference resolution, citation
+  metadata, shared index-card composition, shared detail rendering, and the
+  static production build
+
+A fixture is not research publication content. It must contain no invented
+research findings, claims, affiliations, biographies, disclosures, or
+organizational history. Fixtures must be excluded from public navigation,
+production research indexes, RSS, sitemap output, and every other publication
+surface. Fixture validation does not replace approval of the first real
+research publication or the complete public research experience.
 
 ### 10.2 Research Metadata
 

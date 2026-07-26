@@ -63,7 +63,7 @@ export function CoreComponentExamples() {
           authors={["Example author"]}
           format="Research note"
           href="#components-title"
-          publishedAt="2026-01-01"
+          itemDate="2026-01-01"
           status="preliminary"
           summary="Non-production material used only to demonstrate structured research metadata."
           title="Research card example"

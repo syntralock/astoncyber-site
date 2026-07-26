@@ -199,6 +199,33 @@ Before launch, the static site must publish an RFC 9116 file at
 
 ---
 
+# Decision 15 — Non-Public Content Fixtures
+
+**Decision:** Content metadata uses a required
+`visibility: public | draft | fixture` field.
+
+**Why:**
+- `public` is an explicit owner-approved publication boundary.
+- `draft` retains its ordinary authoring meaning and remains absent from
+  production-facing content.
+- `fixture` is a separate technical state that can prove the complete Phase 5
+  content pipeline without representing fabricated research as publication.
+
+A fixture may exercise schemas, safe MDX compilation, references, citation
+metadata, shared index-card composition, shared detail rendering, and static
+build validation. It must contain no invented research findings, claims,
+affiliations, biographies, disclosures, or organizational history.
+
+Only public content may enter public loaders, navigation, research indexes,
+RSS, sitemap output, or other publication surfaces. Drafts and fixtures must
+both be excluded. A fixture creates no public route or publication artifact,
+does not replace the first owner-approved research publication and disclosure
+status, and does not replace the complete public research experience.
+
+**Date adopted:** 2026-07-25
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.
@@ -229,6 +256,8 @@ Each new decision should include:
 - Primary domain: astoncyber.com
 - Theme: Dark only initially; semantic tokens support a future light theme
 - Search: Deferred pending demonstrated content need
+- Content visibility: Explicit `public`, `draft`, and non-public `fixture`
+  states; only `public` content enters publication surfaces
 - Repository: GitHub
 - Database: None
 - CMS: None

@@ -24,10 +24,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
+- 12–16 – Phase implementation records
 
 ## Current Status
 
-**Current Phase:** Phase 4 Core Component Library
+**Current Phase:** Phase 5 Content System
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
@@ -35,7 +36,10 @@ foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements
 the accessible shared application shell without beginning production
 page implementation. Phase 4 provides only the reusable primitives
-approved for the first research-content vertical slice.
+approved for the first research-content vertical slice. Phase 5 adds the
+validated, repository-based research content engine, a non-public technical
+fixture, and public-only RSS and sitemap generation. No real research
+publication or Phase 6 page has been introduced.
 
 ## Engineering Principles
 
@@ -53,7 +57,10 @@ approved for the first research-content vertical slice.
 ```text
 docs/      Project planning and specifications
 assets/    Brand assets and media
-app/        Website application (created during implementation)
+app/       Website application and static generated-output routes
+components/ Shared shell, UI, and content composition
+content/   Repository MDX and validated reference registries
+lib/       Typed content loading, validation, and generated-output APIs
 public/     Static public assets
 styles/     Global design-token styles
 tests/      Automated foundation tests
@@ -77,6 +84,12 @@ pnpm validate
 
 The production build is a static export in `out/`. Use `pnpm start` to
 preview that export locally after `pnpm build`.
+
+`pnpm validate:content` validates every research MDX file, resolves author,
+contributor, topic, and tag references, compiles the safe MDX fixture, and
+checks that non-public content cannot enter RSS or sitemap output. Content uses
+the required `visibility` values `public`, `draft`, or `fixture`; only
+owner-approved `public` items are returned by production-facing loaders.
 
 ## Contribution Workflow
 
