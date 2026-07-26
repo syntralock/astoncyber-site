@@ -43,7 +43,7 @@ const surfaceSpecimens = [
 
 export default function Home() {
   return (
-    <main className="layout-container section-space">
+    <div className="layout-container section-space">
       <div className="specimen-brand">
         <Brand />
         <p className="type-caption text-foreground-muted">
@@ -168,6 +168,6 @@ export default function Home() {
           </ul>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

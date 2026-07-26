@@ -48,6 +48,13 @@ function contrastRatio(first: string, second: string) {
 }
 
 describe("design tokens", () => {
+  it("keeps footer separators decorative and outside the document text", () => {
+    expect(stylesheet).toContain('content: "|" / "";');
+    expect(stylesheet).toMatch(
+      /\.footer-navigation-list\s*\{[\s\S]*?flex-wrap:\s*wrap;[\s\S]*?justify-content:\s*center;/u,
+    );
+  });
+
   it("uses the approved local editorial font families", () => {
     expect(cssVariable("font-display")).toContain("Lora Variable");
     expect(cssVariable("font-body")).toContain("IBM Plex Sans Variable");

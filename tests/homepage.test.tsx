@@ -7,9 +7,9 @@ describe("design-system placeholder homepage", () => {
   it("renders a semantic, neutral design-system specimen", () => {
     const html = renderToStaticMarkup(<Home />);
 
-    expect(html.match(/<main/g)).toHaveLength(1);
-    expect(html.match(/<h1/g)).toHaveLength(1);
-    expect(html.match(/<section/g)).toHaveLength(3);
+    expect(html.match(/<main/g) ?? []).toHaveLength(0);
+    expect(html.match(/<h1/g) ?? []).toHaveLength(1);
+    expect(html.match(/<section/g) ?? []).toHaveLength(3);
     expect(html).toContain('aria-labelledby="specimen-title"');
     expect(html).toContain("Aston Cyber");
     expect(html).toContain("Non-production design-system placeholder");
@@ -17,7 +17,7 @@ describe("design-system placeholder homepage", () => {
     expect(html).toContain("Surface hierarchy");
   });
 
-  it("does not introduce the deferred site shell", () => {
+  it("keeps shell landmarks out of the route component", () => {
     const html = renderToStaticMarkup(<Home />);
 
     expect(html).not.toMatch(/<(header|footer|nav)[ >]/);

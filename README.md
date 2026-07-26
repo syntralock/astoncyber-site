@@ -27,13 +27,14 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 2.1 Editorial Typography Refinement
+**Current Phase:** Phase 3 Shared Application Shell
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
-that system for an editorial research publication without beginning the
-shared site shell or production page implementation.
+that system for an editorial research publication. Phase 3 implements
+the accessible shared application shell without beginning production
+page implementation.
 
 ## Engineering Principles
 
