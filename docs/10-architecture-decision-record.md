@@ -226,6 +226,35 @@ status, and does not replace the complete public research experience.
 
 ---
 
+# Decision 16 — Phase 6 Static Institutional Publication
+
+**Decision:** Phase 6 institutional pages remain fully static and use direct
+approved email links for contact.
+
+**Requirements:**
+- No contact form, Server Action, API route, external form provider, mail
+  service, or server-side inquiry infrastructure is approved.
+- Any future public form requires a separate architecture and security review.
+- The homepage omits research, current-work, project, and writing sections
+  until approved public content exists.
+- People architecture may be implemented without publishing a person route.
+- Institutional pages use only approved repository language and limited
+  operational disclosure guidance.
+- No photography, generated imagery, placeholder portraits, or decorative hero
+  imagery is required or approved.
+
+**Consequences:**
+- The static export requires no new runtime service, environment variable,
+  secret, dependency, or browser JavaScript.
+- Direct general-inquiry and responsible-disclosure email links may appear only
+  in their approved contexts.
+- Missing publication and profile content is intentionally omitted or
+  represented by a neutral editorial empty state.
+
+**Date adopted:** 2026-07-25
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.
@@ -258,6 +287,7 @@ Each new decision should include:
 - Search: Deferred pending demonstrated content need
 - Content visibility: Explicit `public`, `draft`, and non-public `fixture`
   states; only `public` content enters publication surfaces
+- Phase 6 contact: Static direct email links only; no form or inquiry service
 - Repository: GitHub
 - Database: None
 - CMS: None

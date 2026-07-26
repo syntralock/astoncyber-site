@@ -260,6 +260,10 @@ The hero must not use:
 
 Display one primary research item and up to three supporting items.
 
+This section is conditional on approved public research. During Phase 6 it must
+be omitted while the repository contains no public research; the non-public
+technical fixture must never be used.
+
 Each item should show:
 
 - Title
@@ -282,6 +286,10 @@ A three-part explanatory section should describe the relationship between the th
 
 Show active projects, research programs, or lab initiatives.
 
+This section is conditional on approved public project or program content.
+During Phase 6 it must be omitted rather than represented by invented or empty
+promotional material.
+
 Each item should indicate:
 
 - Status
@@ -295,6 +303,9 @@ Each item should indicate:
 Display recent technical essays, explainers, or commentary.
 
 Writing must remain visually secondary to original research.
+
+This section is conditional on approved public writing and must be omitted
+during Phase 6 while no such content exists.
 
 ### 8.6 Ethos Preview
 
@@ -546,6 +557,44 @@ Each profile may include:
 - Speaking
 - Professional links
 - Disclosure of relevant affiliations
+
+Phase 6 implements the People index and reusable person-profile architecture,
+but no public profile route may be generated without approved person content.
+The People index may use a neutral editorial empty state that does not imply
+contributors, employees, advisors, or leadership profiles already exist. Do
+not invent identities, biographies, affiliations, portraits, or profile data.
+
+## 9.13 Contact Page
+
+The initial static release uses direct email links only:
+
+- General inquiries: `info@astoncyber.com`
+- Responsible disclosure and security reports:
+  `security@astoncyber.com`
+
+Phase 6 must not add a form, Server Action, API route, external form provider,
+mail service, or other server-side inquiry infrastructure. Any future public
+form requires a separate architecture and security review.
+
+## 9.14 Phase 6 Institutional Content Boundary
+
+The Phase 6 homepage may use only approved repository language to introduce
+Aston Cyber as an organization, explain its mission, ethos, and documented
+areas of interest, and direct readers to institutional pages and contact
+information. It must not introduce an individual or resemble a sales,
+consultancy, SaaS, or conversion-focused page.
+
+The About page must omit named leadership, contributor listings, affiliations,
+company history, funding claims, and sponsorship claims until approved content
+exists. It may include this exact neutral disclosure:
+
+> Aston Cyber does not currently publish a list of funders or sponsors.
+
+The statement must not be expanded into claims about independence, funding
+sources, ownership, or conflicts of interest.
+
+No photography, stock imagery, generated imagery, placeholder portraits, hero
+imagery, or decorative illustration is required or approved for Phase 6.
 
 ---
 
@@ -892,19 +941,23 @@ address.
 
 Required content:
 
-- Scope
 - Contact method: `security@astoncyber.com`
-- Expected response timeline
-- Safe-harbor language only after legal review
-- Encryption key, if used
-- Rules for testing
-- Disclosure coordination process
-- Credit policy
-- Out-of-scope systems
+- Request for clear reproduction details
+- Request to avoid accessing, modifying, retaining, or disclosing data beyond
+  what is necessary to demonstrate an issue
+- A statement that receipt will be acknowledged when operationally possible
+- A statement that no response or remediation deadline is guaranteed
+- A statement that the page grants no testing authorization
+- A statement that no safe-harbor commitment is made
+- A statement that legal rights are not waived
+- Direction to obtain authorization before testing systems the researcher does
+  not own
 
 This page must be reviewed before launch.
 
-Do not invent legal safe-harbor language.
+Do not invent a guaranteed response or remediation timeline, eligible or
+out-of-scope system lists, a bounty, a credit policy, coordinated-disclosure
+deadlines, permission to test third-party systems, or safe-harbor terms.
 
 Before public launch, publish an RFC 9116 `security.txt` file at:
 
@@ -927,9 +980,8 @@ contents.
 The approved general contact address is `info@astoncyber.com`.
 The address is reserved for general inquiries and must not be presented
 as the responsible-disclosure channel.
-The initial release should use a direct email link rather than a
-server-backed contact form. Adding a public form requires security and
-architectural review.
+The initial release must use direct email links and no server-backed contact
+form. Adding a public form requires separate security and architectural review.
 
 ---
 

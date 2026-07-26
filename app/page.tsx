@@ -1,176 +1,99 @@
-import { Brand } from "@/components/brand";
-import { CoreComponentExamples } from "@/components/examples/core-component-examples";
+import type { Metadata } from "next";
 
-const typeSpecimens = [
-  {
-    className: "type-display",
-    label: "Display",
-    sample: "Design system specimen",
-  },
-  {
-    className: "type-h1",
-    label: "Heading one",
-    sample: "Primary page heading",
-  },
-  {
-    className: "type-h2",
-    label: "Heading two",
-    sample: "Primary section heading",
-  },
-  {
-    className: "type-h3",
-    label: "Heading three",
-    sample: "Grouped subsection heading",
-  },
-  {
-    className: "type-h4",
-    label: "Heading four",
-    sample: "Component-level heading",
-  },
-] as const;
+import { Container } from "@/components/layout/container";
+import { Section } from "@/components/layout/section";
+import { Heading } from "@/components/ui/heading";
+import { Link } from "@/components/ui/link";
+import { Text } from "@/components/ui/text";
 
-const surfaceSpecimens = [
+export const metadata: Metadata = {
+  title: "Aston Cyber",
+  description:
+    "Aston Cyber advances cybersecurity through research, engineering, and education.",
+};
+
+const areas = [
   {
-    className: "surface-base",
-    description: "Default grouped content",
-    label: "Surface",
+    description:
+      "Research creates understanding through careful questions, evidence, and honest conclusions.",
+    title: "Research",
   },
   {
-    className: "surface-raised",
-    description: "Elevated supporting content",
-    label: "Surface raised",
+    description:
+      "Engineering applies understanding through practical approaches and better systems.",
+    title: "Engineering",
+  },
+  {
+    description:
+      "Secure systems give people the confidence to innovate, collaborate, and solve meaningful problems.",
+    title: "Security",
   },
 ] as const;
 
 export default function Home() {
   return (
-    <div className="layout-container section-space">
-      <div className="specimen-brand">
-        <Brand />
-        <p className="type-caption text-foreground-muted">
-          Non-production design-system placeholder
-        </p>
-      </div>
+    <>
+      <Section className="homepage-introduction">
+        <Container className="stack-lg">
+          <Text className="text-accent" variant="eyebrow">
+            Research. Engineering. Security.
+          </Text>
+          <Heading level={1} variant="hero">
+            Advancing the practice of cybersecurity
+          </Heading>
+          <Text className="text-foreground-secondary" variant="lead">
+            Aston Cyber is an independent cybersecurity research institution. We
+            investigate emerging challenges, develop practical approaches, and
+            publish knowledge that elevates our field.
+          </Text>
+          <div className="cluster">
+            <Link href="/mission" variant="standalone">
+              Read our mission
+            </Link>
+            <Link href="/ethos" variant="standalone">
+              Explore our ethos
+            </Link>
+          </div>
+        </Container>
+      </Section>
 
-      <section className="stack-lg" aria-labelledby="specimen-title">
-        <p className="type-eyebrow text-accent">Phase 2 specimen</p>
-        <h1 id="specimen-title" className="type-hero">
-          Visual foundation
-        </h1>
-        <p className="type-lead text-foreground-secondary">
-          Neutral examples for validating type, spacing, surfaces, and
-          responsive behavior.
-        </p>
-        <div className="cluster">
-          <a className="button-primary" href="#typography">
-            View typography
-          </a>
-          <a className="button-secondary" href="#surfaces">
-            View surfaces
-          </a>
-        </div>
-      </section>
+      <Section aria-labelledby="principles-title">
+        <Container className="layout-grid">
+          <div className="stack-md">
+            <Heading id="principles-title" level={2}>
+              Research, engineering, security
+            </Heading>
+            <Text className="text-foreground-secondary" variant="bodyLarge">
+              Each depends upon the one before it. Security creates freedom.
+            </Text>
+          </div>
+          <div className="institutional-grid">
+            {areas.map((area) => (
+              <article className="surface-base stack-sm" key={area.title}>
+                <Heading level={3}>{area.title}</Heading>
+                <Text className="text-foreground-secondary">
+                  {area.description}
+                </Text>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
-      <section
-        id="typography"
-        className="specimen-section stack-xl"
-        aria-labelledby="type-title"
-      >
-        <div className="stack-sm">
-          <p className="type-eyebrow text-foreground-muted">Typography</p>
-          <h2 id="type-title" className="type-h2">
-            Type hierarchy
-          </h2>
-        </div>
-
-        <div className="stack-xl">
-          {typeSpecimens.map((specimen) => (
-            <div className="specimen-row stack-sm" key={specimen.label}>
-              <p className="type-caption text-foreground-muted">
-                {specimen.label}
-              </p>
-              <p className={specimen.className}>{specimen.sample}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="layout-grid">
-          <article className="surface-base stack-md">
-            <h3 className="type-h4">Body typography</h3>
-            <p className="type-body-lg">
-              Large body text introduces important neutral information.
-            </p>
-            <p className="type-body">
-              This neutral paragraph demonstrates the standard reading size,
-              measure, and vertical rhythm without presenting production
-              content.
-            </p>
-            <p className="type-small text-foreground-secondary">
-              Supporting text uses the secondary foreground role.
-            </p>
-          </article>
-          <article className="surface-base stack-md">
-            <h3 className="type-h4">Technical typography</h3>
-            <p className="type-body">
-              Monospace treatment is reserved for code and technical labels.
-            </p>
-            <code className="type-code code-sample">token.surface.raised</code>
-          </article>
-        </div>
-      </section>
-
-      <section
-        id="surfaces"
-        className="specimen-section stack-xl"
-        aria-labelledby="surface-title"
-      >
-        <div className="stack-sm">
-          <p className="type-eyebrow text-foreground-muted">Surfaces</p>
-          <h2 id="surface-title" className="type-h2">
-            Surface hierarchy
-          </h2>
-        </div>
-
-        <div className="layout-grid">
-          {surfaceSpecimens.map((specimen) => (
-            <article
-              className={`${specimen.className} stack-md`}
-              key={specimen.label}
-            >
-              <p className="type-caption text-foreground-muted">
-                {specimen.label}
-              </p>
-              <h3 className="type-h4">Neutral card example</h3>
-              <p className="type-body text-foreground-secondary">
-                {specimen.description}
-              </p>
-              <a className="text-link" href="#specimen-title">
-                Return to specimen start
-              </a>
-            </article>
-          ))}
-        </div>
-
-        <div className="surface-base stack-md">
-          <h3 className="type-h4">Semantic states</h3>
-          <ul className="state-list" aria-label="Semantic color examples">
-            <li>
-              <span className="state-indicator bg-success" aria-hidden="true" />
-              Success
-            </li>
-            <li>
-              <span className="state-indicator bg-warning" aria-hidden="true" />
-              Warning
-            </li>
-            <li>
-              <span className="state-indicator bg-danger" aria-hidden="true" />
-              Danger
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <CoreComponentExamples />
-    </div>
+      <Section aria-labelledby="contact-title">
+        <Container className="surface-raised institutional-callout stack-md">
+          <Heading id="contact-title" level={2}>
+            Contact Aston Cyber
+          </Heading>
+          <Text className="text-foreground-secondary">
+            General inquiries and responsible disclosure use separate contact
+            channels.
+          </Text>
+          <Link href="/contact" variant="standalone">
+            View contact information
+          </Link>
+        </Container>
+      </Section>
+    </>
   );
 }

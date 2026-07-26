@@ -26,9 +26,10 @@ The implementation must avoid assumptions that require server-side infrastructur
 - General contact: `info@astoncyber.com`
 - Responsible disclosure and security reports: `security@astoncyber.com`
 
-The initial static site should expose these as direct email links rather
-than assume a server-backed contact form. A future public form requires
-security and architectural review.
+The initial static site must expose these as direct email links in their
+approved contexts. Phase 6 must not add a contact form, Server Action, API
+route, external form provider, mail service, or other inquiry infrastructure.
+A future public form requires separate security and architectural review.
 
 The two addresses have separate purposes and must not be interchanged.
 
@@ -141,3 +142,22 @@ The following decisions do not block the start of Phase 1 but require an owner b
 
 - Obtain legal review before publishing any responsible-disclosure safe-harbor language.
 - Publish and review RFC 9116 `/.well-known/security.txt`.
+
+## Phase 6 Institutional Publication
+
+- The homepage uses only approved repository language and omits research,
+  current-work, project, and writing sections until approved public content
+  exists.
+- The Phase 5 fixture must not appear.
+- The People index and reusable profile architecture are Phase 6 work, but no
+  person route is published without approved content.
+- The About page omits unapproved leadership, contributor, affiliation,
+  history, funding, and sponsorship content. Its only current funding
+  disclosure is: “Aston Cyber does not currently publish a list of funders or
+  sponsors.”
+- Responsible disclosure is limited to the operational guidance approved in
+  `06-website-specification.md`; no testing authorization, scope list,
+  timeline, bounty, credit policy, coordinated-disclosure deadline,
+  safe-harbor commitment, or waiver is implied.
+- No photography, generated imagery, placeholder portraits, decorative hero
+  imagery, or other unapproved imagery is part of Phase 6.

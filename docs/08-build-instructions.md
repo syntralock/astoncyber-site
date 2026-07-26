@@ -353,9 +353,35 @@ Do not use lorem ipsum.
 
 The homepage must introduce Aston Cyber before introducing the founder.
 
+Use only approved repository language. Until approved public research,
+projects, programs, or writing exist, omit those homepage sections entirely.
+Do not render the Phase 5 technical fixture or create empty promotional
+sections.
+
+The People index may use a neutral editorial empty state. Implement reusable
+person-profile architecture, but generate no public profile route until
+approved person content exists. Do not invent identities, biographies,
+affiliations, portraits, or profile data.
+
+The About page must omit unapproved leadership, contributor, affiliation,
+history, funding, and sponsorship material. It may include only the approved
+neutral disclosure recorded in the website specification.
+
 General-inquiry links must use `info@astoncyber.com`. Responsible
 disclosure and security-reporting links must use
 `security@astoncyber.com`; do not interchange the addresses.
+
+Contact uses direct `mailto:` links only. Do not add a form, Server Action, API
+route, external form provider, mail service, or other inquiry infrastructure.
+Any future public form requires a separate architecture and security review.
+
+Responsible disclosure is limited to the operational guidance approved in the
+website specification. Do not invent testing scope, timelines, bounty or credit
+terms, coordinated-disclosure deadlines, authorization, or safe-harbor terms.
+`security.txt` remains deferred.
+
+Do not add photography, stock or generated imagery, placeholder portraits,
+decorative hero imagery, or other unapproved visual assets.
 
 Checkpoint:
 

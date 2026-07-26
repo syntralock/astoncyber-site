@@ -63,21 +63,11 @@ documentation rather than newly authored production copy. Direct email
 addresses are not rendered by the shell; Contact points to `/contact`.
 
 The `/contact` page remains deferred to the institutional-pages phase.
-Its approved future contact form requires an inquiry-type selection:
-
-- Get more information
-- Submit Your Research
-
-Internal routing will send Get more information submissions to
-`info@astoncyber.com` and Submit Your Research submissions to
-`security@astoncyber.com`.
-
-The form, delivery mechanism, routing logic, API or server action,
-validation, spam protection, and environment configuration are not part
-of Phase 3. When implemented, recipient addresses must remain
-server-side and absent from client JavaScript. Inputs must be validated,
-spam protection and privacy requirements must be addressed, and success
-and error states must be accessible.
+For the initial static release, the page uses direct approved email links only.
+The earlier proposal for a server-routed inquiry form is superseded. Phase 6
+must not add a form, delivery mechanism, API, Server Action, external provider,
+mail service, or inquiry environment configuration. Any future public form
+requires a separate architecture and security review.
 
 ## Deferred work
 
@@ -85,7 +75,7 @@ and error states must be accessible.
   (Phase 4)
 - Research-content vertical slice (Phase 5)
 - Institutional and production route content (Phase 6 onward)
-- The `/contact` page and approved server-routed inquiry form (Phase 6
+- The static `/contact` page with approved direct email links (Phase 6
   institutional pages)
 - RSS generation and destination implementation
 - Final logo and favicon package

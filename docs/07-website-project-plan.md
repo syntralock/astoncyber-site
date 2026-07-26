@@ -336,13 +336,26 @@ Build the pages that explain the organization.
 - Complete institutional page set
 - Approved homepage narrative
 - Published Ethos
+- People index and reusable person-profile architecture without publishing a
+  profile until approved person content exists
+- Accessible editorial empty states where approved content is intentionally
+  unavailable
 
 ## Acceptance Criteria
 
 - The organization is introduced before the founder.
 - No page resembles a sales landing page.
 - All content is real or clearly approved draft content.
+- No research fixture, invented person data, unpublished collection content, or
+  unapproved institutional claim is exposed.
+- Contact uses approved direct email links without a form or server-side
+  inquiry infrastructure.
 - Pages pass accessibility checks.
+
+Phase 6 may omit homepage research, current-work, project, and writing sections
+until approved public content exists. Their absence is intentional and is not
+an error state. Actual person publication is content-dependent and is not
+required for Phase 6 completion.
 
 ---
 
@@ -712,7 +725,9 @@ during validation but creates no public route or publication artifact.
 
 ### Package F: Institutional Pages
 
-Includes homepage, Mission, Ethos, About, Contact, and policy pages.
+Includes homepage, Mission, Ethos, About, People index and person-profile
+architecture, Contact, and policy pages. Actual person publication remains
+conditional on approved content.
 
 ### Package G: Research
 

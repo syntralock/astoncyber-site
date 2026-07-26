@@ -24,11 +24,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
-- 12–16 – Phase implementation records
+- 12–17 – Phase implementation records
 
 ## Current Status
 
-**Current Phase:** Phase 5 Content System
+**Current Phase:** Phase 6 Institutional Pages
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
@@ -38,8 +38,11 @@ the accessible shared application shell without beginning production
 page implementation. Phase 4 provides only the reusable primitives
 approved for the first research-content vertical slice. Phase 5 adds the
 validated, repository-based research content engine, a non-public technical
-fixture, and public-only RSS and sitemap generation. No real research
-publication or Phase 6 page has been introduced.
+fixture, and public-only RSS and sitemap generation. Phase 6 publishes the
+approved institutional page set with direct email contact, a neutral People
+empty state, and reusable person-profile architecture. No real research
+publication, public person profile, contact form, or Phase 7 experience has
+been introduced.
 
 ## Engineering Principles
 
@@ -58,7 +61,7 @@ publication or Phase 6 page has been introduced.
 docs/      Project planning and specifications
 assets/    Brand assets and media
 app/       Website application and static generated-output routes
-components/ Shared shell, UI, and content composition
+components/ Shared shell, institutional layout, UI, and content composition
 content/   Repository MDX and validated reference registries
 lib/       Typed content loading, validation, and generated-output APIs
 public/     Static public assets
