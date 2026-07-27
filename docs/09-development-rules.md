@@ -612,6 +612,50 @@ Do not add file upload functionality without:
 - Content disposition controls
 - Retention rules
 
+## 12.4 Phase 8 Published Resources
+
+Phase 8 Project and Lab resources are repository-controlled static files, not
+user uploads.
+
+Approved directly hosted document and data types are:
+
+- PDF
+- TXT
+- CSV
+- JSON
+- YAML
+- YML
+- XML
+- Markdown
+- PNG (`.png`, `image/png`)
+- JPEG (`.jpg` or `.jpeg`, `image/jpeg`)
+- WebP (`.webp`, `image/webp`)
+- GIF (`.gif`, `image/gif`)
+
+SVG is not an approved Phase 8 directly hosted resource. Normalize extensions
+before comparison, require exact MIME agreement, and reject case-variant
+bypass attempts.
+
+Do not directly host:
+
+- ZIP archives
+- Executables
+- Installers
+- Compiled binaries
+- Libraries
+- Shell scripts
+- PowerShell scripts
+- Batch or command files
+- Package artifacts
+- Disk images
+- Container images
+- Opaque binary bundles
+
+Source code and runnable releases must use an approved HTTPS repository URL
+whose exact normalized hostname is `github.com` or `gitlab.com`. Validation
+must bind every directly hosted resource to an approved extension and MIME pair
+and must reject mismatches.
+
 ---
 
 # 13. Build and CI Security

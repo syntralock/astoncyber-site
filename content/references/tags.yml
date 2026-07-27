@@ -1,5 +1,3 @@
-- id: technical-fixture
-  label: Technical fixture
 - id: explainable-risk-scoring
   label: Explainable risk scoring
 - id: hash-chain

@@ -1,0 +1,6 @@
+- id: mdx
+  name: MDX
+- id: nextjs
+  name: Next.js
+- id: typescript
+  name: TypeScript

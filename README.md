@@ -24,11 +24,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
-- 12–19 – Phase implementation records
+- 12–21 – Phase implementation records and the Phase 8 specification
 
 ## Current Status
 
-**Current Phase:** Phase 7.1 Desktop Composition and Navigation Refinement
+**Current Phase:** Phase 8 Projects & Labs complete; Phase 9 is next
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
@@ -48,7 +48,19 @@ remain deferred. Phase 7.1 refines the desktop composition of the homepage,
 Mission page, and Research index; promotes the first report as flagship work;
 and limits public primary navigation to Home, Research, Projects, Labs, and
 About while preserving the successful mobile experience. Mission remains a
-published secondary institutional page.
+published secondary institutional page. Phase 8 is defined as Projects & Labs;
+Writing and Speaking have moved to the future personal website at
+`matt.astoncyber.com`. Phase 8 status, maturity, visibility, fixture, feed,
+repository, license, technology, relationship, contributor-approval, resource,
+empty-state, and homepage boundaries are documented. Pass 1 implemented the
+validated content foundation and migrated the legacy Research fixture outside
+the production content tree. Pass 2 implemented the Project and Lab collection
+routes, reusable detail presentation, factual production empty states,
+navigation cleanup, and sitemap integration. Because both production
+collections are empty, their dynamic route files remain inactive under the
+owner-approved activation rule. Final verification passed the complete quality
+suite and generated-output inspection. Phase 8 is complete with no public
+Project or Lab content; Phase 9 Search & Discovery is the next website phase.
 
 ## Engineering Principles
 
@@ -94,12 +106,15 @@ pnpm validate
 The production build is a static export in `out/`. Use `pnpm start` to
 preview that export locally after `pnpm build`.
 
-`pnpm validate:content` validates every research MDX file, resolves author,
-contributor, topic, and tag references, compiles safe MDX, verifies referenced
-download artifacts, and checks that non-public content cannot enter RSS or
-sitemap output. Content uses the required `visibility` values `public`,
-`draft`, or `fixture`; only owner-approved `public` items are returned by
-production-facing loaders.
+`pnpm validate:content` currently validates every Research MDX file, resolves
+author, contributor, topic, and tag references, compiles safe MDX, verifies
+referenced download artifacts, and checks that non-public content cannot enter
+RSS or sitemap output. Production content uses `public` or `draft`; only
+owner-approved `public` items are returned by production-facing loaders. Test
+fixtures are explicit test inputs outside `content/`. Phase 8 pass 1 extends
+the centralized build-time validation architecture to the distinct Projects
+and Labs collections. Pass 2 consumes those APIs from static collection and
+detail routes without adding public Project or Lab content.
 
 ## Contribution Workflow
 

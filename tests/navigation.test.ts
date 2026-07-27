@@ -14,7 +14,6 @@ describe("canonical navigation", () => {
       { href: "/research", label: "Research" },
       { href: "/projects", label: "Projects" },
       { href: "/labs", label: "Labs" },
-      { href: "/speaking", label: "Speaking", published: false },
       { href: "/about", label: "About" },
     ]);
 
@@ -23,12 +22,15 @@ describe("canonical navigation", () => {
     ).toEqual(["Home", "Research", "Projects", "Labs", "About"]);
     expect(JSON.stringify(primaryNavigation)).not.toContain("Mission");
     expect(JSON.stringify(primaryNavigation)).not.toContain("Writing");
+    expect(JSON.stringify(primaryNavigation)).not.toContain("Speaking");
   });
 
   it("marks exact and nested routes active without matching partial names", () => {
     expect(isNavigationItemActive("/research", "/research")).toBe(true);
     expect(isNavigationItemActive("/research/example", "/research")).toBe(true);
     expect(isNavigationItemActive("/researching", "/research")).toBe(false);
+    expect(isNavigationItemActive("/projects/example", "/projects")).toBe(true);
+    expect(isNavigationItemActive("/labs/example", "/labs")).toBe(true);
     expect(isNavigationItemActive("/", "/research")).toBe(false);
     expect(isNavigationItemActive("/", "/")).toBe(true);
     expect(isNavigationItemActive("/mission", "/")).toBe(false);

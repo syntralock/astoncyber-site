@@ -82,21 +82,28 @@ Phase 9 must reuse rather than duplicate the Phase 7 research topic routes.
 
 ## Visibility and generated outputs
 
-The Phase 5 visibility boundary remains unchanged:
+During Phase 7, the Phase 5 visibility boundary remained unchanged:
 
 - `public` research may enter routes, indexes, RSS, and sitemap output.
 - `draft` research enters none of those publication surfaces.
 - `fixture` research enters none of those publication surfaces.
 
-The existing content-system fixture remains in the repository solely for
-technical validation. It is absent from homepage content, research routes,
+The existing content-system fixture remained in the repository solely for
+technical validation. It was absent from homepage content, research routes,
 topic indexes, static parameters, RSS, sitemap output, and the production
-export.
+export. Phase 8 must migrate it to `tests/fixtures/content/research/` and remove
+fixture visibility from production schemas.
 
 RSS is generated from the public report only. The sitemap includes the
 research index, topic index, two derived topic routes, and the report detail
 route. The original DOCX is copied by the static export and remains available
 at its validated public URL.
+
+Phase 8 preserves this Research-only RSS behavior. Projects and Labs add no
+feed. Research may gain explicit `related_projects` and `related_labs`
+references during Phase 8, but reciprocal references are never inferred.
+Validation rejects missing, duplicate, self, wrong-collection, fixture, and
+prohibited public-to-non-public relationships.
 
 ## Accessibility and print
 
@@ -167,13 +174,15 @@ added.
 - Dedicated static format, year, or status filter views remain deferred until
   the public collection can produce useful results.
 - Search, cross-collection discovery, and pagination remain Phase 9.
-- Projects, Writing, Labs, Speaking, People publication, and companion-article
-  experiences remain outside Phase 7.
+- Projects & Labs, People publication, and companion-article experiences remain
+  outside Phase 7. Decision 19 assigns Writing and Speaking to
+  `matt.astoncyber.com`.
 - DOCX ingestion, conversion automation, PDF generation, and broader editorial
   workflow remain future decisions.
 - Complete SEO, social previews, structured data, and metadata validation
   remain Phase 10.
-- The Phase 5 fixture remains a non-public validation artifact.
+- The Phase 5 fixture remained a non-public validation artifact during Phase 7;
+  Phase 8 moves it outside production content directories.
 
 ## Phase 7.1 approved refinement
 
@@ -187,8 +196,8 @@ focused responsive refinement:
 - The homepage contact callout remains a static link to `/contact`; no form,
   subscription, or newsletter capability is introduced.
 - Current primary navigation is Home, Research, Projects, Labs, and About.
-  Mission remains a published secondary institutional page; Writing is removed
-  and Speaking remains withheld until approved content exists.
+  Mission remains a published secondary institutional page; Writing and
+  Speaking belong to the future personal website.
 - The homepage three-pillar group is governed by the Mission heading and may
   use only the approved decorative, `aria-hidden`, project-native line icons.
 - The homepage hero heading uses a wider responsive measure so it fits naturally

@@ -45,6 +45,12 @@ The technical fixture contains neutral explanatory material about the
 content-system test. It contains no research findings, claims, affiliations,
 biographies, disclosures, or organizational history.
 
+> Phase 8 amendment: this section records the Phase 5 implementation as it
+> shipped. Before Phase 8 ships, the legacy fixture must move to
+> `tests/fixtures/content/research/`; production visibility must become
+> `public | draft`; and test fixture paths must be impossible for production
+> loaders and generators to discover.
+
 ## Schema and reference model
 
 Every research item requires:
@@ -75,6 +81,10 @@ reference fails with the source file and missing identifier.
   `published_at` or `disclosure_status`, cannot be featured, and is excluded
   from all public routes, navigation, indexes, RSS, sitemap output, and other
   publication surfaces.
+
+The `fixture` production metadata state above is historical Phase 5 behavior
+and is superseded by the Phase 8 amendment. Fixture inputs remain available to
+tests only after migration outside `content/`.
 
 When both dates exist, `updated_at` cannot precede `published_at`. ISO calendar
 dates are required. Items are deterministically ordered by publication date
@@ -247,11 +257,27 @@ Phase 7.
 - The public research index and detail routes, complete research template,
   disclosure presentation, references, download, revision metadata, static
   topic views, and print treatment were deferred to and completed in Phase 7.
-- Projects, Writing, Labs, Speaking, and People collections and interfaces
-  (Phase 8)
+- Distinct Projects and Labs collections and interfaces (Phase 8), plus
+  content-dependent People publication
 - Public research topic pages and static topic filtering (Phase 7);
   cross-collection discovery, pagination, and any separately approved search
   experience remain Phase 9
 - Complete SEO, social previews, structured data, and validation of RSS and
   sitemap in the broader metadata system (Phase 10)
 - Institutional pages and production homepage content (Phase 6)
+
+Decision 19 assigns personal Writing and Speaking to
+`matt.astoncyber.com`; they are not future Aston Cyber collections.
+
+Phase 8 reuses the Phase 5 architecture for strict Zod front matter,
+file-specific validation errors, structural MDX safety, contributor/topic/tag
+resolution, deterministic public loaders, draft exclusion, static generation,
+and generated-output leakage checks. It must not reuse the production Research
+fixture mechanism for Projects or Labs: Phase 8 test fixtures live outside all
+production content directories and are inaccessible to production discovery.
+
+Project status and Lab maturity are independent from publication visibility.
+Phase 8 adds controlled technology and license registries, exact repository-host
+validation, resource allowlists, explicit directional relationships, and
+private contributor-approval evidence. The existing Research RSS feed remains
+Research-only.

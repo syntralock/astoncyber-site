@@ -1,5 +1,3 @@
-- id: content-systems
-  label: Content systems
 - id: secure-software-design
   label: Secure software design
 - id: transaction-authorization

@@ -54,9 +54,10 @@ spacing. Primary and secondary destinations are sourced from the
 central navigation configuration, where an item can be withheld with
 `published: false` without restructuring the footer.
 
-Phase 7.1 uses that existing centralized publication-state capability to
-remove Writing and withhold Speaking consistently across desktop, mobile, and
-footer navigation. Their future Phase 8 architecture is unchanged.
+Phase 7.1 used that existing centralized publication-state capability to
+remove Writing and Speaking consistently across desktop, mobile, and footer
+navigation. Decision 19 subsequently assigned both to the future
+`matt.astoncyber.com` website and redefined Phase 8 as Projects & Labs.
 
 ## Documentation boundary
 

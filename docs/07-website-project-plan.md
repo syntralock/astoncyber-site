@@ -262,9 +262,10 @@ a non-public technical fixture.
       rendering, citation metadata, and production-build validation
 - [ ] Review the content model and component requirements
 - [ ] Expand the component library only after reviewing the vertical slice
-- [ ] Defer projects, writing, labs, speaking, and people collection expansion
-      until a public research item validates the model or an owner explicitly
-      approves broader collection work
+- [ ] Defer Projects, Labs, and People collection expansion until a public
+      research item validates the model or an owner explicitly approves broader
+      collection work. Writing and Speaking belong to the future personal
+      website.
 - [ ] Add draft handling
 - [ ] Add publication and revision dates
 - [ ] Add author and contributor references
@@ -352,7 +353,7 @@ Build the pages that explain the organization.
   inquiry infrastructure.
 - Pages pass accessibility checks.
 
-Phase 6 may omit homepage research, current-work, project, and writing sections
+Phase 6 may omit homepage research, current-work, and project sections
 until approved public content exists. Their absence is intentional and is not
 an error state. Actual person publication is content-dependent and is not
 required for Phase 6 completion.
@@ -430,8 +431,8 @@ the Related Research section. Do not publish placeholders or fixtures.
       primary navigation
 - [ ] Remove Mission from primary navigation while retaining `/mission` as a
       secondary published institutional page
-- [ ] Remove Writing from public navigation
-- [ ] Hide Speaking from public navigation until approved content exists
+- [ ] Remove Writing and Speaking from public navigation and assign them to the
+      future personal website
 - [ ] Rename the homepage focus group to Mission and add three approved
       decorative line icons without a dependency
 - [ ] Allow the homepage hero heading to fit naturally on one line at common
@@ -461,72 +462,120 @@ the Related Research section. Do not publish placeholders or fixtures.
 
 ---
 
-# Phase 8: Projects, Writing, Labs, and Speaking
+# Phase 8: Projects & Labs
+
+**Status:** Complete. Phase 9 is the next website phase.
 
 ## Objectives
 
-Complete the remaining major content areas.
+Publish two distinct, validated static collections: completed or substantially
+complete cybersecurity Projects, and Labs tooling or experimental creative
+security ventures.
 
 ## Tasks
 
 ### Projects
 
-- [ ] Projects index
-- [ ] Project detail template
-- [ ] Repository links
-- [ ] License display
-- [ ] Project status
-- [ ] Maintainer display
-- [ ] Related research
+- [x] Define and validate the Project MDX schema
+- [x] Projects index
+- [x] Project detail presentation and deferred route-activation template
+- [x] Public-only typed loaders and static parameters
+- [x] Repository links
+- [x] Project or demonstration links
+- [x] Download and resource validation
+- [x] License display
+- [x] Project status
+- [x] Contributor attribution
+- [x] Topic, tag, and technology metadata
+- [x] Related research, projects, and labs
+- [x] Featured state
 
-### Writing
-
-- [ ] Writing index
-- [ ] Writing detail template
-- [ ] Reading time
-- [ ] Sources and references
-- [ ] Correction history
-- [ ] Related content
+Project status is limited to `active`, `stable`, `completed`, and `archived`.
+It remains independent from publication visibility.
 
 ### Labs
 
-- [ ] Labs overview
-- [ ] Active program cards
-- [ ] Preliminary status treatment
-- [ ] Experiment detail template
-- [ ] Collaboration information
+- [x] Define and validate the Lab MDX schema
+- [x] Labs index
+- [x] Lab detail presentation and deferred route-activation template
+- [x] Public-only typed loaders and static parameters
+- [x] Maturity/status treatment
+- [x] Repository links
+- [x] Installation or usage guidance through safe MDX
+- [x] Download and resource validation
+- [x] License display
+- [x] Contributor attribution
+- [x] Topic, tag, and technology metadata
+- [x] Related research, projects, and labs
+- [x] Featured state
 
-### Speaking
+Lab maturity is limited to `experimental`, `prototype`, `beta`, `stable`, and
+`archived`. It remains independent from publication visibility.
 
-- [ ] Speaking index
-- [ ] Upcoming events
-- [ ] Past talks
-- [ ] Slides and recordings
-- [ ] Invitation contact process
+### Shared publication work
+
+- [x] Reuse the structural MDX safety boundary
+- [x] Preserve public and draft visibility boundaries
+- [x] Validate cross-collection references
+- [x] Add the controlled technology and license registries
+- [x] Enforce exact HTTPS repository hosts `github.com` and `gitlab.com`
+- [x] Enforce the direct-resource allowlist and prohibited-download rules
+- [x] Defer external-contributor approval storage until an actual approved
+      submission defines its private repository-controlled contract
+- [x] Keep test fixtures outside production content directories and prove that
+      production discovery cannot observe them
+- [x] Migrate the legacy Phase 5 research fixture from `content/research/` to
+      `tests/fixtures/content/research/`, remove `fixture` from production
+      visibility, and keep fixture paths unreachable by production code
+- [x] Add public Project and Lab sitemap routes
+- [x] Preserve the Research-only RSS feed and add no Project or Lab feed
+- [x] Add accessible factual empty states
+- [x] Add positive, negative, static-generation, and leakage tests
+- [x] Record the approved image extension/MIME pairs and defer concrete
+      external-contributor approval storage until an owner-approved submission
+      exists
 
 ## Deliverables
 
-- Complete secondary content areas
-- Real sample content for each collection
+- Complete Project and Lab collection and detail architecture
+- Factual empty states unless owner-approved public content is supplied
+- Centralized APIs that Phase 9 can consume without duplicate parsing
 
 ## Acceptance Criteria
 
-- Each content type has a clear purpose.
-- Preliminary work is clearly labeled.
-- Writing does not resemble product marketing.
-- Empty states work for sections with limited content.
+- Projects and Labs remain distinct editorial concepts.
+- Invalid metadata and references fail with clear file-specific errors.
+- Preliminary and experimental Labs work is clearly labeled.
+- Public routes and sitemap output include only approved public content.
+- Drafts, fixtures, and other non-public content do not leak.
+- Test fixtures are structurally outside production content discovery.
+- The legacy research fixture has been moved out of the production content
+  tree, and production visibility no longer uses `fixture`.
+- Repository hosts, licenses, technologies, and resources are validated at
+  build time. External-contributor approval storage remains deferred until an
+  actual approved submission defines its contract.
+- The Research RSS feed remains unchanged and contains no Project or Lab.
+- Featured Project and Lab metadata does not create homepage sections.
+- Routes are statically generated and need no runtime content access.
+- Empty collections publish their index routes without active `[slug]` route
+  files; each detail route activates with the first approved public item and
+  never through a placeholder, fixture, draft, or sentinel slug.
+- Empty states work for collections with no approved public content.
+- Accessibility, responsive behavior, and the full validation suite pass.
+- No Writing, Speaking, Search, personal-site implementation, CMS, database,
+  analytics, or unnecessary Client Component is introduced.
 
 ---
 
-# Phase 9: Search and Cross-Collection Discovery
+# Phase 9: Search & Discovery
 
 **Status:** Deferred until content volume demonstrates a clear need.
 
 ## Objectives
 
 Reassess whether visitors need site search using evidence from the real
-content library. Do not implement search solely because it appeared in
-the original plan.
+Research, Projects, and Labs content library. Do not implement search solely
+because it appeared in the original plan.
 
 ## Tasks
 
@@ -538,8 +587,8 @@ the original plan.
 - [ ] Index authors and contributors
 - [ ] Index topics and tags
 - [ ] Reuse Phase 7 research topic pages rather than duplicating them
-- [ ] Add writing filters
-- [ ] Add project filters
+- [ ] Cover Research, Projects, and Labs
+- [ ] Add collection-aware Project and Lab filters when justified
 - [ ] Add pagination
 - [ ] Add no-results state
 - [ ] Add query parameters to URLs
@@ -557,6 +606,11 @@ the original plan.
 - Filters remain usable on mobile.
 - Search does not require unnecessary tracking.
 - No-results guidance is helpful.
+
+After Phase 9 and before Phase 10, develop the future personal website at
+`matt.astoncyber.com` so cross-domain SEO and launch work can be coordinated.
+Writing and Speaking belong to that personal site and are not Aston Cyber
+Phase 8 deliverables.
 
 ---
 
@@ -795,15 +849,18 @@ conditional on approved content.
 
 Includes research index, templates, filters, citations, and disclosure data.
 
-### Package H: Secondary Collections
+### Package H: Projects & Labs
 
-Includes Projects, Writing, Labs, Speaking, and People.
+Includes the distinct Projects and Labs publishing collections. People
+publication remains content-dependent institutional work; Writing and Speaking
+belong to `matt.astoncyber.com`.
 
 ### Package I: Search and Metadata
 
-Includes cross-collection discovery, SEO, structured data, and social
-previews. Phase 7 owns the research topic pages. Search is added only after
-content volume demonstrates a clear need and a separate review approves it.
+Includes Research–Projects–Labs cross-collection discovery. Phase 7 owns the
+research topic pages. Search is added only after content volume demonstrates a
+clear need and a separate review approves it. The personal website is expected
+after this package and before Phase 10 SEO and launch coordination.
 
 ### Package J: Hardening and Launch
 

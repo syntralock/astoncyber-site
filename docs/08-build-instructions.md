@@ -278,9 +278,7 @@ After the research vertical slice validates the model, expand to:
 ```text
 content/
   projects/
-  writing/
   labs/
-  speaking/
   people/
   pages/
 ```
@@ -353,8 +351,8 @@ Do not use lorem ipsum.
 
 The homepage must introduce Aston Cyber before introducing the founder.
 
-Use only approved repository language. Until approved public research,
-projects, programs, or writing exist, omit those homepage sections entirely.
+Use only approved repository language. Until approved public Research,
+Projects, Labs, or programs exist, omit those homepage sections entirely.
 Do not render the Phase 5 technical fixture or create empty promotional
 sections.
 
@@ -454,9 +452,9 @@ index, and shared navigation without expanding the product scope:
 5. Keep the homepage contact treatment as a concise link to `/contact`; do not
    add a form or expose additional addresses there.
 6. Publish only Home, Research, Projects, Labs, and About in primary
-   navigation. Retain `/mission` as a secondary published route, and retain
-   future Writing and Speaking architecture without publishing those
-   destinations.
+   navigation. Retain `/mission` as a secondary published route. Writing and
+   Speaking belong to the future personal website and must not be added as
+   Aston Cyber destinations.
 7. Use Mission as the homepage three-pillar group heading. Add only the three
    approved same-weight decorative line icons using project-native SVG; keep
    them `aria-hidden` and add no icon dependency.
@@ -473,35 +471,85 @@ functionality, a contact form, or a new runtime service.
 
 ---
 
-# Step 11: Build Projects, Writing, Labs, and Speaking
+# Step 11: Build Projects & Labs
 
-Build each collection using the shared content system.
+Follow `20-phase-8-projects-labs-specification.md`.
 
-For every collection:
-
-1. Create the metadata schema.
-2. Create the index page.
-3. Create the detail template.
-4. Create card components.
-5. Add filters only when useful.
-6. Add a clear empty state.
-7. Add at least one realistic example.
+1. Apply the approved image extension/MIME pairs from the Phase 8
+   specification. Do not create external-contributor approval storage until an
+   actual owner-approved external submission requires its separately approved
+   evidence contract.
+2. Define strict Project and Lab Zod schemas without collapsing their
+   editorial differences.
+   - Project status: `active`, `stable`, `completed`, `archived`
+   - Lab maturity: `experimental`, `prototype`, `beta`, `stable`, `archived`
+   - Visibility remains a separate publication field.
+3. Extend centralized repository MDX loading and structural safety checks.
+4. Add controlled technology and license registries.
+5. Add exact normalized HTTPS repository-host validation for `github.com` and
+   `gitlab.com`.
+6. Add directly hosted resource validation for PDF, TXT, CSV, JSON, YAML, YML,
+   XML, Markdown, and confirmed existing web-image formats. Reject ZIP files,
+   executables, installers, compiled binaries, libraries, shell scripts,
+   PowerShell scripts, batch/command files, and opaque binary bundles.
+7. Add validated contributor, taxonomy, resource, and relationship handling.
+   Relationships are explicit and directional; reject missing, duplicate,
+   self, wrong-collection, fixture, and prohibited public-to-non-public
+   references.
+8. Keep external-contributor approval storage deferred until an actual
+   owner-approved submission defines the minimal private repository-controlled
+   contract. Do not create speculative records or private registries.
+9. Store test fixtures outside production content directories. Migrate the
+   legacy Phase 5 research fixture from `content/research/` to
+   `tests/fixtures/content/research/`, remove `fixture` from production
+   visibility, and ensure no production loader or generator imports or scans
+   test fixture locations.
+10. Add public-only Project and Lab collection and slug lookup APIs.
+11. Build `/projects`, `/projects/[slug]`, `/labs`, and `/labs/[slug]` as static
+    Server Components. Keep each `[slug]` route file inactive while its
+    production collection is empty; activate it in the same reviewed change as
+    the first approved public item, following the exact steps in the Phase 8
+    specification. Never generate a placeholder, fixture, draft, or sentinel
+    parameter.
+12. Reuse shared cards and metadata primitives only where their semantics fit.
+13. Ship factual accessible empty states unless owner-approved public content
+    is supplied. Do not invent content.
+14. Support `featured` in schemas without adding Project or Lab homepage
+    sections.
+15. Add public-only sitemap routes. Preserve the Research RSS feed unchanged
+    and add no Project or Lab feed.
+16. Remove stale Writing and Speaking configuration or examples from Aston
+    Cyber application code and tests.
+17. Add positive, negative, static-generation, relationship, visibility,
+    fixture-isolation, and export-leakage tests.
 
 Checkpoint:
 
-- Preliminary Labs work is labeled.
-- Writing includes sources where relevant.
-- Project pages show status and licensing.
-- Speaking pages show recordings or slides when available.
+- Projects represent completed or substantially complete work.
+- Labs represent tooling, experiments, proof-of-concepts, detection content,
+  and other creative security ventures.
+- Lab maturity and preliminary status are explicit.
+- Project and Lab pages show only approved contributor, repository, resource,
+  and license data.
+- Drafts and non-public content create no route or generated-output entry.
+- Project status and Lab maturity do not control visibility.
+- Proprietary and unlicensed content is never labeled open source.
+- Source code and runnable releases link to approved repository hosts rather
+  than direct downloads.
+- Test fixtures cannot enter loaders, routes, metadata, counts, relationships,
+  sitemap, RSS, or generated output.
+- Writing and Speaking are not added; they belong to `matt.astoncyber.com`.
 
 ---
 
-# Step 12: Add Search and Cross-Collection Discovery
+# Step 12: Add Search & Discovery
 
 Site search is deferred until content volume demonstrates a clear need.
 Phase 7 already owns static research topic navigation. Reuse those pages and
 implement chronological archives first. Revisit the steps below only after a
 documented review approves search.
+
+Phase 9 covers Research, Projects, and Labs.
 
 Index:
 
@@ -529,6 +577,17 @@ Checkpoint:
 - Filters work on mobile.
 - URLs preserve search and filter state.
 - Search does not introduce unnecessary tracking.
+
+---
+
+# Step 12.1: Coordinate the Future Personal Website
+
+After Phase 9 and before Phase 10, develop `matt.astoncyber.com` as the future
+home for personal Writing and Speaking. Keep it architecturally separate from
+the Aston Cyber Projects and Labs collections. Coordinate canonical ownership,
+cross-domain links, and later SEO/launch requirements before Phase 10.
+
+Do not implement the personal website as part of Phase 8 or Phase 9.
 
 ---
 

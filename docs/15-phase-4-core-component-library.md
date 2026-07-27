@@ -115,6 +115,12 @@ states, and announced error states.
   consumer demonstrates the need
 - All production routes and institutional content (Phase 6 onward)
 - Research-page variants and filters (Phase 7)
-- Project, Writing, Labs, Speaking, and People patterns (Phase 8)
+- Project and Lab publishing patterns (Phase 8), plus content-dependent People
+  publication
 - Pagination and search controls after discovery requirements are
   demonstrated and search is separately approved (Phase 9)
+
+The Phase 4 Writing Card remains a tested historical generic component, but
+Decision 19 removes Writing and Speaking routes and collections from the Aston
+Cyber roadmap. Personal Writing and Speaking belong to
+`matt.astoncyber.com`.

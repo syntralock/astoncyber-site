@@ -128,7 +128,7 @@ Primary needs:
 The website must:
 
 - Establish Aston Cyber as a credible research institution.
-- Publish research, technical writing, projects, and presentations.
+- Publish research, projects, and labs work.
 - Make the organization's ethos visible and understandable.
 - Help visitors discover work by topic, format, and date.
 - Present contributors and leadership without making the site founder-centric.
@@ -154,10 +154,10 @@ Home links to `/` and replaces Mission in public primary and footer
 navigation. Mission remains published at `/mission` as a secondary
 institutional page available through contextual links and direct URL.
 
-Writing remains a future collection but is removed from current public
-navigation. Speaking remains a future collection and is hidden until approved
-public speaking content exists. Desktop, mobile, and footer primary navigation
-must derive from the same centralized published-state configuration.
+Writing and Speaking are removed from the Aston Cyber roadmap and navigation.
+They are assigned to the future personal website at `matt.astoncyber.com`.
+Desktop, mobile, and footer primary navigation must derive from the same
+centralized published-state configuration.
 
 The Ethos page must be prominently linked from Mission and the footer,
 but it is not a primary navigation item.
@@ -194,12 +194,8 @@ Recommended routes:
 /research/[slug]
 /projects
 /projects/[slug]
-/writing
-/writing/[slug]
 /labs
 /labs/[slug]
-/speaking
-/speaking/[slug]
 /ethos
 /about
 /people
@@ -327,26 +323,17 @@ Each item should indicate:
 - Last update
 - Link to project details
 
-### 8.5 Selected Writing
-
-Display recent technical essays, explainers, or commentary.
-
-Writing must remain visually secondary to original research.
-
-This section is conditional on approved public writing and must be omitted
-during Phase 6 while no such content exists.
-
-### 8.6 Ethos Preview
+### 8.5 Ethos Preview
 
 Include a short excerpt from The Aston Cyber Ethos with a link to the full document.
 
-### 8.7 Organization Introduction
+### 8.6 Organization Introduction
 
 A brief section may introduce the organization and founder near the bottom of the page.
 
 The founder must not dominate the homepage.
 
-### 8.8 Footer
+### 8.7 Footer
 
 Required footer content:
 
@@ -529,107 +516,78 @@ academic publishing platform.
 
 ## 9.4 Projects Index
 
-Projects may include:
+Projects is a publishing collection for completed or substantially complete
+cybersecurity work produced by Aston Cyber or approved external contributors.
 
-- Open-source tools
-- Prototypes
-- Reference architectures
-- Datasets
-- Educational resources
-- Experiments
+The index must:
 
-Each project card should show:
+- explain the completed-work editorial boundary;
+- list approved public Projects deterministically;
+- expose status, contributors, topics/tags, technologies, and relevant
+  repository or license metadata;
+- support a factual accessible empty state;
+- remain static and useful without client JavaScript;
+- defer cross-collection search, filters, and pagination to Phase 9.
 
-- Name
-- Purpose
-- Status
-- Repository
-- License
-- Last update
-- Maintainers
+Project status accepts only `active`, `stable`, `completed`, or `archived`.
+Publication visibility is a separate field and must not be inferred from
+status.
+
+Phase 8 ships this index with a factual empty state unless owner-approved
+public Project content is supplied. The schema may support `featured`, but
+Phase 8 does not add Projects to the homepage.
 
 ## 9.5 Project Detail Page
 
-Required fields:
+A Project may include title, slug, summary, description or MDX body,
+publication or completion date, status, contributors, topics/tags,
+technologies, repository URL, project or demonstration URL, license,
+downloads/resources, related Research, related Labs, and featured state.
 
-- Project overview
-- Problem statement
-- Current status
-- Architecture or approach
-- Repository link
-- Documentation
-- License
-- Contributors
-- Roadmap
-- Known limitations
-- Related research
+The detail page emphasizes purpose, completed or substantially complete work,
+implementation or outcome, status, contributors, repository/resources,
+license, limitations, and related Research or Labs. It must not imply
+production readiness, maintenance, support, security review, or warranty
+without explicit approved content.
 
-## 9.6 Writing Index
+## 9.6 Labs Index
 
-Writing includes:
+Labs is a publishing collection for open-source security tools, utilities,
+scripts, proof-of-concepts, experiments, detection content, and other creative
+security ventures.
 
-- Technical essays
-- Explanations
-- Commentary
-- Field notes
-- Reviews of methods or ideas
-- Educational material
+The index must:
 
-Writing must not be used as disguised product marketing.
+- explain the Labs editorial purpose;
+- list approved public Labs deterministically;
+- expose maturity/status, contributors, topics/tags, technologies, and relevant
+  repository or license metadata;
+- clearly distinguish experimental or preliminary work;
+- support a factual accessible empty state;
+- remain static and useful without client JavaScript;
+- defer cross-collection search, filters, and pagination to Phase 9.
 
-Required filters:
+Lab maturity accepts only `experimental`, `prototype`, `beta`, `stable`, or
+`archived`. Publication visibility is a separate field and must not be inferred
+from maturity.
 
-- Topic
-- Type
-- Year
-- Author
+Phase 8 ships this index with a factual empty state unless owner-approved
+public Lab content is supplied. The schema may support `featured`, but Phase 8
+does not add Labs to the homepage.
 
-## 9.7 Writing Detail Page
+## 9.7 Lab Detail Page
 
-Required fields:
+A Lab may include title, slug, summary, description or MDX body, publication
+date, maturity/status, contributors, topics/tags, technologies, repository URL,
+license, installation or usage guidance, downloads/resources, related
+Research, related Projects, and featured state.
 
-- Title
-- Summary
-- Author
-- Publication date
-- Revision date
-- Reading time
-- Topic tags
-- Main content
-- Sources and references
-- Related research
-- Correction history, when applicable
+The detail page emphasizes maturity, limitations, authorized and safe use,
+installation or usage guidance, repository/resources, license, and
+relationships to formal Research or completed Projects. It must not imply
+production readiness.
 
-## 9.8 Labs Page
-
-Aston Cyber Labs represents active experimentation and emerging work.
-
-The page should contain:
-
-- Purpose of Labs
-- Active programs
-- Experiments
-- Prototypes
-- Calls for collaboration
-- Status labels
-- Links to related research and projects
-
-Labs content must clearly indicate when findings are preliminary.
-
-## 9.9 Speaking Page
-
-Required content:
-
-- Upcoming appearances
-- Past talks
-- Presentation titles
-- Event names
-- Dates
-- Speakers
-- Slides or recordings when available
-- Contact process for invitations
-
-## 9.10 Ethos Page
+## 9.8 Ethos Page
 
 This page should publish The Aston Cyber Ethos with minimal interruption.
 
@@ -643,7 +601,7 @@ Requirements:
 - Optional downloadable Markdown or PDF
 - Revision history
 
-## 9.11 About Page
+## 9.9 About Page
 
 The About page should introduce Aston Cyber as an institution before introducing individuals.
 
@@ -657,7 +615,7 @@ Required order:
 6. Contact
 7. Funding or sponsorship disclosure
 
-## 9.12 People Pages
+## 9.10 People Pages
 
 Each profile may include:
 
@@ -667,8 +625,6 @@ Each profile may include:
 - Areas of expertise
 - Research
 - Projects
-- Writing
-- Speaking
 - Professional links
 - Disclosure of relevant affiliations
 
@@ -678,7 +634,7 @@ The People index may use a neutral editorial empty state that does not imply
 contributors, employees, advisors, or leadership profiles already exist. Do
 not invent identities, biographies, affiliations, portraits, or profile data.
 
-## 9.13 Contact Page
+## 9.11 Contact Page
 
 The initial static release uses direct email links only:
 
@@ -690,7 +646,7 @@ Phase 6 must not add a form, Server Action, API route, external form provider,
 mail service, or other server-side inquiry infrastructure. Any future public
 form requires a separate architecture and security review.
 
-## 9.14 Phase 6 Institutional Content Boundary
+## 9.12 Phase 6 Institutional Content Boundary
 
 The Phase 6 homepage may use only approved repository language to introduce
 Aston Cyber as an organization, explain its mission, ethos, and documented
@@ -730,9 +686,7 @@ Recommended content collections:
 content/
   research/
   projects/
-  writing/
   labs/
-  speaking/
   people/
   pages/
 ```
@@ -791,24 +745,113 @@ peer_review_status:
 ### 10.3 Project Metadata
 
 ```yaml
-project_status:
+status:
+completed_at:
 repository:
-documentation:
+project_url:
 license:
-maintainers:
+contributors:
+technologies:
+resources:
 related_research:
+related_projects:
+related_labs:
+featured:
 ```
 
-### 10.4 Speaking Metadata
+### 10.4 Lab Metadata
 
 ```yaml
-event:
-location:
-event_date:
-speaker:
-slides:
-recording:
+maturity:
+repository:
+license:
+contributors:
+technologies:
+usage:
+resources:
+related_research:
+related_projects:
+related_labs:
+featured:
 ```
+
+The exact Project status vocabulary, Lab maturity vocabulary, technology model,
+license vocabulary, resource media rules, feed behavior, and cross-collection
+relationship rules are defined in `20-phase-8-projects-labs-specification.md`.
+
+Phase 8 publication visibility remains separate from Project status and Lab
+maturity. Public and draft content use production content directories. Test
+fixtures live outside production content directories and must be structurally
+undiscoverable by production loaders and generated outputs.
+
+This rule applies repository-wide. Phase 8 implementation must migrate the
+legacy Phase 5 research fixture out of `content/research/` and into the
+test-only fixture tree. Production content schemas then use only `public` and
+`draft`; fixture behavior is exercised by explicit test inputs rather than a
+production visibility value.
+
+Project status values:
+
+```text
+active
+stable
+completed
+archived
+```
+
+Lab maturity values:
+
+```text
+experimental
+prototype
+beta
+stable
+archived
+```
+
+Technology values are canonical identifiers from a centralized controlled
+registry. Public MDX must not declare arbitrary technology strings.
+
+Approved license values:
+
+```text
+MIT
+Apache-2.0
+BSD-2-Clause
+BSD-3-Clause
+GPL-3.0-only
+MPL-2.0
+CC-BY-4.0
+CC-BY-SA-4.0
+CC0-1.0
+proprietary
+unlicensed
+```
+
+Proprietary and unlicensed content must not be presented as open source.
+
+Repository URLs must use HTTPS and the exact normalized hostname `github.com`
+or `gitlab.com`.
+
+Approved directly hosted resource types are PDF, TXT, CSV, JSON, YAML, YML,
+XML, and Markdown. Approved images are `.png` with `image/png`, `.jpg` or
+`.jpeg` with `image/jpeg`, `.webp` with `image/webp`, and `.gif` with
+`image/gif`. SVG and every unlisted image format are rejected. ZIP archives,
+executables, installers, compiled binaries, libraries, shell scripts,
+PowerShell scripts, batch or command files, and opaque binary bundles are
+prohibited as direct website downloads. Source code and runnable releases use
+approved repository hosts.
+
+Research, Projects, and Labs may declare typed cross-collection relationships.
+Validation rejects missing targets, duplicates, self-references,
+wrong-collection references, fixture references, and prohibited
+public-to-non-public references. Reciprocal relationships are never inferred.
+
+External-contributor approval evidence will be repository-controlled, minimal,
+build-time validated, and absent from all public output. No external
+contributor content is currently approved, so Phase 8 pass 1 creates no record
+or private registry. Its exact storage contract requires owner approval with
+the first real external submission.
 
 ---
 
@@ -903,7 +946,7 @@ The initial component library should include:
 - Content card
 - Research card
 - Project card
-- Writing card
+- Lab card
 - Person card
 - Quote
 - Callout
@@ -924,10 +967,11 @@ Components must be reused rather than recreated page by page.
 
 ---
 
-## 13. Search and Discovery
+## 13. Search & Discovery
 
 Search is deferred until content volume demonstrates a clear discovery
-need. If a future review approves search, it should support:
+need. Phase 9 covers Research, Projects, and Labs. If a future review approves
+search, it should support:
 
 - Titles
 - Summaries
@@ -936,6 +980,7 @@ need. If a future review approves search, it should support:
 - Topics
 - Tags
 - Full text where practical
+- Collection type
 
 Filters should use shareable URLs.
 
@@ -1245,9 +1290,7 @@ The first public release should include:
 - Research index
 - At least one research detail template
 - Projects index
-- Writing index
 - Labs
-- Speaking
 - Ethos
 - About
 - Contact

@@ -33,17 +33,15 @@ Architecture.
 
 Automation.
 
+Completed or substantially complete work is published as a Project.
+
 ---
 
 ## Education
 
 Guides.
 
-Articles.
-
 Books.
-
-Presentations.
 
 Diagrams.
 
@@ -61,13 +59,36 @@ Emerging technology.
 
 ## Labs
 
-Early experiments.
+Open-source security tools.
+
+Utilities and scripts.
+
+Proofs-of-concept.
+
+Detection content.
+
+Early experiments and creative security ventures.
 
 Prototype work.
 
 Ideas in progress.
 
 Research journals.
+
+Labs must identify maturity and preliminary or experimental status clearly.
+
+---
+
+# Collection Boundaries
+
+- Research publishes formal investigations and technical reports.
+- Projects publishes completed or substantially complete cybersecurity work.
+- Labs publishes tooling, experiments, proof-of-concepts, detection content,
+  and other creative security ventures.
+- Shared components and metadata must not collapse these distinct editorial
+  concepts.
+- Writing and Speaking belong to the future personal website at
+  `matt.astoncyber.com`, not the Aston Cyber content roadmap.
 
 ---
 

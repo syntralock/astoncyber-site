@@ -1,6 +1,7 @@
 import { compile, evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import { parse } from "yaml";
+import type { ZodType } from "zod";
 
 import { researchMetadataSchema, type ResearchMetadata } from "./schema.ts";
 
@@ -73,9 +74,12 @@ function validateMdxElements() {
   };
 }
 
-export function parseResearchSource(source: string): {
+export function parseMdxSource<T>(
+  source: string,
+  schema: ZodType<T>,
+): {
   body: string;
-  metadata: ResearchMetadata;
+  metadata: T;
 } {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/u.exec(source);
   if (!match?.[1] || match[2] === undefined) {
@@ -84,18 +88,29 @@ export function parseResearchSource(source: string): {
 
   return {
     body: match[2],
-    metadata: researchMetadataSchema.parse(parse(match[1])),
+    metadata: schema.parse(parse(match[1])),
   };
 }
 
-export async function compileSafeMdx(source: string) {
-  const { body, metadata } = parseResearchSource(source);
+export function parseResearchSource(source: string): {
+  body: string;
+  metadata: ResearchMetadata;
+} {
+  return parseMdxSource(source, researchMetadataSchema);
+}
+
+export async function compileSafeMdxBody(body: string) {
   const compiled = await compile(body, {
     outputFormat: "function-body",
     remarkPlugins: [validateMdxElements],
   });
 
-  return { code: String(compiled), metadata };
+  return String(compiled);
+}
+
+export async function compileSafeMdx(source: string) {
+  const { body, metadata } = parseResearchSource(source);
+  return { code: await compileSafeMdxBody(body), metadata };
 }
 
 export async function evaluateSafeMdx(source: string) {

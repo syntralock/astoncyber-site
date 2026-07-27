@@ -117,6 +117,8 @@ describe("institutional sitemap", () => {
       "/mission/",
       "/people/",
       "/privacy/",
+      "/projects/",
+      "/labs/",
       "/research/",
       "/research/topics/",
       "/research/topics/secure-software-design/",
@@ -129,6 +131,6 @@ describe("institutional sitemap", () => {
     expect(urls).not.toContain(
       "https://astoncyber.com/research/content-system-technical-fixture/",
     );
-    expect(urls).not.toContain("https://astoncyber.com/projects/");
+    expect(urls.join("\n")).not.toMatch(/writing|speaking|draft-|fixture/);
   });
 });

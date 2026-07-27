@@ -75,7 +75,7 @@ describe("core component library", () => {
   it("composes generic and research cards without nested interactive content", () => {
     const genericHtml = renderToStaticMarkup(
       <ContentCard
-        href="/writing/example"
+        href="/projects/example"
         summary="Neutral summary."
         title="Content example"
       />,
@@ -94,7 +94,7 @@ describe("core component library", () => {
     );
 
     expect(genericHtml).toContain("<article");
-    expect(genericHtml).toContain('href="/writing/example"');
+    expect(genericHtml).toContain('href="/projects/example"');
     expect(researchHtml).toContain("<article");
     expect(researchHtml).toContain('dateTime="2026-01-01"');
     expect(researchHtml).toContain("Example author");

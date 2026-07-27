@@ -23,7 +23,7 @@ At Phase 6 completion, the approved static institutional page set comprised:
 The Phase 6 homepage introduced Aston Cyber as an organization, explained the
 documented research, engineering, and security relationship, and linked to the
 institutional pages and contact information. It intentionally omits featured
-research, current work, projects, and selected writing because no public
+research, current work, Projects, and Labs because no public
 content was then approved. Phase 7 subsequently added the first approved
 featured research item without changing the institutional narrative.
 
@@ -150,11 +150,10 @@ additional runtime or transitive cost.
 
 - The first owner-approved research publication and public research experience
   were deferred to and completed in Phase 7.
-- Current work, projects, and selected writing on the homepage remain deferred
-  until their public content is approved.
+- Current work, Projects, and Labs on the homepage remain content-dependent.
 - Actual person content and public profile routes until owner-approved source
   material is supplied
-- Projects, Writing, Labs, and Speaking experiences (Phase 8)
+- Projects & Labs experiences (Phase 8)
 - Public research topic pages and static topic filtering (Phase 7);
   cross-collection discovery and any separately approved search experience
   remain Phase 9
@@ -165,3 +164,6 @@ additional runtime or transitive cost.
 - Any future public contact form, which requires separate architecture,
   privacy, and security review
 - Final logo, favicon, and approved imagery
+
+Decision 19 subsequently removed Writing and Speaking from the Aston Cyber
+roadmap and assigned them to `matt.astoncyber.com`.

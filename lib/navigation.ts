@@ -10,7 +10,6 @@ export const primaryNavigation = [
   { href: "/research", label: "Research" },
   { href: "/projects", label: "Projects" },
   { href: "/labs", label: "Labs" },
-  { href: "/speaking", label: "Speaking", published: false },
   { href: "/about", label: "About" },
 ] as const satisfies readonly NavigationItem[];
 

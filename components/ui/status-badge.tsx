@@ -3,9 +3,13 @@ import { classNames } from "@/lib/class-names";
 const statusClasses = {
   active: "status-active",
   archived: "status-archived",
+  beta: "status-preliminary",
   completed: "status-completed",
+  experimental: "status-preliminary",
   preliminary: "status-preliminary",
+  prototype: "status-preliminary",
   published: "status-published",
+  stable: "status-published",
   "technical-validation": "status-technical-validation",
 } as const;
 

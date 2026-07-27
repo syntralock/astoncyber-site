@@ -33,10 +33,9 @@ About
   navigation.
 - Mission remains a published secondary institutional page at `/mission` and
   MUST NOT appear in primary navigation.
-- Writing remains a future content capability but is removed from public
-  primary and footer navigation until a later owner decision republishes it.
-- Speaking remains a future Phase 8 capability and is withheld from public
-  primary and footer navigation until approved speaking content exists.
+- Writing and Speaking are not Aston Cyber website collections or roadmap
+  destinations. They are assigned to the future personal website at
+  `matt.astoncyber.com`.
 - Desktop and mobile navigation MUST use the same centralized published-state
   configuration.
 - Every page MUST support breadcrumb navigation where appropriate.
@@ -97,21 +96,6 @@ Content Types:
 
 ---
 
-# Writing (Future Capability)
-
-Purpose:
-Publish long-form thinking.
-
-Content Types:
-
-- Essays
-- Technical articles
-- Research notes
-- Book excerpts
-- Commentary
-
----
-
 # Labs
 
 Purpose:
@@ -124,21 +108,6 @@ Content Types:
 - Architecture ideas
 - Public notebooks
 - Experiments
-
----
-
-# Speaking (Future Capability)
-
-Purpose:
-Document public presentations.
-
-Content Types:
-
-- Conferences
-- Podcasts
-- Workshops
-- Guest appearances
-- Presentation topics
 
 ---
 

@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -31,7 +31,7 @@ slug: content-system-technical-fixture
 summary: Non-public technical validation material.
 research_type: technical-report
 status: technical-validation
-visibility: fixture
+visibility: draft
 updated_at: 2026-07-25
 authors:
   - aston-cyber
@@ -57,15 +57,14 @@ This fixture tests the content system.
 const draftSource = fixtureSource
   .replaceAll("technical fixture", "draft sample")
   .replaceAll("technical-fixture", "draft-sample")
-  .replace("status: technical-validation", "status: preliminary")
-  .replace("visibility: fixture", "visibility: draft");
+  .replace("status: technical-validation", "status: preliminary");
 
 const publicSource = fixtureSource
   .replaceAll("technical fixture", "published sample")
   .replaceAll("technical-fixture", "published-sample")
   .replace("status: technical-validation", "status: published")
   .replace(
-    "visibility: fixture",
+    "visibility: draft",
     "visibility: public\npublished_at: 2026-07-24\ndisclosure_status: not-applicable",
   )
   .replace("publisher: Aston Cyber", "publisher: Aston Cyber\n  year: 2026");
@@ -94,6 +93,10 @@ async function writeRepository(
       path.join(referencesRoot, "tags.yml"),
       "- id: technical-fixture\n  label: Technical fixture\n- id: draft-sample\n  label: Draft sample\n- id: published-sample\n  label: Published sample\n",
     ),
+    writeFile(
+      path.join(referencesRoot, "technologies.yml"),
+      "- id: typescript\n  name: TypeScript\n",
+    ),
     ...Object.entries(sources).map(([fileName, source]) =>
       writeFile(path.join(researchRoot, fileName), source),
     ),
@@ -105,9 +108,9 @@ beforeEach(async () => {
 });
 
 describe("research metadata and MDX safety", () => {
-  it("accepts valid fixture metadata and safe MDX", async () => {
+  it("accepts valid non-public technical metadata and safe MDX", async () => {
     expect(parseResearchSource(fixtureSource).metadata.visibility).toBe(
-      "fixture",
+      "draft",
     );
     await expect(compileSafeMdx(fixtureSource)).resolves.toBeDefined();
   });
@@ -280,10 +283,9 @@ describe("the centralized research repository", () => {
     );
   });
 
-  it("excludes drafts and fixtures from production-facing lookups", async () => {
+  it("excludes drafts from production-facing lookups", async () => {
     await writeRepository({
       "draft.mdx": draftSource,
-      "fixture.mdx": fixtureSource,
       "public.mdx": publicSource,
     });
 
@@ -304,7 +306,6 @@ describe("the centralized research repository", () => {
   it("includes published content alone in RSS and sitemap output", async () => {
     await writeRepository({
       "draft.mdx": draftSource,
-      "fixture.mdx": fixtureSource,
       "public.mdx": publicSource,
     });
     const allItems = await loadResearchCollection({ contentRoot });
@@ -327,14 +328,20 @@ describe("the centralized research repository", () => {
     expect(navigation).not.toContain("fixture");
   });
 
-  it("builds the complete non-public technical slice", async () => {
-    await writeRepository();
-    const [item] = await loadResearchCollection({ contentRoot });
+  it("builds the migrated fixture only through an explicit test root", async () => {
+    const fixtureRoot = path.join(
+      process.cwd(),
+      "tests",
+      "fixtures",
+      "content",
+    );
+    const [item] = await loadResearchCollection({ contentRoot: fixtureRoot });
     expect(item).toBeDefined();
     if (!item) {
       throw new Error("Expected the fixture to load.");
     }
-    const { Content } = await evaluateSafeMdx(fixtureSource);
+    const migratedSource = await readFile(item.filePath, "utf8");
+    const { Content } = await evaluateSafeMdx(migratedSource);
     const body = createElement(Content, { components: { Callout } });
     const card = renderToStaticMarkup(
       createElement(ResearchCard, {
@@ -353,10 +360,10 @@ describe("the centralized research repository", () => {
       createElement(ResearchDetail, { item }, body),
     );
 
-    expect(card).toContain("Content-system technical fixture");
+    expect(card).toContain("Phase 5 content-system technical fixture");
     expect(card).toContain("Validated");
-    expect(detail).toContain("Technical validation");
+    expect(detail).toContain("Content-system validation");
     expect(detail).toContain("Citation");
-    expect(detail).toContain("Not a publication");
+    expect(detail).toContain("not research");
   });
 });

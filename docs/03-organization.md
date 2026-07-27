@@ -46,9 +46,11 @@ Aston Cyber
 
 ├── Labs
 
-├── Speaking
-
 └── Education
+
+Writing and Speaking are personal publishing concerns assigned to the future
+website at `matt.astoncyber.com`; they are not Aston Cyber organizational
+collections.
 
 ---
 

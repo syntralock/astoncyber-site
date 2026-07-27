@@ -98,14 +98,13 @@ Home links to `/`. Mission remains published at `/mission` as a secondary
 institutional page reached through contextual links and direct URL; it is not a
 primary navigation destination.
 
-Writing is not part of public primary navigation. Speaking remains a documented
-future capability but is unpublished and therefore absent from desktop, mobile,
-and footer primary navigation. The centralized navigation configuration remains
-the source for every public navigation surface, so unpublished items cannot
-leave inconsistent links.
+Writing and Speaking are absent from desktop, mobile, and footer primary
+navigation. Decision 19 subsequently assigns both to the future personal
+website at `matt.astoncyber.com`. The centralized navigation configuration
+remains the source for every public navigation surface.
 
-Underlying future collection and route planning was not deleted solely because
-a navigation item is withheld.
+Projects and Labs remain Aston Cyber collection destinations. No Writing or
+Speaking collection route is part of the Aston Cyber roadmap.
 
 ## Architecture
 
@@ -163,12 +162,11 @@ No dependencies were added or changed.
 
 - Mission is a secondary institutional page rather than a primary navigation
   destination.
-- Writing and Speaking remain future content capabilities and are not public
-  primary navigation destinations.
+- Writing and Speaking belong to the future `matt.astoncyber.com` website.
 - Search, runtime filtering, pagination, subscriptions, newsletters, and contact
   forms remain deferred.
 - The Contact page continues to use the approved static, direct-email
   architecture.
 - Additional featured or related publications depend on separately approved
   public content.
-- Phase 8 and later discovery or collection experiences were not started.
+- Phase 8 Projects & Labs and later discovery work were not started.

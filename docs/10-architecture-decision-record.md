@@ -201,8 +201,9 @@ Before launch, the static site must publish an RFC 9116 file at
 
 # Decision 15 — Non-Public Content Fixtures
 
-**Decision:** Content metadata uses a required
-`visibility: public | draft | fixture` field.
+**Original Phase 5 decision:** Research metadata used a required
+`visibility: public | draft | fixture` field so a technical fixture could prove
+the content pipeline before a public report existed.
 
 **Why:**
 - `public` is an explicit owner-approved publication boundary.
@@ -224,6 +225,17 @@ status, and does not replace the complete public research experience.
 
 **Date adopted:** 2026-07-25
 
+**Phase 8 amendment:** Test fixtures are no longer production content and must
+live outside all production content directories. Phase 8 implementation must
+migrate the legacy research fixture to
+`tests/fixtures/content/research/`, remove `fixture` from production visibility,
+and ensure production loaders and generators cannot discover test fixture
+paths. Production publication visibility is `public | draft`. Tests may supply
+fixture paths explicitly to validation helpers, but production code must not
+scan, import, copy, count, index, route, relate, or publish them.
+
+**Date amended:** 2026-07-27
+
 ---
 
 # Decision 16 — Phase 6 Static Institutional Publication
@@ -235,8 +247,8 @@ approved email links for contact.
 - No contact form, Server Action, API route, external form provider, mail
   service, or server-side inquiry infrastructure is approved.
 - Any future public form requires a separate architecture and security review.
-- The homepage omits research, current-work, project, and writing sections
-  until approved public content exists.
+- The homepage omits Research, current-work, Project, Lab, and other publication
+  sections until approved public content exists.
 - People architecture may be implemented without publishing a person route.
 - Institutional pages use only approved repository language and limited
   operational disclosure guidance.
@@ -306,8 +318,9 @@ navigation to approved destinations.
 - Homepage and Mission focus content uses three equal columns at wide widths.
 - Featured research uses a wide flagship panel.
 - Current public primary navigation is Home, Research, Projects, Labs, and
-  About. Mission remains a published secondary institutional route. Writing is
-  removed; Speaking remains withheld until approved content exists.
+  About. Mission remains a published secondary institutional route. Writing and
+  Speaking are assigned to the future personal website at
+  `matt.astoncyber.com`.
 - Desktop, mobile, and footer navigation share the centralized publication
   state.
 - Preserve static export, Server Components, mobile behavior, print behavior,
@@ -319,8 +332,7 @@ navigation to approved destinations.
 
 - This is a presentation refinement, not a new application phase or content
   architecture.
-- Future Writing and Speaking routes and collections remain Phase 8 work even
-  though they are absent from current public navigation.
+- Writing and Speaking are not future Aston Cyber routes or collections.
 - Contact remains a link to the existing static Contact page.
 - The homepage Mission group may use three project-native, decorative,
   `aria-hidden` line icons for the approved pillar concepts. This narrow
@@ -332,6 +344,66 @@ navigation to approved destinations.
   inline link.
 
 **Date adopted:** 2026-07-26
+
+---
+
+# Decision 19 — Phase 8 Projects & Labs and Personal Publishing Boundary
+
+**Decision:** Phase 8 is Projects & Labs. Aston Cyber publishes two distinct
+repository-based MDX collections while personal Writing and Speaking move to
+the future `matt.astoncyber.com` website.
+
+**Requirements:**
+
+- Projects publishes completed or substantially complete cybersecurity work
+  produced by Aston Cyber or approved external contributors.
+- Labs publishes open-source security tools, utilities, scripts,
+  proof-of-concepts, experiments, detection content, and other creative
+  security ventures.
+- Projects and Labs may share safe loading, validation, taxonomy, contributor,
+  relationship, card, and layout infrastructure but retain distinct schemas,
+  status meaning, editorial presentation, and readiness language.
+- Phase 8 uses static export, Server Components by default, repository MDX,
+  build-time Zod validation, structural MDX safety, and public-only loaders.
+- Phase 8 adds no CMS, runtime database, analytics, hosted content service, or
+  unnecessary client JavaScript.
+- Phase 9 remains Search & Discovery and covers Research, Projects, and Labs.
+- `matt.astoncyber.com` is expected after Phase 9 and before Phase 10 for
+  coordinated cross-domain SEO and launch work.
+- Project status is `active`, `stable`, `completed`, or `archived`.
+- Lab maturity is `experimental`, `prototype`, `beta`, `stable`, or `archived`.
+- Publication visibility is separate from lifecycle status or maturity.
+- Phase 8 ships factual empty states unless owner-approved public content is
+  supplied; `featured` does not enable homepage sections.
+- Test fixtures remain outside production content directories and are
+  structurally undiscoverable by production code.
+- The Research RSS feed remains unchanged; no Project or Lab feed is added.
+- Repository URLs use HTTPS and exact normalized hosts `github.com` or
+  `gitlab.com`.
+- Direct resources use an approved document/data/image allowlist. Archives,
+  executables, installers, binaries, libraries, scripts, and opaque bundles are
+  prohibited as website downloads.
+- License and technology values use controlled repository registries.
+- Cross-collection relationships are explicit and directional; reciprocal
+  relationships are not inferred.
+- Future external-contributor approval evidence must be repository-controlled,
+  build-time validated, minimal, and excluded from public output. No record or
+  private registry is created before an actual owner-approved external
+  submission defines the storage contract.
+
+**Consequences:**
+
+- Aston Cyber has no Writing or Speaking routes, collections, roadmap
+  deliverables, or navigation items.
+- Phase 8 owns `/projects`, `/projects/[slug]`, `/labs`, and `/labs/[slug]`.
+- Phase 9 discovery must consume deterministic public APIs for Research,
+  Projects, and Labs without duplicating collection parsing.
+- Personal-site implementation is not Phase 8 or Phase 9 work.
+- Approved image resources are PNG, JPEG, WebP, and GIF with exact
+  extension/MIME agreement; SVG is rejected. External-contributor approval
+  storage remains deferred until an actual approved submission exists.
+
+**Date adopted:** 2026-07-27
 
 ---
 
@@ -365,12 +437,17 @@ Each new decision should include:
 - Primary domain: astoncyber.com
 - Theme: Dark only initially; semantic tokens support a future light theme
 - Search: Deferred pending demonstrated content need
-- Content visibility: Explicit `public`, `draft`, and non-public `fixture`
-  states; only `public` content enters publication surfaces
+- Content visibility: Explicit production `public` and `draft` states; only
+  `public` content enters publication surfaces, and test fixtures live outside
+  production content directories
 - Phase 6 contact: Static direct email links only; no form or inquiry service
 - Phase 7 research: Static public index, detail, and topic routes; no search
 - Phase 7.1 navigation: Home, Research, Projects, Labs, and About; Mission is a
   published secondary route
+- Phase 8: distinct Projects and Labs MDX collections
+- Phase 9: Search & Discovery across Research, Projects, and Labs
+- Personal Writing and Speaking: future `matt.astoncyber.com`, expected after
+  Phase 9 and before Phase 10
 - Repository: GitHub
 - Database: None
 - CMS: None

@@ -1,40 +1,19 @@
-import { access, readFile } from "node:fs/promises";
+import { access } from "node:fs/promises";
 import path from "node:path";
 
 import {
   generateResearchRss,
   generateResearchSitemapEntries,
 } from "../lib/content/generated.ts";
-import { evaluateSafeMdx } from "../lib/content/mdx.ts";
-import {
-  getPublicResearch,
-  validateContentRepository,
-} from "../lib/content/research.ts";
+import { getPublicResearch } from "../lib/content/research.ts";
+import { loadContentRepository } from "../lib/content/repository.ts";
 
-const research = await validateContentRepository();
-const fixtures = research.filter(
-  (item) => item.metadata.visibility === "fixture",
-);
-
-if (fixtures.length !== 1) {
-  throw new Error(
-    `Phase 5 requires exactly one technical research fixture; found ${fixtures.length}.`,
-  );
-}
-
-const fixture = fixtures[0];
-if (!fixture) {
-  throw new Error("Phase 5 technical fixture could not be loaded.");
-}
-
-const fixtureSource = await readFile(fixture.filePath, "utf8");
-await evaluateSafeMdx(fixtureSource);
-
+const repository = await loadContentRepository();
 const publicResearch = await getPublicResearch();
 const rss = generateResearchRss(publicResearch);
 const sitemapEntries = generateResearchSitemapEntries(publicResearch);
 
-for (const item of research) {
+for (const item of repository.research) {
   if (
     item.metadata.visibility !== "public" &&
     (rss.includes(item.metadata.slug) ||
@@ -63,5 +42,5 @@ for (const item of research) {
 }
 
 console.log(
-  `Validated ${research.length} research file(s): ${publicResearch.length} public, ${fixtures.length} fixture.`,
+  `Validated ${repository.research.length} research, ${repository.projects.length} project, and ${repository.labs.length} lab file(s): ${publicResearch.length} public research.`,
 );

@@ -77,10 +77,10 @@ Home links to `/`. Mission remains a published secondary institutional page at
 `/mission`, reachable through contextual links and direct URL, but is not part
 of primary navigation.
 
-Writing remains a future collection but is removed from current public
-navigation. Speaking remains a future collection and is hidden until approved
-public speaking content exists. The centralized navigation configuration must
-apply this decision consistently to desktop, mobile, and footer navigation.
+Writing and Speaking are removed from the Aston Cyber roadmap and navigation.
+They are assigned to the future personal website at `matt.astoncyber.com`. The
+centralized navigation configuration must apply this decision consistently to
+desktop, mobile, and footer navigation.
 
 Ethos must be prominently linked from Mission and the footer, but it is not a primary navigation item.
 
@@ -114,6 +114,10 @@ Layout, typography, navigation, and core site components must remain project-nat
   research indexes, RSS, sitemap output, or other publication surfaces.
   `visibility: draft` and `visibility: fixture` remain distinct and are both
   excluded.
+- Phase 8 supersedes fixture placement, not the original Phase 5 publication
+  safety intent: the legacy fixture must move to
+  `tests/fixtures/content/research/`, and production visibility must become
+  `public | draft`.
 - Defer site search until content volume demonstrates a clear need.
 
 Topic links, chronological archives, and simple URL-based filters may be implemented without introducing a search service.
@@ -149,7 +153,7 @@ The following decisions do not block the start of Phase 1 but require an owner b
 ## Phase 6 Institutional Publication
 
 - The homepage uses only approved repository language and omits research,
-  current-work, project, and writing sections until approved public content
+  current-work and project sections until approved public content
   exists.
 - The Phase 5 fixture must not appear.
 - The People index and reusable profile architecture are Phase 6 work, but no
@@ -195,3 +199,24 @@ The following decisions do not block the start of Phase 1 but require an owner b
 - No newsletter, subscription destination, search, new service, or
   cybersecurity cliché iconography is approved.
 - Mobile behavior and 200% zoom usability must be preserved.
+
+## Phase 8 Projects & Labs
+
+- Phase 8 is named Projects & Labs.
+- Projects publishes completed or substantially complete cybersecurity work.
+- Labs publishes tooling, utilities, scripts, proof-of-concepts, experiments,
+  detection content, and other creative security ventures.
+- The two collections may share infrastructure but remain editorially distinct.
+- Phase 9 Search & Discovery covers Research, Projects, and Labs.
+- Writing and Speaking belong to the future `matt.astoncyber.com` website,
+  expected after Phase 9 and before Phase 10.
+- Project status is `active`, `stable`, `completed`, or `archived`; Lab
+  maturity is `experimental`, `prototype`, `beta`, `stable`, or `archived`.
+- Publication visibility remains separate from status and maturity.
+- Phase 8 uses factual empty states unless owner-approved content is supplied.
+- Test fixtures remain outside production content directories.
+- Research RSS remains unchanged; Projects and Labs add no feeds or homepage
+  sections.
+- Repository hosts, licenses, technologies, resources, relationships, and
+  private external-contributor approval evidence follow the strict registries
+  and validation rules in `20-phase-8-projects-labs-specification.md`.
