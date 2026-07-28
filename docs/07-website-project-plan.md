@@ -569,7 +569,10 @@ Lab maturity is limited to `experimental`, `prototype`, `beta`, `stable`, and
 
 # Phase 9: Search & Discovery
 
-**Status:** Deferred until content volume demonstrates a clear need.
+**Status:** Architecture and implementation passes approved in
+`22-phase-9-search-discovery-specification.md`. No search feature or Phase 9.1
+implementation exists. Phase 9.1 remains paused until additional public
+content or a clear cross-collection discovery need exists.
 
 ## Objectives
 

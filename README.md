@@ -24,11 +24,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
-- 12–21 – Phase implementation records and the Phase 8 specification
+- 12–22 – Phase implementation records and Phase 8–9 specifications
 
 ## Current Status
 
-**Current Phase:** Phase 8 Projects & Labs complete; Phase 9 is next
+**Current Phase:** Phase 9 Search & Discovery planning
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 Phase 1 established the application, validation, content-safety, and CI
@@ -60,7 +60,10 @@ navigation cleanup, and sitemap integration. Because both production
 collections are empty, their dynamic route files remain inactive under the
 owner-approved activation rule. Final verification passed the complete quality
 suite and generated-output inspection. Phase 8 is complete with no public
-Project or Lab content; Phase 9 Search & Discovery is the next website phase.
+Project or Lab content. The Phase 9 Search & Discovery plan is approved in
+`docs/22-phase-9-search-discovery-specification.md`; no search implementation
+exists, and Phase 9.1 remains paused until additional public content or a clear
+cross-collection discovery need exists.
 
 ## Engineering Principles
 
