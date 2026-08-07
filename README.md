@@ -28,9 +28,14 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Phase 9 Search & Discovery planning
+**Current Phase:** Strategic remediation; Phase 0 public-surface stabilization
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
+The canonical remediation roadmap is recorded in
+`docs/23-strategic-remediation-implementation-plan.md`. Its Phase 0 work
+stabilizes the existing public surface without beginning the later identity,
+navigation, content, accessibility, SEO, or PWA-removal phases. Phase 9 Search
+& Discovery remains paused.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements

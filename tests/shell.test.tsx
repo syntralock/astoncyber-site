@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -97,6 +100,21 @@ describe("shared application shell", () => {
       },
     });
     expect(viewport).toEqual({ colorScheme: "dark", themeColor: "#2e2e2e" });
+  });
+});
+
+describe("Azure Static Web Apps configuration", () => {
+  it("serves the exported Aston Cyber 404 document for missing routes", () => {
+    const configuration = JSON.parse(
+      readFileSync(
+        resolve(process.cwd(), "public/staticwebapp.config.json"),
+        "utf8",
+      ),
+    ) as {
+      responseOverrides?: Record<string, { rewrite?: string }>;
+    };
+
+    expect(configuration.responseOverrides?.["404"]?.rewrite).toBe("/404.html");
   });
 });
 
