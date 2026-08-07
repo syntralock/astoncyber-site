@@ -804,12 +804,32 @@ marker, prefer a restrained abstract or technical line treatment implemented
 without a new icon dependency. Decorative markers are optional and must never
 carry essential meaning.
 
-## Temporary Wordmark
+## Official brand assets
 
-Until the final logo package is approved, use a text-only “Aston Cyber”
-wordmark behind one reusable project-native component. Do not invent a
-permanent logo, icon, shield, lock, or symbol. Final SVG, monochrome,
-favicon, and brand-guide assets are required before launch.
+The approved master assets are:
+
+- `public/brand/aston-cyber-logo.svg` for light surfaces;
+- `public/brand/aston-cyber-logo-dark.svg` for dark surfaces;
+- `public/brand/aston-cyber-icon.svg` for light surfaces; and
+- `public/brand/aston-cyber-icon-dark.svg` for dark surfaces.
+
+The master SVGs remain the source of truth. Generated browser and platform
+icons belong in `public/icons/` and must not replace or modify the masters.
+Approved brand values are charcoal `#2E2E2E`, blue `#4B9CD2`, and reversed
+foreground `#FFFFFF`.
+
+The dark shared header and footer use the reversed horizontal logo. The full
+logo fits the current 320px header composition, so an icon-only mobile switch
+is not required. The logo home links use the accessible name “Aston Cyber
+home,” and the decorative image itself has an empty alternative.
+
+The approved homepage hero source is
+`public/images/home/aston-cyber-hero.jpg`. It is presented as one decorative
+CSS background behind the existing centered hero content. Layered radial and
+linear darkening preserves text contrast and fades the artwork into the site
+background at both edges. No card, blur, filter, source edit, or duplicate HTML
+image is used. The former hero-to-Mission border is removed so the bottom fade
+provides the transition.
 
 ---
 

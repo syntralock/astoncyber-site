@@ -64,7 +64,7 @@ describe("design tokens", () => {
       /\.type-hero,[\s\S]*?\.type-h4\s*\{[\s\S]*?font-family:\s*var\(--font-display\)/u,
     );
     expect(stylesheet).toMatch(
-      /\.brand-wordmark\s*\{[\s\S]*?font-family:\s*var\(--font-body\)/u,
+      /\.brand-logo\s*\{[\s\S]*?height:\s*var\(--space-10\)/u,
     );
     expect(stylesheet).toMatch(
       /\.type-code\s*\{[\s\S]*?font-family:\s*var\(--font-mono\)/u,

@@ -36,6 +36,7 @@ describe("institutional homepage", () => {
     expect(html).not.toMatch(/Current work|Selected writing/i);
     expect(html).not.toContain("content-system-technical-fixture");
     expect(html).not.toMatch(/<img|<picture|<video/);
+    expect(html).toContain('class="section-space homepage-introduction"');
   });
 
   it("keeps shell landmarks out of the route component", async () => {

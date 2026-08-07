@@ -14,7 +14,9 @@ export function SiteFooter() {
     <footer className="site-footer">
       <Container className="site-footer-inner">
         <div className="footer-identity stack-sm">
-          <Brand />
+          <Link className="brand-link" href="/" aria-label="Aston Cyber home">
+            <Brand />
+          </Link>
           <p className="type-small text-foreground-secondary">
             Research. Engineering. Security.
           </p>

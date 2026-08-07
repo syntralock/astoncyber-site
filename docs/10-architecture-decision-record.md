@@ -407,6 +407,49 @@ the future `matt.astoncyber.com` website.
 
 ---
 
+# Decision 20 — Official Visual Identity and Homepage Hero
+
+**Decision:** Adopt the owner-approved Aston Cyber master logo, icon, platform
+icons, manifest, and homepage hero artwork without changing the static-first
+application architecture.
+
+**Requirements:**
+
+- `public/brand/` contains the four source-of-truth master SVGs. Their path
+  geometry, colors, and proportions remain unchanged.
+- `public/icons/` contains browser and platform derivatives plus the static
+  manifest. The Next.js App Router metadata API owns favicon, Apple Touch Icon,
+  and manifest references.
+- The approved digital brand values are charcoal `#2E2E2E`, blue `#4B9CD2`,
+  and reversed foreground `#FFFFFF`.
+- The shared dark header and footer replace the temporary textual identity with
+  the reversed horizontal logo. Both logo instances link to `/` with the
+  accessible name “Aston Cyber home.” The full mark fits the current mobile
+  header, so no breakpoint-specific icon substitution is required.
+- `public/images/home/aston-cyber-hero.jpg` is a decorative CSS background on
+  the existing centered homepage hero. Responsive cover positioning and
+  layered radial/linear darkening preserve legibility while top and bottom
+  fades join the site background.
+- The hero-to-Mission separator border is removed. Mission and all later
+  homepage structure remain unchanged.
+- No service worker, PWA runtime, social-card improvisation, dependency,
+  Client Component, or duplicate hero image is introduced.
+
+**Consequences:**
+
+- The historical temporary-wordmark and no-approved-imagery deferrals are
+  satisfied rather than silently discarded.
+- The master artwork remains readable and stable; browser/platform derivatives
+  remain distinct delivery assets.
+- A dedicated official 1200×630 social image remains deferred to Phase 10.
+- The approved ICO contains one 16×16 frame; the separate PNG assets supply
+  explicit 16×16, 32×32, and 48×48 browser sizes. Any future pixel-tuned
+  small-size redesign requires separate brand approval.
+
+**Date adopted:** 2026-08-06
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.

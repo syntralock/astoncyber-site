@@ -148,13 +148,14 @@ Please provide:
 -   Basic logo usage guide
 -   Social media kit
 
-The final logo package is not yet complete. Until it is approved, the
-website must use a temporary text-only Aston Cyber wordmark isolated
-behind a reusable component. Do not invent a permanent logo, icon,
-shield, lock, or symbol.
+The official logo package is approved and adopted. The four readable master
+SVG assets are stored in `public/brand/`; browser and platform derivatives are
+stored separately in `public/icons/`. The shared Brand component must reference
+the approved assets without changing their paths, colors, proportions, or
+vector geometry.
 
-Final SVG, monochrome, favicon, and brand-guide assets are pre-launch
-requirements.
+The approved digital colors are charcoal `#2E2E2E`, blue `#4B9CD2`, and
+reversed foreground `#FFFFFF`.
 
 ------------------------------------------------------------------------
 

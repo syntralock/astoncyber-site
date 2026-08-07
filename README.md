@@ -65,6 +65,13 @@ Project or Lab content. The Phase 9 Search & Discovery plan is approved in
 exists, and Phase 9.1 remains paused until additional public content or a clear
 cross-collection discovery need exists.
 
+The approved Aston Cyber visual identity is now implemented. Master logo and
+icon SVGs live in `public/brand/`; browser and platform derivatives live in
+`public/icons/`; and the approved homepage artwork remains at
+`public/images/home/aston-cyber-hero.jpg`. The shared dark header and footer use
+the reversed horizontal logo, while the homepage retains its centered hero
+composition over the artwork with restrained contrast and edge-fade layers.
+
 ## Engineering Principles
 
 - Security by default

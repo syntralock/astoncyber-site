@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import "@fontsource-variable/ibm-plex-sans";
@@ -17,10 +17,26 @@ export const metadata: Metadata = {
   },
   description:
     "Independent cybersecurity research, engineering, and education.",
+  icons: {
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+    icon: [
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/favicon.ico", type: "image/x-icon" },
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+  },
+  manifest: "/icons/site.webmanifest",
   robots: {
     follow: false,
     index: false,
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "dark",
+  themeColor: "#2e2e2e",
 };
 
 export default function RootLayout({

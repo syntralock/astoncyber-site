@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import RootLayout, { metadata } from "@/app/layout";
+import RootLayout, { metadata, viewport } from "@/app/layout";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 
 const pathnameState = vi.hoisted(() => ({ value: "/" }));
@@ -29,6 +29,9 @@ describe("shared application shell", () => {
     expect(html).toContain('id="main-content"');
     expect(html).toContain("<summary");
     expect(html).toContain(">Menu</summary>");
+    expect(html).toContain('aria-label="Aston Cyber home"');
+    expect(html).toContain('src="/brand/aston-cyber-logo-dark.svg"');
+    expect(html).not.toContain('class="brand-wordmark"');
 
     for (const href of ["/", "/research", "/projects", "/labs", "/about"]) {
       expect(html).toContain(`href="${href}"`);
@@ -87,6 +90,13 @@ describe("shared application shell", () => {
         template: "%s | Aston Cyber",
       },
     });
+    expect(metadata).toMatchObject({
+      manifest: "/icons/site.webmanifest",
+      icons: {
+        apple: [{ sizes: "180x180", url: "/icons/apple-touch-icon.png" }],
+      },
+    });
+    expect(viewport).toEqual({ colorScheme: "dark", themeColor: "#2e2e2e" });
   });
 });
 
