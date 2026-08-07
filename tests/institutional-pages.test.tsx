@@ -55,15 +55,27 @@ describe("institutional pages", () => {
     expect(html).not.toMatch(/<form|<input|<textarea|<button/);
   });
 
-  it("publishes only the approved neutral funding disclosure", () => {
+  it("publishes the approved founder introduction and neutral funding disclosure", () => {
     const html = renderToStaticMarkup(<AboutPage />);
 
+    expect(html).toContain(">Meet the Founder</h2>");
+    expect(html).toContain(
+      "Aston Cyber was founded by <strong>Matt Aston</strong>",
+    );
+    expect(html).toContain("Infantry Sergeant in the U.S. Army");
+    expect(html).toContain(
+      "is completing a master&#x27;s degree in Computer Science",
+    );
+    expect(html).toContain('href="https://matt.astoncyber.com"');
+    expect(html).toContain('target="_blank"');
+    expect(html).toContain('rel="noopener noreferrer"');
+    expect(html).toContain("Learn more about Matt Aston →");
     expect(html).toContain(
       "Aston Cyber does not currently publish a list of funders or sponsors.",
     );
     expect(html).not.toContain("Contact Aston Cyber");
     expect(html).not.toContain('href="/contact"');
-    expect(html).not.toMatch(/leadership|founder|employee|advisor/i);
+    expect(html).not.toMatch(/employee|advisor/i);
   });
 
   it("provides an editorial People empty state without publishing profiles", () => {

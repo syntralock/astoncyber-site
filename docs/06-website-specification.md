@@ -654,9 +654,11 @@ areas of interest, and direct readers to institutional pages and contact
 information. It must not introduce an individual or resemble a sales,
 consultancy, SaaS, or conversion-focused page.
 
-The About page must omit named leadership, contributor listings, affiliations,
-company history, funding claims, and sponsorship claims until approved content
-exists. It may include this exact neutral disclosure:
+The About page must omit unapproved leadership, contributor listings,
+affiliations, company history, funding claims, and sponsorship claims. The
+owner-approved founder introduction added on 2026-08-06 may identify Matt Aston
+and use only the approved biography supplied for that section. It may also
+include this exact neutral disclosure:
 
 > Aston Cyber does not currently publish a list of funders or sponsors.
 
