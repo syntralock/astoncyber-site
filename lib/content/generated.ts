@@ -1,9 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import type { PublicLabItem } from "./labs.ts";
-import type { PublicProjectItem } from "./projects.ts";
 import type { ResolvedResearchItem } from "./research.ts";
-import type { TaxonomyReference } from "./schema.ts";
 
 export const canonicalOrigin = "https://astoncyber.com";
 
@@ -73,40 +70,19 @@ const institutionalPaths = [
   "/disclosures",
   "/ethos",
   "/mission",
-  "/people",
+  "/offerings",
   "/privacy",
-  "/projects",
-  "/labs",
   "/research",
-  "/research/topics",
 ] as const;
 
 export function generateSiteSitemap({
-  labs,
-  projects,
   research,
-  topics,
 }: Readonly<{
-  labs: readonly PublicLabItem[];
-  projects: readonly PublicProjectItem[];
   research: readonly ResolvedResearchItem[];
-  topics: readonly Readonly<{ topic: TaxonomyReference }>[];
 }>): MetadataRoute.Sitemap {
   return [
     ...institutionalPaths.map((path) => ({
       url: `${canonicalOrigin}${path}/`,
-    })),
-    ...topics.map((topic) => ({
-      url: `${canonicalOrigin}/research/topics/${topic.topic.id}/`,
-    })),
-    ...projects.map((item) => ({
-      lastModified:
-        item.metadata.published_at ?? item.metadata.completed_at ?? undefined,
-      url: `${canonicalOrigin}/projects/${item.metadata.slug}/`,
-    })),
-    ...labs.map((item) => ({
-      lastModified: item.metadata.published_at,
-      url: `${canonicalOrigin}/labs/${item.metadata.slug}/`,
     })),
     ...generateResearchSitemapEntries(research),
   ];

@@ -220,9 +220,9 @@ export default function OfferingsPage() {
         <div className="stack-md">
           <Heading level={2}>Independence and research integrity</Heading>
           <Text>
-            Aston Cyber is currently founder funded. At launch it accepts no
-            vendor funding, vendor resale or implementation commissions, paid
-            referral compensation, or sponsored research.
+            Aston Cyber accepts no vendor commissions, vendor resale incentives,
+            or paid referral arrangements. Commercial incentives do not
+            determine technical conclusions.
           </Text>
           <Text>
             Commercial work remains separate from public research. Conclusions

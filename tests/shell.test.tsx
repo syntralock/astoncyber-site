@@ -36,12 +36,15 @@ describe("shared application shell", () => {
     expect(html).toContain('src="/brand/aston-cyber-logo-dark.svg"');
     expect(html).not.toContain('class="brand-wordmark"');
 
-    for (const href of ["/", "/research", "/projects", "/labs", "/about"]) {
+    for (const href of ["/", "/offerings", "/research", "/about"]) {
       expect(html).toContain(`href="${href}"`);
     }
 
     expect(html).toContain(">Home</a>");
+    expect(html).toContain(">Offerings</a>");
     expect(html).not.toContain(">Mission</a>");
+    expect(html).not.toContain('href="/projects"');
+    expect(html).not.toContain('href="/labs"');
     expect(html).not.toContain('href="/writing"');
     expect(html).not.toContain('href="/speaking"');
   });
@@ -54,6 +57,8 @@ describe("shared application shell", () => {
     );
 
     expect(html).toContain('href="/contact"');
+    expect(html).toContain("desktop-contact-action");
+    expect(html).toContain("mobile-contact-action");
     expect(html).not.toContain("info@astoncyber.com");
     expect(html).not.toContain("security@astoncyber.com");
     expect(html).not.toContain("mailto:");
@@ -115,6 +120,27 @@ describe("Azure Static Web Apps configuration", () => {
     };
 
     expect(configuration.responseOverrides?.["404"]?.rewrite).toBe("/404.html");
+  });
+
+  it("permanently redirects the retired People surface to About", () => {
+    const configuration = JSON.parse(
+      readFileSync(
+        resolve(process.cwd(), "public/staticwebapp.config.json"),
+        "utf8",
+      ),
+    ) as {
+      routes?: readonly Readonly<{
+        redirect?: string;
+        route?: string;
+        statusCode?: number;
+      }>[];
+    };
+
+    expect(configuration.routes).toContainEqual({
+      redirect: "/about/",
+      route: "/people/index.html",
+      statusCode: 301,
+    });
   });
 });
 

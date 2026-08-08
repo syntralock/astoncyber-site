@@ -5,10 +5,6 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LabsPage, { metadata as labsMetadata } from "@/app/labs/page";
-import ProjectsPage, {
-  metadata as projectsMetadata,
-} from "@/app/projects/page";
 import sitemap from "@/app/sitemap";
 import { LabDetail } from "@/components/content/lab-detail";
 import { LabCollection } from "@/components/content/lab-collection";
@@ -29,30 +25,19 @@ import {
   getPublicProjectStaticParams,
   metadataForPublicProject,
 } from "@/lib/content/projects";
-import {
-  getPublicResearch,
-  getPublicResearchTopics,
-} from "@/lib/content/research";
+import { getPublicResearch } from "@/lib/content/research";
 
 const fixtureRoot = path.join(process.cwd(), "tests/fixtures/content");
 const fixtureOptions = { contentRoot: fixtureRoot };
 
-describe("Phase 8 collection routes", () => {
-  it("renders factual empty Project and Lab states from production loaders", async () => {
-    const projectsHtml = renderToStaticMarkup(await ProjectsPage());
-    const labsHtml = renderToStaticMarkup(await LabsPage());
-
-    expect(projectsHtml.match(/<h1/g) ?? []).toHaveLength(1);
-    expect(labsHtml.match(/<h1/g) ?? []).toHaveLength(1);
-    expect(projectsHtml).toContain(
-      "No public Projects are currently available.",
-    );
-    expect(labsHtml).toContain("No public Labs are currently available.");
-    expect(projectsHtml).toContain("durable bodies");
-    expect(`${projectsHtml}${labsHtml}`).not.toMatch(
-      /coming soon|<article|placeholder|[0-9]+ projects|[0-9]+ labs/i,
-    );
-    expect(`${projectsHtml}${labsHtml}`).not.toMatch(/<form|<input|<button/);
+describe("Phase 8 collection architecture", () => {
+  it("keeps empty public Project and Lab index routes inactive", async () => {
+    await expect(
+      access(path.join(process.cwd(), "app/projects/page.tsx")),
+    ).rejects.toMatchObject({ code: "ENOENT" });
+    await expect(
+      access(path.join(process.cwd(), "app/labs/page.tsx")),
+    ).rejects.toMatchObject({ code: "ENOENT" });
   });
 
   it("renders deterministic public fixture cards and excludes drafts", async () => {
@@ -73,19 +58,6 @@ describe("Phase 8 collection routes", () => {
     expect(labsHtml).toContain('href="/labs/public-lab"');
     expect(labsHtml).toContain("Experimental");
     expect(labsHtml).not.toContain("draft-lab");
-  });
-
-  it("publishes accurate collection metadata", () => {
-    expect(projectsMetadata).toEqual({
-      description:
-        "Completed and substantially complete cybersecurity work published by Aston Cyber.",
-      title: "Projects",
-    });
-    expect(labsMetadata).toEqual({
-      description:
-        "Security tools, prototypes, experiments, and creative technical work published by Aston Cyber.",
-      title: "Labs",
-    });
   });
 });
 
@@ -259,12 +231,12 @@ describe("Phase 8 static detail presentation", () => {
 });
 
 describe("Phase 8 sitemap and regression boundary", () => {
-  it("adds collection routes and preserves existing public routes", async () => {
+  it("removes empty collections while preserving existing public research", async () => {
     const entries = await sitemap();
     const urls = entries.map((entry) => entry.url);
 
-    expect(urls).toContain("https://astoncyber.com/projects/");
-    expect(urls).toContain("https://astoncyber.com/labs/");
+    expect(urls).not.toContain("https://astoncyber.com/projects/");
+    expect(urls).not.toContain("https://astoncyber.com/labs/");
     expect(urls).toContain("https://astoncyber.com/research/");
     expect(urls).toContain(
       "https://astoncyber.com/research/secure-transaction-authorization-ledger/",
@@ -275,28 +247,18 @@ describe("Phase 8 sitemap and regression boundary", () => {
     );
   });
 
-  it("generates public Project and Lab detail sitemap entries from test-only inputs", async () => {
-    const [labs, projects, research, topics] = await Promise.all([
-      getPublicLabs(fixtureOptions),
-      getPublicProjects(fixtureOptions),
-      getPublicResearch(),
-      getPublicResearchTopics(),
-    ]);
-    const urls = generateSiteSitemap({ labs, projects, research, topics }).map(
-      (entry) => entry.url,
-    );
+  it("does not emit Project or Lab entries from preserved collection data", async () => {
+    const urls = generateSiteSitemap({
+      research: await getPublicResearch(),
+    }).map((entry) => entry.url);
 
-    expect(urls).toContain("https://astoncyber.com/projects/public-project/");
-    expect(urls).toContain("https://astoncyber.com/labs/public-lab/");
     expect(urls.join("\n")).not.toMatch(
-      /draft-project|draft-lab|fixture|placeholder|sentinel/,
+      /\/projects\/|\/labs\/|draft-project|draft-lab|fixture|placeholder|sentinel/,
     );
   });
 
   it("introduces no Project/Lab Client Component or content-root bypass", async () => {
     const files = [
-      "app/projects/page.tsx",
-      "app/labs/page.tsx",
       "components/content/project-detail.tsx",
       "components/content/lab-detail.tsx",
     ];

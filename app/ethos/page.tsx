@@ -15,7 +15,7 @@ const principles = [
   {
     body: [
       "Our research agenda is never for sale.",
-      "We welcome collaboration across industry, academia, and the public sector, but our conclusions are never influenced by sponsorship, partnership, or commercial interests.",
+      "Our conclusions are not shaped by vendor commissions, resale incentives, paid referral arrangements, partnerships, or other commercial interests.",
       "Credibility is earned through independence.",
     ],
     title: "Independence",
@@ -90,10 +90,10 @@ export default function EthosPage() {
           that serves the profession before commercial interests.
         </Text>
         <Text>
-          Too much technical content is shaped by products, marketing, or the
-          incentives of the organizations funding it. Valuable tools and
-          technologies deserve thoughtful evaluation, but research should never
-          begin with a product. It should begin with a question.
+          Too much technical content is shaped by products, marketing, or
+          commercial incentives. Valuable tools and technologies deserve
+          thoughtful evaluation, but research should never begin with a product.
+          It should begin with a question.
         </Text>
         <Text>
           Aston Cyber exists to ask difficult questions, pursue evidence

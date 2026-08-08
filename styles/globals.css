@@ -756,6 +756,16 @@ a {
   display: none;
 }
 
+.site-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.site-header-actions > .desktop-contact-action {
+  display: none;
+}
+
 .navigation-list,
 .footer-link-list,
 .breadcrumbs ol {
@@ -829,6 +839,11 @@ a {
 .mobile-navigation-panel .navigation-link:hover,
 .mobile-navigation-panel .navigation-link[aria-current="page"] {
   background: var(--color-accent-muted);
+}
+
+.mobile-contact-action {
+  width: 100%;
+  margin-top: var(--space-3);
 }
 
 .breadcrumbs {
@@ -1188,6 +1203,10 @@ a {
 @media (min-width: 48rem) {
   .desktop-navigation {
     display: block;
+  }
+
+  .site-header-actions > .desktop-contact-action {
+    display: inline-flex;
   }
 
   .desktop-navigation .navigation-list {

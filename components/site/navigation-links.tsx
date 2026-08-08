@@ -13,6 +13,12 @@ type NavigationLinksProps = Readonly<{
   className?: string;
 }>;
 
+type NavigationActionLinkProps = Readonly<{
+  className?: string;
+  href: string;
+  label: string;
+}>;
+
 export function NavigationLinks({ className = "" }: NavigationLinksProps) {
   const pathname = usePathname();
 
@@ -34,5 +40,23 @@ export function NavigationLinks({ className = "" }: NavigationLinksProps) {
         );
       })}
     </ul>
+  );
+}
+
+export function NavigationActionLink({
+  className = "",
+  href,
+  label,
+}: NavigationActionLinkProps) {
+  const pathname = usePathname();
+
+  return (
+    <Link
+      aria-current={isNavigationItemActive(pathname, href) ? "page" : undefined}
+      className={`button-secondary type-button-label ${className}`}
+      href={href}
+    >
+      {label}
+    </Link>
   );
 }

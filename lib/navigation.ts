@@ -7,9 +7,8 @@ export type NavigationItem = Readonly<{
 
 export const primaryNavigation = [
   { href: "/", label: "Home" },
+  { href: "/offerings", label: "Offerings" },
   { href: "/research", label: "Research" },
-  { href: "/projects", label: "Projects" },
-  { href: "/labs", label: "Labs" },
   { href: "/about", label: "About" },
 ] as const satisfies readonly NavigationItem[];
 

@@ -7,21 +7,8 @@ import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = {
   title: "Mission",
-  description: "The mission, vision, and principles of Aston Cyber.",
+  description: "Why Aston Cyber exists.",
 };
-
-const principles = [
-  "Evidence over assumption.",
-  "Research before opinion.",
-  "Engineering over marketing.",
-  "Clarity over jargon.",
-  "Build before recommending.",
-  "Long-term thinking over short-term trends.",
-  "Open knowledge whenever practical.",
-  "Design matters.",
-  "Security should enable progress.",
-  "Never stop learning.",
-] as const;
 
 export default function MissionPage() {
   return (
@@ -34,27 +21,21 @@ export default function MissionPage() {
       <div className="layout-three mission-focus">
         <section className="focus-item stack-md" aria-labelledby="work-title">
           <Heading className="focus-item-heading" id="work-title" level={2}>
-            Our work
+            Understand consequential problems
           </Heading>
           <Text>
-            We investigate emerging challenges, develop practical approaches,
-            and publish knowledge that elevates our field.
-          </Text>
-          <Text>
-            Our work is grounded in curiosity, evidence, and thoughtful
-            engineering. We believe meaningful progress comes from asking better
-            questions, building better systems, and openly sharing what we
-            learn.
+            Investigate security questions whose answers affect important
+            systems, decisions, and people.
           </Text>
         </section>
 
         <section className="focus-item stack-md" aria-labelledby="vision-title">
           <Heading className="focus-item-heading" id="vision-title" level={2}>
-            Vision
+            Engineer practical responses
           </Heading>
-          <Text variant="bodyLarge">
-            Advance cybersecurity through thoughtful research that improves the
-            security of modern computing.
+          <Text>
+            Turn sound understanding into controls, architectures, workflows,
+            and decisions that organizations can operate and explain.
           </Text>
         </section>
 
@@ -67,34 +48,19 @@ export default function MissionPage() {
             id="framework-title"
             level={2}
           >
-            Research, engineering, and education
+            Share useful knowledge
           </Heading>
           <Text>
-            Aston Cyber believes cybersecurity benefits from rigorous,
-            independent research that serves the profession before commercial
-            interests. Research creates understanding. Engineering applies
-            understanding. Secure systems give people the confidence to
-            innovate, collaborate, and solve meaningful problems.
+            Publish research and lessons when doing so can responsibly improve
+            the practice of cybersecurity beyond a single engagement.
           </Text>
-          <Text variant="bodyLarge">Security creates freedom.</Text>
         </section>
       </div>
 
-      <section
-        className="surface-base mission-principles stack-md"
-        aria-labelledby="principles-title"
-      >
-        <Heading id="principles-title" level={2}>
-          Organizational principles
-        </Heading>
-        <ul className="editorial-list mission-principles-list">
-          {principles.map((principle) => (
-            <li key={principle}>{principle}</li>
-          ))}
-        </ul>
-      </section>
-
-      <div className="mission-conclusion">
+      <div className="mission-conclusion cluster">
+        <Link href="/about" variant="standalone">
+          About Aston Cyber
+        </Link>
         <Link href="/ethos" variant="standalone">
           Read the Aston Cyber Ethos
         </Link>

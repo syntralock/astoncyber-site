@@ -27,12 +27,13 @@ export default function AboutPage() {
         </Heading>
         <Text>
           Aston Cyber combines carefully scoped cybersecurity engineering with
-          independent research. It is not a managed security provider, software
-          vendor, outsourced security function, or broad generalist consultancy.
+          independent research for financial services and other organizations
+          where security decisions carry consequential operational, financial,
+          or regulatory risk.
         </Text>
         <Text>
-          Every publication, project, and engineering effort should strengthen
-          the credibility of the organization.
+          It is not a managed security provider, software vendor, outsourced
+          security function, or broad generalist consultancy.
         </Text>
       </section>
 
@@ -67,29 +68,23 @@ export default function AboutPage() {
 
       <section
         className="editorial-prose stack-md"
-        aria-labelledby="mission-title"
+        aria-labelledby="engagement-title"
       >
-        <Heading id="mission-title" level={2}>
-          Mission
+        <Heading id="engagement-title" level={2}>
+          Engagement philosophy
         </Heading>
         <Text>
-          Aston Cyber exists to advance the practice of cybersecurity through
-          research, engineering, and education.
+          Work begins with a specific question or engineering outcome. Scope,
+          deliverables, responsibilities, assumptions, exclusions, and the
+          completion condition are defined before an engagement begins.
         </Text>
-      </section>
-
-      <section
-        className="editorial-prose stack-md"
-        aria-labelledby="principles-title"
-      >
-        <Heading id="principles-title" level={2}>
-          Operating principles
-        </Heading>
         <Text>
-          Our work is grounded in curiosity, evidence, thoughtful engineering,
-          clarity, and long-term thinking. We publish to educate first and
-          openly share knowledge whenever practical.
+          The objective is a clear decision, design, implementation, assessment,
+          automation, or research artifact—not open-ended operational ownership.
         </Text>
+        <Link href="/offerings" variant="standalone">
+          Explore Aston Cyber Offerings
+        </Link>
       </section>
 
       <section
@@ -128,18 +123,19 @@ export default function AboutPage() {
         aria-labelledby="disclosure-title"
       >
         <Heading id="disclosure-title" level={2}>
-          Independence and funding
+          Independence
         </Heading>
         <Text>
-          Aston Cyber is currently founder funded. At launch it accepts no
-          vendor funding, vendor resale commissions, implementation commissions,
-          paid referral compensation, or sponsored research.
+          Aston Cyber accepts no vendor commissions, vendor resale incentives,
+          or paid referral arrangements. Relevant conflicts are disclosed, and
+          commercial incentives do not determine technical conclusions.
         </Text>
         <Text>
           Commercial work remains separate from public research. Client
           information is not used in public research without authorization and
-          appropriate anonymization, and conclusions remain proportional to the
-          evidence.
+          appropriate anonymization. Conclusions remain proportional to the
+          evidence, including when findings are limited, negative, or
+          inconclusive.
         </Text>
       </section>
     </InstitutionalPage>

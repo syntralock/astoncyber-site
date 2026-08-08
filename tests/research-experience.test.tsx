@@ -70,7 +70,7 @@ describe("Phase 7 public research experience", () => {
     expect(html.match(/<h1/g) ?? []).toHaveLength(1);
     expect(html).toContain("Featured research");
     expect(html).toContain("Secure Transaction Authorization Ledger");
-    expect(html).toContain('href="/research/topics"');
+    expect(html).not.toContain('href="/research/topics"');
     expect(html).toContain("research-archive-featured");
     expect(html).not.toContain(fixtureSlug);
     expect(html).not.toMatch(/<input|<form|Search research/);

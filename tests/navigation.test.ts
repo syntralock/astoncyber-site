@@ -8,19 +8,20 @@ import {
 } from "@/lib/navigation";
 
 describe("canonical navigation", () => {
-  it("publishes the approved five destinations in order", () => {
+  it("publishes the approved Phase B destinations in order", () => {
     expect(primaryNavigation).toEqual([
       { href: "/", label: "Home" },
+      { href: "/offerings", label: "Offerings" },
       { href: "/research", label: "Research" },
-      { href: "/projects", label: "Projects" },
-      { href: "/labs", label: "Labs" },
       { href: "/about", label: "About" },
     ]);
 
     expect(
       getPublishedNavigationItems(primaryNavigation).map(({ label }) => label),
-    ).toEqual(["Home", "Research", "Projects", "Labs", "About"]);
+    ).toEqual(["Home", "Offerings", "Research", "About"]);
     expect(JSON.stringify(primaryNavigation)).not.toContain("Mission");
+    expect(JSON.stringify(primaryNavigation)).not.toContain("Projects");
+    expect(JSON.stringify(primaryNavigation)).not.toContain("Labs");
     expect(JSON.stringify(primaryNavigation)).not.toContain("Writing");
     expect(JSON.stringify(primaryNavigation)).not.toContain("Speaking");
   });
@@ -29,8 +30,7 @@ describe("canonical navigation", () => {
     expect(isNavigationItemActive("/research", "/research")).toBe(true);
     expect(isNavigationItemActive("/research/example", "/research")).toBe(true);
     expect(isNavigationItemActive("/researching", "/research")).toBe(false);
-    expect(isNavigationItemActive("/projects/example", "/projects")).toBe(true);
-    expect(isNavigationItemActive("/labs/example", "/labs")).toBe(true);
+    expect(isNavigationItemActive("/offerings", "/offerings")).toBe(true);
     expect(isNavigationItemActive("/", "/research")).toBe(false);
     expect(isNavigationItemActive("/", "/")).toBe(true);
     expect(isNavigationItemActive("/mission", "/")).toBe(false);

@@ -37,14 +37,17 @@ describe("institutional pages", () => {
     expect(html).not.toMatch(/<form|<script|<img|<picture/);
   });
 
-  it("keeps Mission to one h1 and its approved three-part composition", () => {
+  it("keeps Mission concise, directional, and connected to About and Ethos", () => {
     const html = renderToStaticMarkup(<MissionPage />);
 
     expect(html.match(/<h1/g) ?? []).toHaveLength(1);
-    expect(html).toContain("Our work");
-    expect(html).toContain("Vision");
-    expect(html).toContain("Research, engineering, and education");
+    expect(html).toContain("Understand consequential problems");
+    expect(html).toContain("Engineer practical responses");
+    expect(html).toContain("Share useful knowledge");
     expect(html).toContain("mission-focus");
+    expect(html).toContain('href="/about"');
+    expect(html).toContain('href="/ethos"');
+    expect(html).not.toContain("Organizational principles");
   });
 
   it("qualifies engagement inquiries without collecting sensitive information", () => {
@@ -71,7 +74,7 @@ describe("institutional pages", () => {
     expect(html).not.toMatch(/<form|<input|<textarea|<button/);
   });
 
-  it("publishes the approved founder, accountability, and funding disclosures", () => {
+  it("publishes the approved identity, founder, operating, and independence facts", () => {
     const html = renderToStaticMarkup(<AboutPage />);
 
     expect(html).toContain(">Meet the Founder</h2>");
@@ -88,9 +91,12 @@ describe("institutional pages", () => {
     expect(html).toContain("Learn more about Matt Aston →");
     expect(html).toContain("not yet formally incorporated");
     expect(html).toContain("Matt Aston leads or materially participates");
-    expect(html).toContain("Aston Cyber is currently founder funded");
-    expect(html).toContain("no vendor funding");
-    expect(html).toContain("or sponsored research");
+    expect(html).toContain("Engagement philosophy");
+    expect(html).toContain("no vendor commissions");
+    expect(html).toContain("vendor resale incentives");
+    expect(html).toContain("paid referral arrangements");
+    expect(html).toContain("Commercial work remains separate");
+    expect(html).not.toMatch(/funding|sponsor/i);
     expect(html).not.toContain("Contact Aston Cyber");
     expect(html).not.toContain('href="/contact"');
     expect(html).not.toMatch(/advisor/i);
@@ -131,10 +137,24 @@ describe("institutional pages", () => {
     expect(html).toContain("Independence and research integrity");
     expect(html).toContain("Penetration testing or broad red-team programs");
     expect(html).toContain("vCISO retainers");
-    expect(html).toContain("no vendor funding");
-    expect(html).toContain("or sponsored research");
+    expect(html).toContain("no vendor commissions");
+    expect(html).toContain("vendor resale incentives");
+    expect(html).toContain("paid referral arrangements");
+    expect(html).not.toMatch(/funding|sponsor/i);
     expect(html).toContain('href="/contact"');
     expect(html).not.toMatch(/we guarantee|is a proven production platform/i);
+  });
+
+  it("preserves the Ethos while aligning its independence language", () => {
+    const html = renderToStaticMarkup(<EthosPage />);
+
+    expect(html).toContain("The Aston Cyber Ethos");
+    expect(html).toContain("Our research agenda is never for sale");
+    expect(html).toContain("vendor commissions");
+    expect(html).toContain("resale incentives");
+    expect(html).toContain("paid referral arrangements");
+    expect(html).toContain("Confidence should never exceed evidence");
+    expect(html).not.toMatch(/funding|sponsor/i);
   });
 
   it("keeps responsible-disclosure guidance limited and explicit", () => {

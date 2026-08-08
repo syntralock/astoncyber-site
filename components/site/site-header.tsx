@@ -2,7 +2,10 @@ import Link from "next/link";
 
 import { Brand } from "@/components/brand";
 import { Container } from "@/components/layout/container";
-import { NavigationLinks } from "@/components/site/navigation-links";
+import {
+  NavigationActionLink,
+  NavigationLinks,
+} from "@/components/site/navigation-links";
 
 export function SiteHeader() {
   return (
@@ -12,16 +15,30 @@ export function SiteHeader() {
           <Brand />
         </Link>
 
-        <nav className="desktop-navigation" aria-label="Primary">
-          <NavigationLinks />
-        </nav>
-
-        <details className="mobile-navigation">
-          <summary className="type-navigation">Menu</summary>
-          <nav className="mobile-navigation-panel" aria-label="Primary mobile">
+        <div className="site-header-actions">
+          <nav className="desktop-navigation" aria-label="Primary">
             <NavigationLinks />
           </nav>
-        </details>
+          <NavigationActionLink
+            className="desktop-contact-action"
+            href="/contact"
+            label="Contact"
+          />
+
+          <details className="mobile-navigation">
+            <summary className="type-navigation">Menu</summary>
+            <div className="mobile-navigation-panel">
+              <nav aria-label="Primary mobile">
+                <NavigationLinks />
+              </nav>
+              <NavigationActionLink
+                className="mobile-contact-action"
+                href="/contact"
+                label="Contact"
+              />
+            </div>
+          </details>
+        </div>
       </Container>
     </header>
   );

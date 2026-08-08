@@ -12,27 +12,27 @@ import { getPublicResearch } from "@/lib/content/research";
 export const metadata: Metadata = {
   title: "Aston Cyber",
   description:
-    "Aston Cyber advances cybersecurity through research, engineering, and education.",
+    "Independent, founder-led cybersecurity engineering and research for consequential environments.",
 };
 
 const focusAreas = [
   {
     description:
-      "We investigate emerging challenges, develop practical approaches, and publish knowledge that elevates our field.",
+      "Our primary focus is financial services, with selected work for other organizations where security decisions carry significant operational, financial, or regulatory consequences.",
     icon: "people",
-    title: "Our work",
+    title: "Consequential environments",
   },
   {
     description:
-      "Advance cybersecurity through thoughtful research that improves the security of modern computing.",
+      "Work is narrowed to a specific identity, cloud, platform, architecture, automation, control, or high-risk workflow outcome before an engagement begins.",
     icon: "search",
-    title: "Vision",
+    title: "Bounded engineering",
   },
   {
     description:
-      "Meaningful progress comes from asking better questions, building better systems, and openly sharing what we learn.",
+      "Matt Aston materially participates in every engagement. Recommendations remain independent of vendor commissions, resale incentives, and paid referral arrangements.",
     icon: "prism",
-    title: "Research, engineering, and education",
+    title: "Founder accountability",
   },
 ] as const satisfies readonly {
   description: string;
@@ -49,22 +49,23 @@ export default async function Home() {
       <Section className="homepage-introduction">
         <Container className="page-introduction homepage-hero stack-lg">
           <Text className="text-accent" variant="eyebrow">
-            Research. Engineering. Security.
+            Independent. Founder-led. Evidence-driven.
           </Text>
           <Heading level={1} variant="hero">
-            Advancing the practice of cybersecurity
+            Cybersecurity engineering for consequential decisions
           </Heading>
           <Text className="text-foreground-secondary" variant="lead">
-            Aston Cyber is an independent cybersecurity research institution. We
-            investigate emerging challenges, develop practical approaches, and
-            publish knowledge that elevates our field.
+            Aston Cyber is an independent, founder-led cybersecurity engineering
+            and research firm serving financial services and other organizations
+            where security decisions carry consequential operational, financial,
+            or regulatory risk.
           </Text>
           <div className="cluster page-introduction-actions">
-            <Link href="/mission" variant="standalone">
-              Read our mission
+            <Link href="/offerings" variant="standalone">
+              Explore Offerings
             </Link>
-            <Link href="/ethos" variant="standalone">
-              Explore our ethos
+            <Link href="/research" variant="standalone">
+              Review Research
             </Link>
           </div>
         </Container>
@@ -72,10 +73,13 @@ export default async function Home() {
 
       <Section aria-labelledby="principles-title">
         <Container className="stack-lg">
-          <div className="section-introduction stack-md">
+          <div className="section-heading-row">
             <Heading id="principles-title" level={2}>
-              Mission
+              Focused work. Direct accountability.
             </Heading>
+            <Link href="/about" variant="standalone">
+              Learn About Aston Cyber
+            </Link>
           </div>
           <div className="layout-three focus-grid">
             {focusAreas.map((area) => (
@@ -98,10 +102,10 @@ export default async function Home() {
           <Container className="wide-feature stack-lg">
             <div className="section-heading-row">
               <Heading id="featured-research-title" level={2}>
-                Featured research
+                Research as evidence
               </Heading>
               <Link href="/research" variant="standalone">
-                View all research
+                Review Research
               </Link>
             </div>
             <ResearchArchive items={featured} variant="featured" />
@@ -112,10 +116,10 @@ export default async function Home() {
       <Section aria-labelledby="contact-title">
         <Container className="surface-raised contact-band">
           <Heading id="contact-title" level={2}>
-            Questions or inquiries?
+            Start with a defined problem
           </Heading>
           <Link href="/contact" variant="standalone">
-            Visit the Contact page
+            Contact Aston Cyber
           </Link>
         </Container>
       </Section>

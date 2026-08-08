@@ -4,7 +4,6 @@ import { ResearchArchive } from "@/components/content/research-archive";
 import { Container } from "@/components/layout/container";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { Heading } from "@/components/ui/heading";
-import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
 import { getPublicResearch } from "@/lib/content/research";
 
@@ -32,9 +31,6 @@ export default async function ResearchPage() {
           Original investigations and technical reports grounded in evidence,
           reproducible methods, and explicit limitations.
         </Text>
-        <Link href="/research/topics" variant="standalone">
-          Browse research topics
-        </Link>
       </header>
 
       {featured.length > 0 ? (

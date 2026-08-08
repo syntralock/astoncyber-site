@@ -30,7 +30,7 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Strategic remediation; Phase C offerings, trust, and contact
+**Current Phase:** Strategic remediation; Phase D institutional alignment
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 The canonical remediation roadmap is recorded in
@@ -40,9 +40,12 @@ and About as primary navigation, keeps Contact as a distinct action, removes
 empty Projects, Labs, and People surfaces from public discovery, and
 de-emphasizes the early research taxonomy. Phase C publishes the five approved
 offering categories, bounded engagement model, founder-accountability and
-independence disclosures, and safe Contact qualification. Phase D homepage and
-institutional repositioning, and later accessibility, SEO, and PWA-removal
-work have not begun. Phase 9 Search & Discovery remains paused.
+independence disclosures, and safe Contact qualification. Phase D repositions
+the homepage around identity, audience, bounded engineering, research evidence,
+founder accountability, and buyer-oriented next steps; aligns About; makes
+Mission concise and directional; and preserves Ethos as the complete principles
+statement. Later research-usability, accessibility, SEO, and PWA-removal work
+has not begun. Phase 9 Search & Discovery remains paused.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements

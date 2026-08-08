@@ -40,8 +40,8 @@ About
   configuration.
 - Every page MUST support breadcrumb navigation where appropriate.
 - The homepage is the public entry point for the organization.
-- The Mission page provides the deeper institutional statement and remains
-  available through contextual links and its direct URL.
+- The Mission page provides a concise directional statement of why Aston Cyber
+  exists and remains available through contextual links and its direct URL.
 - The Ethos page MUST be prominently linked from Mission and the footer.
 - Ethos MUST NOT appear in the primary navigation unless this specification is revised.
 - Projects and Labs retain their repository and content architecture but MUST
@@ -63,13 +63,11 @@ Communicate why Aston Cyber exists.
 
 Sections:
 
-- Hero
-- Mission Statement
-- Vision
-- Principles
-- Research Philosophy
-- Current Focus Areas
-- Call to Explore Research
+- Concise mission statement
+- Understand consequential problems
+- Engineer practical responses
+- Share useful knowledge
+- Contextual paths to About and Ethos
 
 ---
 
@@ -140,16 +138,16 @@ Content Types:
 # About
 
 Purpose:
-Introduce the founder after visitors understand the organization.
+Explain who Aston Cyber is as an organization and establish direct founder
+accountability.
 
 Sections:
 
-- Aston Cyber story
+- Institutional identity
+- Accountability and operating model
+- Engagement philosophy
 - Founder
-- Biography
-- Resume
-- Media kit
-- Contact
+- Independence
 
 The former empty `/people` surface permanently redirects to `/about/`.
 
@@ -168,7 +166,7 @@ Current public route disposition:
 - `/projects` and `/labs` are inactive while their collections are empty.
 - `/people` permanently redirects to `/about/` through static-host
   configuration.
-- `/mission` remains active pending Phase D consolidation approval.
+- `/mission` remains active as a concise secondary institutional page.
 - `/ethos` remains an active secondary principles page.
 - Research topic routes remain active but de-emphasized and excluded from the
   sitemap.

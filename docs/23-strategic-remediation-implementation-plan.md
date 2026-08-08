@@ -142,6 +142,18 @@ incentives do not control technical conclusions.
 Aston Cyber is currently founder-funded. Future ordinary client revenue must
 remain clearly distinguishable from research sponsorship or external funding.
 
+### 2.5 Phase D public presentation decision
+
+On 2026-08-07 the owner directed Phase D to remove funding and sponsorship
+discussion from the public buyer journey. The operational decisions above
+remain approved governance facts, including the prohibition on sponsored
+research at launch, but current public Home, About, Mission, Ethos, Offerings,
+Research, and Contact content must not present funding as a trust signal.
+Independence is instead expressed through the absence of vendor commissions,
+vendor resale incentives, and paid referral arrangements; separation of
+commercial work from research; disclosed relevant conflicts; and conclusions
+that remain proportional to evidence.
+
 ## 3. Approved Target Audiences
 
 ### 3.1 Primary audience
@@ -377,7 +389,7 @@ Contact should be a visible header action and footer destination.
 | Home | Retain and reposition around identity, audience, outcomes, evidence, and next steps |
 | Offerings | Add as the primary buyer-facing page |
 | Research | Retain as an independent publication and evidence surface |
-| About | Retain; include founder leadership, organizational model, independence, concise mission, and funding context |
+| About | Retain; include founder leadership, organizational model, engagement philosophy, independence, and current operating status |
 | Contact | Retain; elevate and qualify engagement inquiries |
 | Mission | Consolidate essential material into Home and About; remove from prominent navigation |
 | Ethos | Retain as a secondary principles page and reduce duplication elsewhere |
@@ -404,7 +416,7 @@ The intended journey is:
    what the expected outcome is, and what remains out of scope.
 3. **Research:** Inspect technical method, depth, limitations, and evidence.
 4. **About:** Confirm founder accountability, relevant experience,
-   independence, capacity, funding, and operating model.
+   independence, capacity, engagement philosophy, and operating model.
 5. **Contact:** Submit a limited initial inquiry without exposing sensitive
    information.
 6. **Qualification:** Confirm organization, problem category, desired outcome,
@@ -428,7 +440,7 @@ Cyber should provide:
   formalities will precede commercial engagements;
 - approved engagement boundaries;
 - independence and conflicts policy;
-- funding and sponsorship clarity;
+- vendor-compensation and conflict clarity;
 - privacy and responsible-disclosure guidance;
 - secure initial-contact guidance;
 - valid TLS and one canonical host;
@@ -819,6 +831,10 @@ Phase C is implementation-complete subject to the validation record in
 
 ### Phase D – Homepage and Institutional Repositioning
 
+**Status:** Implemented for review on 2026-08-07. The repository implementation
+is recorded in `26-phase-d-homepage-institutional-alignment.md`. Phase E has not
+begun.
+
 **Objective:** Make the new identity clear within the first ten seconds while
 preserving the established visual system.
 
@@ -838,7 +854,14 @@ preserving the established visual system.
 desktop and mobile visual review, heading and link review, and content approval.
 
 **Exit criteria:** A new visitor can state what Aston Cyber is, whom it serves,
-what it can address, why it is credible, and where to go next.
+what it can address, why it is credible, and where to go next. The implementation
+preserves the centered homepage composition while establishing the approved
+identity, financial-services-first audience, bounded problem categories,
+research as evidence, founder accountability, and paths to Offerings, Research,
+About, and Contact. About now owns organizational facts and accountability;
+Mission is concise and directional; and Ethos remains the complete principles
+statement. Phase D is implementation-complete subject to the validation record
+in `26-phase-d-homepage-institutional-alignment.md`.
 
 ### Phase E – Research and Publication Usability
 
