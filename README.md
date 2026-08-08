@@ -1,8 +1,10 @@
 # Aston Cyber
 
-The Aston Cyber website is a ground-up rebuild for an independent cybersecurity research institution focused on research, engineering, and education.
+The Aston Cyber website is the public surface for an independent, founder-led
+cybersecurity engineering and research firm.
 
-Aston Cyber is not a consultancy, managed security provider, SaaS company, or marketing website.
+Aston Cyber is not a managed security provider, software vendor, outsourced
+security function, or broad generalist consultancy.
 
 This repository is the single source of truth for the website.
 
@@ -28,14 +30,19 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Strategic remediation; Phase 0 public-surface stabilization
+**Current Phase:** Strategic remediation; Phase C offerings, trust, and contact
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 The canonical remediation roadmap is recorded in
-`docs/23-strategic-remediation-implementation-plan.md`. Its Phase 0 work
-stabilizes the existing public surface without beginning the later identity,
-navigation, content, accessibility, SEO, or PWA-removal phases. Phase 9 Search
-& Discovery remains paused.
+`docs/23-strategic-remediation-implementation-plan.md`. Phase 0 repository work
+stabilized the public surface. Phase B establishes Home, Offerings, Research,
+and About as primary navigation, keeps Contact as a distinct action, removes
+empty Projects, Labs, and People surfaces from public discovery, and
+de-emphasizes the early research taxonomy. Phase C publishes the five approved
+offering categories, bounded engagement model, founder-accountability and
+independence disclosures, and safe Contact qualification. Phase D homepage and
+institutional repositioning, and later accessibility, SEO, and PWA-removal
+work have not begun. Phase 9 Search & Discovery remains paused.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements

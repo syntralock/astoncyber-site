@@ -8,7 +8,7 @@ import ContactPage from "@/app/contact/page";
 import DisclosuresPage from "@/app/disclosures/page";
 import EthosPage from "@/app/ethos/page";
 import MissionPage from "@/app/mission/page";
-import PeoplePage from "@/app/people/page";
+import OfferingsPage from "@/app/offerings/page";
 import PrivacyPage from "@/app/privacy/page";
 import sitemap from "@/app/sitemap";
 import {
@@ -20,7 +20,7 @@ const pages = [
   ["Mission", MissionPage],
   ["Ethos", EthosPage],
   ["About", AboutPage],
-  ["People", PeoplePage],
+  ["Offerings", OfferingsPage],
   ["Contact", ContactPage],
   ["Accessibility", AccessibilityPage],
   ["Privacy", PrivacyPage],
@@ -47,15 +47,31 @@ describe("institutional pages", () => {
     expect(html).toContain("mission-focus");
   });
 
-  it("uses approved direct-email routing without form infrastructure", () => {
+  it("qualifies engagement inquiries without collecting sensitive information", () => {
     const html = renderToStaticMarkup(<ContactPage />);
 
     expect(html).toContain('href="mailto:info@astoncyber.com"');
     expect(html).toContain('href="mailto:security@astoncyber.com"');
+    for (const item of [
+      "Organization type",
+      "General problem category",
+      "Desired outcome",
+      "Approximate timing",
+      "Your contact information",
+    ]) {
+      expect(html).toContain(item);
+    }
+    expect(html).toContain("Do not include credentials");
+    expect(html).toContain("confidential information");
+    expect(html).toContain("regulated data");
+    expect(html).toContain("incident evidence");
+    expect(html).toContain("sensitive technical artifacts");
+    expect(html).toContain("What happens next");
+    expect(html).toContain("bounded scope");
     expect(html).not.toMatch(/<form|<input|<textarea|<button/);
   });
 
-  it("publishes the approved founder introduction and neutral funding disclosure", () => {
+  it("publishes the approved founder, accountability, and funding disclosures", () => {
     const html = renderToStaticMarkup(<AboutPage />);
 
     expect(html).toContain(">Meet the Founder</h2>");
@@ -70,20 +86,55 @@ describe("institutional pages", () => {
     expect(html).toContain('target="_blank"');
     expect(html).toContain('rel="noopener noreferrer"');
     expect(html).toContain("Learn more about Matt Aston →");
-    expect(html).toContain(
-      "Aston Cyber does not currently publish a list of funders or sponsors.",
-    );
+    expect(html).toContain("not yet formally incorporated");
+    expect(html).toContain("Matt Aston leads or materially participates");
+    expect(html).toContain("Aston Cyber is currently founder funded");
+    expect(html).toContain("no vendor funding");
+    expect(html).toContain("or sponsored research");
     expect(html).not.toContain("Contact Aston Cyber");
     expect(html).not.toContain('href="/contact"');
-    expect(html).not.toMatch(/employee|advisor/i);
+    expect(html).not.toMatch(/advisor/i);
   });
 
-  it("provides an editorial People empty state without publishing profiles", () => {
-    const html = renderToStaticMarkup(<PeoplePage />);
-
-    expect(html).toContain("No person profiles are currently published");
-    expect(html).toContain("only when approved person content is available");
+  it("removes the empty People route while preserving profile architecture", () => {
+    expect(existsSync("app/people/page.tsx")).toBe(false);
     expect(existsSync("app/people/[slug]/page.tsx")).toBe(false);
+  });
+
+  it("publishes the five approved bounded offering categories", () => {
+    const html = renderToStaticMarkup(<OfferingsPage />);
+
+    expect(html.match(/<h1/g) ?? []).toHaveLength(1);
+    for (const offering of [
+      "Identity, cloud, and platform security",
+      "Security architecture and decision support",
+      "Focused security assessments",
+      "Security automation and control evidence",
+      "Secure workflow research and prototyping",
+    ]) {
+      expect(html).toContain(offering);
+    }
+    for (const label of [
+      "Client problem",
+      "Typical engagement",
+      "Expected outcome",
+      "Credibility",
+      "Boundary",
+    ]) {
+      expect(html.match(new RegExp(`>${label}</h4>`, "g")) ?? []).toHaveLength(
+        5,
+      );
+    }
+    expect(html).toContain("How an engagement works");
+    expect(html).toContain("Founder accountability");
+    expect(html).toContain("What Aston Cyber does not do");
+    expect(html).toContain("Independence and research integrity");
+    expect(html).toContain("Penetration testing or broad red-team programs");
+    expect(html).toContain("vCISO retainers");
+    expect(html).toContain("no vendor funding");
+    expect(html).toContain("or sponsored research");
+    expect(html).toContain('href="/contact"');
+    expect(html).not.toMatch(/we guarantee|is a proven production platform/i);
   });
 
   it("keeps responsible-disclosure guidance limited and explicit", () => {
@@ -127,14 +178,9 @@ describe("institutional sitemap", () => {
       "/disclosures/",
       "/ethos/",
       "/mission/",
-      "/people/",
+      "/offerings/",
       "/privacy/",
-      "/projects/",
-      "/labs/",
       "/research/",
-      "/research/topics/",
-      "/research/topics/secure-software-design/",
-      "/research/topics/transaction-authorization/",
       "/research/secure-transaction-authorization-ledger/",
     ]) {
       expect(urls).toContain(`https://astoncyber.com${path}`);
@@ -142,6 +188,9 @@ describe("institutional sitemap", () => {
 
     expect(urls).not.toContain(
       "https://astoncyber.com/research/content-system-technical-fixture/",
+    );
+    expect(urls.join("\n")).not.toMatch(
+      /\/people\/|\/projects\/|\/labs\/|\/research\/topics\//,
     );
     expect(urls.join("\n")).not.toMatch(/writing|speaking|draft-|fixture/);
   });

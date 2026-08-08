@@ -751,6 +751,9 @@ repository or content implementation still requires separate authorization.
 
 ### Phase B – Information Architecture and Buyer Journey
 
+**Status:** Implemented for review on 2026-08-07. Phase C and Phase D have not
+begun.
+
 **Objective:** Establish a coherent site structure around visitor decisions.
 
 **Scope:**
@@ -769,8 +772,18 @@ internal-link review, and preservation plan for existing public URLs.
 
 **Exit criteria:** Every visible destination answers a distinct visitor
 question, no primary destination is empty, and route disposition is approved.
+The implementation establishes Home, Offerings, Research, and About as the
+primary set; presents Contact as a distinct restrained action; retires the
+empty Projects and Labs routes while preserving their content architecture;
+redirects the former People surface to About; retains Mission and Ethos for
+later approved consolidation; and de-emphasizes research topics without
+deleting their architecture. Phase B is implementation-complete subject to the
+validation record in `24-phase-b-information-architecture-buyer-journey.md`.
 
 ### Phase C – Offerings, Trust, and Contact
+
+**Status:** Implemented for review on 2026-08-07. The repository implementation
+is recorded in `25-phase-c-offerings-trust-contact.md`. Phase D has not begun.
 
 **Objective:** Make a carefully scoped engagement understandable and credible.
 
@@ -796,7 +809,13 @@ business review where required, accessibility review, and route/content tests.
 
 **Exit criteria:** A qualified buyer can determine fit, an out-of-scope buyer
 can self-select out, no claim exceeds evidence, and Contact establishes a safe
-next step.
+next step. The implementation publishes all five approved categories with
+problem, engagement, outcome, credibility, and claim-boundary context; defines
+the bounded engagement sequence and exclusions; records founder accountability,
+capacity, collaborator, funding, independence, and research-integrity facts;
+and limits initial Contact inquiries to non-sensitive qualification details.
+Phase C is implementation-complete subject to the validation record in
+`25-phase-c-offerings-trust-contact.md`.
 
 ### Phase D – Homepage and Institutional Repositioning
 

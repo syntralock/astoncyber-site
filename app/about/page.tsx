@@ -7,14 +7,15 @@ import { Text } from "@/components/ui/text";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Aston Cyber as an independent research institution.",
+  description:
+    "About Aston Cyber as an independent, founder-led cybersecurity engineering and research firm.",
 };
 
 export default function AboutPage() {
   return (
     <InstitutionalPage
       eyebrow="About"
-      introduction="Aston Cyber is an independent cybersecurity research institution."
+      introduction="Aston Cyber is an independent, founder-led cybersecurity engineering and research firm."
       title="About Aston Cyber"
     >
       <section
@@ -25,13 +26,42 @@ export default function AboutPage() {
           Institutional identity
         </Heading>
         <Text>
-          Aston Cyber is not a consultancy, managed security provider, SaaS
-          company, or marketing website. It is a mission-driven cybersecurity
-          research organization.
+          Aston Cyber combines carefully scoped cybersecurity engineering with
+          independent research. It is not a managed security provider, software
+          vendor, outsourced security function, or broad generalist consultancy.
         </Text>
         <Text>
           Every publication, project, and engineering effort should strengthen
           the credibility of the organization.
+        </Text>
+      </section>
+
+      <section
+        className="editorial-prose stack-md"
+        aria-labelledby="accountability-title"
+      >
+        <Heading id="accountability-title" level={2}>
+          Accountability and operating model
+        </Heading>
+        <Text>
+          Matt Aston leads or materially participates in every engagement.
+          Concurrent work is intentionally limited, and Aston Cyber declines
+          work outside its competence, capacity, or delivery boundaries.
+        </Text>
+        <Text>
+          When a defined scope requires specialist expertise outside the
+          founder&apos;s direct delivery area, Aston Cyber may use a preapproved
+          collaborator under appropriate confidentiality, security,
+          conflict-of-interest, intellectual-property, and client-disclosure
+          terms. Matt remains accountable for the engagement. Aston Cyber does
+          not currently represent that it has employees or a standing
+          subcontractor bench.
+        </Text>
+        <Text>
+          Aston Cyber is not yet formally incorporated or organized as a
+          separate legal entity. Appropriate business formation, contracting,
+          insurance, and operating formalities will be completed before
+          commercial engagements are accepted.
         </Text>
       </section>
 
@@ -98,10 +128,18 @@ export default function AboutPage() {
         aria-labelledby="disclosure-title"
       >
         <Heading id="disclosure-title" level={2}>
-          Funding disclosure
+          Independence and funding
         </Heading>
         <Text>
-          Aston Cyber does not currently publish a list of funders or sponsors.
+          Aston Cyber is currently founder funded. At launch it accepts no
+          vendor funding, vendor resale commissions, implementation commissions,
+          paid referral compensation, or sponsored research.
+        </Text>
+        <Text>
+          Commercial work remains separate from public research. Client
+          information is not used in public research without authorization and
+          appropriate anonymization, and conclusions remain proportional to the
+          evidence.
         </Text>
       </section>
     </InstitutionalPage>

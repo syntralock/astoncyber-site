@@ -648,6 +648,12 @@ form requires a separate architecture and security review.
 
 ## 9.12 Phase 6 Institutional Content Boundary
 
+This subsection records the Phase 6 content boundary. For current remediation
+work, the owner-approved identity, operating, funding, independence, and trust
+decisions in `23-strategic-remediation-implementation-plan.md` supersede its
+earlier restrictions. The approved Phase C implementation is recorded in
+`25-phase-c-offerings-trust-contact.md`.
+
 The Phase 6 homepage may use only approved repository language to introduce
 Aston Cyber as an organization, explain its mission, ethos, and documented
 areas of interest, and direct readers to institutional pages and contact

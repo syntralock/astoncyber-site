@@ -13,11 +13,9 @@ This specification is authoritative for navigation, routing, and page hierarchy.
 
 Home
 
+Offerings
+
 Research
-
-Projects
-
-Labs
 
 About
 
@@ -27,8 +25,10 @@ About
 
 - The primary navigation MUST remain minimal.
 - Navigation labels MUST use sentence case.
-- The public primary navigation MUST contain exactly the five items listed
-  above: Home, Research, Projects, Labs, and About.
+- The public primary navigation MUST contain exactly the four items listed
+  above: Home, Offerings, Research, and About.
+- Contact MUST remain a distinct, restrained header action and a footer
+  destination rather than a fifth primary-navigation item.
 - Home links to `/` and replaces Mission in public primary and footer
   navigation.
 - Mission remains a published secondary institutional page at `/mission` and
@@ -44,6 +44,15 @@ About
   available through contextual links and its direct URL.
 - The Ethos page MUST be prominently linked from Mission and the footer.
 - Ethos MUST NOT appear in the primary navigation unless this specification is revised.
+- Projects and Labs retain their repository and content architecture but MUST
+  NOT expose public collection routes, navigation items, or sitemap entries
+  while they contain no substantive public material.
+- The empty People route is retired and permanently redirects to About. The
+  reusable person-profile architecture remains available for later approved
+  content.
+- Research topic routes remain available through contextual research metadata,
+  but the topic index and topic detail routes are de-emphasized and excluded
+  from the sitemap while the public corpus remains small.
 
 ---
 
@@ -79,12 +88,29 @@ Content Types:
 - Identity
 - Enterprise architecture
 
+The Research index is the principal research discovery surface. Topic taxonomy
+must not be presented as a prominent parallel entry point while the current
+publication volume does not justify it.
+
+---
+
+# Offerings
+
+Purpose:
+Help a prospective client understand the kinds of problems Aston Cyber may
+address, how work is scoped, and what an engagement should produce.
+
+Phase C publishes the five approved offering categories, claim boundaries,
+bounded engagement model, founder-accountability and independence disclosures,
+and qualified Contact journey. The page is the principal buyer-facing surface
+without becoming a generic services catalogue.
+
 ---
 
 # Projects
 
-Purpose:
-Show engineering work.
+Status:
+Repository capability retained; public route inactive while empty.
 
 Content Types:
 
@@ -98,8 +124,8 @@ Content Types:
 
 # Labs
 
-Purpose:
-Show experimental work before it becomes formal research.
+Status:
+Repository capability retained; public route inactive while empty.
 
 Content Types:
 
@@ -125,6 +151,8 @@ Sections:
 - Media kit
 - Contact
 
+The former empty `/people` surface permanently redirects to `/about/`.
+
 Contact routing:
 
 - General inquiries: `info@astoncyber.com`
@@ -133,5 +161,16 @@ Contact routing:
 ---
 
 # Routing Rules
+
+Current public route disposition:
+
+- `/offerings` is active.
+- `/projects` and `/labs` are inactive while their collections are empty.
+- `/people` permanently redirects to `/about/` through static-host
+  configuration.
+- `/mission` remains active pending Phase D consolidation approval.
+- `/ethos` remains an active secondary principles page.
+- Research topic routes remain active but de-emphasized and excluded from the
+  sitemap.
 
 Codex MUST preserve this navigation unless this specification is updated.
