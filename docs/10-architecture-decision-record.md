@@ -450,6 +450,47 @@ application architecture.
 
 ---
 
+# Decision 21 — Launch Metadata, Indexing, and Website-Only Platform Identity
+
+**Decision:** Complete repository-side production hardening for the canonical
+`https://astoncyber.com` origin while preserving the static-export model and
+presenting Aston Cyber as a website rather than an installable application.
+
+**Requirements:**
+
+- Every public page provides an apex canonical URL, title, description, Open
+  Graph text metadata, and Twitter/X summary metadata through one typed helper.
+- The root layout provides `metadataBase` plus truthful Organization and WebSite
+  JSON-LD. Public research detail pages provide evidence-backed
+  ResearchArticle JSON-LD.
+- `robots.txt` permits crawling and references the apex sitemap. The temporary
+  global `noindex, nofollow` directive is removed.
+- `/.well-known/security.txt` uses the approved responsible-disclosure contact,
+  canonical policy path, preferred language, and a reviewable expiry date.
+- Web App Manifest association, standalone display behavior, maskable icons,
+  and install-only icons are removed. Favicons and the Apple Touch Icon remain.
+- Responsive hero derivatives reduce image transfer without modifying the
+  approved source artwork.
+- Azure configuration applies immutable caching only to content-hashed Next.js
+  assets and adds HSTS without requesting preload. Existing CSP, permissions,
+  referrer, cross-origin, and content-type policies remain.
+- No social image is improvised. Open Graph and Twitter/X image fields remain
+  absent until the owner supplies the separately approved 1200×630 asset.
+
+**Consequences:**
+
+- The static export is technically indexable, subject to deployment and Phase H
+  owner launch approval.
+- Canonical, crawler, structured-data, and security-file behavior is testable
+  without runtime APIs or client-side JavaScript.
+- No installability signal incorrectly implies a software product.
+- Social previews use page title and description but remain image-incomplete
+  until the approved asset is available.
+
+**Date adopted:** 2026-08-07
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.

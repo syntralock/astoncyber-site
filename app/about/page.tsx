@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-
 import { InstitutionalPage } from "@/components/layout/institutional-page";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = createPageMetadata({
   description:
     "About Aston Cyber as an independent, founder-led cybersecurity engineering and research firm.",
-};
+  pathname: "/about",
+  title: "About",
+});
 
 export default function AboutPage() {
   return (

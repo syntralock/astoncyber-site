@@ -11,7 +11,7 @@ export function Callout({ children, title }: CalloutProps) {
   return (
     <aside className="surface-base stack-sm">
       {title ? (
-        <Heading level={4} variant="h4">
+        <Heading level={3} variant="h4">
           {title}
         </Heading>
       ) : null}

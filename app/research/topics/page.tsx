@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-
 import { Container } from "@/components/layout/container";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
 import { getPublicResearchTopics } from "@/lib/content/research";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Research topics",
+export const metadata = createPageMetadata({
   description: "Browse published Aston Cyber research by topic.",
-};
+  pathname: "/research/topics",
+  title: "Research topics",
+});
 
 export default async function ResearchTopicsPage() {
   const topics = await getPublicResearchTopics();

@@ -30,7 +30,7 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Strategic remediation; Phase D institutional alignment
+**Current Phase:** Strategic remediation; Phase G production hardening
 
 The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
 The canonical remediation roadmap is recorded in
@@ -44,8 +44,13 @@ independence disclosures, and safe Contact qualification. Phase D repositions
 the homepage around identity, audience, bounded engineering, research evidence,
 founder accountability, and buyer-oriented next steps; aligns About; makes
 Mission concise and directional; and preserves Ethos as the complete principles
-statement. Later research-usability, accessibility, SEO, and PWA-removal work
-has not begun. Phase 9 Search & Discovery remains paused.
+statement. Phase G adds canonical and complete social metadata, crawler files,
+structured data, RFC 9116 security guidance, accessibility polish, responsive
+hero delivery, hashed-asset caching, and removal of PWA installability. The
+static export is indexable, but public launch still requires Phase H production
+verification and explicit owner approval. The approved social-preview asset is
+published from `public/images/social/`. Phase 9 Search & Discovery remains
+paused.
 Phase 1 established the application, validation, content-safety, and CI
 foundation. Phase 2 completed the visual token system. Phase 2.1 refines
 that system for an editorial research publication. Phase 3 implements
@@ -86,6 +91,8 @@ icon SVGs live in `public/brand/`; browser and platform derivatives live in
 `public/images/home/aston-cyber-hero.jpg`. The shared dark header and footer use
 the reversed horizontal logo, while the homepage retains its centered hero
 composition over the artwork with restrained contrast and edge-fade layers.
+The site intentionally has no Web App Manifest, install-only icons, service
+worker, offline behavior, or install prompt.
 
 ## Engineering Principles
 

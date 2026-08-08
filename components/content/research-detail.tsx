@@ -1,19 +1,28 @@
 import type { ReactNode } from "react";
 
 import { Heading } from "@/components/ui/heading";
+import { ResearchOutline } from "@/components/content/research-outline";
 import { Link } from "@/components/ui/link";
 import { MetadataRow } from "@/components/ui/metadata-row";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { Tag } from "@/components/ui/tag";
 import { Text } from "@/components/ui/text";
 import type { ResolvedResearchItem } from "@/lib/content/research";
+import type { ResearchHeading } from "@/lib/content/headings";
+import { researchHeadings } from "@/lib/content/headings";
 
 type ResearchDetailProps = Readonly<{
   children?: ReactNode;
+  headings?: readonly ResearchHeading[];
   item: ResolvedResearchItem;
 }>;
 
-export function ResearchDetail({ children, item }: ResearchDetailProps) {
+export function ResearchDetail({
+  children,
+  headings,
+  item,
+}: ResearchDetailProps) {
+  const outlineHeadings = headings ?? researchHeadings(item.body);
   const date =
     item.metadata.published_at ?? item.metadata.updated_at ?? "Not published";
 
@@ -85,6 +94,7 @@ export function ResearchDetail({ children, item }: ResearchDetailProps) {
           <Text>{item.metadata.publication_note}</Text>
         </aside>
       ) : null}
+      <ResearchOutline headings={outlineHeadings} />
       <div className="research-body">{children}</div>
       {item.metadata.artifact ? (
         <section

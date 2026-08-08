@@ -10,6 +10,7 @@ import {
   getPublicResearchByTopic,
   getPublicResearchTopics,
 } from "@/lib/content/research";
+import { createPageMetadata } from "@/lib/site-metadata";
 
 type TopicPageProps = Readonly<{
   params: Promise<{ slug: string }>;
@@ -31,10 +32,11 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${result.topic.label} research`,
+  return createPageMetadata({
     description: `Published Aston Cyber research about ${result.topic.label}.`,
-  };
+    pathname: `/research/topics/${result.topic.id}`,
+    title: `${result.topic.label} research`,
+  });
 }
 
 export default async function ResearchTopicPage({ params }: TopicPageProps) {

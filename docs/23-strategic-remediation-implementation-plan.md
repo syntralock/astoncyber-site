@@ -63,8 +63,10 @@ production-hardening work. On 2026-08-07 the owner confirmed that apex TLS is
 working, Azure Static Web Apps serves both approved hostnames, Cloudflare DNS
 routes both hosts to Azure, and Cloudflare permanently redirects `www` to the
 approved apex origin while preserving query strings. Sitemap and RSS generation
-already use that apex origin. Pages intentionally continue to emit `noindex,
-nofollow`; `robots.txt` and RFC 9116 `security.txt` remain later-phase work.
+already use that apex origin. Phase G removes the temporary `noindex, nofollow`
+posture, publishes `robots.txt` and RFC 9116 `security.txt`, and aligns
+repository metadata with the approved canonical origin. Deployment and Phase H
+production verification remain required before launch approval.
 The repository now maps Azure missing-route responses to the exported Aston
 Cyber 404 document, subject to verification after an authorized deployment.
 
@@ -533,9 +535,9 @@ The owner has approved:
 - this document's authority over conflicting earlier future-phase sequencing.
 
 Later phases still require owner decisions on exact route retirement and
-redirect behavior, the qualified Contact process, the approved social-preview
-asset, and final launch authorization. Each implementation phase requires
-separate owner authorization.
+redirect behavior, the qualified Contact process, and final launch
+authorization. The social-preview asset is approved and integrated. Each
+implementation phase requires separate owner authorization.
 
 ### 11.2 Repository implementation
 
@@ -919,6 +921,12 @@ approved performance budgets pass.
 
 ### Phase G – Production Hardening, SEO, and PWA Removal
 
+**Status:** Repository implementation completed for review on 2026-08-07. The
+approved social-preview asset is integrated through shared Open Graph and
+Twitter/X metadata. External production verification remains open. The
+implementation record is `27-phase-g-production-hardening-launch-readiness.md`.
+Phase H has not begun.
+
 **Objective:** Make the final site discoverable, secure, cacheable, and aligned
 with its actual website role.
 
@@ -949,7 +957,11 @@ checks, `security.txt` validation, and production 404 verification.
 **Exit criteria:** Approved pages are indexable, every canonical URL resolves,
 sitemap and RSS contain only valid public URLs, social previews are approved,
 security files and headers are present, no unintended installability remains,
-and success and error responses satisfy production policy.
+and success and error responses satisfy production policy. Repository-side
+criteria are satisfied. Canonical resolution, social-preview rendering,
+response headers, caching, redirects, custom 404 behavior, and the well-known
+security path still require authorized production deployment and Phase H
+external verification.
 
 ### Phase H – Launch Validation and Approval
 

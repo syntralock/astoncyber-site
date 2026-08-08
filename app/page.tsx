@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { Container } from "@/components/layout/container";
 import { ResearchArchive } from "@/components/content/research-archive";
 import { Section } from "@/components/layout/section";
@@ -8,12 +6,14 @@ import { Link } from "@/components/ui/link";
 import { PillarIcon, type PillarIconName } from "@/components/ui/pillar-icon";
 import { Text } from "@/components/ui/text";
 import { getPublicResearch } from "@/lib/content/research";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Aston Cyber",
+export const metadata = createPageMetadata({
   description:
     "Independent, founder-led cybersecurity engineering and research for consequential environments.",
-};
+  pathname: "/",
+  title: "Aston Cyber",
+});
 
 const focusAreas = [
   {

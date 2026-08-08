@@ -35,6 +35,9 @@ describe("shared application shell", () => {
     expect(html).toContain('aria-label="Aston Cyber home"');
     expect(html).toContain('src="/brand/aston-cyber-logo-dark.svg"');
     expect(html).not.toContain('class="brand-wordmark"');
+    expect(html).toContain('type="application/ld+json"');
+    expect(html).toContain('"@type":"Organization"');
+    expect(html).toContain('"@type":"WebSite"');
 
     for (const href of ["/", "/offerings", "/research", "/about"]) {
       expect(html).toContain(`href="${href}"`);
@@ -88,22 +91,45 @@ describe("shared application shell", () => {
     expect(metadata).toMatchObject({
       applicationName: "Aston Cyber",
       description:
-        "Independent cybersecurity research, engineering, and education.",
-      robots: {
-        follow: false,
-        index: false,
-      },
+        "Independent, founder-led cybersecurity engineering and research for consequential environments.",
       title: {
         default: "Aston Cyber",
         template: "%s | Aston Cyber",
       },
     });
     expect(metadata).toMatchObject({
-      manifest: "/icons/site.webmanifest",
+      alternates: { canonical: "https://astoncyber.com/" },
       icons: {
         apple: [{ sizes: "180x180", url: "/icons/apple-touch-icon.png" }],
       },
+      metadataBase: new URL("https://astoncyber.com"),
+      openGraph: {
+        images: [
+          {
+            alt: "Aston Cyber — Cybersecurity Engineering & Research",
+            height: 630,
+            type: "image/png",
+            url: "https://astoncyber.com/images/social/aston-cyber-social-card.png",
+            width: 1200,
+          },
+        ],
+        siteName: "Aston Cyber",
+        url: "https://astoncyber.com/",
+      },
+      twitter: {
+        card: "summary_large_image",
+        images: [
+          {
+            alt: "Aston Cyber — Cybersecurity Engineering & Research",
+            height: 630,
+            url: "https://astoncyber.com/images/social/aston-cyber-social-card.png",
+            width: 1200,
+          },
+        ],
+      },
     });
+    expect(metadata).not.toHaveProperty("manifest");
+    expect(metadata).not.toHaveProperty("robots");
     expect(viewport).toEqual({ colorScheme: "dark", themeColor: "#2e2e2e" });
   });
 });

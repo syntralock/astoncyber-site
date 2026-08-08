@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-
 import { InstitutionalPage } from "@/components/layout/institutional-page";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Responsible Disclosure",
+export const metadata = createPageMetadata({
   description: "Operational guidance for reporting security issues.",
-};
+  pathname: "/disclosures",
+  title: "Responsible Disclosure",
+});
 
 export default function DisclosuresPage() {
   return (

@@ -1,0 +1,5 @@
+Contact: mailto:security@astoncyber.com
+Expires: 2027-08-07T23:59:59Z
+Preferred-Languages: en
+Canonical: https://astoncyber.com/.well-known/security.txt
+Policy: https://astoncyber.com/disclosures/

@@ -115,6 +115,11 @@ describe("Phase 7 public research experience", () => {
     expect(html).toContain("not supported");
     expect(html).toContain("Download the original case study (DOCX)");
     expect(html).toContain("Citation");
+    expect(html).toContain("In this report");
+    expect(html).toContain('href="#abstract"');
+    expect(html).toContain('id="abstract"');
+    expect(html).toContain('type="application/ld+json"');
+    expect(html).toContain('"@type":"ResearchArticle"');
     expect(html).not.toContain("Related research");
     expect(html).not.toContain(fixtureSlug);
   });

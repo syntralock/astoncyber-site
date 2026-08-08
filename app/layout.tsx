@@ -8,15 +8,27 @@ import "@/styles/globals.css";
 
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
+import { StructuredData } from "@/components/structured-data";
+import {
+  absoluteSiteUrl,
+  createPageMetadata,
+  siteDescription,
+  siteName,
+  siteOrigin,
+} from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
-  applicationName: "Aston Cyber",
+  ...createPageMetadata({
+    description: siteDescription,
+    pathname: "/",
+    title: siteName,
+  }),
+  applicationName: siteName,
+  metadataBase: new URL(siteOrigin),
   title: {
-    default: "Aston Cyber",
-    template: "%s | Aston Cyber",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Independent cybersecurity research, engineering, and education.",
   icons: {
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
     icon: [
@@ -26,11 +38,6 @@ export const metadata: Metadata = {
       { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/icons/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
-  },
-  manifest: "/icons/site.webmanifest",
-  robots: {
-    follow: false,
-    index: false,
   },
 };
 
@@ -45,6 +52,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <StructuredData
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@id": `${siteOrigin}/#organization`,
+                "@type": "Organization",
+                founder: {
+                  "@type": "Person",
+                  name: "Matt Aston",
+                  url: "https://matt.astoncyber.com/",
+                },
+                logo: absoluteSiteUrl("/brand/aston-cyber-logo.svg"),
+                name: siteName,
+                url: absoluteSiteUrl("/"),
+              },
+              {
+                "@id": `${siteOrigin}/#website`,
+                "@type": "WebSite",
+                description: siteDescription,
+                inLanguage: "en-US",
+                name: siteName,
+                publisher: { "@id": `${siteOrigin}/#organization` },
+                url: absoluteSiteUrl("/"),
+              },
+            ],
+          }}
+        />
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>

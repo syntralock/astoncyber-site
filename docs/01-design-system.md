@@ -825,11 +825,19 @@ home,” and the decorative image itself has an empty alternative.
 
 The approved homepage hero source is
 `public/images/home/aston-cyber-hero.jpg`. It is presented as one decorative
-CSS background behind the existing centered hero content. Layered radial and
-linear darkening preserves text contrast and fades the artwork into the site
-background at both edges. No card, blur, filter, source edit, or duplicate HTML
-image is used. The former hero-to-Mission border is removed so the bottom fade
-provides the transition.
+CSS background behind the existing centered hero content. The visually
+equivalent `aston-cyber-hero-960.jpg` and `aston-cyber-hero-1600.jpg`
+derivatives provide smaller breakpoint-appropriate transfers while the
+approved source remains unchanged. Layered radial and linear darkening
+preserves text contrast and fades the artwork into the site background at both
+edges. No card, blur, filter, source edit, or duplicate HTML image is used. The
+former hero-to-Mission border is removed so the bottom fade provides the
+transition.
+
+Browser identity retains the SVG, ICO, 16px, 32px, and 48px favicons and the
+Apple Touch Icon. Aston Cyber does not present itself as an installable
+application: no Web App Manifest, maskable icon, install-only application icon,
+service worker, offline behavior, or install prompt is published.
 
 ---
 

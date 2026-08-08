@@ -76,7 +76,9 @@ describe("design tokens", () => {
     expect(layout).toContain('import "@fontsource-variable/ibm-plex-sans"');
     expect(layout).toContain('import "@fontsource-variable/jetbrains-mono"');
     expect(layout).not.toMatch(/@fontsource-variable\/(?:sora|inter)/u);
-    expect(layout).not.toMatch(/https?:\/\//u);
+    expect(layout).not.toMatch(
+      /(?:fonts\.googleapis\.com|fonts\.gstatic\.com)/u,
+    );
     expect(stylesheet).not.toMatch(
       /(?:fonts\.googleapis\.com|fonts\.gstatic\.com|https?:\/\/)/u,
     );

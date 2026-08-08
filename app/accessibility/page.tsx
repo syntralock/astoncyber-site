@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-
 import { InstitutionalPage } from "@/components/layout/institutional-page";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
 import { Text } from "@/components/ui/text";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
-  title: "Accessibility",
+export const metadata = createPageMetadata({
   description: "The accessibility approach for the Aston Cyber website.",
-};
+  pathname: "/accessibility",
+  title: "Accessibility",
+});
 
 export default function AccessibilityPage() {
   return (
