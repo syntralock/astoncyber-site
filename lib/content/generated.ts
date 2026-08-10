@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { offeringSlugs } from "../offerings.ts";
+
 import type { ResolvedResearchItem } from "./research.ts";
 
 export const canonicalOrigin = "https://astoncyber.com";
@@ -83,6 +85,9 @@ export function generateSiteSitemap({
   return [
     ...institutionalPaths.map((path) => ({
       url: `${canonicalOrigin}${path}/`,
+    })),
+    ...offeringSlugs.map((slug) => ({
+      url: `${canonicalOrigin}/offerings/${slug}/`,
     })),
     ...generateResearchSitemapEntries(research),
   ];

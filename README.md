@@ -38,9 +38,12 @@ The canonical remediation roadmap is recorded in
 stabilized the public surface. Phase B establishes Home, Offerings, Research,
 and About as primary navigation, keeps Contact as a distinct action, removes
 empty Projects, Labs, and People surfaces from public discovery, and
-de-emphasizes the early research taxonomy. Phase C publishes the five approved
-offering categories, bounded engagement model, founder-accountability and
-independence disclosures, and safe Contact qualification. Phase D repositions
+de-emphasizes the early research taxonomy. The current Offerings experience
+presents five concise, linked areas of work with dedicated detail routes and
+recognizes discovery, implementation, operationalization, and continued
+improvement as legitimate parts of a client relationship. Phase C established
+founder-accountability and independence disclosures and safe Contact
+qualification. Phase D repositions
 the homepage around identity, audience, bounded engineering, research evidence,
 founder accountability, and buyer-oriented next steps; aligns About; makes
 Mission concise and directional; and preserves Ethos as the complete principles

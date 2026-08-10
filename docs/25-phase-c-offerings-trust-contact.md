@@ -5,6 +5,13 @@
 
 Implemented for review on 2026-08-07.
 
+The Offerings implementation described below is a historical record of Phase C.
+It was later superseded by an owner-approved concise overview with five linked
+detail routes. Current governing direction recognizes discovery and problem
+framing as valuable work and does not categorically reject continued support or
+recurring relationships. The Contact and trust work recorded here remains in
+effect.
+
 This record documents the repository implementation of Phase C from the
 canonical remediation roadmap in
 `23-strategic-remediation-implementation-plan.md`. It does not authorize Phase

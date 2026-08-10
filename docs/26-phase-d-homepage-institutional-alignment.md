@@ -37,7 +37,8 @@ the page without turning the homepage into a sales surface.
   consequential problems, engineering practical responses, and sharing useful
   knowledge.
 - **Ethos:** The complete statement of how Aston Cyber operates.
-- **Offerings:** How Aston Cyber may help through bounded work.
+- **Offerings:** How Aston Cyber may help across discovery, strategy,
+  engineering, review, operationalization, improvement, and research.
 - **Research:** Evidence of method, technical depth, and limitation-setting.
 - **Contact:** A safe beginning to a qualified conversation.
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  closeNavigationDisclosure,
   getPublishedNavigationItems,
   isNavigationItemActive,
   primaryNavigation,
@@ -8,6 +9,15 @@ import {
 } from "@/lib/navigation";
 
 describe("canonical navigation", () => {
+  it("closes an expanded mobile navigation disclosure", () => {
+    const disclosure = { open: true };
+
+    closeNavigationDisclosure(disclosure);
+
+    expect(disclosure.open).toBe(false);
+    expect(() => closeNavigationDisclosure(null)).not.toThrow();
+  });
+
   it("publishes the approved Phase B destinations in order", () => {
     expect(primaryNavigation).toEqual([
       { href: "/", label: "Home" },

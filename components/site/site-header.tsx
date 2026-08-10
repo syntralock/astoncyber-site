@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Brand } from "@/components/brand";
 import { Container } from "@/components/layout/container";
 import {
+  MobileNavigation,
   NavigationActionLink,
   NavigationLinks,
 } from "@/components/site/navigation-links";
@@ -25,19 +26,7 @@ export function SiteHeader() {
             label="Contact"
           />
 
-          <details className="mobile-navigation">
-            <summary className="type-navigation">Menu</summary>
-            <div className="mobile-navigation-panel">
-              <nav aria-label="Primary mobile">
-                <NavigationLinks />
-              </nav>
-              <NavigationActionLink
-                className="mobile-contact-action"
-                href="/contact"
-                label="Contact"
-              />
-            </div>
-          </details>
+          <MobileNavigation />
         </div>
       </Container>
     </header>

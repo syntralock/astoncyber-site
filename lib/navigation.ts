@@ -37,3 +37,11 @@ export function getPublishedNavigationItems<
 export function isNavigationItemActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
+
+export function closeNavigationDisclosure(
+  disclosure: { open: boolean } | null,
+) {
+  if (disclosure) {
+    disclosure.open = false;
+  }
+}

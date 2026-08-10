@@ -209,19 +209,26 @@ for credible adjacent work.
 
 ### 4.1 Approved engagement types
 
-1. **Focused assessment** — a bounded review of a specific architecture,
-   platform, control area, or operational problem.
-2. **Architecture and decision engagement** — a time-bounded engagement that
-   resolves a consequential design or technology decision.
-3. **Engineering project** — defined implementation or improvement work with a
-   clear completion condition.
+1. **Discovery, strategy, and architecture** — work that helps an organization
+   understand and map an unclear problem, evaluate its current state, establish
+   direction, and develop a practical roadmap.
+2. **Focused assessment** — a review of a specific architecture, platform,
+   control area, workflow, or operational problem.
+3. **Engineering project** — design, implementation, integration, automation,
+   operationalization, or improvement work around an agreed capability.
 4. **Security automation engagement** — work that makes administration,
    validation, reporting, or evidence collection more reliable.
 5. **Research and prototype engagement** — investigation or proof-of-concept
    work intended to produce learning, feasibility evidence, or decision
    support.
-6. **Advisory workshop or decision memo** — bounded expert input tied to a
-   specific decision rather than an open-ended vCISO relationship.
+6. **Advisory or improvement relationship** — focused decision support,
+   periodic review, maintenance, or continued improvement around an agreed
+   area without implying outsourced CISO ownership.
+
+Clients do not need to arrive with a perfectly defined problem. Discovery and
+problem framing can be valuable work in their own right. Engagements may be
+focused or recurring depending on the need; the public site must not reject
+long-term relationships categorically or promise a future staffing model.
 
 ### 4.2 Founder-led delivery
 
@@ -253,7 +260,8 @@ The site and operating model must state that:
 - compliance audits, certifications, or attestations;
 - legal opinions;
 - outsourced CISO responsibility;
-- open-ended staff augmentation;
+- undifferentiated staff augmentation without an agreed security purpose or
+  accountability model;
 - large enterprise transformation programs;
 - product resale or commission-driven selection;
 - hosting client production systems;
@@ -264,107 +272,44 @@ The site and operating model must state that:
 
 ## 5. Offerings Strategy
 
-The Offerings page must be organized around client problems, engineering
-outcomes, and engagement types. It must not become a generic cybersecurity
-services catalogue.
+The Offerings overview must remain concise and organized around five linked
+areas of work. Dedicated detail routes answer the practical questions a serious
+prospective client may have without publishing rigid packages, timelines,
+pricing, staffing promises, fixed methodologies, or contractual commitments.
 
-### 5.1 Identity, Cloud, and Platform Security
+### 5.1 Security Strategy & Architecture
 
-**Client problem:** Incrementally developed identity, Microsoft cloud,
-endpoint, collaboration, and data controls no longer operate as a coherent
-security system.
+Discovery, organizational and systems mapping, current-state understanding,
+control evaluation, architecture, roadmap development, and practical security
+direction. This area must not imply that clients need a perfectly defined
+problem before beginning a conversation.
 
-**Engagement types:** Focused architecture review, identity or cloud control
-assessment, defined engineering improvement project, or design validation.
+### 5.2 Security Engineering
 
-**Expected outcomes:** Current-state findings, risk-ranked gaps, target
-architecture, prioritized engineering work, selected control implementation or
-validation, and explicit ownership considerations.
+Design and implementation of security capabilities that fit the way an
+organization operates. Identity, cloud, Microsoft technologies, controls,
+automation, and integrations may be relevant, but the overview must not become
+a technology catalogue.
 
-**Credibility basis:** Visible founder work across identity, privileged access,
-Azure, Microsoft 365, endpoint security, data protection, email security, and
-regulated financial services.
+### 5.3 Security Reviews & Assessments
 
-**Claims to avoid:** Comprehensive transformation, authority across every
-vendor, enterprise-scale delivery, certification, or guaranteed prevention.
+Evidence-led review intended to clarify what is working, what is not, and where
+to focus next. This is decision support, not penetration testing, regulatory
+audit, attestation, certification, or legal sufficiency.
 
-### 5.2 Security Architecture and Decision Support
+### 5.4 Security Operations & Improvement
 
-**Client problem:** A consequential decision crosses identity, data,
-infrastructure, operations, governance, and user experience without a clear
-technical path.
+Validation, operationalization, maintenance, periodic review, internal-team
+support, and continued improvement as systems and risks change. Focused and
+recurring relationships may both be appropriate. The site must not promise
+24/7 monitoring, emergency response, guaranteed immediate replacement, or a
+specific future staffing model.
 
-**Engagement types:** Architecture sprint, design review, technology decision
-assessment, trust-boundary analysis, or executive decision memo.
+### 5.5 Research & Innovation
 
-**Expected outcomes:** Defined problem, assumptions, options, tradeoffs, trust
-boundaries, failure conditions, recommended direction, implementation
-considerations, and unresolved risks.
-
-**Credibility basis:** Visible systems-thinking, architecture, trust-boundary,
-operational-ownership, and executive-communication experience.
-
-**Claims to avoid:** Authority across every architecture domain or claims that
-one review replaces implementation and operational validation.
-
-### 5.3 Focused Security Assessments
-
-**Client problem:** Leadership needs to know whether a specific control area is
-operating as intended and what should be corrected first.
-
-**Engagement types:** Identity-control assessment, cloud or platform review,
-control-design review, high-risk workflow assessment, or focused governance
-review.
-
-**Expected outcomes:** Evidence-based findings, limitations, risk-ranked
-recommendations, engineering priorities, decision-ready summary, and
-traceability between evidence and conclusions.
-
-**Credibility basis:** Founder experience and the existing evidence-led
-research and engineering approach.
-
-**Claims to avoid:** Penetration testing, regulatory audit, attestation,
-comprehensive enterprise risk assessment, or legal sufficiency.
-
-### 5.4 Security Automation and Control Evidence
-
-**Client problem:** Important security work depends on inconsistent manual
-processes, fragmented administration, or evidence that is difficult to
-reproduce.
-
-**Engagement types:** Workflow analysis, administrative automation, evidence
-collection, control validation tooling, or reporting integration.
-
-**Expected outcomes:** A repeatable workflow, documented inputs and
-permissions, failure handling, maintainable artifacts, control evidence,
-operational handoff, and limitations.
-
-**Credibility basis:** Visible PowerShell, Python, API, Microsoft Graph,
-administration, reporting, validation, and evidence-collection experience.
-
-**Claims to avoid:** Security orchestration platform, managed automation,
-autonomous response, or general software-product claims.
-
-### 5.5 Secure Workflow Research and Prototyping
-
-**Client problem:** A high-risk process or security idea needs structured
-investigation before production investment.
-
-**Engagement types:** Design-and-build prototype, feasibility study,
-threat-informed workflow design, control-concept validation, or independent
-technical research.
-
-**Expected outcomes:** Research question, scope, prototype or design artifact,
-assumptions, evaluation results, limitations, production-readiness
-considerations, and a proceed-or-stop recommendation.
-
-**Credibility basis:** The Secure Transaction Authorization Ledger demonstrates
-research method, workflow design, explainable controls, prototyping, and
-limitation-setting.
-
-**Claims to avoid:** Proven production platform, demonstrated fraud reduction,
-production engineering at scale, or general expertise in every financial
-workflow.
+Structured investigation, experimentation, prototyping, and new approaches
+where the answer is not yet clear. Public research remains editorially separate
+from commercial work and is not converted into sales collateral.
 
 ### 5.6 AI security boundary
 
@@ -797,7 +742,9 @@ validation record in `24-phase-b-information-architecture-buyer-journey.md`.
 ### Phase C – Offerings, Trust, and Contact
 
 **Status:** Implemented for review on 2026-08-07. The repository implementation
-is recorded in `25-phase-c-offerings-trust-contact.md`. Phase D has not begun.
+is recorded in `25-phase-c-offerings-trust-contact.md`. The original
+definition-heavy Offerings presentation was superseded by the later approved
+concise overview and five detail routes. Phase D has not begun.
 
 **Objective:** Make a carefully scoped engagement understandable and credible.
 
@@ -823,13 +770,14 @@ business review where required, accessibility review, and route/content tests.
 
 **Exit criteria:** A qualified buyer can determine fit, an out-of-scope buyer
 can self-select out, no claim exceeds evidence, and Contact establishes a safe
-next step. The implementation publishes all five approved categories with
-problem, engagement, outcome, credibility, and claim-boundary context; defines
-the bounded engagement sequence and exclusions; records founder accountability,
+next step. The current implementation publishes five linked overview categories
+and restrained detail routes; recognizes discovery, problem framing,
+implementation, operationalization, and continued improvement; preserves
+appropriate exclusions and claim boundaries; records founder accountability,
 capacity, collaborator, funding, independence, and research-integrity facts;
 and limits initial Contact inquiries to non-sensitive qualification details.
-Phase C is implementation-complete subject to the validation record in
-`25-phase-c-offerings-trust-contact.md`.
+Phase C is implementation-complete subject to the original validation record
+and the later Offerings refinement.
 
 ### Phase D – Homepage and Institutional Repositioning
 

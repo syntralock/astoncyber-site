@@ -8,6 +8,10 @@ import ContactPage from "@/app/contact/page";
 import DisclosuresPage from "@/app/disclosures/page";
 import EthosPage from "@/app/ethos/page";
 import MissionPage from "@/app/mission/page";
+import OfferingPage, {
+  generateMetadata as offeringMetadata,
+  generateStaticParams as offeringStaticParams,
+} from "@/app/offerings/[slug]/page";
 import OfferingsPage from "@/app/offerings/page";
 import PrivacyPage from "@/app/privacy/page";
 import sitemap from "@/app/sitemap";
@@ -107,42 +111,67 @@ describe("institutional pages", () => {
     expect(existsSync("app/people/[slug]/page.tsx")).toBe(false);
   });
 
-  it("publishes the five approved bounded offering categories", () => {
+  it("publishes the five linked offering overviews without definition-heavy content", () => {
     const html = renderToStaticMarkup(<OfferingsPage />);
 
     expect(html.match(/<h1/g) ?? []).toHaveLength(1);
-    for (const offering of [
-      "Identity, cloud, and platform security",
-      "Security architecture and decision support",
-      "Focused security assessments",
-      "Security automation and control evidence",
-      "Secure workflow research and prototyping",
+    expect(html).toContain("How We Help");
+    expect(html).toContain("Not every cybersecurity problem starts");
+
+    for (const [title, slug] of [
+      [
+        "Security Strategy &amp; Architecture",
+        "security-strategy-architecture",
+      ],
+      ["Security Engineering", "security-engineering"],
+      ["Security Reviews &amp; Assessments", "security-reviews-assessments"],
+      [
+        "Security Operations &amp; Improvement",
+        "security-operations-improvement",
+      ],
+      ["Research &amp; Innovation", "research-innovation"],
     ]) {
-      expect(html).toContain(offering);
+      expect(html).toContain(title);
+      expect(html).toContain(`href="/offerings/${slug}"`);
     }
-    for (const label of [
-      "Client problem",
-      "Typical engagement",
-      "Expected outcome",
-      "Credibility",
-      "Boundary",
-    ]) {
-      expect(html.match(new RegExp(`>${label}</h4>`, "g")) ?? []).toHaveLength(
-        5,
-      );
-    }
-    expect(html).toContain("How an engagement works");
-    expect(html).toContain("Founder accountability");
-    expect(html).toContain("What Aston Cyber does not do");
-    expect(html).toContain("Independence and research integrity");
-    expect(html).toContain("Penetration testing or broad red-team programs");
-    expect(html).toContain("vCISO retainers");
-    expect(html).toContain("no vendor commissions");
-    expect(html).toContain("vendor resale incentives");
-    expect(html).toContain("paid referral arrangements");
-    expect(html).not.toMatch(/funding|sponsor/i);
+
+    expect(html.match(/class="offering-overview"/g) ?? []).toHaveLength(5);
+    expect(html).not.toContain("Learn more");
+    expect(html).not.toContain("Typical engagement");
+    expect(html).not.toContain("Founder accountability");
+    expect(html).toContain("Every engagement starts with a conversation.");
     expect(html).toContain('href="/contact"');
-    expect(html).not.toMatch(/we guarantee|is a proven production platform/i);
+  });
+
+  it("statically publishes restrained offering detail routes and metadata", async () => {
+    const params = offeringStaticParams();
+
+    expect(params).toHaveLength(5);
+
+    for (const { slug } of params) {
+      const page = await OfferingPage({ params: Promise.resolve({ slug }) });
+      const html = renderToStaticMarkup(page);
+      const metadata = await offeringMetadata({
+        params: Promise.resolve({ slug }),
+      });
+
+      expect(html.match(/<h1/g) ?? []).toHaveLength(1);
+      expect(html).toContain("What this is");
+      expect(html).toContain("When it may be useful");
+      expect(html).toContain("What working together could look like");
+      expect(html).toContain("Possible outcomes");
+      expect(html).toContain("Boundaries");
+      expect(html).toContain('href="/contact"');
+      expect(html).not.toMatch(/pricing|guaranteed timeline|fixed package/i);
+      expect(metadata.alternates).toEqual({
+        canonical: `https://astoncyber.com/offerings/${slug}/`,
+      });
+      expect(metadata.openGraph).toMatchObject({
+        type: "website",
+        url: `https://astoncyber.com/offerings/${slug}/`,
+      });
+      expect(metadata.twitter).toMatchObject({ card: "summary_large_image" });
+    }
   });
 
   it("preserves the Ethos while aligning its independence language", () => {
@@ -199,6 +228,11 @@ describe("institutional sitemap", () => {
       "/ethos/",
       "/mission/",
       "/offerings/",
+      "/offerings/security-strategy-architecture/",
+      "/offerings/security-engineering/",
+      "/offerings/security-reviews-assessments/",
+      "/offerings/security-operations-improvement/",
+      "/offerings/research-innovation/",
       "/privacy/",
       "/research/",
       "/research/secure-transaction-authorization-ledger/",
