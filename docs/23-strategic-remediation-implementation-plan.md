@@ -871,9 +871,12 @@ approved performance budgets pass.
 
 **Status:** Repository implementation completed for review on 2026-08-07. The
 approved social-preview asset is integrated through shared Open Graph and
-Twitter/X metadata. External production verification remains open. The
+Twitter/X metadata. Phase H production verification completed for the deployed
+surface, identifying one repository-owned deployment-artifact defect: hidden
+files were excluded before Azure deployment. The workflow now retains hidden
+files and regression coverage protects `/.well-known/security.txt`; an
+authorized deployment and external recheck of that path remain required. The
 implementation record is `27-phase-g-production-hardening-launch-readiness.md`.
-Phase H has not begun.
 
 **Objective:** Make the final site discoverable, secure, cacheable, and aligned
 with its actual website role.
@@ -912,6 +915,13 @@ security path still require authorized production deployment and Phase H
 external verification.
 
 ### Phase H – Launch Validation and Approval
+
+**Status:** Production verification and repository-owned remediation completed
+for review. The canonical routes, redirects, TLS, crawler files, metadata,
+structured data, custom 404, security headers, caching, Offerings experience,
+mobile navigation, accessibility structure, and responsive layouts were
+verified. The corrected deployment artifact must be deployed and
+`/.well-known/security.txt` rechecked before owner launch approval.
 
 **Objective:** Prove that the deployed production system matches the approved
 identity, implementation, and infrastructure configuration.

@@ -3,11 +3,13 @@ import { classNames } from "@/lib/class-names";
 import type { ResolvedResearchItem } from "@/lib/content/research";
 
 type ResearchArchiveProps = Readonly<{
+  headingLevel?: 2 | 3;
   items: readonly ResolvedResearchItem[];
   variant?: "archive" | "featured";
 }>;
 
 export function ResearchArchive({
+  headingLevel,
   items,
   variant = "archive",
 }: ResearchArchiveProps) {
@@ -23,6 +25,7 @@ export function ResearchArchive({
           authors={item.authors.map((author) => author.name)}
           format={item.metadata.research_type}
           href={`/research/${item.metadata.slug}`}
+          headingLevel={headingLevel}
           itemDate={item.metadata.published_at ?? ""}
           key={item.metadata.slug}
           status={item.metadata.status}

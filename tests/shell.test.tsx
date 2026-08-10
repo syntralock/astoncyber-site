@@ -91,7 +91,7 @@ describe("shared application shell", () => {
     expect(metadata).toMatchObject({
       applicationName: "Aston Cyber",
       description:
-        "Independent, founder-led cybersecurity engineering and research for consequential environments.",
+        "Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments.",
       title: {
         default: "Aston Cyber",
         template: "%s | Aston Cyber",
@@ -131,6 +131,19 @@ describe("shared application shell", () => {
     expect(metadata).not.toHaveProperty("manifest");
     expect(metadata).not.toHaveProperty("robots");
     expect(viewport).toEqual({ colorScheme: "dark", themeColor: "#2e2e2e" });
+  });
+
+  it("links the organization and research author to the same founder identity", () => {
+    const html = renderToStaticMarkup(
+      <RootLayout>
+        <h1>Route content</h1>
+      </RootLayout>,
+    );
+
+    expect(html).toContain('"@id":"https://matt.astoncyber.com/#person"');
+    expect(html).toContain(
+      '"description":"Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments."',
+    );
   });
 });
 

@@ -95,6 +95,9 @@ describe("Phase 7 public research experience", () => {
     );
     expect(detailHtml).toContain("Transaction authorization");
     expect(detailHtml).toContain("Secure Transaction Authorization Ledger");
+    expect(detailHtml.match(/<h1/g) ?? []).toHaveLength(1);
+    expect(detailHtml.match(/<h2/g) ?? []).toHaveLength(1);
+    expect(detailHtml).not.toContain("<h3");
     expect(detailHtml).not.toMatch(/<input|<form/);
   });
 
@@ -120,6 +123,8 @@ describe("Phase 7 public research experience", () => {
     expect(html).toContain('id="abstract"');
     expect(html).toContain('type="application/ld+json"');
     expect(html).toContain('"@type":"ResearchArticle"');
+    expect(html).toContain('"@id":"https://matt.astoncyber.com/#person"');
+    expect(html).toContain('"url":"https://matt.astoncyber.com/"');
     expect(html).not.toContain("Related research");
     expect(html).not.toContain(fixtureSlug);
   });

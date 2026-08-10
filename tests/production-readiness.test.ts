@@ -124,6 +124,20 @@ describe("crawler and platform files", () => {
     expect(contents).not.toMatch(/Encryption:|Tel:|https?:\/\/.*contact/u);
   });
 
+  it("retains well-known files in the deployment artifact", () => {
+    const workflow = readFileSync(
+      resolve(
+        process.cwd(),
+        ".github/workflows/azure-static-web-apps-wonderful-mud-0c480e910.yml",
+      ),
+      "utf8",
+    );
+
+    expect(workflow).toMatch(
+      /name: static-export\n\s+path: out\/\n\s+include-hidden-files: true/u,
+    );
+  });
+
   it("removes PWA installation assets while retaining browser icons", () => {
     for (const path of [
       "public/icons/site.webmanifest",
@@ -183,8 +197,10 @@ describe("crawler and platform files", () => {
       ".DS_Store",
       "docs/.DS_Store",
       "public/.DS_Store",
+      "public/icons/.DS_Store",
       "public/images/.DS_Store",
       "public/images/home/.DS_Store",
+      "public/images/social/.DS_Store",
     ]) {
       expect(existsSync(path)).toBe(false);
     }

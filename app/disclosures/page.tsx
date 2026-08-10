@@ -5,7 +5,8 @@ import { Text } from "@/components/ui/text";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description: "Operational guidance for reporting security issues.",
+  description:
+    "How to report a suspected security vulnerability affecting Aston Cyber systems.",
   pathname: "/disclosures",
   title: "Responsible Disclosure",
 });

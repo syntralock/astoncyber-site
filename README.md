@@ -30,72 +30,44 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current Phase:** Strategic remediation; Phase G production hardening
+**Current phase:** Phase H production validation and public-release preparation.
 
-The approved Phase 0 decisions are recorded in `docs/11-phase-0-decisions.md`.
-The canonical remediation roadmap is recorded in
-`docs/23-strategic-remediation-implementation-plan.md`. Phase 0 repository work
-stabilized the public surface. Phase B establishes Home, Offerings, Research,
-and About as primary navigation, keeps Contact as a distinct action, removes
-empty Projects, Labs, and People surfaces from public discovery, and
-de-emphasizes the early research taxonomy. The current Offerings experience
-presents five concise, linked areas of work with dedicated detail routes and
-recognizes discovery, implementation, operationalization, and continued
-improvement as legitimate parts of a client relationship. Phase C established
-founder-accountability and independence disclosures and safe Contact
-qualification. Phase D repositions
-the homepage around identity, audience, bounded engineering, research evidence,
-founder accountability, and buyer-oriented next steps; aligns About; makes
-Mission concise and directional; and preserves Ethos as the complete principles
-statement. Phase G adds canonical and complete social metadata, crawler files,
-structured data, RFC 9116 security guidance, accessibility polish, responsive
-hero delivery, hashed-asset caching, and removal of PWA installability. The
-static export is indexable, but public launch still requires Phase H production
-verification and explicit owner approval. The approved social-preview asset is
-published from `public/images/social/`. Phase 9 Search & Discovery remains
-paused.
-Phase 1 established the application, validation, content-safety, and CI
-foundation. Phase 2 completed the visual token system. Phase 2.1 refines
-that system for an editorial research publication. Phase 3 implements
-the accessible shared application shell without beginning production
-page implementation. Phase 4 provides only the reusable primitives
-approved for the first research-content vertical slice. Phase 5 adds the
-validated, repository-based research content engine, a non-public technical
-fixture, and public-only RSS and sitemap generation. Phase 6 publishes the
-approved institutional page set with direct email contact, a neutral People
-empty state, and reusable person-profile architecture. Phase 7 publishes the
-owner-approved Secure Transaction Authorization Ledger case study, its
-original DOCX manuscript, a static research index, and taxonomy-derived topic
-pages. Search, client-side filtering, public person profiles, and contact forms
-remain deferred. Phase 7.1 refines the desktop composition of the homepage,
-Mission page, and Research index; promotes the first report as flagship work;
-and limits public primary navigation to Home, Research, Projects, Labs, and
-About while preserving the successful mobile experience. Mission remains a
-published secondary institutional page. Phase 8 is defined as Projects & Labs;
-Writing and Speaking have moved to the future personal website at
-`matt.astoncyber.com`. Phase 8 status, maturity, visibility, fixture, feed,
-repository, license, technology, relationship, contributor-approval, resource,
-empty-state, and homepage boundaries are documented. Pass 1 implemented the
-validated content foundation and migrated the legacy Research fixture outside
-the production content tree. Pass 2 implemented the Project and Lab collection
-routes, reusable detail presentation, factual production empty states,
-navigation cleanup, and sitemap integration. Because both production
-collections are empty, their dynamic route files remain inactive under the
-owner-approved activation rule. Final verification passed the complete quality
-suite and generated-output inspection. Phase 8 is complete with no public
-Project or Lab content. The Phase 9 Search & Discovery plan is approved in
-`docs/22-phase-9-search-discovery-specification.md`; no search implementation
-exists, and Phase 9.1 remains paused until additional public content or a clear
-cross-collection discovery need exists.
+The canonical remediation roadmap is
+`docs/23-strategic-remediation-implementation-plan.md`. Repository-owned Phase H
+corrections are complete for review. The static export is indexable, the
+approved crawler and metadata surfaces are implemented, and the deployment
+artifact retains `/.well-known/security.txt`. An authorized deployment,
+production revalidation of that path, organizational readiness, and explicit
+owner launch approval remain external release gates.
 
-The approved Aston Cyber visual identity is now implemented. Master logo and
-icon SVGs live in `public/brand/`; browser and platform derivatives live in
-`public/icons/`; and the approved homepage artwork remains at
-`public/images/home/aston-cyber-hero.jpg`. The shared dark header and footer use
-the reversed horizontal logo, while the homepage retains its centered hero
-composition over the artwork with restrained contrast and edge-fade layers.
-The site intentionally has no Web App Manifest, install-only icons, service
-worker, offline behavior, or install prompt.
+Home, Offerings, Research, and About are the primary public destinations;
+Contact is a distinct action. Projects and Labs retain validated repository
+architecture but have no public content or routes while empty. Phase 9 Search &
+Discovery remains paused until the public corpus demonstrates a need.
+
+The repository is intended to be public at
+`https://github.com/syntralock/astoncyber-site`. The website footer uses that
+same canonical repository URL.
+
+## Technology Stack
+
+- Next.js App Router with static export
+- React and strict TypeScript
+- Repository-based MDX with Zod validation
+- Tailwind CSS and project-owned design tokens
+- Vitest for automated tests
+- pnpm 11 on Node.js 24
+
+The application is server-first and static-first. It has no database, CMS,
+analytics, authentication, service worker, Web App Manifest, or runtime API.
+
+## Deployment Architecture
+
+GitHub Actions validates and builds the static export, uploads the complete
+`out/` directory as a short-lived artifact, and deploys that prebuilt artifact
+to Azure Static Web Apps. Cloudflare provides DNS, TLS termination, and the
+approved `www`-to-apex redirect. Deployment credentials remain GitHub Actions
+secrets and are never available to repository build steps.
 
 ## Engineering Principles
 
@@ -112,7 +84,6 @@ worker, offline behavior, or install prompt.
 
 ```text
 docs/      Project planning and specifications
-assets/    Brand assets and media
 app/       Website application and static generated-output routes
 components/ Shared shell, institutional layout, UI, and content composition
 content/   Repository MDX and validated reference registries
@@ -121,6 +92,7 @@ public/     Static public assets
 styles/     Global design-token styles
 tests/      Automated foundation tests
 scripts/    Build-time validation
+.github/    CI, security scanning, and Azure deployment workflows
 ```
 
 ## Local Development
@@ -159,6 +131,10 @@ detail routes without adding public Project or Lab content.
 4. Ensure linting, type checking, testing, and security checks pass before merging.
 5. Never commit secrets or sensitive information.
 
+Report suspected vulnerabilities privately according to [SECURITY.md](SECURITY.md),
+not through a public issue.
+
 ## License
 
-Copyright © Aston Cyber. All rights reserved.
+This repository is publicly viewable but is not open source. Copyright © Aston
+Cyber. All rights reserved. See [LICENSE](LICENSE).

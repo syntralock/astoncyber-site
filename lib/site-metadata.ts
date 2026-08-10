@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 export const siteName = "Aston Cyber";
 export const siteOrigin = "https://astoncyber.com";
 export const siteDescription =
-  "Independent, founder-led cybersecurity engineering and research for consequential environments.";
+  "Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments.";
+export const founderProfileUrl = "https://matt.astoncyber.com/";
+export const founderId = `${founderProfileUrl}#person`;
 export const socialImage = {
   alt: "Aston Cyber — Cybersecurity Engineering & Research",
   height: 630,

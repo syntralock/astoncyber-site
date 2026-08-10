@@ -65,7 +65,7 @@ export default async function ResearchTopicPage({ params }: TopicPageProps) {
           Approved public research associated with this topic.
         </Text>
       </header>
-      <ResearchArchive items={result.items} />
+      <ResearchArchive headingLevel={2} items={result.items} />
     </Container>
   );
 }

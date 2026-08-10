@@ -10,6 +10,7 @@ type ContentCardProps = Readonly<{
   className?: string;
   eyebrow?: string;
   href: string;
+  headingLevel?: 2 | 3;
   linkLabel?: string;
   summary: string;
   title: string;
@@ -21,6 +22,7 @@ export function ContentCard({
   className,
   eyebrow,
   href,
+  headingLevel = 3,
   linkLabel = "Read item",
   summary,
   title,
@@ -40,7 +42,7 @@ export function ContentCard({
         </Text>
       ) : null}
       <div className="stack-sm">
-        <Heading level={3}>
+        <Heading level={headingLevel} variant="h3">
           <Link className="content-card-title-link" href={href}>
             {title}
           </Link>

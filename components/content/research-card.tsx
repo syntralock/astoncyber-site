@@ -16,6 +16,7 @@ type ResearchCardProps = Readonly<{
   dateLabel?: string;
   format: string;
   href: string;
+  headingLevel?: 2 | 3;
   itemDate: string;
   status: ResearchStatus;
   summary: string;
@@ -29,6 +30,7 @@ export function ResearchCard({
   dateLabel = "Published",
   format,
   href,
+  headingLevel,
   itemDate,
   status,
   summary,
@@ -40,6 +42,7 @@ export function ResearchCard({
     <ContentCard
       eyebrow={format}
       href={href}
+      headingLevel={headingLevel}
       linkLabel="Read research"
       summary={summary}
       title={title}

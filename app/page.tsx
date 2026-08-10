@@ -6,13 +6,12 @@ import { Link } from "@/components/ui/link";
 import { PillarIcon, type PillarIconName } from "@/components/ui/pillar-icon";
 import { Text } from "@/components/ui/text";
 import { getPublicResearch } from "@/lib/content/research";
-import { createPageMetadata } from "@/lib/site-metadata";
+import { createPageMetadata, siteDescription } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description:
-    "Independent, founder-led cybersecurity engineering and research for consequential environments.",
+  description: siteDescription,
   pathname: "/",
-  title: "Aston Cyber",
+  title: "Cybersecurity Engineering & Research",
 });
 
 const focusAreas = [

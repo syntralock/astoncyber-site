@@ -3,8 +3,11 @@
 
 ## Status
 
-Repository implementation completed for review on 2026-08-07. Production-
-network verification remains open.
+Repository implementation and repository-owned Phase H remediation completed
+for review. Production verification passed except that the deployment artifact
+had excluded the hidden `.well-known` directory. The workflow now retains
+hidden files; an authorized deployment and external `security.txt` recheck
+remain required.
 
 This record documents the owner-authorized Phase G implementation from
 `23-strategic-remediation-implementation-plan.md`. It does not authorize a
@@ -19,7 +22,7 @@ Graph website or article metadata, and Twitter/X summary metadata. The root
 layout defines `metadataBase`. Generated sitemap and RSS URLs remain aligned
 with the apex origin.
 
-The approved 1731×909 PNG social-preview image is stored at
+The approved 1200×630 PNG social-preview image is stored at
 `public/images/social/aston-cyber-social-card.png`. Shared metadata supplies its
 absolute apex URL, actual dimensions, MIME type, and descriptive text to Open
 Graph and supplies the corresponding image metadata to Twitter/X. Every public
@@ -55,6 +58,11 @@ sitemap.
 
 No encryption key, telephone number, alternate reporting service, or unsupported
 communication method is claimed.
+
+The Azure deployment workflow uploads the validated static export with hidden
+files included. This preserves the `.well-known` directory between the build
+and deploy jobs. A production recheck remains required after the corrected
+workflow is deployed.
 
 ## PWA Removal
 
@@ -101,7 +109,7 @@ and the 19-route static export. Generated-output inspection confirmed:
 - every public page has a title, description, apex canonical URL, Open Graph
   metadata, and Twitter/X large-image summary metadata;
 - every public page references the approved social image through its absolute
-  apex URL and declares its actual 1731×909 dimensions;
+  apex URL and declares its actual 1200×630 dimensions;
 - JSON-LD parses as valid JSON and contains the Organization, WebSite, and
   ResearchArticle types on their intended pages;
 - `robots.txt`, the sitemap, and RSS use `https://astoncyber.com` consistently;
@@ -123,9 +131,10 @@ and the 19-route static export. Generated-output inspection confirmed:
 
 Before public launch:
 
-1. Deploy through the authorized workflow and complete Phase H external checks
-   for canonical routes, crawler files, `security.txt`, TLS, redirects, custom
-   404 behavior, security headers, HSTS, caching, and social previews.
-2. Complete the outstanding organizational formalities required before
+1. Deploy through the authorized workflow and confirm
+   `/.well-known/security.txt` returns the approved RFC 9116 file with HTTP 200.
+2. Make the approved GitHub repository public so the existing footer destination
+   resolves for unauthenticated visitors.
+3. Complete the outstanding organizational formalities required before
    accepting commercial engagements.
-3. Obtain explicit owner launch approval.
+4. Obtain explicit owner launch approval.

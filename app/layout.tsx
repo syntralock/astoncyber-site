@@ -12,6 +12,8 @@ import { StructuredData } from "@/components/structured-data";
 import {
   absoluteSiteUrl,
   createPageMetadata,
+  founderId,
+  founderProfileUrl,
   siteDescription,
   siteName,
   siteOrigin,
@@ -59,10 +61,12 @@ export default function RootLayout({
               {
                 "@id": `${siteOrigin}/#organization`,
                 "@type": "Organization",
+                description: siteDescription,
                 founder: {
+                  "@id": founderId,
                   "@type": "Person",
                   name: "Matt Aston",
-                  url: "https://matt.astoncyber.com/",
+                  url: founderProfileUrl,
                 },
                 logo: absoluteSiteUrl("/brand/aston-cyber-logo.svg"),
                 name: siteName,

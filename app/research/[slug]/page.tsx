@@ -19,6 +19,8 @@ import { researchHeadings } from "@/lib/content/headings";
 import {
   absoluteSiteUrl,
   createPageMetadata,
+  founderId,
+  founderProfileUrl,
   siteOrigin,
 } from "@/lib/site-metadata";
 
@@ -70,6 +72,9 @@ export default async function ResearchDetailPage({
           "@context": "https://schema.org",
           "@type": "ResearchArticle",
           author: item.authors.map((author) => ({
+            ...(author.id === "matthew-t-aston"
+              ? { "@id": founderId, url: founderProfileUrl }
+              : {}),
             "@type": "Person",
             affiliation: author.affiliation,
             name: author.name,

@@ -7,9 +7,10 @@ import { getPublicResearch } from "@/lib/content/research";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description: "Published Aston Cyber research and technical reports.",
+  description:
+    "Independent cybersecurity research and technical reports from Aston Cyber, grounded in evidence, reproducible methods, and explicit limitations.",
   pathname: "/research",
-  title: "Research",
+  title: "Cybersecurity Research",
 });
 
 export default async function ResearchPage() {
