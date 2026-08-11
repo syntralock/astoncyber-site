@@ -1,12 +1,8 @@
 # Aston Cyber
 
-The Aston Cyber website is the public surface for an independent, founder-led
-cybersecurity engineering and research firm.
-
-Aston Cyber is not a managed security provider, software vendor, outsourced
-security function, or broad generalist consultancy.
-
-This repository is the single source of truth for the website.
+This repository contains the source code, content, and infrastructure for Aston Cyber, 
+an independent cybersecurity engineering organization focused on research, software, 
+and practical security guidance.
 
 ## Project Documentation
 
