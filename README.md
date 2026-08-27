@@ -1,7 +1,7 @@
 # Aston Cyber
 
-This repository contains the source code, content, and infrastructure for Aston Cyber, 
-an independent cybersecurity engineering organization focused on research, software, 
+This repository contains the source code, content, and infrastructure for Aston Cyber,
+an independent cybersecurity engineering organization focused on research, software,
 and practical security guidance.
 
 ## Project Documentation
