@@ -3,10 +3,6 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 confirmModulesPurge: false
-auditConfig:
-  # Dev-only transitive brace expansion; production receives no untrusted glob input. Review after upstream tooling updates.
-  ignoreGhsas:
-    - GHSA-mh99-v99m-4gvg
 overrides:
   "postcss>nanoid": 3.3.18
   postcss@8.4.31: 8.5.23
