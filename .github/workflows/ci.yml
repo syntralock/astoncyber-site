@@ -50,6 +50,7 @@ jobs:
       - name: Review dependency changes
         uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
         with:
+          # Dev-only transitive brace expansion; production receives no untrusted glob input. Review after upstream tooling updates.
           allow-ghsas: GHSA-mh99-v99m-4gvg
           fail-on-severity: moderate
 

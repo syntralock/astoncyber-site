@@ -4,6 +4,7 @@ allowBuilds:
   unrs-resolver: true
 confirmModulesPurge: false
 auditConfig:
+  # Dev-only transitive brace expansion; production receives no untrusted glob input. Review after upstream tooling updates.
   ignoreGhsas:
     - GHSA-mh99-v99m-4gvg
 overrides:
