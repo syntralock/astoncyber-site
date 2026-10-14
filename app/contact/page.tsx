@@ -16,6 +16,7 @@ export default function ContactPage() {
     <InstitutionalPage
       eyebrow="Contact"
       introduction="Begin with a limited description of the problem and the outcome your organization needs."
+      pathname="/contact"
       title="Contact Aston Cyber"
     >
       <section

@@ -16,6 +16,7 @@ export default function DisclosuresPage() {
     <InstitutionalPage
       eyebrow="Security"
       introduction="Use this guidance when reporting a potential security issue to Aston Cyber."
+      pathname="/disclosures"
       title="Responsible disclosure"
     >
       <section className="editorial-prose stack-md" aria-labelledby="reporting">

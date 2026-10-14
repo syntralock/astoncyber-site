@@ -38,7 +38,8 @@ describe("institutional pages", () => {
     expect(html.match(/<h1/g) ?? []).toHaveLength(1);
     expect(html).toContain('aria-label="Breadcrumb"');
     expect(html).toContain('aria-current="page"');
-    expect(html).not.toMatch(/<form|<script|<img|<picture/);
+    expect(html).not.toMatch(/<form|<img|<picture/);
+    expect(html).toContain('type="application/ld+json"');
   });
 
   it("keeps Mission concise, directional, and connected to About and Ethos", () => {

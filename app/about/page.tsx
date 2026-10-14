@@ -16,6 +16,7 @@ export default function AboutPage() {
     <InstitutionalPage
       eyebrow="About"
       introduction="Aston Cyber is an independent, founder-led cybersecurity engineering and research firm."
+      pathname="/about"
       title="About Aston Cyber"
     >
       <section

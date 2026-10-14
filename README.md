@@ -22,11 +22,11 @@ Development must follow the guidance in:
 - 09 – Development Rules
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
-- 12–22 – Phase implementation records and Phase 8–9 specifications
+- 12–28 – Phase implementation records and later approved specifications
 
 ## Current Status
 
-**Current phase:** Phase H production validation and public-release preparation.
+**Current phase:** Phase 10 SEO, Metadata, and Sharing completed for review.
 
 The canonical remediation roadmap is
 `docs/23-strategic-remediation-implementation-plan.md`. Repository-owned Phase H
@@ -39,7 +39,9 @@ owner launch approval remain external release gates.
 Home, Offerings, Research, and About are the primary public destinations;
 Contact is a distinct action. Projects and Labs retain validated repository
 architecture but have no public content or routes while empty. Phase 9 Search &
-Discovery remains paused until the public corpus demonstrates a need.
+Discovery is intentionally deferred until content volume warrants
+implementation. Phase 10 proceeds independently; the deferred search design is
+preserved as a future roadmap item.
 
 The repository is intended to be public at
 `https://github.com/syntralock/astoncyber-site`. The website footer uses that

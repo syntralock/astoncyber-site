@@ -58,6 +58,7 @@ export default function EthosPage() {
     <InstitutionalPage
       eyebrow="Research. Engineering. Security."
       introduction="Our work exists to strengthen the foundation of modern computing through independent research, thoughtful engineering, and responsible security practice."
+      pathname="/ethos"
       title="The Aston Cyber Ethos"
     >
       <section className="editorial-prose stack-md" aria-labelledby="preamble">

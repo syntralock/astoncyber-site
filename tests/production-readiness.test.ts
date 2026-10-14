@@ -82,10 +82,28 @@ describe("production metadata", () => {
         "https://astoncyber.com/research/secure-transaction-authorization-ledger/",
     });
     expect(article.openGraph).toMatchObject({ type: "article" });
+    expect(article.openGraph).toMatchObject({
+      authors: ["Matthew T. Aston"],
+      modifiedTime: "2026-07-01",
+      publishedTime: "2026-07-01",
+    });
     expect(article.openGraph).toMatchObject({ images: [socialImage] });
     expect(article.twitter).toMatchObject({
       card: "summary_large_image",
       images: [twitterSocialImage],
+    });
+    expect(article.other).toMatchObject({
+      citation_author: ["Matthew T. Aston"],
+      citation_date: "2026-07-01",
+      citation_download_url:
+        "https://astoncyber.com/downloads/research/secure-transaction-authorization-ledger/Secure_Transaction_Authorization_Ledger_Case_Study.docx",
+      citation_last_updated: "2026-07-01",
+      citation_public_url:
+        "https://astoncyber.com/research/secure-transaction-authorization-ledger/",
+      citation_publisher: "Aston Cyber",
+      citation_technical_report_institution: "Aston Cyber",
+      citation_technical_report_number: "case study, revision 1.0",
+      citation_title: "Secure Transaction Authorization Ledger",
     });
     expect(topic.alternates).toEqual({
       canonical:

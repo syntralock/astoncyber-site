@@ -11,6 +11,7 @@ export function OfferingDetail({ offering }: OfferingDetailProps) {
   return (
     <Container className="offering-detail-page">
       <Breadcrumbs
+        pathname={`/offerings/${offering.slug}`}
         items={[
           { href: "/", label: "Home" },
           { href: "/offerings", label: "Offerings" },

@@ -21,6 +21,7 @@ export default async function ResearchPage() {
   return (
     <Container className="research-page">
       <Breadcrumbs
+        pathname="/research"
         items={[{ href: "/", label: "Home" }, { label: "Research" }]}
       />
       <header className="page-introduction research-introduction stack-md">

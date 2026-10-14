@@ -5,7 +5,8 @@ import { Text } from "@/components/ui/text";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description: "The accessibility approach for the Aston Cyber website.",
+  description:
+    "How the Aston Cyber website approaches accessibility through semantic structure, keyboard access, readable contrast, and responsive content.",
   pathname: "/accessibility",
   title: "Accessibility",
 });
@@ -15,6 +16,7 @@ export default function AccessibilityPage() {
     <InstitutionalPage
       eyebrow="Accessibility"
       introduction="Aston Cyber aims to make this website usable by as many people as practical."
+      pathname="/accessibility"
       title="Accessibility"
     >
       <section className="editorial-prose stack-md" aria-labelledby="approach">

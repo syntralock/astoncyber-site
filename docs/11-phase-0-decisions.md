@@ -207,9 +207,11 @@ The following decisions do not block the start of Phase 1 but require an owner b
 - Labs publishes tooling, utilities, scripts, proof-of-concepts, experiments,
   detection content, and other creative security ventures.
 - The two collections may share infrastructure but remain editorially distinct.
-- Phase 9 Search & Discovery covers Research, Projects, and Labs.
-- Writing and Speaking belong to the future `matt.astoncyber.com` website,
-  expected after Phase 9 and before Phase 10.
+- Phase 9 Search & Discovery covers Research, Projects, and Labs if a future
+  review activates it; it is intentionally deferred until content volume
+  warrants implementation.
+- Writing and Speaking belong to the future `matt.astoncyber.com` website.
+  That separate site is not a prerequisite for Aston Cyber Phase 10.
 - Project status is `active`, `stable`, `completed`, or `archived`; Lab
   maturity is `experimental`, `prototype`, `beta`, `stable`, or `archived`.
 - Publication visibility remains separate from status and maturity.

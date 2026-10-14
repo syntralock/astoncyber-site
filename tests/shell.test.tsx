@@ -6,6 +6,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import RootLayout, { metadata, viewport } from "@/app/layout";
 import { Breadcrumbs } from "@/components/site/breadcrumbs";
+import { StructuredData } from "@/components/structured-data";
 
 const pathnameState = vi.hoisted(() => ({ value: "/" }));
 
@@ -192,6 +193,7 @@ describe("breadcrumbs", () => {
           { href: "/research", label: "Research" },
           { label: "Example" },
         ]}
+        pathname="/research/example"
       />,
     );
 
@@ -199,5 +201,18 @@ describe("breadcrumbs", () => {
     expect(html).toContain('href="/"');
     expect(html).toContain('href="/research"');
     expect(html).toContain('aria-current="page">Example');
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).toContain('"item":"https://astoncyber.com/research/example/"');
+  });
+
+  it("serializes structured data without allowing a closing script tag", () => {
+    const html = renderToStaticMarkup(
+      <StructuredData
+        data={{ "@context": "https://schema.org", name: "</script>" }}
+      />,
+    );
+
+    expect(html).toContain("\\u003c/script>");
+    expect(html.match(/<\/script>/g) ?? []).toHaveLength(1);
   });
 });

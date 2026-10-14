@@ -5,7 +5,8 @@ import { Text } from "@/components/ui/text";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description: "Why Aston Cyber exists.",
+  description:
+    "Why Aston Cyber advances cybersecurity through consequential research, practical engineering, and useful shared knowledge.",
   pathname: "/mission",
   title: "Mission",
 });
@@ -16,6 +17,7 @@ export default function MissionPage() {
       contentClassName="institutional-page-content-wide"
       eyebrow="Mission"
       introduction="Aston Cyber exists to advance the practice of cybersecurity through research, engineering, and education."
+      pathname="/mission"
       title="Why Aston Cyber exists"
     >
       <div className="layout-three mission-focus">

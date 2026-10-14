@@ -23,6 +23,15 @@ export function absoluteSiteUrl(pathname: string) {
 }
 
 type PageMetadataOptions = Readonly<{
+  article?: Readonly<{
+    authors: readonly string[];
+    downloadPath?: string;
+    modifiedTime?: string;
+    publicationTime: string;
+    publisher: string;
+    reportType: string;
+    revision?: string;
+  }>;
   description: string;
   pathname: string;
   title: string;
@@ -30,6 +39,7 @@ type PageMetadataOptions = Readonly<{
 }>;
 
 export function createPageMetadata({
+  article,
   description,
   pathname,
   title,
@@ -38,6 +48,28 @@ export function createPageMetadata({
   const canonical = absoluteSiteUrl(pathname);
   const socialImageUrl = absoluteSiteUrl(socialImage.pathname);
   const socialTitle = title === siteName ? siteName : `${title} | ${siteName}`;
+
+  const citationMetadata = article
+    ? {
+        citation_author: [...article.authors],
+        citation_date: article.publicationTime,
+        ...(article.downloadPath
+          ? {
+              citation_download_url: absoluteSiteUrl(article.downloadPath),
+            }
+          : {}),
+        ...(article.modifiedTime
+          ? { citation_last_updated: article.modifiedTime }
+          : {}),
+        citation_publisher: article.publisher,
+        citation_public_url: canonical,
+        citation_technical_report_institution: article.publisher,
+        citation_technical_report_number: article.revision
+          ? `${article.reportType}, revision ${article.revision}`
+          : article.reportType,
+        citation_title: title,
+      }
+    : undefined;
 
   return {
     alternates: { canonical },
@@ -58,7 +90,15 @@ export function createPageMetadata({
       title: socialTitle,
       type,
       url: canonical,
+      ...(article
+        ? {
+            authors: [...article.authors],
+            modifiedTime: article.modifiedTime,
+            publishedTime: article.publicationTime,
+          }
+        : {}),
     },
+    ...(citationMetadata ? { other: citationMetadata } : {}),
     title,
     twitter: {
       card: "summary_large_image",

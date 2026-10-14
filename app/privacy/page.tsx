@@ -5,7 +5,8 @@ import { Text } from "@/components/ui/text";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  description: "Privacy behavior of the Aston Cyber website.",
+  description:
+    "How the static Aston Cyber website minimizes data collection without analytics, advertising, behavioral tracking, or contact forms.",
   pathname: "/privacy",
   title: "Privacy",
 });
@@ -15,6 +16,7 @@ export default function PrivacyPage() {
     <InstitutionalPage
       eyebrow="Privacy"
       introduction="The initial Aston Cyber website is designed to minimize data collection."
+      pathname="/privacy"
       title="Privacy"
     >
       <section className="editorial-prose stack-md" aria-labelledby="website">

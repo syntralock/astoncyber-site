@@ -17,6 +17,7 @@ export default function OfferingsPage() {
   return (
     <Container className="offerings-page">
       <Breadcrumbs
+        pathname="/offerings"
         items={[{ href: "/", label: "Home" }, { label: "Offerings" }]}
       />
 
