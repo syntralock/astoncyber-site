@@ -2,7 +2,9 @@
 
 ## Status
 
-Phase 8 completed and verified on 2026-07-27. Phase 9 has not begun.
+Phase 8 completed and verified on 2026-07-27. At that time Phase 9 had not
+begun; it was later intentionally deferred until content volume warrants
+implementation, allowing Phase 10 to proceed directly.
 
 ## Objective
 
@@ -249,4 +251,5 @@ The only deliberate deferrals are:
   submission defines the contract;
 - Phase 9 Search & Discovery.
 
-Phase 9 was not started.
+Phase 9 was not started and is now intentionally deferred as an approved scope
+decision, not an incomplete Phase 8 outcome.

@@ -37,7 +37,7 @@ founder profile URL, language, description, and publisher relationship. It does
 not invent a legal name, address, employees, size, awards, registration, or
 other unsupported attributes.
 
-Each public research detail page publishes ResearchArticle JSON-LD derived from
+Each public research detail page publishes TechArticle JSON-LD derived from
 validated repository metadata, including headline, summary, authors,
 publication and modification dates, keywords, version, language, canonical
 page, and Aston Cyber publisher reference.
@@ -111,7 +111,7 @@ and the 19-route static export. Generated-output inspection confirmed:
 - every public page references the approved social image through its absolute
   apex URL and declares its actual 1200×630 dimensions;
 - JSON-LD parses as valid JSON and contains the Organization, WebSite, and
-  ResearchArticle types on their intended pages;
+  TechArticle types on their intended pages;
 - `robots.txt`, the sitemap, and RSS use `https://astoncyber.com` consistently;
 - exported public content pages contain no `noindex`, `nofollow`, or Web App
   Manifest link; Next.js correctly retains `noindex` on generated 404 documents;
@@ -138,3 +138,8 @@ Before public launch:
 3. Complete the outstanding organizational formalities required before
    accepting commercial engagements.
 4. Obtain explicit owner launch approval.
+# Historical status
+
+This production-hardening record remains authoritative for technical controls.
+Decision 23 supersedes only conflicting positioning, route, navigation, and
+social-preview assumptions.

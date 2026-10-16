@@ -104,8 +104,9 @@ Phase 8 does not:
 - begin Phase 9, Phase 10, or launch work.
 
 Writing and Speaking are assigned to the future personal website at
-`matt.astoncyber.com`. That site is expected after Phase 9 and before Phase 10
-so cross-domain SEO and launch work can be coordinated.
+`matt.astoncyber.com`. That site remains separate future work and is not a
+prerequisite for Aston Cyber Phase 10. Cross-domain SEO must be coordinated
+when the personal site is eventually implemented.
 
 ## Content Model
 

@@ -45,6 +45,15 @@ export async function generateMetadata({
   }
 
   return createPageMetadata({
+    article: {
+      authors: item.authors.map((author) => author.name),
+      downloadPath: item.metadata.artifact?.path,
+      modifiedTime: item.metadata.updated_at,
+      publicationTime: item.metadata.published_at!,
+      publisher: item.metadata.citation.publisher,
+      reportType: item.metadata.research_type.replaceAll("-", " "),
+      revision: item.metadata.revision,
+    },
     description: item.metadata.summary,
     pathname: `/research/${item.metadata.slug}`,
     title: item.metadata.title,
@@ -70,7 +79,7 @@ export default async function ResearchDetailPage({
       <StructuredData
         data={{
           "@context": "https://schema.org",
-          "@type": "ResearchArticle",
+          "@type": "TechArticle",
           author: item.authors.map((author) => ({
             ...(author.id === "matthew-t-aston"
               ? { "@id": founderId, url: founderProfileUrl }
@@ -93,6 +102,7 @@ export default async function ResearchDetailPage({
         }}
       />
       <Breadcrumbs
+        pathname={`/research/${item.metadata.slug}`}
         items={[
           { href: "/", label: "Home" },
           { href: "/research", label: "Research" },

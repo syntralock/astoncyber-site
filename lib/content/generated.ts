@@ -1,10 +1,13 @@
 import type { MetadataRoute } from "next";
 
-import { offeringSlugs } from "../offerings.ts";
+import { serviceSlugs } from "../services.ts";
+import {
+  absoluteSiteUrl,
+  siteDescription,
+  siteOrigin,
+} from "../site-metadata.ts";
 
 import type { ResolvedResearchItem } from "./research.ts";
-
-export const canonicalOrigin = "https://astoncyber.com";
 
 function escapeXml(value: string) {
   return value
@@ -17,7 +20,7 @@ function escapeXml(value: string) {
 
 export function generateResearchRss(
   items: readonly ResolvedResearchItem[],
-  origin = canonicalOrigin,
+  origin = siteOrigin,
 ) {
   const publicItems = items.filter(
     (item) => item.metadata.visibility === "public",
@@ -39,11 +42,13 @@ export function generateResearchRss(
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
     "  <channel>",
     "    <title>Aston Cyber Research</title>",
     `    <link>${origin}/research/</link>`,
-    "    <description>Published Aston Cyber research.</description>",
+    `    <atom:link href="${origin}/rss.xml" rel="self" type="application/rss+xml" />`,
+    `    <description>${escapeXml(siteDescription)}</description>`,
+    "    <language>en-us</language>",
     ...(entries ? [entries] : []),
     "  </channel>",
     "</rss>",
@@ -53,7 +58,7 @@ export function generateResearchRss(
 
 export function generateResearchSitemapEntries(
   items: readonly ResolvedResearchItem[],
-  origin = canonicalOrigin,
+  origin = siteOrigin,
 ) {
   return items
     .filter((item) => item.metadata.visibility === "public")
@@ -68,13 +73,12 @@ const institutionalPaths = [
   "",
   "/about",
   "/accessibility",
+  "/approach",
   "/contact",
   "/disclosures",
-  "/ethos",
-  "/mission",
-  "/offerings",
   "/privacy",
   "/research",
+  "/services",
 ] as const;
 
 export function generateSiteSitemap({
@@ -84,10 +88,10 @@ export function generateSiteSitemap({
 }>): MetadataRoute.Sitemap {
   return [
     ...institutionalPaths.map((path) => ({
-      url: `${canonicalOrigin}${path}/`,
+      url: absoluteSiteUrl(path || "/"),
     })),
-    ...offeringSlugs.map((slug) => ({
-      url: `${canonicalOrigin}/offerings/${slug}/`,
+    ...serviceSlugs.map((slug) => ({
+      url: absoluteSiteUrl(`/services/${slug}`),
     })),
     ...generateResearchSitemapEntries(research),
   ];

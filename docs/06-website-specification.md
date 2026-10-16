@@ -1352,3 +1352,10 @@ The website is ready for public launch when:
 - Responsible disclosure and privacy pages are published.
 - Deployment and rollback procedures are documented.
 - No placeholder content remains.
+# Pass 2 specification override (2026-10-16)
+
+Decision 23 supersedes conflicting routes, positioning, navigation, and page
+requirements below. The canonical public structure is `/`, `/services/`, the
+three approved service detail routes, `/approach/`, `/about/`, `/contact/`, and
+secondary Research and policy surfaces. The homepage follows the approved
+seven-section conversion sequence and uses a typography-led hero.

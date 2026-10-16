@@ -69,3 +69,7 @@ remains `https://astoncyber.com`.
 - Known contrast and broader accessibility remediation remain Phase F.
 - Indexing, crawler files, canonical metadata, social metadata, structured data,
   and PWA-signal removal remain Phase G.
+# Historical status
+
+Decision 23 supersedes the Offerings, Mission, Ethos, and primary-navigation
+architecture documented in this completed phase record.

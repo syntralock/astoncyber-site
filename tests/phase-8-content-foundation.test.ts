@@ -555,6 +555,10 @@ describe("typed loaders, fixture isolation, and relationships", () => {
   it("preserves the Research-only RSS output", async () => {
     const rss = generateResearchRss(await getPublicResearch());
     expect(rss).toContain("Secure Transaction Authorization Ledger");
+    expect(rss).toContain(
+      '<atom:link href="https://astoncyber.com/rss.xml" rel="self" type="application/rss+xml" />',
+    );
+    expect(rss).toContain("<language>en-us</language>");
     expect(rss).not.toContain("<project>");
     expect(rss).not.toContain("<lab>");
   });

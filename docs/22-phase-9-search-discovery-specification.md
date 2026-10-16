@@ -2,10 +2,13 @@
 
 ## Status
 
-Planning approved on 2026-07-27. Phase 9 and Phase 9.1 are not implemented.
+Planning approved on 2026-07-27. Phase 9 and Phase 9.1 are not implemented and
+are intentionally deferred until content volume warrants implementation.
 
-Phase 9.1 remains paused until additional public content or a clear
-cross-collection discovery need exists. This specification resolves the
+This is an approved scope decision, not an incomplete or failed phase. Phase 10
+proceeds without Phase 9. This specification preserves the future design so
+that implementation can begin if additional public content creates a clear
+cross-collection discovery need. The specification resolves the
 technical design so that a later implementation can proceed in narrow,
 reviewable passes; planning approval does not authorize implementation.
 

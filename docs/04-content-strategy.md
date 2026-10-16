@@ -115,3 +115,10 @@ If these questions cannot be answered, the work is not ready to publish.
 - Favor clarity over cleverness.
 - Maintain a calm, research-oriented tone.
 - Every article should leave the reader more capable than before.
+# Current content strategy (2026-10-16)
+
+Decision 23 supersedes the earlier research-first strategy below. Public content
+must help a prospective customer understand an operational technology problem,
+the three service areas, Aston Cyber's four-stage method, engagement boundaries,
+founder accountability, or the next step. Research remains a secondary evidence
+surface and must not imply customer work or production outcomes.

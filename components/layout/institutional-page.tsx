@@ -11,6 +11,7 @@ type InstitutionalPageProps = Readonly<{
   contentClassName?: string;
   eyebrow?: string;
   introduction: string;
+  pathname: string;
   title: string;
 }>;
 
@@ -19,11 +20,15 @@ export function InstitutionalPage({
   contentClassName,
   eyebrow,
   introduction,
+  pathname,
   title,
 }: InstitutionalPageProps) {
   return (
     <Container className="institutional-page">
-      <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: title }]} />
+      <Breadcrumbs
+        items={[{ href: "/", label: "Home" }, { label: title }]}
+        pathname={pathname}
+      />
       <header className="institutional-page-header stack-md">
         {eyebrow ? (
           <Text className="text-accent" variant="eyebrow">

@@ -49,6 +49,7 @@ export default async function ResearchTopicPage({ params }: TopicPageProps) {
   return (
     <Container className="research-page">
       <Breadcrumbs
+        pathname={`/research/topics/${result.topic.id}`}
         items={[
           { href: "/", label: "Home" },
           { href: "/research", label: "Research" },

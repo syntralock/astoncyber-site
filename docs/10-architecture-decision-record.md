@@ -192,6 +192,11 @@ Before launch, the static site must publish an RFC 9116 file at
 
 **Decision:** Defer site search until content volume demonstrates a clear need.
 
+**Status clarification:** Phase 9 is intentionally deferred until content
+volume warrants implementation. Phase 10 proceeds without it. The approved
+search design remains preserved for future use, and existing deterministic
+public content APIs must remain capable of supporting it.
+
 **Why:**
 - Avoid premature client-side or hosted search complexity
 - Reduce privacy, security, and maintenance costs
@@ -367,9 +372,10 @@ the future `matt.astoncyber.com` website.
   build-time Zod validation, structural MDX safety, and public-only loaders.
 - Phase 8 adds no CMS, runtime database, analytics, hosted content service, or
   unnecessary client JavaScript.
-- Phase 9 remains Search & Discovery and covers Research, Projects, and Labs.
-- `matt.astoncyber.com` is expected after Phase 9 and before Phase 10 for
-  coordinated cross-domain SEO and launch work.
+- Phase 9 remains a deferred Search & Discovery roadmap item covering Research,
+  Projects, and Labs if a future review demonstrates the need.
+- `matt.astoncyber.com` remains separate future work and is not a prerequisite
+  for Aston Cyber Phase 10.
 - Project status is `active`, `stable`, `completed`, or `archived`.
 - Lab maturity is `experimental`, `prototype`, `beta`, `stable`, or `archived`.
 - Publication visibility is separate from lifecycle status or maturity.
@@ -441,7 +447,8 @@ application architecture.
   satisfied rather than silently discarded.
 - The master artwork remains readable and stable; browser/platform derivatives
   remain distinct delivery assets.
-- A dedicated official 1200×630 social image remains deferred to Phase 10.
+- At the time of this decision, a dedicated official 1200×630 social image was
+  deferred to Phase 10. It has since been approved and implemented.
 - The approved ICO contains one 16×16 frame; the separate PNG assets supply
   explicit 16×16, 32×32, and 48×48 browser sizes. Any future pixel-tuned
   small-size redesign requires separate brand approval.
@@ -462,7 +469,7 @@ presenting Aston Cyber as a website rather than an installable application.
   Graph text metadata, and Twitter/X summary metadata through one typed helper.
 - The root layout provides `metadataBase` plus truthful Organization and WebSite
   JSON-LD. Public research detail pages provide evidence-backed
-  ResearchArticle JSON-LD.
+  TechArticle JSON-LD.
 - `robots.txt` permits crawling and references the apex sitemap. The temporary
   global `noindex, nofollow` directive is removed.
 - `/.well-known/security.txt` uses the approved responsible-disclosure contact,
@@ -474,8 +481,9 @@ presenting Aston Cyber as a website rather than an installable application.
 - Azure configuration applies immutable caching only to content-hashed Next.js
   assets and adds HSTS without requesting preload. Existing CSP, permissions,
   referrer, cross-origin, and content-type policies remain.
-- No social image is improvised. Open Graph and Twitter/X image fields remain
-  absent until the owner supplies the separately approved 1200×630 asset.
+- The owner-approved 1200×630 social image is the shared Open Graph and
+  Twitter/X default. Content-specific images remain optional until approved
+  content artwork exists.
 
 **Consequences:**
 
@@ -484,10 +492,116 @@ presenting Aston Cyber as a website rather than an installable application.
 - Canonical, crawler, structured-data, and security-file behavior is testable
   without runtime APIs or client-side JavaScript.
 - No installability signal incorrectly implies a software product.
-- Social previews use page title and description but remain image-incomplete
-  until the approved asset is available.
+- Social previews use page-specific title and description with the approved
+  shared image; no image-generation service or runtime dependency is required.
 
 **Date adopted:** 2026-08-07
+
+---
+
+# Decision 22 — Phase 9 Deferment and Phase 10 Completion Path
+
+**Decision:** Treat Phase 9 Search & Discovery as intentionally deferred until
+content volume warrants implementation, and allow Phase 10 SEO, Metadata, and
+Sharing to proceed directly.
+
+**Why:**
+
+- The current public corpus does not create a meaningful dedicated-search need.
+- Static collection, topic, sitemap, and RSS surfaces provide proportionate
+  discovery for the present volume.
+- Search would add implementation and browser complexity without a current
+  usability benefit.
+
+**Requirements:**
+
+- Do not publish a search route, index, interface, hosted provider, substitute
+  search feature, or search-result pagination.
+- Preserve the Phase 9 specification and centralized public content APIs so a
+  future evidence-based review can activate search without re-parsing content.
+- Phase 10 owns canonical metadata, crawler behavior, social metadata,
+  structured data, citation metadata, sitemap and RSS validation, and the
+  approved static social-preview strategy.
+- No arbitrary content-count threshold is created.
+
+**Consequences:**
+
+- Phase 9 is neither incomplete nor failed; it remains a future roadmap item.
+- Search is not a Phase 10 or launch prerequisite.
+- The current static-export, server-first, repository-managed architecture is
+  unchanged.
+
+**Date adopted:** 2026-09-03
+
+---
+
+# Decision 23 — Systems Modernization Repositioning
+
+**Decision:** Reposition Aston Cyber as a founder-led Systems Modernization
+business. Use the headline “Better Systems. Better Business.” and the exact
+supporting line “Modern Technology. Intelligent Operations. Secure by Design.”
+
+**Requirements:**
+
+- Publish exactly three service categories: Systems Modernization, Automation &
+  Applied AI, and Cybersecurity & Technology Risk.
+- Use Home, Services, Our Approach, and About as primary navigation; keep Contact
+  as the primary action and Research as a secondary evidence surface.
+- Use the Understand, Evaluate, Implement, Improve method and the Assessment &
+  Planning, Project Implementation, and Ongoing Advisory & Improvement models.
+- Retire Mission, Ethos, Offerings, and People routes with permanent redirects
+  to their approved replacements.
+- Preserve founder-led accountability, regional and remote availability,
+  independence language, explicit boundaries, and the separation between
+  research prototypes and customer outcomes.
+- Use a typography-led homepage hero until a new positioning-aligned image is
+  explicitly approved.
+- Do not publish the superseded cybersecurity social card. Use text-only social
+  metadata until a replacement asset is approved.
+- Keep static export, repository content, security headers, accessibility, and
+  deployment architecture unchanged.
+
+**Consequences:**
+
+- Research remains public but no longer leads the commercial identity.
+- Legacy URLs preserve continuity through explicit 301 redirects.
+- A new positioning-aligned social preview asset remains a launch-readiness
+  decision for the owner.
+
+**Date adopted:** 2026-10-16
+
+---
+
+# Decision 24 — Pass 3 Security and Image Delivery
+
+**Decision:** Apply the smallest compatible security update from Next.js 16.3.3
+to 16.3.8, align `eslint-config-next`, and pin vulnerable transitive
+`source-map-js` and `sharp` releases to their patched versions. Deliver the
+approved systems-flow illustration through repository-hosted responsive WebP
+derivatives and publish a deterministic social card composed with the existing
+approved logo SVG.
+
+**Requirements:**
+
+- Preserve React 19.2.8, TypeScript 5.9.3, Node 24, static export, and the
+  existing Azure deployment architecture.
+- Keep the supplied systems-flow source intact; serve 1600-pixel and 960-pixel
+  WebP derivatives with a JPEG fallback.
+- Generate the social card reproducibly at 1200×630 and preserve the official
+  logo without redrawing it.
+- Require a clean production dependency audit and the full repository validation
+  sequence before owner acceptance.
+
+**Consequences:**
+
+- The nine production advisories reported against the Pass 2 dependency tree
+  are remediated without a major-version framework upgrade.
+- The homepage and social metadata now have positioning-aligned visual assets
+  without third-party image services.
+- Image-generation scripts depend on the pinned development-time `sharp`
+  package; runtime hosting remains static.
+
+**Date adopted:** 2026-10-16
 
 ---
 
@@ -526,12 +640,15 @@ Each new decision should include:
   production content directories
 - Phase 6 contact: Static direct email links only; no form or inquiry service
 - Phase 7 research: Static public index, detail, and topic routes; no search
-- Phase 7.1 navigation: Home, Research, Projects, Labs, and About; Mission is a
-  published secondary route
+- Current navigation: Home, Services, Our Approach, and About; Contact is a
+  distinct action, Research is secondary, and empty Projects and Labs remain
+  inactive
 - Phase 8: distinct Projects and Labs MDX collections
-- Phase 9: Search & Discovery across Research, Projects, and Labs
-- Personal Writing and Speaking: future `matt.astoncyber.com`, expected after
-  Phase 9 and before Phase 10
+- Phase 9: Search & Discovery across Research, Projects, and Labs, intentionally
+  deferred until content volume warrants implementation
+- Phase 10: SEO, Metadata, and Sharing proceeds without Phase 9 implementation
+- Personal Writing and Speaking: future `matt.astoncyber.com`; separate from
+  the Aston Cyber Phase 10 dependency path
 - Repository: GitHub
 - Database: None
 - CMS: None

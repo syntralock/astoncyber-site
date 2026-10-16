@@ -172,3 +172,9 @@ Current public route disposition:
   sitemap.
 
 Codex MUST preserve this navigation unless this specification is updated.
+# Current navigation (2026-10-16)
+
+Decision 23 supersedes the earlier navigation model below. Primary navigation
+is **Home | Services | Our Approach | About**, with **Contact** as the primary
+action. **Research** is secondary. `/mission`, `/ethos`, `/offerings`, and the
+five former offering detail routes are retired and permanently redirected.

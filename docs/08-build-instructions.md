@@ -544,6 +544,9 @@ Checkpoint:
 
 # Step 12: Add Search & Discovery
 
+**Status:** Intentionally deferred until content volume warrants
+implementation. This is not a launch blocker and Phase 10 proceeds without it.
+
 Site search is deferred until content volume demonstrates a clear need.
 Phase 7 already owns static research topic navigation. Reuse those pages and
 implement chronological archives first. Revisit the steps below only after a
@@ -582,10 +585,10 @@ Checkpoint:
 
 # Step 12.1: Coordinate the Future Personal Website
 
-After Phase 9 and before Phase 10, develop `matt.astoncyber.com` as the future
-home for personal Writing and Speaking. Keep it architecturally separate from
-the Aston Cyber Projects and Labs collections. Coordinate canonical ownership,
-cross-domain links, and later SEO/launch requirements before Phase 10.
+Develop `matt.astoncyber.com` as a separate future home for personal Writing
+and Speaking. Keep it architecturally separate from the Aston Cyber Projects
+and Labs collections. Its implementation is not a prerequisite for Aston Cyber
+Phase 10.
 
 Do not implement the personal website as part of Phase 8 or Phase 9.
 
@@ -886,3 +889,10 @@ The Aston Cyber website is ready when it is:
 - Consistent with The Aston Cyber Ethos
 
 A smaller, complete, trustworthy site is better than a larger unfinished one.
+# Current build note (2026-10-16)
+
+Use Node.js 24 and pnpm 11. Package-manager policy now lives in
+`pnpm-workspace.yaml`; the obsolete `.npmrc` is removed. Run
+`pnpm install --frozen-lockfile` followed by `pnpm validate`. The canonical
+routes and positioning are defined by Decision 23; conflicting phase-specific
+instructions below are historical.

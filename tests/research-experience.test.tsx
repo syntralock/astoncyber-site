@@ -122,7 +122,7 @@ describe("Phase 7 public research experience", () => {
     expect(html).toContain('href="#abstract"');
     expect(html).toContain('id="abstract"');
     expect(html).toContain('type="application/ld+json"');
-    expect(html).toContain('"@type":"ResearchArticle"');
+    expect(html).toContain('"@type":"TechArticle"');
     expect(html).toContain('"@id":"https://matt.astoncyber.com/#person"');
     expect(html).toContain('"url":"https://matt.astoncyber.com/"');
     expect(html).not.toContain("Related research");
@@ -148,7 +148,7 @@ describe("Phase 7 public research experience", () => {
 
     const refinedServerFiles = [
       "app/page.tsx",
-      "app/mission/page.tsx",
+      "app/approach/page.tsx",
       "app/research/page.tsx",
       "components/content/content-card.tsx",
       "components/content/research-archive.tsx",

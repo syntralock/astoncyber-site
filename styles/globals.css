@@ -338,26 +338,26 @@ a {
   width: min(100%, var(--width-narrow));
 }
 
-.offerings-page,
-.offering-detail-page {
+.services-page,
+.service-detail-page {
   padding-bottom: var(--space-20);
 }
 
-.offerings-introduction,
-.offering-detail-header {
+.services-introduction,
+.service-detail-header {
   max-width: var(--width-lead);
   padding-block: var(--space-8) var(--space-20);
 }
 
-.offerings-introduction-copy {
+.services-introduction-copy {
   max-width: var(--width-lead);
 }
 
-.offerings-list {
+.services-list {
   border-top: var(--border-thin) solid var(--color-border);
 }
 
-.offering-overview {
+.service-overview {
   display: grid;
   min-width: 0;
   gap: var(--space-4);
@@ -365,17 +365,17 @@ a {
   border-bottom: var(--border-thin) solid var(--color-border);
 }
 
-.offering-number {
+.service-number {
   font-family: var(--font-mono);
   font-size: var(--text-small);
   letter-spacing: var(--tracking-label);
 }
 
-.offering-title {
+.service-title {
   max-width: 28ch;
 }
 
-.offering-title .component-link {
+.service-title .component-link {
   color: var(--color-foreground);
   text-decoration-line: underline;
   text-decoration-color: var(--color-accent);
@@ -383,91 +383,59 @@ a {
   text-underline-offset: var(--space-2);
 }
 
-.offering-title .component-link:hover {
+.service-title .component-link:hover {
   color: var(--color-accent-hover);
   text-decoration-thickness: var(--border-emphasis);
 }
 
-.offering-description {
+.service-description {
   max-width: 44ch;
 }
 
-.offerings-contact,
-.offering-detail-contact {
+.services-contact,
+.service-detail-contact {
   align-items: flex-start;
   padding-block: var(--space-16);
 }
 
-.offerings-contact {
+.services-contact {
   border-bottom: var(--border-thin) solid var(--color-border);
   text-align: left;
 }
 
-.offering-detail-content {
+.service-detail-content {
   width: min(100%, var(--width-reading));
 }
 
-.offering-detail-section {
+.service-detail-section {
   display: grid;
   gap: var(--space-6);
   padding-block: var(--space-10);
   border-top: var(--border-thin) solid var(--color-border);
 }
 
-.offering-detail-contact {
+.service-detail-contact {
   width: min(100%, var(--width-reading));
   border-top: var(--border-thin) solid var(--color-border);
 }
 
 .homepage-introduction {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
   background-color: var(--color-background);
-  background-image: url("/images/home/aston-cyber-hero-960.jpg");
-  background-position: 43% 50%;
-  background-size: cover;
-}
-
-.homepage-introduction::before,
-.homepage-introduction::after {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-}
-
-.homepage-introduction::before {
-  background:
-    radial-gradient(
-      ellipse at center,
-      color-mix(in srgb, var(--color-background) 76%, transparent) 0%,
-      color-mix(in srgb, var(--color-background) 48%, transparent) 48%,
-      color-mix(in srgb, var(--color-background) 66%, transparent) 100%
-    ),
-    linear-gradient(
-      to bottom,
-      var(--color-background) 0%,
-      color-mix(in srgb, var(--color-background) 36%, transparent) 18%,
-      color-mix(in srgb, var(--color-background) 36%, transparent) 78%,
-      var(--color-background) 100%
-    );
-}
-
-.homepage-introduction::after {
-  background: color-mix(in srgb, var(--color-background) 18%, transparent);
+  border-bottom: var(--border-thin) solid var(--color-border);
 }
 
 .homepage-hero {
-  position: relative;
-  z-index: 1;
-  min-height: 18rem;
-  justify-content: center;
+  display: grid;
+  width: min(100%, var(--width-content));
+  min-height: 22rem;
+  gap: var(--space-10);
+  align-items: center;
   margin-inline: auto;
+}
+
+.homepage-hero-copy {
+  min-width: 0;
   text-align: center;
-  text-shadow: 0 1px 2px
-    color-mix(in srgb, var(--color-background) 72%, transparent);
 }
 
 .homepage-hero .type-hero,
@@ -481,7 +449,28 @@ a {
 }
 
 .homepage-hero .text-foreground-secondary {
-  color: var(--color-foreground);
+  color: var(--color-foreground-secondary);
+}
+
+.homepage-hero-visual {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #05111d;
+  box-shadow: var(--shadow-md);
+}
+
+.homepage-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homepage-slogan {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .page-introduction,
@@ -499,8 +488,91 @@ a {
   gap: var(--space-6);
 }
 
+.challenge-grid,
+.method-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.challenge-grid > li {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-20);
+}
+
+.method-step {
+  padding-block: var(--space-6);
+  border-top: var(--border-thin) solid var(--color-border);
+}
+
+.differentiator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
+}
+
+.differentiator-grid > article {
+  padding-left: var(--space-5);
+  border-left: var(--border-emphasis) solid var(--color-accent);
+}
+
+.section-closing {
+  width: min(100%, var(--width-reading));
+}
+
+.founder-band {
+  display: grid;
+  width: min(100%, var(--width-content));
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.founder-band-copy {
+  min-width: 0;
+}
+
+.founder-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0;
+  overflow: hidden;
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 5;
+}
+
+.founder-portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.founder-portrait-frame-compact {
+  max-width: 22rem;
+  justify-self: center;
+}
+
+.about-founder {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.about-founder .founder-portrait-frame {
+  justify-self: center;
+}
+
 .focus-grid,
-.mission-focus {
+.engagement-models {
   align-items: stretch;
 }
 
@@ -1074,13 +1146,14 @@ a {
     color var(--duration-fast) var(--ease-standard);
 }
 
-.button-primary {
+.component-link.button-primary {
   background: var(--color-accent);
   color: var(--color-background);
 }
 
-.button-primary:hover {
+.component-link.button-primary:hover {
   background: var(--color-accent-hover);
+  color: var(--color-background);
 }
 
 .button-secondary {
@@ -1367,11 +1440,6 @@ a {
     justify-content: center;
   }
 
-  .homepage-introduction {
-    background-image: url("/images/home/aston-cyber-hero-1600.jpg");
-    background-position: center 48%;
-  }
-
   .institutional-page > .breadcrumbs,
   .research-page > .breadcrumbs {
     width: min(100%, var(--width-narrow));
@@ -1388,18 +1456,18 @@ a {
     margin-inline: auto;
   }
 
-  .offerings-introduction,
-  .offering-detail-header {
+  .services-introduction,
+  .service-detail-header {
     padding-block: var(--space-12) var(--space-24);
   }
 
-  .offerings-contact {
+  .services-contact {
     align-items: center;
     padding-block: var(--space-20);
     text-align: center;
   }
 
-  .offering-detail-section {
+  .service-detail-section {
     grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.3fr);
     gap: var(--space-12);
     padding-block: var(--space-16);
@@ -1419,6 +1487,26 @@ a {
   .institutional-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-8);
+  }
+
+  .challenge-grid,
+  .differentiator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .method-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .founder-band,
+  .about-founder {
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+    gap: var(--space-12);
+  }
+
+  .about-founder {
+    grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
   }
 
   .research-archive,
@@ -1447,12 +1535,6 @@ a {
   }
 }
 
-@media (min-width: 80rem) {
-  .homepage-introduction {
-    background-image: url("/images/home/aston-cyber-hero.jpg");
-  }
-}
-
 @media (forced-colors: active) {
   .component-link,
   .research-body a,
@@ -1467,55 +1549,72 @@ a {
 }
 
 @media (min-width: 64rem) {
-  .offering-overview {
+  .service-overview {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: var(--space-6);
     align-items: center;
     padding-block: var(--space-16);
   }
 
-  .offering-overview:nth-child(odd) .offering-number {
+  .service-overview:nth-child(odd) .service-number {
     grid-column: 1;
   }
 
-  .offering-overview:nth-child(odd) .offering-title {
+  .service-overview:nth-child(odd) .service-title {
     grid-column: 2 / span 6;
   }
 
-  .offering-overview:nth-child(odd) .offering-description {
+  .service-overview:nth-child(odd) .service-description {
     grid-column: 9 / -1;
   }
 
-  .offering-overview:nth-child(even) .offering-number {
+  .service-overview:nth-child(even) .service-number {
     grid-column: 12;
     grid-row: 1;
     justify-self: end;
   }
 
-  .offering-overview:nth-child(even) .offering-title {
+  .service-overview:nth-child(even) .service-title {
     grid-column: 6 / span 6;
     grid-row: 1;
     justify-self: end;
     text-align: right;
   }
 
-  .offering-overview:nth-child(even) .offering-description {
+  .service-overview:nth-child(even) .service-description {
     grid-column: 1 / span 4;
     grid-row: 1;
   }
 
   .homepage-hero {
-    max-width: var(--width-content);
-    min-height: 20rem;
+    grid-template-columns: minmax(22rem, 0.8fr) minmax(0, 1.2fr);
+    min-height: 31rem;
+    gap: var(--space-12);
   }
 
-  .homepage-hero .type-hero {
+  .homepage-hero-copy {
+    text-align: left;
+  }
+
+  .homepage-hero .type-hero,
+  .homepage-hero .type-lead {
     max-width: none;
+    margin-inline: 0;
+  }
+
+  .homepage-hero .page-introduction-actions {
+    align-self: flex-start;
+    justify-content: flex-start;
   }
 
   .layout-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
+  }
+
+  .method-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
   }
 
   .focus-item {

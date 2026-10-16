@@ -913,3 +913,11 @@ When implementing new pages or features, apply these principles in order:
 7. Design should create trust through clarity, not spectacle.
 
 Any implementation that conflicts with these principles should be reconsidered before development continues.
+# Pass 2 design direction (2026-10-16)
+
+Decision 23 supersedes earlier positioning examples in this document. The
+current homepage pairs accessible HTML copy with the approved systems-flow
+illustration. The complete diagram remains visible rather than serving as a
+cropped text background. The existing dark palette, restrained surfaces,
+typography hierarchy, focus states, and accessibility requirements remain
+authoritative.

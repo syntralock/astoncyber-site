@@ -8,9 +8,9 @@ import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
   description:
-    "Independent cybersecurity research and technical reports from Aston Cyber, grounded in evidence, reproducible methods, and explicit limitations.",
+    "Technical research and case studies that demonstrate Aston Cyber's approach to systems, automation, and security engineering.",
   pathname: "/research",
-  title: "Cybersecurity Research",
+  title: "Technical Research",
 });
 
 export default async function ResearchPage() {
@@ -21,6 +21,7 @@ export default async function ResearchPage() {
   return (
     <Container className="research-page">
       <Breadcrumbs
+        pathname="/research"
         items={[{ href: "/", label: "Home" }, { label: "Research" }]}
       />
       <header className="page-introduction research-introduction stack-md">
@@ -29,8 +30,8 @@ export default async function ResearchPage() {
         </Text>
         <Heading level={1}>Research</Heading>
         <Text className="text-foreground-secondary" variant="lead">
-          Original investigations and technical reports grounded in evidence,
-          reproducible methods, and explicit limitations.
+          Technical research, prototypes, and case studies presented with their
+          methods, limitations, and original publication context.
         </Text>
       </header>
 

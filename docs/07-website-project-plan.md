@@ -464,7 +464,8 @@ the Related Research section. Do not publish placeholders or fixtures.
 
 # Phase 8: Projects & Labs
 
-**Status:** Complete. Phase 9 is the next website phase.
+**Status:** Complete. Phase 9 was subsequently deferred by owner decision;
+Phase 10 proceeds directly.
 
 ## Objectives
 
@@ -569,10 +570,11 @@ Lab maturity is limited to `experimental`, `prototype`, `beta`, `stable`, and
 
 # Phase 9: Search & Discovery
 
-**Status:** Architecture and implementation passes approved in
-`22-phase-9-search-discovery-specification.md`. No search feature or Phase 9.1
-implementation exists. Phase 9.1 remains paused until additional public
-content or a clear cross-collection discovery need exists.
+**Status:** Intentionally deferred until content volume warrants
+implementation. No search feature or Phase 9.1 implementation exists. This is
+an approved scope decision, not an incomplete or failed phase. The design in
+`22-phase-9-search-discovery-specification.md` remains available for a future
+review, and the existing public content APIs preserve that option.
 
 ## Objectives
 
@@ -610,14 +612,16 @@ because it appeared in the original plan.
 - Search does not require unnecessary tracking.
 - No-results guidance is helpful.
 
-After Phase 9 and before Phase 10, develop the future personal website at
-`matt.astoncyber.com` so cross-domain SEO and launch work can be coordinated.
-Writing and Speaking belong to that personal site and are not Aston Cyber
-Phase 8 deliverables.
+The future personal website at `matt.astoncyber.com` remains a separate roadmap
+item. It is not a prerequisite for Aston Cyber Phase 10. Writing and Speaking
+belong to that personal site and are not Aston Cyber Phase 8 deliverables.
 
 ---
 
 # Phase 10: SEO, Metadata, and Sharing
+
+**Status:** Implemented for review. Phase 10 proceeds directly after the owner
+decision to defer Phase 9.
 
 ## Objectives
 
@@ -625,17 +629,18 @@ Ensure content is discoverable and shareable.
 
 ## Tasks
 
-- [ ] Add unique metadata to every page
-- [ ] Add canonical URLs
-- [ ] Add Open Graph metadata
-- [ ] Create default social image
-- [ ] Create content-specific social images
-- [ ] Add structured data
-- [ ] Validate sitemap
-- [ ] Validate robots directives
-- [ ] Validate RSS
-- [ ] Add citation metadata to research
-- [ ] Add breadcrumb structured data
+- [x] Add unique metadata to every page
+- [x] Add canonical URLs
+- [x] Add Open Graph metadata
+- [x] Create default social image
+- [x] Use the robust default social image for content pages until distinct,
+  owner-approved content artwork exists
+- [x] Add structured data supported by current content
+- [x] Validate sitemap
+- [x] Validate robots directives
+- [x] Validate RSS
+- [x] Add citation metadata to research
+- [x] Add breadcrumb structured data
 
 ## Deliverables
 
@@ -964,9 +969,10 @@ Phases 4 and 5
 
 Phases 6 through 8
 
-### Milestone 4: Discovery and Metadata Complete
+### Milestone 4: Metadata Complete; Discovery Deferred
 
-Phases 9 and 10
+Phase 10 complete. Phase 9 remains an intentional future roadmap item until
+content volume warrants implementation.
 
 ### Milestone 5: Launch Ready
 
@@ -979,3 +985,9 @@ Phase 13
 ### Milestone 7: Stable Operations
 
 Phase 14
+# Current implementation checkpoint (2026-10-16)
+
+The Pass 2 systems-modernization repositioning defined by Decision 23 is
+implemented locally for owner review. Validation, visual review, and approval
+remain required before any commit, push, merge, or deployment. Earlier phase
+checklists below are retained as implementation history where they conflict.
