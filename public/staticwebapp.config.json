@@ -12,18 +12,8 @@
       "statusCode": 301
     },
     {
-      "route": "/people",
-      "redirect": "/about/",
-      "statusCode": 301
-    },
-    {
       "route": "/people/",
       "redirect": "/about/",
-      "statusCode": 301
-    },
-    {
-      "route": "/offerings",
-      "redirect": "/services/",
       "statusCode": 301
     },
     {
@@ -42,22 +32,12 @@
       "statusCode": 301
     },
     {
-      "route": "/offerings/security-strategy-architecture",
-      "redirect": "/services/cybersecurity-technology-risk/",
-      "statusCode": 301
-    },
-    {
       "route": "/offerings/security-strategy-architecture/index.html",
       "redirect": "/services/cybersecurity-technology-risk/",
       "statusCode": 301
     },
     {
       "route": "/offerings/security-engineering/",
-      "redirect": "/services/cybersecurity-technology-risk/",
-      "statusCode": 301
-    },
-    {
-      "route": "/offerings/security-engineering",
       "redirect": "/services/cybersecurity-technology-risk/",
       "statusCode": 301
     },
@@ -72,22 +52,12 @@
       "statusCode": 301
     },
     {
-      "route": "/offerings/security-reviews-assessments",
-      "redirect": "/services/cybersecurity-technology-risk/",
-      "statusCode": 301
-    },
-    {
       "route": "/offerings/security-reviews-assessments/index.html",
       "redirect": "/services/cybersecurity-technology-risk/",
       "statusCode": 301
     },
     {
       "route": "/offerings/security-operations-improvement/",
-      "redirect": "/services/cybersecurity-technology-risk/",
-      "statusCode": 301
-    },
-    {
-      "route": "/offerings/security-operations-improvement",
       "redirect": "/services/cybersecurity-technology-risk/",
       "statusCode": 301
     },
@@ -102,18 +72,8 @@
       "statusCode": 301
     },
     {
-      "route": "/offerings/research-innovation",
-      "redirect": "/services/",
-      "statusCode": 301
-    },
-    {
       "route": "/offerings/research-innovation/index.html",
       "redirect": "/services/",
-      "statusCode": 301
-    },
-    {
-      "route": "/mission",
-      "redirect": "/approach/",
       "statusCode": 301
     },
     {
@@ -123,11 +83,6 @@
     },
     {
       "route": "/mission/index.html",
-      "redirect": "/approach/",
-      "statusCode": 301
-    },
-    {
-      "route": "/ethos",
       "redirect": "/approach/",
       "statusCode": 301
     },

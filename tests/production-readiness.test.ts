@@ -259,6 +259,22 @@ describe("crawler and platform files", () => {
     }
   });
 
+  it("does not declare routes that collide after Azure normalization", () => {
+    const configuration = JSON.parse(
+      readFileSync(
+        resolve(process.cwd(), "public/staticwebapp.config.json"),
+        "utf8",
+      ),
+    ) as {
+      routes: readonly Readonly<{ route: string }>[];
+    };
+    const normalizedRoutes = configuration.routes.map(({ route }) =>
+      route.endsWith("/") ? route : `${route}/`,
+    );
+
+    expect(new Set(normalizedRoutes).size).toBe(normalizedRoutes.length);
+  });
+
   it("keeps exported system artifacts out of the public source tree", () => {
     for (const path of [
       ".DS_Store",
