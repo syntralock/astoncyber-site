@@ -148,7 +148,7 @@ describe("Phase 7 public research experience", () => {
 
     const refinedServerFiles = [
       "app/page.tsx",
-      "app/mission/page.tsx",
+      "app/approach/page.tsx",
       "app/research/page.tsx",
       "components/content/content-card.tsx",
       "components/content/research-archive.tsx",

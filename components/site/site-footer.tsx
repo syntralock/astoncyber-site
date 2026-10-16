@@ -18,7 +18,7 @@ export function SiteFooter() {
             <Brand />
           </Link>
           <p className="type-small text-foreground-secondary">
-            Research. Engineering. Security.
+            Modern Technology. Intelligent Operations. Secure by Design.
           </p>
         </div>
 

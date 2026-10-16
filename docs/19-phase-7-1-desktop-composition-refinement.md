@@ -170,3 +170,7 @@ No dependencies were added or changed.
 - Additional featured or related publications depend on separately approved
   public content.
 - Phase 8 Projects & Labs and later discovery work were not started.
+# Historical status
+
+This visual-refinement record is preserved for traceability. Decision 23
+supersedes its homepage positioning, mission-route, and navigation assumptions.

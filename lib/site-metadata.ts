@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const siteName = "Aston Cyber";
 export const siteOrigin = "https://astoncyber.com";
 export const siteDescription =
-  "Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments.";
+  "Aston Cyber helps organizations modernize systems, connect applications, automate workflows, build practical software, and improve cybersecurity and technology risk.";
 export const founderProfileUrl = "https://matt.astoncyber.com/";
 export const founderId = `${founderProfileUrl}#person`;
 export const socialImage = {
-  alt: "Aston Cyber — Cybersecurity Engineering & Research",
+  alt: "Aston Cyber, Systems Modernization",
   height: 630,
-  pathname: "/images/social/aston-cyber-social-card.png",
   type: "image/png",
+  url: `${siteOrigin}/images/social/aston-cyber-systems-modernization.png`,
   width: 1200,
 } as const;
 
@@ -23,6 +23,7 @@ export function absoluteSiteUrl(pathname: string) {
 }
 
 type PageMetadataOptions = Readonly<{
+  absoluteTitle?: boolean;
   article?: Readonly<{
     authors: readonly string[];
     downloadPath?: string;
@@ -39,6 +40,7 @@ type PageMetadataOptions = Readonly<{
 }>;
 
 export function createPageMetadata({
+  absoluteTitle = false,
   article,
   description,
   pathname,
@@ -46,8 +48,8 @@ export function createPageMetadata({
   type = "website",
 }: PageMetadataOptions): Metadata {
   const canonical = absoluteSiteUrl(pathname);
-  const socialImageUrl = absoluteSiteUrl(socialImage.pathname);
-  const socialTitle = title === siteName ? siteName : `${title} | ${siteName}`;
+  const socialTitle =
+    absoluteTitle || title === siteName ? title : `${title} | ${siteName}`;
 
   const citationMetadata = article
     ? {
@@ -76,16 +78,8 @@ export function createPageMetadata({
     description,
     openGraph: {
       description,
-      images: [
-        {
-          alt: socialImage.alt,
-          height: socialImage.height,
-          type: socialImage.type,
-          url: socialImageUrl,
-          width: socialImage.width,
-        },
-      ],
       locale: "en_US",
+      images: [socialImage],
       siteName,
       title: socialTitle,
       type,
@@ -99,7 +93,7 @@ export function createPageMetadata({
         : {}),
     },
     ...(citationMetadata ? { other: citationMetadata } : {}),
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     twitter: {
       card: "summary_large_image",
       description,
@@ -107,7 +101,7 @@ export function createPageMetadata({
         {
           alt: socialImage.alt,
           height: socialImage.height,
-          url: socialImageUrl,
+          url: socialImage.url,
           width: socialImage.width,
         },
       ],

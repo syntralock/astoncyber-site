@@ -96,3 +96,7 @@ Phase D is complete when a new visitor can identify Aston Cyber, its primary
 audience, relevant problem categories, bounded founder-led model, research
 evidence, and the appropriate next destination without encountering conflicting
 institutional descriptions or funding discussion in the buyer journey.
+# Historical status
+
+Decision 23 supersedes the homepage positioning and audience assumptions in
+this completed phase record. It remains implementation history.

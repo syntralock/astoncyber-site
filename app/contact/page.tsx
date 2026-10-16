@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
   description:
-    "Contact Aston Cyber about a focused engagement or responsible disclosure.",
+    "Contact Aston Cyber about systems modernization, integration, migration, automation, software, cybersecurity, or technology risk.",
   pathname: "/contact",
   title: "Contact",
 });
@@ -15,9 +15,9 @@ export default function ContactPage() {
   return (
     <InstitutionalPage
       eyebrow="Contact"
-      introduction="Begin with a limited description of the problem and the outcome your organization needs."
+      introduction="Tell us about the system, workflow, migration, automation, or technology decision you are working through."
       pathname="/contact"
-      title="Contact Aston Cyber"
+      title="Discuss Your Technology Needs"
     >
       <section
         className="surface-base stack-lg"
@@ -25,15 +25,17 @@ export default function ContactPage() {
       >
         <div className="stack-md">
           <Heading id="engagement-inquiry" level={2}>
-            Engagement inquiries
+            Start with the challenge
           </Heading>
           <Text>
             In the initial message, include only the information needed to
-            understand whether the problem may fit:
+            understand the situation and whether Aston Cyber may be able to
+            help:
           </Text>
           <ul className="editorial-list">
-            <li>Organization type</li>
-            <li>General problem category</li>
+            <li>Organization and general operating context</li>
+            <li>System or workflow involved</li>
+            <li>What is not working or needs to change</li>
             <li>Desired outcome</li>
             <li>Approximate timing</li>
             <li>Your contact information</li>
@@ -48,7 +50,7 @@ export default function ContactPage() {
             exchange method can be agreed later if the inquiry advances.
           </Text>
           <Link href="mailto:info@astoncyber.com" variant="standalone">
-            Send an engagement inquiry
+            Email Aston Cyber
           </Link>
         </div>
       </section>
@@ -61,17 +63,15 @@ export default function ContactPage() {
           What happens next
         </Heading>
         <Text>
-          Aston Cyber reviews the problem category, desired outcome, timing,
-          competence required, and current capacity. If the inquiry appears
-          aligned, the next step is a limited discovery conversation. Work
-          begins only after the problem, deliverables, responsibilities,
-          exclusions, and completion condition are documented in a bounded
-          scope.
+          Aston Cyber reviews the problem, desired outcome, timing, required
+          expertise, dependencies, and current availability. If the inquiry
+          appears aligned, the next step is an introductory conversation.
         </Text>
         <Text>
-          Aston Cyber may decline work that requires continuous coverage,
-          emergency response, broad operational ownership, or expertise outside
-          its current delivery model.
+          Before work begins, the scope identifies responsibilities,
+          assumptions, expected deliverables, and meaningful limits. An
+          engagement may cover assessment and planning, project implementation,
+          or appropriately scoped ongoing advisory and improvement.
         </Text>
       </section>
 

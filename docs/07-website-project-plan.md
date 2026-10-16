@@ -985,3 +985,9 @@ Phase 13
 ### Milestone 7: Stable Operations
 
 Phase 14
+# Current implementation checkpoint (2026-10-16)
+
+The Pass 2 systems-modernization repositioning defined by Decision 23 is
+implemented locally for owner review. Validation, visual review, and approval
+remain required before any commit, push, merge, or deployment. Earlier phase
+checklists below are retained as implementation history where they conflict.

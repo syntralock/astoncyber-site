@@ -1022,3 +1022,8 @@ The owner confirmed on 2026-08-07:
 Approval records strategic and sequencing decisions only. It does not approve
 code, content, infrastructure, DNS, deployment, or route changes without the
 separate phase authorization required above.
+# Superseded by the approved Pass 2 repositioning (2026-10-16)
+
+This remediation plan is preserved as historical context. Decision 23 in
+`10-architecture-decision-record.md` is the current authority for business
+positioning, services, navigation, routes, metadata, and conversion structure.

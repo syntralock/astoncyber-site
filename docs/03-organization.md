@@ -72,3 +72,10 @@ The founder supports the mission.
 The mission does not exist to support the founder.
 
 Every publication, project, and engineering effort should strengthen the credibility of the organization.
+# Current organization model (2026-10-16)
+
+Decision 23 supersedes conflicting identity language below. Aston Cyber is a
+founder-led, engineering-led Systems Modernization business based in Northwest
+Alabama and available for appropriate regional and remote work. It does not
+claim a large staffed delivery organization. Research supports technical
+credibility and remains distinct from customer outcomes.

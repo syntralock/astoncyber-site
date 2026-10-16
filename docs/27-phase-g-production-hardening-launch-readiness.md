@@ -138,3 +138,8 @@ Before public launch:
 3. Complete the outstanding organizational formalities required before
    accepting commercial engagements.
 4. Obtain explicit owner launch approval.
+# Historical status
+
+This production-hardening record remains authoritative for technical controls.
+Decision 23 supersedes only conflicting positioning, route, navigation, and
+social-preview assumptions.

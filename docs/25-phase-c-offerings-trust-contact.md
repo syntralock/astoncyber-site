@@ -83,3 +83,7 @@ Phase C is complete when validation confirms that a prospective client can
 identify an appropriate problem, understand how a bounded engagement works,
 self-select out of excluded work, evaluate the disclosed trust model, and begin
 a non-sensitive inquiry without any claim exceeding the approved evidence.
+# Historical status
+
+Decision 23 supersedes the five-offering model documented here. Contact safety,
+independence, disclosure, and engagement-boundary decisions remain applicable.

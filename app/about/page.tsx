@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { InstitutionalPage } from "@/components/layout/institutional-page";
 import { Heading } from "@/components/ui/heading";
 import { Link } from "@/components/ui/link";
@@ -6,7 +8,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
   description:
-    "About Aston Cyber as an independent, founder-led cybersecurity engineering and research firm.",
+    "About Aston Cyber, a founder-led Systems Modernization business based in Northwest Alabama and serving organizations regionally and remotely.",
   pathname: "/about",
   title: "About",
 });
@@ -15,26 +17,31 @@ export default function AboutPage() {
   return (
     <InstitutionalPage
       eyebrow="About"
-      introduction="Aston Cyber is an independent, founder-led cybersecurity engineering and research firm."
+      introduction="Aston Cyber is a founder-led, engineering-led Systems Modernization business based in Northwest Alabama."
       pathname="/about"
       title="About Aston Cyber"
     >
       <section
         className="editorial-prose stack-md"
-        aria-labelledby="identity-title"
+        aria-labelledby="work-title"
       >
-        <Heading id="identity-title" level={2}>
-          Institutional identity
+        <Heading id="work-title" level={2}>
+          Better systems around real business needs
         </Heading>
         <Text>
-          Aston Cyber combines carefully scoped cybersecurity engineering with
-          independent research for financial services and other organizations
-          where security decisions carry consequential operational, financial,
-          or regulatory risk.
+          Aston Cyber helps organizations assess, design, build, integrate,
+          migrate, automate, secure, validate, document, and improve the systems
+          behind their operations.
         </Text>
         <Text>
-          It is not a managed security provider, software vendor, outsourced
-          security function, or broad generalist consultancy.
+          Modernization may involve aging technology, but it can also mean
+          connecting current applications, improving a workflow, correcting a
+          fragile configuration, or building a focused capability that existing
+          tools do not provide.
+        </Text>
+        <Text>
+          Work is available for appropriate regional and remote engagements
+          across industries and organization sizes.
         </Text>
       </section>
 
@@ -43,88 +50,63 @@ export default function AboutPage() {
         aria-labelledby="accountability-title"
       >
         <Heading id="accountability-title" level={2}>
-          Accountability and operating model
+          Founder-led accountability
         </Heading>
         <Text>
-          Matt Aston leads or materially participates in every engagement.
-          Concurrent work is intentionally limited, and Aston Cyber declines
-          work outside its competence, capacity, or delivery boundaries.
+          Matt Aston leads or materially participates in each engagement and
+          remains accountable for the technical work. Aston Cyber does not
+          present itself as a large staffed delivery organization.
         </Text>
         <Text>
-          When a defined scope requires specialist expertise outside the
-          founder&apos;s direct delivery area, Aston Cyber may use a preapproved
-          collaborator under appropriate confidentiality, security,
-          conflict-of-interest, intellectual-property, and client-disclosure
-          terms. Matt remains accountable for the engagement. Aston Cyber does
-          not currently represent that it has employees or a standing
-          subcontractor bench.
+          Scope, responsibilities, dependencies, assumptions, milestones where
+          useful, deliverables, and completion conditions are defined before
+          implementation begins.
         </Text>
-        <Text>
-          Aston Cyber is not yet formally incorporated or organized as a
-          separate legal entity. Appropriate business formation, contracting,
-          insurance, and operating formalities will be completed before
-          commercial engagements are accepted.
-        </Text>
+      </section>
+
+      <section className="about-founder" aria-labelledby="founder-title">
+        <figure className="founder-portrait-frame">
+          <Image
+            alt="Matt Aston, founder of Aston Cyber"
+            className="founder-portrait"
+            height="1402"
+            src="/images/founder/matt-aston-portrait.jpg"
+            unoptimized
+            width="1122"
+          />
+        </figure>
+        <div className="editorial-prose stack-md">
+          <Heading id="founder-title" level={2}>
+            Meet Matt Aston
+          </Heading>
+          <Text>
+            Matt Aston is a technology and cybersecurity engineer whose
+            experience includes enterprise technology operations, cloud
+            infrastructure, identity and access management, automation, software
+            development, security engineering, and technology risk.
+          </Text>
+          <Text>
+            Before entering technology, Matt served as an Infantry Sergeant in
+            the U.S. Army. The discipline, accountability, and measured
+            decision-making developed through that service continue to shape how
+            Aston Cyber approaches engineering work.
+          </Text>
+          <Link
+            external
+            href="https://matt.astoncyber.com"
+            variant="standalone"
+          >
+            Learn more about Matt Aston →
+          </Link>
+        </div>
       </section>
 
       <section
         className="editorial-prose stack-md"
-        aria-labelledby="engagement-title"
+        aria-labelledby="independence-title"
       >
-        <Heading id="engagement-title" level={2}>
-          Engagement philosophy
-        </Heading>
-        <Text>
-          Work begins with a specific question or engineering outcome. Scope,
-          deliverables, responsibilities, assumptions, exclusions, and the
-          completion condition are defined before an engagement begins.
-        </Text>
-        <Text>
-          The objective is a clear decision, design, implementation, assessment,
-          automation, or research artifact—not open-ended operational ownership.
-        </Text>
-        <Link href="/offerings" variant="standalone">
-          Explore Aston Cyber Offerings
-        </Link>
-      </section>
-
-      <section
-        className="editorial-prose stack-md"
-        aria-labelledby="founder-title"
-      >
-        <Heading id="founder-title" level={2}>
-          Meet the Founder
-        </Heading>
-        <Text>
-          Aston Cyber was founded by <strong>Matt Aston</strong>, a
-          cybersecurity engineer who has helped organizations strengthen
-          identity, cloud, endpoint, and governance security across the
-          aerospace, nonprofit, and financial services sectors.
-        </Text>
-        <Text>
-          Before entering tech, Matt served as an Infantry Sergeant in the U.S.
-          Army. The discipline, accountability, and measured decision-making
-          developed during his military service continue to shape Aston
-          Cyber&apos;s engineering philosophy.
-        </Text>
-        <Text>
-          He holds a bachelor&apos;s degree and is completing a master&apos;s
-          degree in Computer Science. That commitment to continuous learning is
-          reflected in Aston Cyber&apos;s approach: combining practical
-          engineering experience with independent research to help organizations
-          make sound, well-informed security decisions.
-        </Text>
-        <Link external href="https://matt.astoncyber.com" variant="standalone">
-          Learn more about Matt Aston →
-        </Link>
-      </section>
-
-      <section
-        className="editorial-prose stack-md"
-        aria-labelledby="disclosure-title"
-      >
-        <Heading id="disclosure-title" level={2}>
-          Independence
+        <Heading id="independence-title" level={2}>
+          Independent judgment
         </Heading>
         <Text>
           Aston Cyber accepts no vendor commissions, vendor resale incentives,
@@ -132,12 +114,28 @@ export default function AboutPage() {
           commercial incentives do not determine technical conclusions.
         </Text>
         <Text>
-          Commercial work remains separate from public research. Client
-          information is not used in public research without authorization and
-          appropriate anonymization. Conclusions remain proportional to the
-          evidence, including when findings are limited, negative, or
-          inconclusive.
+          Recommendations remain proportional to the available evidence and
+          include meaningful assumptions, limitations, alternatives, and
+          tradeoffs.
         </Text>
+      </section>
+
+      <section
+        className="editorial-prose stack-md"
+        aria-labelledby="research-title"
+      >
+        <Heading id="research-title" level={2}>
+          Research as supporting evidence
+        </Heading>
+        <Text>
+          Published research and technical case studies demonstrate aspects of
+          Aston Cyber&apos;s engineering approach. Research prototypes retain
+          their original context and limitations and are not presented as
+          customer engagements or production outcomes.
+        </Text>
+        <Link href="/research" variant="standalone">
+          Review Technical Research
+        </Link>
       </section>
     </InstitutionalPage>
   );

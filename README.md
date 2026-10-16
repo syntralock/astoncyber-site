@@ -1,8 +1,10 @@
 # Aston Cyber
 
-This repository contains the source code, content, and infrastructure for Aston Cyber,
-an independent cybersecurity engineering organization focused on research, software,
-and practical security guidance.
+This repository contains the source code, content, and infrastructure for Aston
+Cyber, a founder-led Systems Modernization business. Aston Cyber helps
+organizations improve operations through systems modernization, application
+integration, automation, custom software, cybersecurity engineering, and
+technology-risk work.
 
 ## Project Documentation
 
@@ -26,22 +28,28 @@ Development must follow the guidance in:
 
 ## Current Status
 
-**Current phase:** Phase 10 SEO, Metadata, and Sharing completed for review.
+**Current phase:** Pass 2 systems-modernization repositioning implemented for
+owner review.
 
-The canonical remediation roadmap is
-`docs/23-strategic-remediation-implementation-plan.md`. Repository-owned Phase H
-corrections are complete for review. The static export is indexable, the
-approved crawler and metadata surfaces are implemented, and the deployment
-artifact retains `/.well-known/security.txt`. An authorized deployment,
-production revalidation of that path, organizational readiness, and explicit
-owner launch approval remain external release gates.
+The canonical business positioning is recorded in Decision 23 of
+`docs/10-architecture-decision-record.md`. The repositioned implementation is
+complete locally. Commit, push, merge, deployment, production verification, and
+explicit owner approval remain release gates.
 
-Home, Offerings, Research, and About are the primary public destinations;
-Contact is a distinct action. Projects and Labs retain validated repository
-architecture but have no public content or routes while empty. Phase 9 Search &
-Discovery is intentionally deferred until content volume warrants
-implementation. Phase 10 proceeds independently; the deferred search design is
-preserved as a future roadmap item.
+Home, Services, Our Approach, and About are the primary public destinations;
+Contact is a distinct action. Research remains a secondary evidence surface.
+Projects and Labs retain validated repository architecture but have no public
+content or routes while empty. Search remains deferred until content volume
+warrants implementation.
+
+## Owner Review Gates
+
+- Review the local diff before any commit, push, merge, or deployment.
+
+Pass 3 updates Next.js and `eslint-config-next` to 16.3.8, pins remediated
+transitive image and source-map packages, and publishes an approved-logo Systems
+Modernization social card. The production dependency audit is clean at the Pass
+3 review checkpoint.
 
 The repository is intended to be public at
 `https://github.com/syntralock/astoncyber-site`. The website footer uses that

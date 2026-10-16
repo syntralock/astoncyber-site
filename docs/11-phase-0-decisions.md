@@ -222,3 +222,8 @@ The following decisions do not block the start of Phase 1 but require an owner b
 - Repository hosts, licenses, technologies, resources, relationships, and
   private external-contributor approval evidence follow the strict registries
   and validation rules in `20-phase-8-projects-labs-specification.md`.
+# Historical status
+
+This phase record predates and is superseded for business positioning,
+navigation, and route architecture by Decision 23. It remains evidence of the
+decisions in force when Phase 0 was completed.

@@ -7,9 +7,8 @@ import { metadata as aboutMetadata } from "@/app/about/page";
 import { metadata as accessibilityMetadata } from "@/app/accessibility/page";
 import { metadata as contactMetadata } from "@/app/contact/page";
 import { metadata as disclosuresMetadata } from "@/app/disclosures/page";
-import { metadata as ethosMetadata } from "@/app/ethos/page";
-import { metadata as missionMetadata } from "@/app/mission/page";
-import { metadata as offeringsMetadata } from "@/app/offerings/page";
+import { metadata as approachMetadata } from "@/app/approach/page";
+import { metadata as servicesMetadata } from "@/app/services/page";
 import { metadata as homeMetadata } from "@/app/page";
 import { metadata as privacyMetadata } from "@/app/privacy/page";
 import { generateMetadata as researchMetadata } from "@/app/research/[slug]/page";
@@ -17,28 +16,8 @@ import { metadata as researchIndexMetadata } from "@/app/research/page";
 import { generateMetadata as topicMetadata } from "@/app/research/topics/[slug]/page";
 import { metadata as topicsMetadata } from "@/app/research/topics/page";
 import robots from "@/app/robots";
+import { socialImage } from "@/lib/site-metadata";
 
-const staticMetadata = [
-  [homeMetadata, "https://astoncyber.com/"],
-  [aboutMetadata, "https://astoncyber.com/about/"],
-  [accessibilityMetadata, "https://astoncyber.com/accessibility/"],
-  [contactMetadata, "https://astoncyber.com/contact/"],
-  [disclosuresMetadata, "https://astoncyber.com/disclosures/"],
-  [ethosMetadata, "https://astoncyber.com/ethos/"],
-  [missionMetadata, "https://astoncyber.com/mission/"],
-  [offeringsMetadata, "https://astoncyber.com/offerings/"],
-  [privacyMetadata, "https://astoncyber.com/privacy/"],
-  [researchIndexMetadata, "https://astoncyber.com/research/"],
-  [topicsMetadata, "https://astoncyber.com/research/topics/"],
-] as const;
-
-const socialImage = {
-  alt: "Aston Cyber — Cybersecurity Engineering & Research",
-  height: 630,
-  type: "image/png",
-  url: "https://astoncyber.com/images/social/aston-cyber-social-card.png",
-  width: 1200,
-};
 const twitterSocialImage = {
   alt: socialImage.alt,
   height: socialImage.height,
@@ -46,7 +25,29 @@ const twitterSocialImage = {
   width: socialImage.width,
 };
 
+const staticMetadata = [
+  [homeMetadata, "https://astoncyber.com/"],
+  [aboutMetadata, "https://astoncyber.com/about/"],
+  [accessibilityMetadata, "https://astoncyber.com/accessibility/"],
+  [contactMetadata, "https://astoncyber.com/contact/"],
+  [disclosuresMetadata, "https://astoncyber.com/disclosures/"],
+  [approachMetadata, "https://astoncyber.com/approach/"],
+  [servicesMetadata, "https://astoncyber.com/services/"],
+  [privacyMetadata, "https://astoncyber.com/privacy/"],
+  [researchIndexMetadata, "https://astoncyber.com/research/"],
+  [topicsMetadata, "https://astoncyber.com/research/topics/"],
+] as const;
+
 describe("production metadata", () => {
+  it("does not duplicate the brand in the absolute homepage social title", () => {
+    expect(homeMetadata.openGraph).toMatchObject({
+      title: "Aston Cyber | Systems Modernization & Business Automation",
+    });
+    expect(homeMetadata.twitter).toMatchObject({
+      title: "Aston Cyber | Systems Modernization & Business Automation",
+    });
+  });
+
   it.each(staticMetadata)(
     "publishes complete metadata for %s",
     (metadata, canonical) => {
@@ -111,10 +112,17 @@ describe("production metadata", () => {
     });
   });
 
-  it("publishes the approved social image with its actual dimensions", () => {
-    expect(existsSync("public/images/social/aston-cyber-social-card.png")).toBe(
-      true,
+  it("publishes the approved systems-modernization social card", () => {
+    const cardPath = resolve(
+      process.cwd(),
+      "public/images/social/aston-cyber-systems-modernization.png",
     );
+    const card = readFileSync(cardPath);
+
+    expect(existsSync(cardPath)).toBe(true);
+    expect(card.subarray(16, 24).readUInt32BE(0)).toBe(1200);
+    expect(card.subarray(16, 24).readUInt32BE(4)).toBe(630);
+    expect(card.byteLength).toBeLessThanOrEqual(400 * 1024);
   });
 });
 
@@ -208,6 +216,47 @@ describe("crawler and platform files", () => {
       },
       route: "/_next/static/*",
     });
+  });
+
+  it("permanently redirects every retired public route", () => {
+    const configuration = JSON.parse(
+      readFileSync(
+        resolve(process.cwd(), "public/staticwebapp.config.json"),
+        "utf8",
+      ),
+    ) as {
+      routes: readonly Readonly<{
+        redirect?: string;
+        route: string;
+        statusCode?: number;
+      }>[];
+    };
+
+    const redirects = new Map(
+      configuration.routes.map(({ redirect, route, statusCode }) => [
+        route,
+        { redirect, statusCode },
+      ]),
+    );
+    const expected = {
+      "/ethos/": "/approach/",
+      "/mission/": "/approach/",
+      "/offerings/": "/services/",
+      "/offerings/research-innovation/": "/services/",
+      "/offerings/security-engineering/":
+        "/services/cybersecurity-technology-risk/",
+      "/offerings/security-operations-improvement/":
+        "/services/cybersecurity-technology-risk/",
+      "/offerings/security-reviews-assessments/":
+        "/services/cybersecurity-technology-risk/",
+      "/offerings/security-strategy-architecture/":
+        "/services/cybersecurity-technology-risk/",
+      "/people/": "/about/",
+    } as const;
+
+    for (const [route, redirect] of Object.entries(expected)) {
+      expect(redirects.get(route)).toEqual({ redirect, statusCode: 301 });
+    }
   });
 
   it("keeps exported system artifacts out of the public source tree", () => {

@@ -535,6 +535,76 @@ Sharing to proceed directly.
 
 ---
 
+# Decision 23 — Systems Modernization Repositioning
+
+**Decision:** Reposition Aston Cyber as a founder-led Systems Modernization
+business. Use the headline “Better Systems. Better Business.” and the exact
+supporting line “Modern Technology. Intelligent Operations. Secure by Design.”
+
+**Requirements:**
+
+- Publish exactly three service categories: Systems Modernization, Automation &
+  Applied AI, and Cybersecurity & Technology Risk.
+- Use Home, Services, Our Approach, and About as primary navigation; keep Contact
+  as the primary action and Research as a secondary evidence surface.
+- Use the Understand, Evaluate, Implement, Improve method and the Assessment &
+  Planning, Project Implementation, and Ongoing Advisory & Improvement models.
+- Retire Mission, Ethos, Offerings, and People routes with permanent redirects
+  to their approved replacements.
+- Preserve founder-led accountability, regional and remote availability,
+  independence language, explicit boundaries, and the separation between
+  research prototypes and customer outcomes.
+- Use a typography-led homepage hero until a new positioning-aligned image is
+  explicitly approved.
+- Do not publish the superseded cybersecurity social card. Use text-only social
+  metadata until a replacement asset is approved.
+- Keep static export, repository content, security headers, accessibility, and
+  deployment architecture unchanged.
+
+**Consequences:**
+
+- Research remains public but no longer leads the commercial identity.
+- Legacy URLs preserve continuity through explicit 301 redirects.
+- A new positioning-aligned social preview asset remains a launch-readiness
+  decision for the owner.
+
+**Date adopted:** 2026-10-16
+
+---
+
+# Decision 24 — Pass 3 Security and Image Delivery
+
+**Decision:** Apply the smallest compatible security update from Next.js 16.3.3
+to 16.3.8, align `eslint-config-next`, and pin vulnerable transitive
+`source-map-js` and `sharp` releases to their patched versions. Deliver the
+approved systems-flow illustration through repository-hosted responsive WebP
+derivatives and publish a deterministic social card composed with the existing
+approved logo SVG.
+
+**Requirements:**
+
+- Preserve React 19.2.8, TypeScript 5.9.3, Node 24, static export, and the
+  existing Azure deployment architecture.
+- Keep the supplied systems-flow source intact; serve 1600-pixel and 960-pixel
+  WebP derivatives with a JPEG fallback.
+- Generate the social card reproducibly at 1200×630 and preserve the official
+  logo without redrawing it.
+- Require a clean production dependency audit and the full repository validation
+  sequence before owner acceptance.
+
+**Consequences:**
+
+- The nine production advisories reported against the Pass 2 dependency tree
+  are remediated without a major-version framework upgrade.
+- The homepage and social metadata now have positioning-aligned visual assets
+  without third-party image services.
+- Image-generation scripts depend on the pinned development-time `sharp`
+  package; runtime hosting remains static.
+
+**Date adopted:** 2026-10-16
+
+---
+
 # Future Changes
 
 Architectural changes should be documented by extending this ADR rather than silently replacing decisions.
@@ -570,8 +640,8 @@ Each new decision should include:
   production content directories
 - Phase 6 contact: Static direct email links only; no form or inquiry service
 - Phase 7 research: Static public index, detail, and topic routes; no search
-- Current navigation: Home, Offerings, Research, and About; Contact is a
-  distinct action, Mission is secondary, and empty Projects and Labs remain
+- Current navigation: Home, Services, Our Approach, and About; Contact is a
+  distinct action, Research is secondary, and empty Projects and Labs remain
   inactive
 - Phase 8: distinct Projects and Labs MDX collections
 - Phase 9: Search & Discovery across Research, Projects, and Labs, intentionally

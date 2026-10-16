@@ -40,12 +40,13 @@ describe("shared application shell", () => {
     expect(html).toContain('"@type":"Organization"');
     expect(html).toContain('"@type":"WebSite"');
 
-    for (const href of ["/", "/offerings", "/research", "/about"]) {
+    for (const href of ["/", "/services", "/approach", "/about"]) {
       expect(html).toContain(`href="${href}"`);
     }
 
     expect(html).toContain(">Home</a>");
-    expect(html).toContain(">Offerings</a>");
+    expect(html).toContain(">Services</a>");
+    expect(html).toContain(">Our Approach</a>");
     expect(html).not.toContain(">Mission</a>");
     expect(html).not.toContain('href="/projects"');
     expect(html).not.toContain('href="/labs"');
@@ -77,7 +78,7 @@ describe("shared application shell", () => {
   });
 
   it("marks active top-level destinations for exact and nested routes", () => {
-    pathnameState.value = "/research/example";
+    pathnameState.value = "/services/systems-modernization";
 
     const html = renderToStaticMarkup(
       <RootLayout>
@@ -92,7 +93,7 @@ describe("shared application shell", () => {
     expect(metadata).toMatchObject({
       applicationName: "Aston Cyber",
       description:
-        "Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments.",
+        "Aston Cyber helps organizations modernize systems, connect applications, automate workflows, build practical software, and improve cybersecurity and technology risk.",
       title: {
         default: "Aston Cyber",
         template: "%s | Aston Cyber",
@@ -107,10 +108,10 @@ describe("shared application shell", () => {
       openGraph: {
         images: [
           {
-            alt: "Aston Cyber — Cybersecurity Engineering & Research",
+            alt: "Aston Cyber, Systems Modernization",
             height: 630,
             type: "image/png",
-            url: "https://astoncyber.com/images/social/aston-cyber-social-card.png",
+            url: "https://astoncyber.com/images/social/aston-cyber-systems-modernization.png",
             width: 1200,
           },
         ],
@@ -121,9 +122,9 @@ describe("shared application shell", () => {
         card: "summary_large_image",
         images: [
           {
-            alt: "Aston Cyber — Cybersecurity Engineering & Research",
+            alt: "Aston Cyber, Systems Modernization",
             height: 630,
-            url: "https://astoncyber.com/images/social/aston-cyber-social-card.png",
+            url: "https://astoncyber.com/images/social/aston-cyber-systems-modernization.png",
             width: 1200,
           },
         ],
@@ -143,7 +144,7 @@ describe("shared application shell", () => {
 
     expect(html).toContain('"@id":"https://matt.astoncyber.com/#person"');
     expect(html).toContain(
-      '"description":"Independent, founder-led cybersecurity engineering and research for financial services and other consequential environments."',
+      '"description":"Aston Cyber helps organizations modernize systems, connect applications, automate workflows, build practical software, and improve cybersecurity and technology risk."',
     );
   });
 });

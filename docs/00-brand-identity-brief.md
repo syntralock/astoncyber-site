@@ -171,3 +171,11 @@ I'm looking for an identity that feels unique, thoughtful, and capable
 of representing a world-class cybersecurity research organization.
 
 Thank you for taking the time to review this brief. :)
+# Current positioning (2026-10-16)
+
+This document's earlier cybersecurity-research positioning is superseded by
+Decision 23 in `10-architecture-decision-record.md`. The approved descriptor is
+**Systems Modernization**. The approved headline is **Better Systems. Better
+Business.** The exact supporting line is **Modern Technology. Intelligent
+Operations. Secure by Design.** Research is supporting evidence, not the primary
+commercial identity.

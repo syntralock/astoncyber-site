@@ -200,3 +200,10 @@ We believe that secure systems create the freedom to innovate.
 If, through decades of careful work, Aston Cyber becomes a name that
 people trust when they seek clarity, evidence, and thoughtful technical
 judgment, then we will have fulfilled our purpose.
+# Current status (2026-10-16)
+
+The standalone `/ethos` route is retired under Decision 23 and redirects to
+`/approach/`. Applicable principles—independent judgment, evidence, honest
+limitations, secure and maintainable engineering, and clear ownership—are now
+integrated into the current approach and service content. Historical material
+below is retained for traceability.

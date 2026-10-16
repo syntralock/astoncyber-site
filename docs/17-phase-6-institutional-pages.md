@@ -167,3 +167,8 @@ additional runtime or transitive cost.
 
 Decision 19 subsequently removed Writing and Speaking from the Aston Cyber
 roadmap and assigned them to `matt.astoncyber.com`.
+# Historical status
+
+This implementation record predates Decision 23. Its security, accessibility,
+and disclosure constraints remain relevant; conflicting institutional
+positioning and route details are superseded.

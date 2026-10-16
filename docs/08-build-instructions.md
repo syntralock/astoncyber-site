@@ -889,3 +889,10 @@ The Aston Cyber website is ready when it is:
 - Consistent with The Aston Cyber Ethos
 
 A smaller, complete, trustworthy site is better than a larger unfinished one.
+# Current build note (2026-10-16)
+
+Use Node.js 24 and pnpm 11. Package-manager policy now lives in
+`pnpm-workspace.yaml`; the obsolete `.npmrc` is removed. Run
+`pnpm install --frozen-lockfile` followed by `pnpm validate`. The canonical
+routes and positioning are defined by Decision 23; conflicting phase-specific
+instructions below are historical.

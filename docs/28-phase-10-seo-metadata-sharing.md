@@ -69,3 +69,9 @@ fix.
 The site remains a deterministic Next.js static export using Server Components,
 repository-managed content, strict TypeScript, and no database, CMS,
 authentication, analytics, tracking, hosted search, or metadata service.
+# Historical status
+
+This SEO implementation record predates Decision 23. Canonical and crawler
+controls remain applicable. Pass 3 replaces the previous cybersecurity social
+card with the approved-logo 1200×630 Systems Modernization card at
+`/images/social/aston-cyber-systems-modernization.png`.

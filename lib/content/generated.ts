@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { offeringSlugs } from "../offerings.ts";
+import { serviceSlugs } from "../services.ts";
 import {
   absoluteSiteUrl,
   siteDescription,
@@ -73,13 +73,12 @@ const institutionalPaths = [
   "",
   "/about",
   "/accessibility",
+  "/approach",
   "/contact",
   "/disclosures",
-  "/ethos",
-  "/mission",
-  "/offerings",
   "/privacy",
   "/research",
+  "/services",
 ] as const;
 
 export function generateSiteSitemap({
@@ -91,8 +90,8 @@ export function generateSiteSitemap({
     ...institutionalPaths.map((path) => ({
       url: absoluteSiteUrl(path || "/"),
     })),
-    ...offeringSlugs.map((slug) => ({
-      url: absoluteSiteUrl(`/offerings/${slug}`),
+    ...serviceSlugs.map((slug) => ({
+      url: absoluteSiteUrl(`/services/${slug}`),
     })),
     ...generateResearchSitemapEntries(research),
   ];
