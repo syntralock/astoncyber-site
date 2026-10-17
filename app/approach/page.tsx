@@ -74,6 +74,12 @@ export default function ApproachPage() {
           assessment may stand alone, and implementation can begin from an
           existing plan after suitable review.
         </Text>
+        <Link
+          href="/services/systems-modernization/assessment"
+          variant="standalone"
+        >
+          Explore the Systems Modernization Assessment
+        </Link>
       </section>
 
       <section className="stack-lg" aria-labelledby="models-title">

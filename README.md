@@ -25,16 +25,23 @@ Development must follow the guidance in:
 - 10 – Architecture Decision Record
 - 11 – Phase 0 Decisions
 - 12–28 – Phase implementation records and later approved specifications
+- 29 – Phase 15 production maintenance, organic search, and commercial
+  readiness plan
+- 30 – Phase 15 B1 Systems Modernization Assessment content brief
 
 ## Current Status
 
-**Current phase:** Pass 2 systems-modernization repositioning implemented for
-owner review.
+**Current phase:** Phase 15 production maintenance, organic search, and
+commercial readiness. The owner approved the identifier and four-workstream
+plan on 2026-10-16. B1 and B2 are completed and accepted following final
+verification. No production publication has occurred.
 
 The canonical business positioning is recorded in Decision 23 of
-`docs/10-architecture-decision-record.md`. The repositioned implementation is
-complete locally. Commit, push, merge, deployment, production verification, and
-explicit owner approval remain release gates.
+`docs/10-architecture-decision-record.md`. The current repository contains the
+Systems Modernization implementation and the approved Pass 3 dependency,
+image-delivery, and Azure redirect remediation. Current external production,
+GitHub, search-engine, and monitoring state must be verified from their
+authoritative systems rather than inferred from repository contents.
 
 Home, Services, Our Approach, and About are the primary public destinations;
 Contact is a distinct action. Research remains a secondary evidence surface.
@@ -44,7 +51,10 @@ warrants implementation.
 
 ## Owner Review Gates
 
-- Review the local diff before any commit, push, merge, or deployment.
+- B2 is accepted for the authorized local commit; push, pull request, and
+  deployment remain separately controlled.
+- Review each future implementation unit before commit, push, merge, or
+  deployment unless separately authorized.
 
 Pass 3 updates Next.js and `eslint-config-next` to 16.3.8, pins remediated
 transitive image and source-map packages, and publishes an approved-logo Systems
