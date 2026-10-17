@@ -13,6 +13,9 @@ import ServicePage, {
   generateStaticParams as serviceStaticParams,
 } from "@/app/services/[slug]/page";
 import ServicesPage from "@/app/services/page";
+import SystemsModernizationAssessmentPage, {
+  metadata as assessmentMetadata,
+} from "@/app/services/systems-modernization/assessment/page";
 import sitemap from "@/app/sitemap";
 
 const pages = [
@@ -118,6 +121,52 @@ describe("institutional pages", () => {
     }
   });
 
+  it("publishes the bounded Systems Modernization Assessment", () => {
+    const html = renderToStaticMarkup(<SystemsModernizationAssessmentPage />);
+
+    expect(html.match(/<h1/g) ?? []).toHaveLength(1);
+    expect(html).toContain("Systems Modernization Assessment");
+    expect(html).toContain("What Aston Cyber evaluates");
+    expect(html).toContain("How the assessment proceeds");
+    expect(html).toContain("What the organization can expect to receive");
+    expect(html).toContain("How recommendations are prioritized");
+    expect(html).toContain("What happens after the assessment");
+    expect(html).toContain("Important scope boundaries");
+    expect(html).toContain("Discuss Your Modernization Needs");
+    expect(html).toContain('href="/contact"');
+    expect(html).toContain('href="/services/systems-modernization"');
+    expect(html).toContain('"@type":"Service"');
+    expect(html).toContain('aria-label="Breadcrumb"');
+    expect(html).toContain('aria-current="page"');
+
+    expect(assessmentMetadata.alternates).toEqual({
+      canonical:
+        "https://astoncyber.com/services/systems-modernization/assessment/",
+    });
+    expect(assessmentMetadata.description).toContain(
+      "prioritized recommendations",
+    );
+    expect(assessmentMetadata.openGraph).toMatchObject({
+      url: "https://astoncyber.com/services/systems-modernization/assessment/",
+    });
+
+    expect(html).not.toMatch(
+      /guaranteed savings|client results|testimonial|SDVOSB|security clearance/iu,
+    );
+    expect(html).not.toMatch(/<form|<input|<textarea/);
+  });
+
+  it("links to the assessment from relevant customer paths", async () => {
+    const systemsPage = await ServicePage({
+      params: Promise.resolve({ slug: "systems-modernization" }),
+    });
+    const assessmentHref = 'href="/services/systems-modernization/assessment"';
+
+    expect(renderToStaticMarkup(systemsPage)).toContain(assessmentHref);
+    expect(renderToStaticMarkup(<ApproachPage />)).toContain(assessmentHref);
+    expect(renderToStaticMarkup(<ContactPage />)).toContain(assessmentHref);
+  });
+
   it("removes retired routes from the source tree", () => {
     for (const path of [
       "app/people/page.tsx",
@@ -139,6 +188,7 @@ describe("institutional sitemap", () => {
       "/contact/",
       "/services/",
       "/services/systems-modernization/",
+      "/services/systems-modernization/assessment/",
       "/services/automation-applied-ai/",
       "/services/cybersecurity-technology-risk/",
       "/research/",

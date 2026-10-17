@@ -9,6 +9,7 @@ import { metadata as contactMetadata } from "@/app/contact/page";
 import { metadata as disclosuresMetadata } from "@/app/disclosures/page";
 import { metadata as approachMetadata } from "@/app/approach/page";
 import { metadata as servicesMetadata } from "@/app/services/page";
+import { metadata as assessmentMetadata } from "@/app/services/systems-modernization/assessment/page";
 import { metadata as homeMetadata } from "@/app/page";
 import { metadata as privacyMetadata } from "@/app/privacy/page";
 import { generateMetadata as researchMetadata } from "@/app/research/[slug]/page";
@@ -33,6 +34,10 @@ const staticMetadata = [
   [disclosuresMetadata, "https://astoncyber.com/disclosures/"],
   [approachMetadata, "https://astoncyber.com/approach/"],
   [servicesMetadata, "https://astoncyber.com/services/"],
+  [
+    assessmentMetadata,
+    "https://astoncyber.com/services/systems-modernization/assessment/",
+  ],
   [privacyMetadata, "https://astoncyber.com/privacy/"],
   [researchIndexMetadata, "https://astoncyber.com/research/"],
   [topicsMetadata, "https://astoncyber.com/research/topics/"],

@@ -73,6 +73,13 @@ export default function ContactPage() {
           engagement may cover assessment and planning, project implementation,
           or appropriately scoped ongoing advisory and improvement.
         </Text>
+        <Text>
+          If the direction is not yet clear, review the{" "}
+          <Link href="/services/systems-modernization/assessment">
+            Systems Modernization Assessment
+          </Link>{" "}
+          before getting in touch.
+        </Text>
       </section>
 
       <section className="surface-base stack-md" aria-labelledby="security">

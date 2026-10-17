@@ -817,6 +817,33 @@ Resolve launch issues and establish ongoing operations.
 
 ---
 
+# Phase 15: Production Maintenance, Organic Search, and Commercial Readiness
+
+**Status:** Identifier and four-workstream plan approved by the owner on
+2026-10-16. B1 and B2 are completed and accepted following successful final
+verification. No production publication has occurred. Every subsequent unit
+requires separate authorization.
+
+## Objectives
+
+- Establish measurable production assurance and maintenance ownership.
+- Improve organic discovery through verified search properties, useful content,
+  and accurate technical signals.
+- Improve commercial clarity through a bounded Systems Modernization Assessment
+  offering, substantiated evidence, and accurate regional relevance.
+
+## Scope and sequencing
+
+The implementation-ready proposal, workstreams, acceptance criteria, and owner
+decision register are maintained in
+`29-phase-15-production-maintenance-organic-search.md`.
+
+This phase does not renumber or replace historical Phases 11 through 14.
+Approval of the plan does not authorize implementation beyond an explicitly
+approved unit.
+
+---
+
 ## 4. Recommended Coding Packages
 
 To keep work reviewable, divide implementation into focused coding packages.
@@ -985,9 +1012,18 @@ Phase 13
 ### Milestone 7: Stable Operations
 
 Phase 14
+
+### Milestone 8: Commercial Readiness and Organic Discovery
+
+Phase 15; workstream plan approved, implementation proceeds by separately
+authorized unit
 # Current implementation checkpoint (2026-10-16)
 
-The Pass 2 systems-modernization repositioning defined by Decision 23 is
-implemented locally for owner review. Validation, visual review, and approval
-remain required before any commit, push, merge, or deployment. Earlier phase
-checklists below are retained as implementation history where they conflict.
+The current repository contains the Systems Modernization repositioning defined
+by Decision 23 and the Pass 3 implementation defined by Decision 24. External
+production and service state must be verified from authoritative systems. The
+next post-launch initiative is approved as Phase 15. B1 is accepted, and B2 is
+completed and accepted following successful final verification. No production
+publication has occurred; later units remain subject to separate approval.
+Earlier phase checklists are retained as implementation history where newer
+approved decisions conflict.

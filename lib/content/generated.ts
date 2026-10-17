@@ -79,6 +79,7 @@ const institutionalPaths = [
   "/privacy",
   "/research",
   "/services",
+  "/services/systems-modernization/assessment",
 ] as const;
 
 export function generateSiteSitemap({

@@ -107,6 +107,28 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
         </section>
       </div>
 
+      {service.slug === "systems-modernization" ? (
+        <section
+          className="service-detail-contact stack-md"
+          aria-labelledby="assessment-entry-title"
+        >
+          <Heading id="assessment-entry-title" level={2}>
+            Need a clearer modernization direction?
+          </Heading>
+          <Text>
+            A Systems Modernization Assessment examines a defined operation, its
+            supporting systems, dependencies, workflows, and relevant risks
+            before recommending a practical sequence for improvement.
+          </Text>
+          <Link
+            href="/services/systems-modernization/assessment"
+            variant="standalone"
+          >
+            Explore the Systems Modernization Assessment
+          </Link>
+        </section>
+      ) : null}
+
       <section
         className="service-detail-contact stack-md"
         aria-labelledby="service-contact-title"
